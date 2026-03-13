@@ -1,0 +1,227 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import AdSense from '../components/AdSense.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { AUTHOR_NAME, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
+
+const websiteJsonLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'WebSite',
+	name: SITE_TITLE,
+	url: Astro.site?.toString(),
+	author: {
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+	},
+});
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json" set:html={websiteJsonLd} />
+		<style>
+			.hero {
+				text-align: center;
+				padding: 4em 1em 3em;
+			}
+			.hero h1 {
+				font-size: 2.5em;
+				margin-bottom: 0.2em;
+				letter-spacing: 0.02em;
+			}
+			.hero .subtitle {
+				font-size: 1.1em;
+				color: rgb(var(--gray));
+				margin-bottom: 1.5em;
+				line-height: 1.6;
+			}
+			.section {
+				max-width: 960px;
+				margin: 0 auto;
+				padding: 2em 1em;
+			}
+			.section-title {
+				font-size: 1.5em;
+				margin-bottom: 1em;
+				padding-bottom: 0.3em;
+				border-bottom: 2px solid var(--accent);
+				display: inline-block;
+			}
+			.skills-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 1.5em;
+				margin-top: 1em;
+			}
+			.skill-card {
+				background: white;
+				border-radius: 12px;
+				padding: 1.5em;
+				box-shadow: 0 2px 8px rgba(var(--gray), 15%);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+			}
+			.skill-card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 16px rgba(var(--gray), 25%);
+			}
+			.skill-card h3 {
+				font-size: 1.1em;
+				margin-bottom: 0.5em;
+				color: var(--accent-dark);
+			}
+			.skill-card p {
+				font-size: 0.9em;
+				color: rgb(var(--gray));
+				margin: 0;
+				line-height: 1.6;
+			}
+			.posts-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.5em;
+				margin-top: 1em;
+			}
+			.post-card {
+				background: white;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 2px 8px rgba(var(--gray), 15%);
+				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				text-decoration: none;
+				display: block;
+			}
+			.post-card:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 16px rgba(var(--gray), 25%);
+			}
+			.post-card img {
+				width: 100%;
+				height: 180px;
+				object-fit: cover;
+				border-radius: 0;
+			}
+			.post-card-body {
+				padding: 1em 1.2em;
+			}
+			.post-card-body h4 {
+				font-size: 1em;
+				margin-bottom: 0.3em;
+				color: rgb(var(--black));
+				line-height: 1.4;
+			}
+			.post-card-body .date {
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+				margin: 0;
+			}
+			.view-all {
+				text-align: center;
+				margin-top: 2em;
+			}
+			.view-all a {
+				display: inline-block;
+				padding: 0.7em 2em;
+				border: 2px solid var(--accent);
+				border-radius: 8px;
+				color: var(--accent);
+				text-decoration: none;
+				font-weight: 700;
+				transition: background 0.2s ease, color 0.2s ease;
+			}
+			.view-all a:hover {
+				background: var(--accent);
+				color: white;
+			}
+			@media (max-width: 720px) {
+				.hero h1 {
+					font-size: 1.8em;
+				}
+				.hero .subtitle {
+					font-size: 0.95em;
+				}
+				.skills-grid {
+					grid-template-columns: 1fr;
+				}
+				.posts-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Ryu Koda</h1>
+				<p class="subtitle">
+					ソフトウェアエンジニア / AI・Web開発・クラウドアーキテクチャ<br />
+					技術で課題を解決し、より良いプロダクトを作ることに情熱を注いでいます。
+				</p>
+			</section>
+
+			<AdSense slot="header" format="horizontal" />
+
+			<section class="section">
+				<h2 class="section-title">Skills & Expertise</h2>
+				<div class="skills-grid">
+					<div class="skill-card">
+						<h3>AI / LLM</h3>
+						<p>Claude Code、ChatGPT、LLMを活用した開発ワークフローの自動化と効率化に取り組んでいます。</p>
+					</div>
+					<div class="skill-card">
+						<h3>Web Development</h3>
+						<p>TypeScript、React、Next.js、Astro などのモダンなフレームワークを用いたフロントエンド・バックエンド開発。</p>
+					</div>
+					<div class="skill-card">
+						<h3>Cloud Architecture</h3>
+						<p>AWS を中心としたクラウドインフラの設計・構築。サーバーレス、コンテナ、IaC による効率的な運用。</p>
+					</div>
+					<div class="skill-card">
+						<h3>DevOps / Automation</h3>
+						<p>CI/CD パイプライン構築、開発プロセスの自動化、MCP サーバー統合による開発環境の最適化。</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<h2 class="section-title">Latest Posts</h2>
+				<div class="posts-grid">
+					{
+						posts.map((post) => (
+							<a href={`/blog/${post.id}/`} class="post-card">
+								{post.data.heroImage && (
+									<Image
+										width={720}
+										height={360}
+										src={post.data.heroImage}
+										alt=""
+									/>
+								)}
+								<div class="post-card-body">
+									<h4>{post.data.title}</h4>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</div>
+							</a>
+						))
+					}
+				</div>
+				<div class="view-all">
+					<a href="/blog/">記事一覧を見る</a>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

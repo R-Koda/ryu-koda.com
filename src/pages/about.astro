@@ -1,0 +1,87 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { AUTHOR_NAME, SITE_TITLE } from '../consts';
+
+const personJsonLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: AUTHOR_NAME,
+	url: Astro.site?.toString(),
+	jobTitle: 'Software Engineer',
+});
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead
+			title={`About | ${SITE_TITLE}`}
+			description="ソフトウェアエンジニア Ryu Koda のプロフィール。経歴、スキル、興味関心について。"
+		/>
+		<script type="application/ld+json" set:html={personJsonLd} />
+		<style>
+			.about-container {
+				max-width: 720px;
+				margin: 0 auto;
+				padding: 2em 1em;
+			}
+			.about-container h1 {
+				font-size: 2em;
+				margin-bottom: 0.5em;
+			}
+			.about-container h2 {
+				font-size: 1.4em;
+				margin-top: 2em;
+				margin-bottom: 0.5em;
+				color: var(--accent-dark);
+			}
+			.about-container p {
+				line-height: 1.8;
+				color: rgb(var(--gray-dark));
+			}
+			.about-container ul {
+				line-height: 2;
+				color: rgb(var(--gray-dark));
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about-container">
+				<h1>About</h1>
+				<p>
+					こんにちは、Ryu Koda です。<br />
+					ソフトウェアエンジニアとして、AI・Web開発・クラウドアーキテクチャを中心に活動しています。
+				</p>
+
+				<h2>技術スタック</h2>
+				<ul>
+					<li><strong>言語:</strong> TypeScript, Python, Go</li>
+					<li><strong>フロントエンド:</strong> React, Next.js, Astro</li>
+					<li><strong>バックエンド:</strong> Node.js, FastAPI</li>
+					<li><strong>クラウド:</strong> AWS (Lambda, ECS, CDK)</li>
+					<li><strong>AI/LLM:</strong> Claude Code, MCP, プロンプトエンジニアリング</li>
+					<li><strong>DevOps:</strong> Docker, GitHub Actions, Terraform</li>
+				</ul>
+
+				<h2>このブログについて</h2>
+				<p>
+					このブログでは、日々の開発で得た知見や、新しい技術の活用方法について発信しています。
+					特に AI を活用した開発ワークフローの効率化や、モダンな Web 開発のベストプラクティスに
+					興味を持っています。
+				</p>
+
+				<h2>お問い合わせ</h2>
+				<p>
+					お仕事のご依頼やご質問は、
+					<a href="https://github.com/ryukoda" target="_blank" rel="noopener noreferrer">GitHub</a>
+					からお気軽にご連絡ください。
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

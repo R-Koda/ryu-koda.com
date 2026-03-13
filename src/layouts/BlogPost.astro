@@ -1,0 +1,166 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import AdSense from '../components/AdSense.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { AUTHOR_NAME, SITE_TITLE } from '../consts';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+const articleJsonLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: title,
+	description: description,
+	author: {
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+		url: Astro.site?.toString(),
+	},
+	publisher: {
+		'@type': 'Person',
+		name: AUTHOR_NAME,
+	},
+	datePublished: pubDate.toISOString(),
+	...(updatedDate && { dateModified: updatedDate.toISOString() }),
+	...(heroImage && {
+		image: new URL(heroImage.src, Astro.site).toString(),
+	}),
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': Astro.url.toString(),
+	},
+});
+
+const breadcrumbJsonLd = JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'BreadcrumbList',
+	itemListElement: [
+		{
+			'@type': 'ListItem',
+			position: 1,
+			name: 'Home',
+			item: Astro.site?.toString(),
+		},
+		{
+			'@type': 'ListItem',
+			position: 2,
+			name: 'Blog',
+			item: new URL('/blog/', Astro.site).toString(),
+		},
+		{
+			'@type': 'ListItem',
+			position: 3,
+			name: title,
+		},
+	],
+});
+---
+
+<html lang="ja">
+	<head>
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} image={heroImage} type="article" publishedTime={pubDate} />
+		<script type="application/ld+json" set:html={articleJsonLd} />
+		<script type="application/ld+json" set:html={breadcrumbJsonLd} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.hero-image {
+				width: 100%;
+			}
+			.hero-image img {
+				display: block;
+				margin: 0 auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.prose {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+				color: rgb(var(--gray-dark));
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.5em 0;
+			}
+			.date {
+				margin-bottom: 0.5em;
+				color: rgb(var(--gray));
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+			.breadcrumb {
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: 1em auto 0;
+				padding: 0 1em;
+				font-size: 0.85em;
+				color: rgb(var(--gray));
+			}
+			.breadcrumb a {
+				color: rgb(var(--gray));
+				text-decoration: none;
+			}
+			.breadcrumb a:hover {
+				color: var(--accent);
+			}
+			.breadcrumb span {
+				margin: 0 0.5em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<nav class="breadcrumb" aria-label="パンくずリスト">
+				<a href="/">Home</a>
+				<span>/</span>
+				<a href="/blog/">Blog</a>
+				<span>/</span>
+				<span>{title}</span>
+			</nav>
+			<article>
+				<div class="hero-image">
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+				</div>
+				<div class="prose">
+					<div class="title">
+						<div class="date">
+							<FormattedDate date={pubDate} />
+							{
+								updatedDate && (
+									<div class="last-updated-on">
+										最終更新: <FormattedDate date={updatedDate} />
+									</div>
+								)
+							}
+						</div>
+						<h1>{title}</h1>
+						<hr />
+					</div>
+					<slot />
+					<AdSense slot="in-article" format="rectangle" />
+				</div>
+			</article>
+		</main>
+		<AdSense slot="footer" format="horizontal" className="footer-ad" />
+		<Footer />
+	</body>
+</html>

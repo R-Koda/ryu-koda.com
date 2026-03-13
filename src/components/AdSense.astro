@@ -1,0 +1,54 @@
+---
+interface Props {
+	slot?: string;
+	format?: 'auto' | 'rectangle' | 'horizontal' | 'vertical';
+	style?: string;
+	className?: string;
+}
+
+const {
+	slot: adSlot = '',
+	format = 'auto',
+	style = '',
+	className = '',
+} = Astro.props;
+
+// Replace with your actual AdSense client ID after approval
+const AD_CLIENT = '';
+const isAdEnabled = AD_CLIENT !== '' && adSlot !== '';
+---
+
+<div class={`ad-container ${className}`} style={style}>
+	{isAdEnabled ? (
+		<ins
+			class="adsbygoogle"
+			style="display:block"
+			data-ad-client={AD_CLIENT}
+			data-ad-slot={adSlot}
+			data-ad-format={format}
+			data-full-width-responsive="true"
+		/>
+	) : (
+		<div class="ad-placeholder">
+			<span>Advertisement</span>
+		</div>
+	)}
+</div>
+
+<style>
+	.ad-container {
+		width: 100%;
+		margin: 1.5em 0;
+	}
+	.ad-placeholder {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 90px;
+		background-color: rgba(var(--gray-light), 0.5);
+		border: 1px dashed rgb(var(--gray));
+		border-radius: 8px;
+		color: rgb(var(--gray));
+		font-size: 0.8em;
+	}
+</style>
