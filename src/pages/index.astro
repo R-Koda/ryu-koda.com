@@ -63,34 +63,6 @@ const websiteJsonLd = JSON.stringify({
 				color: rgb(var(--gray));
 				margin-bottom: 1.5em;
 			}
-			/* Skills grid: 1 col mobile */
-			.skills-grid {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 1px;
-				margin-top: 1em;
-				border: 1px solid var(--border-color);
-				border-radius: 4px;
-				overflow: hidden;
-				background: var(--border-color);
-			}
-			.skill-card {
-				background: #ffffff;
-				padding: 1.25em;
-			}
-			.skill-card h3 {
-				font-size: 0.95em;
-				margin-bottom: 0.4em;
-				color: rgb(var(--black));
-				font-weight: 600;
-				letter-spacing: -0.01em;
-			}
-			.skill-card p {
-				font-size: 0.85em;
-				color: rgb(var(--gray));
-				margin: 0;
-				line-height: 1.6;
-			}
 			/* Posts grid: 1 col mobile */
 			.posts-grid {
 				display: grid;
@@ -163,7 +135,7 @@ const websiteJsonLd = JSON.stringify({
 				}
 			}
 
-			/* Tablet (768px+): skills 2 col, posts 2 col */
+			/* Tablet (768px+): posts 2 col */
 			@media (min-width: 768px) {
 				.hero {
 					padding: 4em 1em 2.5em;
@@ -177,16 +149,9 @@ const websiteJsonLd = JSON.stringify({
 				.section {
 					padding: 2.5em 1em;
 				}
-				.skills-grid {
-					grid-template-columns: repeat(2, 1fr);
-					gap: 1px;
-				}
 				.posts-grid {
 					grid-template-columns: repeat(2, 1fr);
 					gap: 1.25em;
-				}
-				.skill-card {
-					padding: 1.5em;
 				}
 			}
 
@@ -200,9 +165,6 @@ const websiteJsonLd = JSON.stringify({
 				}
 				.hero .subtitle {
 					font-size: 1.05em;
-				}
-				.skills-grid {
-					grid-template-columns: repeat(4, 1fr);
 				}
 				.posts-grid {
 					grid-template-columns: repeat(4, 1fr);
@@ -222,28 +184,6 @@ const websiteJsonLd = JSON.stringify({
 			</section>
 
 			<AdSense slot="header" format="horizontal" />
-
-			<section class="section">
-				<h2 class="section-title">Skills & Expertise</h2>
-				<div class="skills-grid">
-					<div class="skill-card">
-						<h3>AI / LLM</h3>
-						<p>Claude Code、ChatGPT、LLMを活用した開発ワークフローの自動化と効率化に取り組んでいます。</p>
-					</div>
-					<div class="skill-card">
-						<h3>Web Development</h3>
-						<p>TypeScript、React、Next.js、Astro などのモダンなフレームワークを用いたフロントエンド・バックエンド開発。</p>
-					</div>
-					<div class="skill-card">
-						<h3>Cloud Architecture</h3>
-						<p>AWS を中心としたクラウドインフラの設計・構築。サーバーレス、コンテナ、IaC による効率的な運用。</p>
-					</div>
-					<div class="skill-card">
-						<h3>DevOps / Automation</h3>
-						<p>CI/CD パイプライン構築、開発プロセスの自動化、MCP サーバー統合による開発環境の最適化。</p>
-					</div>
-				</div>
-			</section>
 
 			<section class="section">
 				<h2 class="section-title">Latest Posts</h2>

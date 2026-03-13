@@ -1,6 +1,6 @@
 ---
-title: 'Claude Codeを「自律型開発環境」に進化させる：Auto-Dispatcher + 30超のMCP/プラグイン統合アーキテクチャ'
-description: 'Claude Code に30以上のMCPサーバーとプラグインを統合し、タスクを伝えるだけで最適なツールが自動選択されるAuto-Dispatcherを構築。新しいツールの発見から導入までを半自動化するSelf-Updatingの仕組みも実装した全設定を公開します。'
+title: '【完全ガイド】Claude Codeに30個以上のツールを入れて「やりたいことを言うだけ」で全自動化した方法'
+description: 'Claude Codeに30以上のMCPサーバーとプラグインを追加し、やりたいことを伝えるだけで最適なツールが自動で選ばれる仕組みを作りました。設定ファイルも全て公開しています。'
 pubDate: 2025-03-13
 tags: ['ClaudeCode', 'MCP', 'AI', '開発環境', '自動化']
 ---
