@@ -42,7 +42,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.7;
 }
 main {
@@ -164,25 +164,25 @@ p a, li a, .prose a, .breadcrumb a {
 /* --- Tablet breakpoint (768px) --- */
 @media (min-width: 768px) {
 	body {
-		font-size: 18px;
+		font-size: 15px;
 	}
 	main {
 		padding: 2em 1em;
 	}
 	h1 {
-		font-size: 2.5em;
+		font-size: 2.2em;
 	}
 	h2 {
-		font-size: 2em;
+		font-size: 1.7em;
 	}
 	h3 {
-		font-size: 1.6em;
+		font-size: 1.4em;
 	}
 	h4 {
-		font-size: 1.35em;
+		font-size: 1.2em;
 	}
 	blockquote {
-		font-size: 1.2em;
+		font-size: 1.1em;
 	}
 	pre {
 		padding: 1.5em;
@@ -192,28 +192,28 @@ p a, li a, .prose a, .breadcrumb a {
 /* --- Desktop breakpoint (1024px) --- */
 @media (min-width: 1024px) {
 	body {
-		font-size: 20px;
+		font-size: 16px;
 	}
 	main {
 		padding: 3em 1em;
 	}
 	h1 {
-		font-size: 3.052em;
+		font-size: 2.4em;
 	}
 	h2 {
-		font-size: 2.441em;
+		font-size: 1.8em;
 	}
 	h3 {
-		font-size: 1.953em;
+		font-size: 1.5em;
 	}
 	h4 {
-		font-size: 1.563em;
-	}
-	h5 {
 		font-size: 1.25em;
 	}
+	h5 {
+		font-size: 1.1em;
+	}
 	blockquote {
-		font-size: 1.333em;
+		font-size: 1.15em;
 	}
 }
 
