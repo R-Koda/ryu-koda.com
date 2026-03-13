@@ -25,15 +25,15 @@ const personJsonLd = JSON.stringify({
 			.about-container {
 				max-width: 720px;
 				margin: 0 auto;
-				padding: 2em 1em;
+				padding: 1.5em 0.5em;
 			}
 			.about-container h1 {
-				font-size: 2em;
+				font-size: 1.6em;
 				margin-bottom: 0.5em;
 			}
 			.about-container h2 {
-				font-size: 1.4em;
-				margin-top: 2em;
+				font-size: 1.2em;
+				margin-top: 1.5em;
 				margin-bottom: 0.5em;
 				color: var(--accent-dark);
 			}
@@ -44,6 +44,39 @@ const personJsonLd = JSON.stringify({
 			.about-container ul {
 				line-height: 2;
 				color: rgb(var(--gray-dark));
+				padding-left: 1.5em;
+			}
+			.about-container a {
+				min-height: auto;
+				min-width: auto;
+			}
+
+			@media (min-width: 480px) {
+				.about-container {
+					padding: 1.5em 1em;
+				}
+			}
+
+			@media (min-width: 768px) {
+				.about-container {
+					padding: 2em 1em;
+				}
+				.about-container h1 {
+					font-size: 1.8em;
+				}
+				.about-container h2 {
+					font-size: 1.3em;
+					margin-top: 2em;
+				}
+			}
+
+			@media (min-width: 1024px) {
+				.about-container h1 {
+					font-size: 2em;
+				}
+				.about-container h2 {
+					font-size: 1.4em;
+				}
 			}
 		</style>
 	</head>

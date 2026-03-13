@@ -69,9 +69,10 @@ const breadcrumbJsonLd = JSON.stringify({
 		<script type="application/ld+json" set:html={breadcrumbJsonLd} />
 		<style>
 			main {
-				width: calc(100% - 2em);
+				width: calc(100% - 1em);
 				max-width: 100%;
 				margin: 0;
+				padding: 0 0.5em;
 			}
 			.hero-image {
 				width: 100%;
@@ -79,38 +80,64 @@ const breadcrumbJsonLd = JSON.stringify({
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 12px;
+				border-radius: 8px;
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
 				width: 720px;
-				max-width: calc(100% - 2em);
+				max-width: 100%;
 				margin: auto;
-				padding: 1em;
+				padding: 0.5em;
 				color: rgb(var(--gray-dark));
+			}
+			/* Ensure all prose images are responsive */
+			.prose :global(img) {
+				max-width: 100%;
+				height: auto;
+			}
+			/* Make code blocks scrollable */
+			.prose :global(pre) {
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+				max-width: 100%;
+			}
+			/* Make tables scrollable */
+			.prose :global(table) {
+				display: block;
+				overflow-x: auto;
+				-webkit-overflow-scrolling: touch;
+				max-width: 100%;
+			}
+			/* Prevent iframes/embeds from overflowing */
+			.prose :global(iframe),
+			.prose :global(video),
+			.prose :global(embed) {
+				max-width: 100%;
 			}
 			.title {
 				margin-bottom: 1em;
-				padding: 1em 0;
+				padding: 0.5em 0;
 				text-align: center;
-				line-height: 1;
+				line-height: 1.2;
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
+				font-size: 1.6em;
 			}
 			.date {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
+				font-size: 0.9em;
 			}
 			.last-updated-on {
 				font-style: italic;
 			}
 			.breadcrumb {
 				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: 1em auto 0;
-				padding: 0 1em;
-				font-size: 0.85em;
+				max-width: calc(100% - 1em);
+				margin: 0.5em auto 0;
+				padding: 0 0.5em;
+				font-size: 0.8em;
 				color: rgb(var(--gray));
 			}
 			.breadcrumb a {
@@ -121,7 +148,45 @@ const breadcrumbJsonLd = JSON.stringify({
 				color: var(--accent);
 			}
 			.breadcrumb span {
-				margin: 0 0.5em;
+				margin: 0 0.3em;
+			}
+
+			/* Tablet (768px+) */
+			@media (min-width: 768px) {
+				main {
+					width: calc(100% - 2em);
+					padding: 0;
+				}
+				.prose {
+					padding: 1em;
+				}
+				.title {
+					padding: 1em 0;
+				}
+				.title h1 {
+					font-size: 2em;
+				}
+				.hero-image img {
+					border-radius: 12px;
+				}
+				.breadcrumb {
+					margin: 1em auto 0;
+					padding: 0 1em;
+					font-size: 0.85em;
+				}
+				.breadcrumb span {
+					margin: 0 0.5em;
+				}
+				.date {
+					font-size: 1em;
+				}
+			}
+
+			/* Desktop (1024px+) */
+			@media (min-width: 1024px) {
+				.title h1 {
+					font-size: 2.5em;
+				}
 			}
 		</style>
 	</head>

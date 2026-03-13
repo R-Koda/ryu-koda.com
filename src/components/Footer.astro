@@ -20,10 +20,11 @@ const today = new Date();
 </footer>
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
+		padding: 1.5em 1em 4em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
+		font-size: 0.85em;
 	}
 	.social-links {
 		display: flex;
@@ -34,8 +35,20 @@ const today = new Date();
 	.social-links a {
 		text-decoration: none;
 		color: rgb(var(--gray));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 44px;
+		min-width: 44px;
 	}
 	.social-links a:hover {
 		color: rgb(var(--gray-dark));
+	}
+
+	@media (min-width: 768px) {
+		footer {
+			padding: 2em 1em 6em 1em;
+			font-size: 0.9em;
+		}
 	}
 </style>

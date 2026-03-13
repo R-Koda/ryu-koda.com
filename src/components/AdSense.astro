@@ -38,17 +38,30 @@ const isAdEnabled = AD_CLIENT !== '' && adSlot !== '';
 <style>
 	.ad-container {
 		width: 100%;
-		margin: 1.5em 0;
+		max-width: 100%;
+		margin: 1em 0;
+		overflow: hidden;
+		box-sizing: border-box;
 	}
 	.ad-placeholder {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 90px;
+		min-height: 60px;
 		background-color: rgba(var(--gray-light), 0.5);
 		border: 1px dashed rgb(var(--gray));
 		border-radius: 8px;
 		color: rgb(var(--gray));
-		font-size: 0.8em;
+		font-size: 0.75em;
+	}
+
+	@media (min-width: 768px) {
+		.ad-container {
+			margin: 1.5em 0;
+		}
+		.ad-placeholder {
+			min-height: 90px;
+			font-size: 0.8em;
+		}
 	}
 </style>

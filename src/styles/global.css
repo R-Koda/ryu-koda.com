@@ -2,7 +2,7 @@
   The CSS in this style tag is based off of Bear Blog's default CSS.
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
- */
+*/
 
 :root {
 	--accent: #2337ff;
@@ -30,6 +30,8 @@
 	font-style: normal;
 	font-display: swap;
 }
+
+/* --- Mobile-first base styles --- */
 body {
 	font-family: "Atkinson", sans-serif;
 	margin: 0;
@@ -40,14 +42,14 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
-	font-size: 20px;
+	font-size: 16px;
 	line-height: 1.7;
 }
 main {
 	width: 720px;
 	max-width: calc(100% - 2em);
 	margin: auto;
-	padding: 3em 1em;
+	padding: 1em;
 }
 h1,
 h2,
@@ -60,19 +62,19 @@ h6 {
 	line-height: 1.2;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.6em;
 }
 h3 {
-	font-size: 1.953em;
+	font-size: 1.35em;
 }
 h4 {
-	font-size: 1.563em;
+	font-size: 1.15em;
 }
 h5 {
-	font-size: 1.25em;
+	font-size: 1.05em;
 }
 strong,
 b {
@@ -109,30 +111,109 @@ code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
 	border-radius: 2px;
+	font-size: 0.875em;
+	word-break: break-word;
 }
 pre {
-	padding: 1.5em;
+	padding: 1em;
 	border-radius: 8px;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
 }
 pre > code {
 	all: unset;
+	word-break: normal;
 }
 blockquote {
 	border-left: 4px solid var(--accent);
 	padding: 0 0 0 20px;
 	margin: 0;
-	font-size: 1.333em;
+	font-size: 1.1em;
 }
 hr {
 	border: none;
 	border-top: 1px solid rgb(var(--gray-light));
 }
-@media (max-width: 720px) {
+
+/* --- Responsive table wrapper --- */
+.table-wrapper {
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	margin-bottom: 1em;
+}
+
+/* Make tables scrollable on mobile even without wrapper */
+table {
+	display: block;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* --- Touch-friendly tap targets --- */
+a, button, input[type="submit"], input[type="button"] {
+	min-height: 44px;
+	min-width: 44px;
+}
+
+/* Inline links don't need min dimensions */
+p a, li a, .prose a, .breadcrumb a {
+	min-height: auto;
+	min-width: auto;
+}
+
+/* --- Tablet breakpoint (768px) --- */
+@media (min-width: 768px) {
 	body {
 		font-size: 18px;
 	}
 	main {
-		padding: 1em;
+		padding: 2em 1em;
+	}
+	h1 {
+		font-size: 2.5em;
+	}
+	h2 {
+		font-size: 2em;
+	}
+	h3 {
+		font-size: 1.6em;
+	}
+	h4 {
+		font-size: 1.35em;
+	}
+	blockquote {
+		font-size: 1.2em;
+	}
+	pre {
+		padding: 1.5em;
+	}
+}
+
+/* --- Desktop breakpoint (1024px) --- */
+@media (min-width: 1024px) {
+	body {
+		font-size: 20px;
+	}
+	main {
+		padding: 3em 1em;
+	}
+	h1 {
+		font-size: 3.052em;
+	}
+	h2 {
+		font-size: 2.441em;
+	}
+	h3 {
+		font-size: 1.953em;
+	}
+	h4 {
+		font-size: 1.563em;
+	}
+	h5 {
+		font-size: 1.25em;
+	}
+	blockquote {
+		font-size: 1.333em;
 	}
 }
 
