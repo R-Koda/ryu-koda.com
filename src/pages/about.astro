@@ -23,19 +23,23 @@ const personJsonLd = JSON.stringify({
 		<script type="application/ld+json" set:html={personJsonLd} />
 		<style>
 			.about-container {
-				max-width: 720px;
+				max-width: 680px;
 				margin: 0 auto;
-				padding: 1.5em 0.5em;
+				padding: 2em 0.5em;
 			}
 			.about-container h1 {
-				font-size: 1.6em;
-				margin-bottom: 0.5em;
+				font-size: 1.5em;
+				margin-bottom: 0.75em;
+				letter-spacing: -0.02em;
+				font-weight: 600;
 			}
 			.about-container h2 {
-				font-size: 1.2em;
-				margin-top: 1.5em;
+				font-size: 1.1em;
+				margin-top: 2em;
 				margin-bottom: 0.5em;
-				color: var(--accent-dark);
+				color: rgb(var(--black));
+				font-weight: 600;
+				letter-spacing: -0.01em;
 			}
 			.about-container p {
 				line-height: 1.8;
@@ -53,20 +57,20 @@ const personJsonLd = JSON.stringify({
 
 			@media (min-width: 480px) {
 				.about-container {
-					padding: 1.5em 1em;
+					padding: 2em 1em;
 				}
 			}
 
 			@media (min-width: 768px) {
 				.about-container {
-					padding: 2em 1em;
+					padding: 3em 1em;
 				}
 				.about-container h1 {
-					font-size: 1.8em;
+					font-size: 1.75em;
 				}
 				.about-container h2 {
-					font-size: 1.3em;
-					margin-top: 2em;
+					font-size: 1.2em;
+					margin-top: 2.5em;
 				}
 			}
 
@@ -75,7 +79,7 @@ const personJsonLd = JSON.stringify({
 					font-size: 2em;
 				}
 				.about-container h2 {
-					font-size: 1.4em;
+					font-size: 1.3em;
 				}
 			}
 		</style>

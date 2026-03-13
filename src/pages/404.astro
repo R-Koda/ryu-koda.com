@@ -1,0 +1,80 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<BaseHead
+			title={`404 - ページが見つかりません | ${SITE_TITLE}`}
+			description="お探しのページは見つかりませんでした。"
+		/>
+		<style>
+			.not-found {
+				max-width: 480px;
+				margin: 0 auto;
+				padding: 4em 1em;
+				text-align: center;
+			}
+			.not-found h1 {
+				font-size: 4em;
+				margin-bottom: 0.1em;
+				color: rgb(var(--gray-light));
+				font-weight: 600;
+			}
+			.not-found h2 {
+				font-size: 1.2em;
+				margin-bottom: 1em;
+				color: rgb(var(--black));
+				font-weight: 600;
+			}
+			.not-found p {
+				color: rgb(var(--gray));
+				margin-bottom: 2em;
+				line-height: 1.7;
+			}
+			.not-found a {
+				display: inline-block;
+				padding: 0.6em 1.8em;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				color: rgb(var(--gray-dark));
+				text-decoration: none;
+				font-weight: 500;
+				font-size: 0.9em;
+				transition: border-color 0.15s ease, color 0.15s ease;
+			}
+			.not-found a:hover {
+				border-color: rgb(var(--gray-dark));
+				color: rgb(var(--black));
+			}
+
+			@media (min-width: 768px) {
+				.not-found {
+					padding: 6em 1em;
+				}
+				.not-found h1 {
+					font-size: 6em;
+				}
+				.not-found h2 {
+					font-size: 1.4em;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="not-found">
+				<h1>404</h1>
+				<h2>ページが見つかりません</h2>
+				<p>お探しのページは移動または削除された可能性があります。</p>
+				<a href="/">ホームに戻る</a>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

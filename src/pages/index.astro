@@ -32,57 +32,61 @@ const websiteJsonLd = JSON.stringify({
 		<style>
 			/* Mobile-first styles */
 			.hero {
-				text-align: center;
-				padding: 2em 1em 1.5em;
+				padding: 3em 1em 2em;
+				max-width: 960px;
+				margin: 0 auto;
 			}
 			.hero h1 {
-				font-size: 1.8em;
-				margin-bottom: 0.2em;
-				letter-spacing: 0.02em;
+				font-size: 1.75em;
+				margin-bottom: 0.4em;
+				letter-spacing: -0.03em;
+				font-weight: 600;
+				color: rgb(var(--black));
 			}
 			.hero .subtitle {
 				font-size: 0.95em;
 				color: rgb(var(--gray));
-				margin-bottom: 1.5em;
-				line-height: 1.6;
+				margin-bottom: 0;
+				line-height: 1.7;
+				max-width: 560px;
 			}
 			.section {
 				max-width: 960px;
 				margin: 0 auto;
-				padding: 1.5em 0.5em;
+				padding: 2em 0.5em;
 			}
 			.section-title {
-				font-size: 1.3em;
-				margin-bottom: 1em;
-				padding-bottom: 0.3em;
-				border-bottom: 2px solid var(--accent);
-				display: inline-block;
+				font-size: 0.8em;
+				font-weight: 500;
+				text-transform: uppercase;
+				letter-spacing: 0.08em;
+				color: rgb(var(--gray));
+				margin-bottom: 1.5em;
 			}
 			/* Skills grid: 1 col mobile */
 			.skills-grid {
 				display: grid;
 				grid-template-columns: 1fr;
-				gap: 1em;
+				gap: 1px;
 				margin-top: 1em;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				overflow: hidden;
+				background: var(--border-color);
 			}
 			.skill-card {
-				background: white;
-				border-radius: 12px;
-				padding: 1.2em;
-				box-shadow: 0 2px 8px rgba(var(--gray), 15%);
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
-			}
-			.skill-card:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 4px 16px rgba(var(--gray), 25%);
+				background: #ffffff;
+				padding: 1.25em;
 			}
 			.skill-card h3 {
-				font-size: 1.1em;
-				margin-bottom: 0.5em;
-				color: var(--accent-dark);
+				font-size: 0.95em;
+				margin-bottom: 0.4em;
+				color: rgb(var(--black));
+				font-weight: 600;
+				letter-spacing: -0.01em;
 			}
 			.skill-card p {
-				font-size: 0.9em;
+				font-size: 0.85em;
 				color: rgb(var(--gray));
 				margin: 0;
 				line-height: 1.6;
@@ -95,17 +99,17 @@ const websiteJsonLd = JSON.stringify({
 				margin-top: 1em;
 			}
 			.post-card {
-				background: white;
-				border-radius: 12px;
+				background: #ffffff;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
 				overflow: hidden;
-				box-shadow: 0 2px 8px rgba(var(--gray), 15%);
-				transition: transform 0.2s ease, box-shadow 0.2s ease;
+				transition: border-color 0.15s ease, box-shadow 0.15s ease;
 				text-decoration: none;
 				display: block;
 			}
 			.post-card:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 4px 16px rgba(var(--gray), 25%);
+				border-color: #d1d5db;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 			}
 			.post-card img {
 				width: 100%;
@@ -114,13 +118,14 @@ const websiteJsonLd = JSON.stringify({
 				border-radius: 0;
 			}
 			.post-card-body {
-				padding: 1em 1.2em;
+				padding: 1em 1.25em;
 			}
-			.post-card-body h4 {
-				font-size: 1em;
+			.post-card-body h3 {
+				font-size: 0.95em;
 				margin-bottom: 0.3em;
 				color: rgb(var(--black));
 				line-height: 1.4;
+				font-weight: 600;
 			}
 			.post-card-body .date {
 				font-size: 0.8em;
@@ -129,74 +134,72 @@ const websiteJsonLd = JSON.stringify({
 			}
 			.view-all {
 				text-align: center;
-				margin-top: 2em;
+				margin-top: 2.5em;
 			}
 			.view-all a {
 				display: inline-block;
-				padding: 0.7em 2em;
-				border: 2px solid var(--accent);
-				border-radius: 8px;
-				color: var(--accent);
+				padding: 0.6em 1.8em;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				color: rgb(var(--gray-dark));
 				text-decoration: none;
-				font-weight: 700;
-				transition: background 0.2s ease, color 0.2s ease;
+				font-weight: 500;
+				font-size: 0.9em;
+				transition: border-color 0.15s ease, color 0.15s ease;
 				min-height: 44px;
 			}
 			.view-all a:hover {
-				background: var(--accent);
-				color: white;
+				border-color: rgb(var(--gray-dark));
+				color: rgb(var(--black));
 			}
 
 			/* Small mobile (480px+) */
 			@media (min-width: 480px) {
 				.hero {
-					padding: 2.5em 1em 2em;
+					padding: 3em 1em 2em;
 				}
 				.section {
-					padding: 1.5em 1em;
+					padding: 2em 1em;
 				}
 			}
 
 			/* Tablet (768px+): skills 2 col, posts 2 col */
 			@media (min-width: 768px) {
 				.hero {
-					padding: 3em 1em 2.5em;
+					padding: 4em 1em 2.5em;
 				}
 				.hero h1 {
-					font-size: 2.2em;
+					font-size: 2.25em;
 				}
 				.hero .subtitle {
 					font-size: 1em;
 				}
 				.section {
-					padding: 2em 1em;
-				}
-				.section-title {
-					font-size: 1.5em;
+					padding: 2.5em 1em;
 				}
 				.skills-grid {
 					grid-template-columns: repeat(2, 1fr);
-					gap: 1.5em;
+					gap: 1px;
 				}
 				.posts-grid {
 					grid-template-columns: repeat(2, 1fr);
-					gap: 1.5em;
+					gap: 1.25em;
 				}
 				.skill-card {
 					padding: 1.5em;
 				}
 			}
 
-			/* Desktop (1024px+): skills 4 col, posts 3 col (but we only show 4 so 2x2 is fine, or use 4 col) */
+			/* Desktop (1024px+) */
 			@media (min-width: 1024px) {
 				.hero {
-					padding: 4em 1em 3em;
+					padding: 5em 1em 3em;
 				}
 				.hero h1 {
-					font-size: 2.5em;
+					font-size: 2.75em;
 				}
 				.hero .subtitle {
-					font-size: 1.1em;
+					font-size: 1.05em;
 				}
 				.skills-grid {
 					grid-template-columns: repeat(4, 1fr);
@@ -253,11 +256,11 @@ const websiteJsonLd = JSON.stringify({
 										width={720}
 										height={360}
 										src={post.data.heroImage}
-										alt=""
+										alt={post.data.title}
 									/>
 								)}
 								<div class="post-card-body">
-									<h4>{post.data.title}</h4>
+									<h3>{post.data.title}</h3>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />
 									</p>

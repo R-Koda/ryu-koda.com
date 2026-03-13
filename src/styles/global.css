@@ -1,49 +1,36 @@
 /*
-  The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+  Professional minimal design
+  Inspired by Stripe, Vercel, Linear aesthetics
 */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
+	--accent: #2d3748;
+	--accent-dark: #1a202c;
+	--accent-light: #4a5568;
 	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
+	--gray: 113, 119, 132;
+	--gray-light: 237, 239, 242;
 	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
-	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
-		0 16px 32px rgba(var(--gray), 33%);
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-@font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+	--gray-gradient: #fff, #fff;
+	--box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+	--border-color: #e5e7eb;
 }
 
 /* --- Mobile-first base styles --- */
 body {
-	font-family: "Atkinson", sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", sans-serif;
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background: #ffffff;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
 	font-size: 14px;
 	line-height: 1.7;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 main {
 	width: 720px;
@@ -59,38 +46,41 @@ h5,
 h6 {
 	margin: 0 0 0.5rem 0;
 	color: rgb(var(--black));
-	line-height: 1.2;
+	line-height: 1.25;
+	letter-spacing: -0.02em;
+	font-weight: 600;
 }
 h1 {
-	font-size: 2em;
+	font-size: 1.875em;
 }
 h2 {
-	font-size: 1.6em;
+	font-size: 1.5em;
 }
 h3 {
-	font-size: 1.35em;
+	font-size: 1.25em;
 }
 h4 {
-	font-size: 1.15em;
+	font-size: 1.1em;
 }
 h5 {
-	font-size: 1.05em;
+	font-size: 1em;
 }
 strong,
 b {
-	font-weight: 700;
+	font-weight: 600;
 }
 a {
 	color: var(--accent);
+	transition: color 0.15s ease;
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 p {
 	margin-bottom: 1em;
 }
 .prose p {
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
 }
 textarea {
 	width: 100%;
@@ -105,18 +95,18 @@ table {
 img {
 	max-width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: 4px;
 }
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+	border-radius: 3px;
 	font-size: 0.875em;
 	word-break: break-word;
 }
 pre {
 	padding: 1em;
-	border-radius: 8px;
+	border-radius: 4px;
 	overflow-x: auto;
 	-webkit-overflow-scrolling: touch;
 }
@@ -125,14 +115,15 @@ pre > code {
 	word-break: normal;
 }
 blockquote {
-	border-left: 4px solid var(--accent);
+	border-left: 3px solid var(--border-color);
 	padding: 0 0 0 20px;
 	margin: 0;
-	font-size: 1.1em;
+	font-size: 1.05em;
+	color: rgb(var(--gray));
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--border-color);
 }
 
 /* --- Responsive table wrapper --- */
@@ -170,19 +161,19 @@ p a, li a, .prose a, .breadcrumb a {
 		padding: 2em 1em;
 	}
 	h1 {
-		font-size: 2.2em;
+		font-size: 2em;
 	}
 	h2 {
-		font-size: 1.7em;
+		font-size: 1.6em;
 	}
 	h3 {
-		font-size: 1.4em;
+		font-size: 1.3em;
 	}
 	h4 {
-		font-size: 1.2em;
+		font-size: 1.15em;
 	}
 	blockquote {
-		font-size: 1.1em;
+		font-size: 1.05em;
 	}
 	pre {
 		padding: 1.5em;
@@ -198,22 +189,22 @@ p a, li a, .prose a, .breadcrumb a {
 		padding: 3em 1em;
 	}
 	h1 {
-		font-size: 2.4em;
+		font-size: 2.25em;
 	}
 	h2 {
-		font-size: 1.8em;
+		font-size: 1.7em;
 	}
 	h3 {
-		font-size: 1.5em;
+		font-size: 1.35em;
 	}
 	h4 {
-		font-size: 1.25em;
+		font-size: 1.2em;
 	}
 	h5 {
-		font-size: 1.1em;
+		font-size: 1.05em;
 	}
 	blockquote {
-		font-size: 1.15em;
+		font-size: 1.1em;
 	}
 }
 

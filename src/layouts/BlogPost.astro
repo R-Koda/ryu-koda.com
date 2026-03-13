@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import AdSense from '../components/AdSense.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
@@ -10,7 +11,27 @@ import { AUTHOR_NAME, SITE_TITLE } from '../consts';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro.props;
+
+// Get related posts: prefer posts with shared tags, fallback to recent posts
+const allPosts = (await getCollection('blog'))
+	.filter((p) => p.data.title !== title)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const relatedPosts = (() => {
+	if (tags.length > 0) {
+		const withSharedTags = allPosts
+			.map((p) => ({
+				post: p,
+				sharedTags: (p.data.tags || []).filter((t: string) => tags.includes(t)).length,
+			}))
+			.filter((p) => p.sharedTags > 0)
+			.sort((a, b) => b.sharedTags - a.sharedTags)
+			.map((p) => p.post);
+		if (withSharedTags.length >= 2) return withSharedTags.slice(0, 3);
+	}
+	return allPosts.slice(0, 3);
+})();
 
 const articleJsonLd = JSON.stringify({
 	'@context': 'https://schema.org',
@@ -64,7 +85,7 @@ const breadcrumbJsonLd = JSON.stringify({
 
 <html lang="ja">
 	<head>
-		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} image={heroImage} type="article" publishedTime={pubDate} />
+		<BaseHead title={`${title} | ${SITE_TITLE}`} description={description} image={heroImage} type="article" publishedTime={pubDate} updatedTime={updatedDate} tags={tags} />
 		<script type="application/ld+json" set:html={articleJsonLd} />
 		<script type="application/ld+json" set:html={breadcrumbJsonLd} />
 		<style>
@@ -80,11 +101,10 @@ const breadcrumbJsonLd = JSON.stringify({
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				border-radius: 8px;
-				box-shadow: var(--box-shadow);
+				border-radius: 4px;
 			}
 			.prose {
-				width: 720px;
+				width: 680px;
 				max-width: 100%;
 				margin: auto;
 				padding: 0.5em;
@@ -122,18 +142,23 @@ const breadcrumbJsonLd = JSON.stringify({
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
-				font-size: 1.6em;
+				font-size: 1.5em;
+				font-weight: 600;
+				letter-spacing: -0.02em;
 			}
 			.date {
 				margin-bottom: 0.5em;
 				color: rgb(var(--gray));
-				font-size: 0.9em;
+				font-size: 0.85em;
 			}
 			.last-updated-on {
 				font-style: italic;
 			}
+			.title hr {
+				margin-top: 1.5em;
+			}
 			.breadcrumb {
-				width: 720px;
+				width: 680px;
 				max-width: calc(100% - 1em);
 				margin: 0.5em auto 0;
 				padding: 0 0.5em;
@@ -143,12 +168,14 @@ const breadcrumbJsonLd = JSON.stringify({
 			.breadcrumb a {
 				color: rgb(var(--gray));
 				text-decoration: none;
+				transition: color 0.15s ease;
 			}
 			.breadcrumb a:hover {
-				color: var(--accent);
+				color: rgb(var(--black));
 			}
 			.breadcrumb span {
 				margin: 0 0.3em;
+				color: rgb(var(--gray-light));
 			}
 
 			/* Tablet (768px+) */
@@ -164,10 +191,7 @@ const breadcrumbJsonLd = JSON.stringify({
 					padding: 1em 0;
 				}
 				.title h1 {
-					font-size: 2em;
-				}
-				.hero-image img {
-					border-radius: 12px;
+					font-size: 1.875em;
 				}
 				.breadcrumb {
 					margin: 1em auto 0;
@@ -178,14 +202,81 @@ const breadcrumbJsonLd = JSON.stringify({
 					margin: 0 0.5em;
 				}
 				.date {
-					font-size: 1em;
+					font-size: 0.9em;
 				}
 			}
 
 			/* Desktop (1024px+) */
 			@media (min-width: 1024px) {
 				.title h1 {
-					font-size: 2.5em;
+					font-size: 2.25em;
+				}
+			}
+
+			/* Related Posts */
+			.related-posts {
+				width: 680px;
+				max-width: 100%;
+				margin: 2em auto 0;
+				padding: 0 0.5em;
+				border-top: 1px solid var(--border-color);
+				padding-top: 2em;
+			}
+			.related-posts h2 {
+				font-size: 1.1em;
+				font-weight: 600;
+				margin-bottom: 1em;
+				color: rgb(var(--black));
+			}
+			.related-posts ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 1em;
+			}
+			.related-posts li a {
+				display: block;
+				text-decoration: none;
+				border: 1px solid var(--border-color);
+				border-radius: 4px;
+				overflow: hidden;
+				transition: border-color 0.15s ease, box-shadow 0.15s ease;
+			}
+			.related-posts li a:hover {
+				border-color: #d1d5db;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+			}
+			.related-posts li img {
+				width: 100%;
+				height: 140px;
+				object-fit: cover;
+				border-radius: 0;
+			}
+			.related-post-info {
+				padding: 0.75em 1em;
+			}
+			.related-post-info h3 {
+				font-size: 0.9em;
+				margin: 0 0 0.25em;
+				color: rgb(var(--black));
+				line-height: 1.4;
+			}
+			.related-post-info .date {
+				font-size: 0.8em;
+				color: rgb(var(--gray));
+				margin: 0;
+			}
+
+			@media (min-width: 768px) {
+				.related-posts {
+					padding: 0 1em;
+					padding-top: 2.5em;
+				}
+				.related-posts ul {
+					grid-template-columns: repeat(3, 1fr);
+					gap: 1.25em;
 				}
 			}
 		</style>
@@ -203,7 +294,7 @@ const breadcrumbJsonLd = JSON.stringify({
 			</nav>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImage && <Image width={1020} height={510} src={heroImage} alt={`${title} のヒーロー画像`} />}
 				</div>
 				<div class="prose">
 					<div class="title">
@@ -223,6 +314,31 @@ const breadcrumbJsonLd = JSON.stringify({
 					<slot />
 					<AdSense slot="in-article" format="rectangle" />
 				</div>
+				{relatedPosts.length > 0 && (
+					<aside class="related-posts">
+						<h2>関連記事</h2>
+						<ul>
+							{relatedPosts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image
+												width={360}
+												height={180}
+												src={post.data.heroImage}
+												alt={`${post.data.title} のサムネイル`}
+											/>
+										)}
+										<div class="related-post-info">
+											<h3>{post.data.title}</h3>
+											<p class="date"><FormattedDate date={post.data.pubDate} /></p>
+										</div>
+									</a>
+								</li>
+							))}
+						</ul>
+					</aside>
+				)}
 			</article>
 		</main>
 		<AdSense slot="footer" format="horizontal" className="footer-ad" />
