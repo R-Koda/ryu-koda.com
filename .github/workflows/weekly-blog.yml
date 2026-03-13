@@ -1,0 +1,54 @@
+name: Weekly Blog Post Generator
+
+on:
+  schedule:
+    # 毎週月曜 9:00 JST (日曜 24:00 UTC)
+    - cron: '0 0 * * 1'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  generate-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Generate blog post
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node scripts/generate-blog-post.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'blog: add new post - ${{ steps.generate.outputs.title }}'
+          branch: blog/auto-${{ steps.generate.outputs.slug }}
+          title: '📝 新記事ドラフト: ${{ steps.generate.outputs.title }}'
+          body: |
+            ## 自動生成された記事ドラフト
+
+            **タイトル:** ${{ steps.generate.outputs.title }}
+            **ファイル:** `src/content/blog/${{ steps.generate.outputs.filename }}`
+
+            ### 確認事項
+            - [ ] タイトルは適切か
+            - [ ] 内容に誤りがないか
+            - [ ] 読みやすさは問題ないか
+            - [ ] 画像の追加が必要か
+
+            ---
+            🤖 このPRは [Weekly Blog Generator](.github/workflows/weekly-blog.yml) により自動生成されました。
+          labels: blog,auto-generated
+          delete-branch: true
