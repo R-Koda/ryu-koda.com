@@ -30,6 +30,7 @@ jobs:
         run: node scripts/generate-blog-post.mjs
 
       - name: Create Pull Request
+        id: create-pr
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,3 +53,4 @@ jobs:
             🤖 このPRは [Weekly Blog Generator](.github/workflows/weekly-blog.yml) により自動生成されました。
           labels: blog,auto-generated
           delete-branch: true
+          reviewers: R-Koda
