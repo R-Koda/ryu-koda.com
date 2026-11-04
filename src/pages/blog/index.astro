@@ -1,145 +1,335 @@
 ---
-import { Image } from 'astro:assets';
-import { getCollection } from 'astro:content';
-import AdSense from '../../components/AdSense.astro';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import { SITE_TITLE } from '../../consts';
-
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import { journalPosts } from "../../lib/posts";
+const posts = await journalPosts();
+const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
 ---
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<BaseHead
-			title={`Blog | ${SITE_TITLE}`}
-			description="Ryu Koda のテックブログ記事一覧。AI、Web開発、クラウドアーキテクチャなどの技術記事を掲載しています。"
-		/>
-		<style>
-			main {
-				width: 960px;
-			}
-			.page-title {
-				font-size: 1.5em;
-				margin-bottom: 1em;
-				font-weight: 600;
-				letter-spacing: -0.02em;
-			}
-			ul {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 1em;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.15s ease;
-			}
-			ul li:first-child {
-				margin-bottom: 0.5rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 1.3rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 4px;
-			}
-			ul li a {
-				display: block;
-				min-height: 44px;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1.35;
-				font-weight: 600;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-				font-size: 0.85em;
-			}
-			ul li a:hover h2.title {
-				color: var(--accent);
-			}
-			ul a:hover img {
-				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-			}
-
-			/* Tablet (768px+): 2 columns */
-			@media (min-width: 768px) {
-				ul {
-					grid-template-columns: repeat(2, 1fr);
-					gap: 1.5rem;
-				}
-				ul li:first-child {
-					grid-column: 1 / -1;
-					margin-bottom: 1rem;
-				}
-				ul li:first-child .title {
-					font-size: 1.6rem;
-				}
-				.page-title {
-					font-size: 1.75em;
-				}
-			}
-
-			/* Desktop (1024px+): 3 columns */
-			@media (min-width: 1024px) {
-				ul {
-					grid-template-columns: repeat(3, 1fr);
-					gap: 2rem;
-				}
-				ul li:first-child {
-					grid-column: 1 / -1;
-				}
-				ul li:first-child .title {
-					font-size: 2rem;
-				}
-				.page-title {
-					font-size: 2em;
-					margin-bottom: 1em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1 class="page-title">Blog</h1>
-			<AdSense slot="header" format="horizontal" />
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
-									)}
-									<h2 class="title">{post.data.title}</h2>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead
+      title="Journal — Ryu Koda"
+      description="AI、アプリ、小さな自動化、ガジェット。日々を少し便利にする道具とアイデアの記録。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell journal">
+      <span class="eyebrow">THE JOURNAL</span>
+      <div class="journal-heading">
+        <h1>
+          日々の、<em>発見。</em>
+        </h1>
+        <p>
+          AI、アプリ、小さな自動化。
+          <br />
+          気になったことを、ひとつずつ。
+        </p>
+      </div>
+      <div class="filter-bar">
+        <div class="tags" role="group" aria-label="記事の分類">
+          <button type="button" class="tag" data-tag="" aria-pressed="true">
+            すべて <sup>{posts.length}</sup>
+          </button>
+          {tags.map((t) => (
+            <button type="button" class="tag" data-tag={t} aria-pressed="false">
+              {t}
+            </button>
+          ))}
+        </div>
+        <label class="search">
+          <span class="sr-only">記事を検索</span>
+          <input id="post-search" type="search" placeholder="記事を探す" />
+          <span aria-hidden="true">⌕</span>
+        </label>
+      </div>
+      <p id="result-count" aria-live="polite">
+        {posts.length} articles
+      </p>
+      <div class="articles">
+        {posts.map((p, i) => (
+          <article
+            data-title={`${p.data.title} ${p.data.description}`}
+            data-tags={JSON.stringify(p.data.tags || [])}
+          >
+            <a href={`/blog/${p.id}/`}>
+              <div
+                class:list={[
+                  "article-cover",
+                  i % 2 === 0 ? "cover-clay" : "cover-moss",
+                ]}
+                aria-hidden="true"
+              >
+                <span class="cover-label">FIELD NOTES / 0{i + 1}</span>
+                <span class="cover-type">
+                  {i % 2 === 0 ? "Tools" : "Code"}
+                  <i>& ideas.</i>
+                </span>
+                <span class="cover-bottom">
+                  RYU KODA — JOURNAL <b>↗</b>
+                </span>
+              </div>
+              <div class="article-meta">
+                <span>{p.data.tags?.[0] || "TECHNOLOGY"}</span>
+                <FormattedDate date={p.data.pubDate} />
+              </div>
+              <h2>{p.data.title}</h2>
+              <p>{p.data.description}</p>
+              <span class="read-link">
+                記事を読む <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </article>
+        ))}
+      </div>
+      <div id="no-results" hidden>
+        <p>一致する記事が見つかりませんでした。</p>
+        <button type="button" id="clear-search" class="tag">
+          検索と絞り込みを解除 ↗
+        </button>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
+<script>
+  const search = document.querySelector<HTMLInputElement>("#post-search");
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-tag]");
+  const articles = document.querySelectorAll<HTMLElement>(
+    "article[data-title]",
+  );
+  let selected = "";
+  function filter() {
+    let count = 0;
+    const query = (search?.value || "").trim().toLocaleLowerCase();
+    articles.forEach((a) => {
+      const tags = JSON.parse(a.dataset.tags || "[]");
+      const show =
+        (!selected || tags.includes(selected)) &&
+        (a.dataset.title || "").toLocaleLowerCase().includes(query);
+      a.hidden = !show;
+      if (show) count++;
+    });
+    const result = document.getElementById("result-count");
+    if (result) result.textContent = `${count} articles`;
+    const empty = document.getElementById("no-results");
+    if (empty) empty.hidden = count > 0;
+    buttons.forEach((b) =>
+      b.setAttribute("aria-pressed", String(b.dataset.tag === selected)),
+    );
+  }
+  buttons.forEach((b) =>
+    b.addEventListener("click", () => {
+      selected = b.dataset.tag || "";
+      filter();
+    }),
+  );
+  search?.addEventListener("input", filter);
+  document.getElementById("clear-search")?.addEventListener("click", () => {
+    selected = "";
+    if (search) {
+      search.value = "";
+      search.focus();
+    }
+    filter();
+  });
+</script>
+<style>
+  .journal {
+    padding-top: 60px;
+  }
+  .journal-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin: 26px 0 55px;
+  }
+  .journal h1 {
+    font: clamp(45px, 7vw, 86px)/1.4 var(--serif);
+  }
+  .journal h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .journal-heading p {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--muted);
+  }
+  .filter-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  .tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 12px;
+    min-height: 44px;
+    transition:
+      background 0.2s,
+      color 0.2s,
+      transform 0.15s;
+  }
+  .tag:hover {
+    border-color: var(--ink);
+    background: #e5e7dc;
+  }
+  .tag[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .tag:active {
+    transform: translateY(2px);
+  }
+  .tag sup {
+    margin-left: 8px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--ink);
+    min-width: 180px;
+  }
+  .search input {
+    width: 170px;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 13px;
+    min-height: 44px;
+    color: var(--ink);
+  }
+  #result-count {
+    font-size: 11px;
+    color: var(--muted);
+    margin: 18px 0 30px;
+  }
+  .articles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px 36px;
+  }
+  .articles a {
+    text-decoration: none;
+  }
+  .article-cover {
+    aspect-ratio: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 26px;
+    transition: transform 0.3s;
+  }
+  .cover-clay {
+    background: #ded0bc;
+  }
+  .cover-moss {
+    background: #d9dfce;
+  }
+  .cover-label,
+  .cover-bottom {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+  .cover-type {
+    font: clamp(45px, 6vw, 80px)/0.9 var(--serif);
+    letter-spacing: -0.05em;
+  }
+  .cover-type i {
+    display: block;
+    margin-left: 45px;
+  }
+  .cover-bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+  .cover-bottom b {
+    font-size: 22px;
+    font-weight: 400;
+    transition: transform 0.2s;
+  }
+  .articles a:hover .cover-bottom b {
+    transform: translate(3px, -3px);
+  }
+  .article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 22px 0 12px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .articles h2 {
+    font-size: 21px;
+    line-height: 1.7;
+  }
+  .articles p {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 14px;
+    line-height: 1.9;
+  }
+  .read-link {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    margin-top: 18px;
+  }
+  .articles a:hover .read-link {
+    border-color: var(--accent);
+  }
+  #no-results {
+    padding: 60px 0;
+  }
+  #no-results button {
+    margin-top: 20px;
+  }
+  @media (max-width: 760px) {
+    .journal {
+      padding-top: 35px;
+    }
+    .journal-heading {
+      display: block;
+      margin-bottom: 30px;
+    }
+    .journal-heading p {
+      margin-top: 24px;
+    }
+    .filter-bar {
+      align-items: stretch;
+      flex-direction: column;
+    }
+    .search input {
+      width: 100%;
+    }
+    .articles {
+      grid-template-columns: 1fr;
+    }
+    .article-cover {
+      aspect-ratio: 1.5;
+    }
+    .cover-type {
+      font-size: 64px;
+    }
+  }
+</style>

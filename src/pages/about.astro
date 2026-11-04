@@ -1,124 +1,166 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { AUTHOR_NAME, SITE_TITLE } from '../consts';
-
-const personJsonLd = JSON.stringify({
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: AUTHOR_NAME,
-	url: Astro.site?.toString(),
-	jobTitle: 'Software Engineer',
-});
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ActionLink from "../components/ActionLink.astro";
 ---
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<BaseHead
-			title={`About | ${SITE_TITLE}`}
-			description="ソフトウェアエンジニア Ryu Koda のプロフィール。経歴、スキル、興味関心について。"
-		/>
-		<script type="application/ld+json" set:html={personJsonLd} />
-		<style>
-			.about-container {
-				max-width: 680px;
-				margin: 0 auto;
-				padding: 2em 0.5em;
-			}
-			.about-container h1 {
-				font-size: 1.5em;
-				margin-bottom: 0.75em;
-				letter-spacing: -0.02em;
-				font-weight: 600;
-			}
-			.about-container h2 {
-				font-size: 1.1em;
-				margin-top: 2em;
-				margin-bottom: 0.5em;
-				color: rgb(var(--black));
-				font-weight: 600;
-				letter-spacing: -0.01em;
-			}
-			.about-container p {
-				line-height: 1.8;
-				color: rgb(var(--gray-dark));
-			}
-			.about-container ul {
-				line-height: 2;
-				color: rgb(var(--gray-dark));
-				padding-left: 1.5em;
-			}
-			.about-container a {
-				min-height: auto;
-				min-width: auto;
-			}
-
-			@media (min-width: 480px) {
-				.about-container {
-					padding: 2em 1em;
-				}
-			}
-
-			@media (min-width: 768px) {
-				.about-container {
-					padding: 3em 1em;
-				}
-				.about-container h1 {
-					font-size: 1.75em;
-				}
-				.about-container h2 {
-					font-size: 1.2em;
-					margin-top: 2.5em;
-				}
-			}
-
-			@media (min-width: 1024px) {
-				.about-container h1 {
-					font-size: 2em;
-				}
-				.about-container h2 {
-					font-size: 1.3em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div class="about-container">
-				<h1>About</h1>
-				<p>
-					こんにちは、Ryu Koda です。<br />
-					ソフトウェアエンジニアとして、AI・Web開発・クラウドアーキテクチャを中心に活動しています。
-				</p>
-
-				<h2>技術スタック</h2>
-				<ul>
-					<li><strong>言語:</strong> TypeScript, Python, Go</li>
-					<li><strong>フロントエンド:</strong> React, Next.js, Astro</li>
-					<li><strong>バックエンド:</strong> Node.js, FastAPI</li>
-					<li><strong>クラウド:</strong> AWS (Lambda, ECS, CDK)</li>
-					<li><strong>AI/LLM:</strong> Claude Code, MCP, プロンプトエンジニアリング</li>
-					<li><strong>DevOps:</strong> Docker, GitHub Actions, Terraform</li>
-				</ul>
-
-				<h2>このブログについて</h2>
-				<p>
-					このブログでは、日々の開発で得た知見や、新しい技術の活用方法について発信しています。
-					特に AI を活用した開発ワークフローの効率化や、モダンな Web 開発のベストプラクティスに
-					興味を持っています。
-				</p>
-
-				<h2>お問い合わせ</h2>
-				<p>
-					お仕事のご依頼やご質問は、
-					<a href="https://github.com/ryukoda" target="_blank" rel="noopener noreferrer">GitHub</a>
-					からお気軽にご連絡ください。
-				</p>
-			</div>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead
+      title="About — Ryu Koda"
+      description="ソフトウェア開発、医学の公開データ研究、日々の道具。Ryu Kodaの活動と関心について。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell about">
+      <span class="eyebrow">ABOUT / RYU KODA</span>
+      <h1>
+        つくること。
+        <br />
+        知り続けること。
+      </h1>
+      <div class="bio">
+        <div class="name">
+          <span>
+            Ryu Koda<span class="dot">.</span>
+          </span>
+          <small>SOFTWARE & RESEARCH</small>
+        </div>
+        <div class="bio-text">
+          <p>
+            こんにちは、Ryu Kodaです。
+            <br />
+            ソフトウェア開発と医学の公開データ研究を軸に、技術を使って何ができるかを考え、手を動かしています。
+          </p>
+          <p>
+            このサイトは、個人としての活動をまとめる場所。ブログでは、AIやアプリ、小さな自動化、暮らしの道具について、調べたことや試したことを届けます。
+          </p>
+          <p>
+            医学のデータ解析や論文の話は、別のプロジェクト「Solo
+            Researcher」で記録しています。
+          </p>
+          <div class="actions">
+            <ActionLink href="https://github.com/R-Koda" external>
+              GitHub
+            </ActionLink>
+            <ActionLink
+              href="https://solo-researcher.com/"
+              external
+              variant="outline"
+            >
+              Solo Researcher
+            </ActionLink>
+          </div>
+        </div>
+      </div>
+      <section class="interests">
+        <div class="section-head">
+          <div>
+            <small>AREAS OF INTEREST</small>
+            <h2>関心のあること。</h2>
+          </div>
+        </div>
+        <div class="interest">
+          <span>01</span>
+          <h3>Software</h3>
+          <p>
+            AIを使った開発、Webアプリケーション、日々の作業の自動化。小さく作って、使いながら考えること。
+          </p>
+        </div>
+        <div class="interest">
+          <span>02</span>
+          <h3>Research</h3>
+          <p>
+            医学の公開データとNeuroscience。てんかんや認知症を含め、データから新たな問いを見つけること。
+          </p>
+        </div>
+        <div class="interest">
+          <span>03</span>
+          <h3>Everyday tools</h3>
+          <p>
+            アプリやガジェットなど、仕事と暮らしを支える道具。機能だけでなく、自分に合う使い方を探すこと。
+          </p>
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
 </html>
+<style>
+  .about {
+    padding-top: 60px;
+  }
+  .about h1 {
+    font: clamp(40px, 6vw, 76px)/1.5 var(--serif);
+    margin: 28px 0 70px;
+  }
+  .bio {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 60px;
+  }
+  .name > span {
+    font: 42px var(--serif);
+  }
+  .dot {
+    color: var(--accent);
+  }
+  .name small {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    margin-top: 14px;
+  }
+  .bio-text p {
+    font-size: 15px;
+    line-height: 2.2;
+    margin-bottom: 26px;
+  }
+  .interests {
+    margin-top: 100px;
+  }
+  .interest {
+    display: grid;
+    grid-template-columns: 40px 1fr 1.5fr;
+    border-bottom: 1px solid var(--line);
+    padding: 30px 0;
+    gap: 24px;
+  }
+  .interest > span {
+    color: var(--accent);
+    font: italic 20px var(--serif);
+  }
+  .interest h3 {
+    font: 30px var(--serif);
+  }
+  .interest p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  @media (max-width: 760px) {
+    .about {
+      padding-top: 35px;
+    }
+    .about h1 {
+      margin-bottom: 40px;
+    }
+    .bio {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+    .interest {
+      grid-template-columns: 25px 1fr;
+    }
+    .interest p {
+      grid-column: 2;
+    }
+    .interests {
+      margin-top: 60px;
+    }
+  }
+</style>
