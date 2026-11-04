@@ -21,7 +21,7 @@ const links = [
         height="36"
         alt=""
       />
-      <span>りゅうのラボ</span>
+      <span class="handwritten-logo">りゅうのラボ</span>
     </a>
     <div class="nav-links">
       {links.map((l) => (
@@ -108,7 +108,7 @@ const links = [
     background: var(--accent);
     border-radius: 2px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 760px) {
     .top-nav {
       height: 74px;
       gap: 8px;
@@ -147,13 +147,13 @@ const links = [
     border: 1px solid #e2e7ee;
     flex-shrink: 0;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 760px) {
     .profile-avatar {
       width: 30px;
       height: 30px;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 760px) {
     .top-nav {
       height: auto;
       min-height: 112px;
@@ -173,6 +173,30 @@ const links = [
     .nav-links a[aria-current]::after {
       left: 20%;
       right: 20%;
+    }
+  }
+  @font-face {
+    font-family: "Yomogi Logo";
+    src: url("/fonts/yomogi-logo.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  .wordmark .handwritten-logo {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 0.035em;
+    line-height: 1.5;
+    transform: rotate(-2deg);
+    white-space: nowrap;
+    max-width: none;
+  }
+  @media (max-width: 760px) {
+    .wordmark .handwritten-logo {
+      font-size: 25px;
+      white-space: nowrap;
+      max-width: none;
     }
   }
 </style>
