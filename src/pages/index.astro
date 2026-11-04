@@ -1,4 +1,5 @@
 ---
+import DrawerAvatar from "../components/DrawerAvatar.astro";
 import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -29,8 +30,6 @@ const posts = (await journalPosts()).slice(0, 3);
             <span>なんかやってます。</span>
           </h1>
           <p class="intro-lead">
-            ソフトウェアと、医学のデータ。
-            <br />
             気になったことを調べ、つくり、記録しています。
           </p>
           <div class="actions">
@@ -62,6 +61,7 @@ const posts = (await journalPosts()).slice(0, 3);
                 <b>ブログ</b>
                 <small>AI・アプリ・自動化・道具</small>
               </span>
+              <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
             <a href="#work" class="drawer drawer-work">
@@ -72,6 +72,7 @@ const posts = (await journalPosts()).slice(0, 3);
                 <b>プロジェクト</b>
                 <small>医学の公開データを使った研究</small>
               </span>
+              <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
             <a href="/youtube/" class="drawer drawer-video">
@@ -82,6 +83,7 @@ const posts = (await journalPosts()).slice(0, 3);
                 <b>YouTube</b>
                 <small>AI・しくみ・研究を動画で</small>
               </span>
+              <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
             <a href="/about/" class="drawer drawer-about">
@@ -92,6 +94,7 @@ const posts = (await journalPosts()).slice(0, 3);
                 <b>プロフィール</b>
                 <small>関心のあること、活動について</small>
               </span>
+              <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
           </div>
@@ -761,8 +764,9 @@ const posts = (await journalPosts()).slice(0, 3);
   }
   .drawer-box .drawer:hover,
   .drawer-box .drawer:focus-visible {
-    transform: translate(-5px, -2px);
-    box-shadow: 5px 7px 0 #303d48;
+    z-index: 3;
+    transform: translate(-9px, 3px);
+    box-shadow: 9px 9px 0 #303d48;
     color: var(--ink);
   }
   .drawer-box .drawer:active {
