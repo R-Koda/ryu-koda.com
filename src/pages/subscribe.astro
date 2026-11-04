@@ -1,0 +1,54 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const feedURL = new URL('/rss.xml', Astro.site).href;
+---
+<!doctype html>
+<html lang="ja">
+<head><BaseHead title="RSSで更新を受け取る | りゅうのらぼ" description="りゅうのらぼのRSS登録方法。配信URLをコピーして、お使いのRSSリーダーに追加すると新しい記事を確認できます。" /></head>
+<body><Header /><main id="main" class="shell subscribe">
+<p class="eyebrow">FOLLOW</p><h1>更新を、まとめてチェック。</h1>
+<p class="lead">RSSリーダーに「りゅうのらぼ」を登録すると、新しい記事のタイトルと概要が届きます。</p>
+<section class="subscription" aria-labelledby="steps-title">
+<h2 id="steps-title">登録は、この3ステップ。</h2>
+<ol>
+<li><h3>配信URLをコピーする</h3><label for="feed-url">りゅうのらぼのRSS配信URL</label><div class="copy-row"><input id="feed-url" type="url" value={feedURL} readonly /><button id="copy-feed" type="button">URLをコピー</button></div><p id="copy-status" role="status" aria-live="polite"></p></li>
+<li><h3>RSSリーダーを開く</h3><p>使っているアプリの「フィードを追加」「購読を追加」などの項目を開きます。まだアプリを使っていない方は、例えば<a href="https://feedly.com/" target="_blank" rel="noopener noreferrer">Feedly（外部サイト・新しいタブ）</a>を利用できます。アカウント登録が必要な場合があります。</p></li>
+<li><h3>URLを貼り付けて、フォローする</h3><p>上でコピーしたURLを貼り付け、「りゅうのらぼ」が表示されたら登録します。Feedlyでは「Follow Sources」からURLを追加し、表示されたフィードをフォローしてください。</p><p>URLのコピーだけでは登録は完了しません。最後の登録操作はRSSリーダー側で行ってください。</p></li>
+</ol>
+<a class="help-link" href="https://docs.feedly.com/article/288-how-to-follow-a-feed-in-your-feedly-account" target="_blank" rel="noopener noreferrer">Feedly公式の登録ガイド（英語・新しいタブ） ↗</a>
+</section>
+<section class="questions" aria-labelledby="questions-title"><h2 id="questions-title">うまくいかないときは</h2>
+<details><summary>文字やコードだけが表示された</summary><p>RSSの配信ファイルをブラウザで開いた状態です。故障ではありません。このページの配信URLをコピーして、RSSリーダーの追加画面に貼り付けてください。</p></details>
+<details><summary>メールで届く？</summary><p>このRSS登録はメール配信ではありません。登録したRSSリーダーで記事を確認します。通知の有無や更新の間隔は、お使いのアプリによって異なります。</p></details>
+<details><summary>登録したのに新しい記事が出てこない</summary><p>登録先が「https://ryu-koda.com/rss.xml」になっているか確認し、アプリで更新してください。アプリの取得間隔によって、新着記事の反映に時間がかかる場合があります。</p></details>
+</section>
+<p class="raw-link">RSSアプリ向け：<a href="/rss.xml">配信ファイル（XML）を開く</a></p>
+<p><a href="/blog/">記事一覧に戻る →</a></p>
+</main><Footer /></body></html>
+<script>
+const input=document.querySelector<HTMLInputElement>('#feed-url')!;
+document.querySelector('#copy-feed')?.addEventListener('click',async()=>{
+ const status=document.querySelector('#copy-status')!;
+ try {await navigator.clipboard.writeText(input.value);status.textContent='URLをコピーしました。次にRSSリーダーへ貼り付けてください。';}
+ catch {input.focus();input.select();status.textContent='URLを選択しました。長押し、またはコピー操作でコピーしてください。';}
+});
+</script>
+<style>
+.subscribe { max-width: 850px; padding-top: 42px; }
+.eyebrow { color: var(--muted); font-size: 12px; }
+h1 { font-size: clamp(25px,4vw,36px); line-height: 1.6; margin: 18px 0; }
+.lead, li p, details p { font-size: 14px; line-height: 1.9; }
+.subscription { margin: 32px 0; padding: 28px; border: 1.5px solid #34434d; border-radius: 10px; box-shadow: 5px 5px 0 #e3edf7; }
+h2 { font-size: 21px; margin: 0 0 20px; } h3 { font-size: 17px; margin: 0 0 12px; }
+ol { padding-left: 24px; } li { padding: 8px 0 24px 8px; } li::marker { font-weight: 700; color: #41638a; }
+label { display: block; font-size: 12px; margin-bottom: 8px; }
+.copy-row { display: flex; gap: 10px; }
+input { min-width: 0; flex: 1; padding: 12px; border: 1px solid #9baab7; border-radius: 5px; font-size: 16px; background: #f8fafc; color: #34434d; }
+button { cursor: pointer; background: #ffedb2; border: 1.5px solid #34434d; border-radius: 5px; padding: 12px; font: inherit; font-size: 14px; box-shadow: 2px 2px 0 #34434d; }
+button:hover { background: #ffe18a; } :focus-visible { outline: 3px solid #416fb1; outline-offset: 3px; }
+#copy-status { font-size: 13px; color: #315c43; } a { text-underline-offset: 4px; } .help-link, .raw-link { font-size: 13px; }
+.questions { margin: 40px 0; } details { border-bottom: 1px solid #d5dce1; padding: 16px 0; } summary { cursor: pointer; font-size: 15px; font-weight: 700; } details p { margin-top: 12px; }
+@media(max-width:600px) { .subscription { padding: 22px 16px; } .copy-row { flex-direction: column; } }
+</style>
