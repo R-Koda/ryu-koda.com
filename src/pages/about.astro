@@ -16,15 +16,9 @@ import ActionLink from "../components/ActionLink.astro";
   <body>
     <Header />
     <main id="main" class="shell about">
-      <span class="eyebrow">ABOUT / RYU KODA</span>
+      <span class="eyebrow">ABOUT</span>
       <h1>プロフィール</h1>
       <div class="bio">
-        <div class="name">
-          <span>
-            Ryu Koda<span class="dot">.</span>
-          </span>
-          <small>SOFTWARE & RESEARCH</small>
-        </div>
         <div class="bio-text">
           <p>
             こんにちは、Ryu Kodaです。
@@ -99,7 +93,8 @@ import ActionLink from "../components/ActionLink.astro";
     border-top: 1px solid var(--line);
     padding-top: 40px;
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: 1fr;
+    max-width: 760px;
     gap: 60px;
   }
   .name > span {
