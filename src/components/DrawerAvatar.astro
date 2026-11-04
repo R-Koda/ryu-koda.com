@@ -12,7 +12,7 @@ const { kind = "about" } = Astro.props;
     <svg class="avatar-prop" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#303d48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       {kind === "work" && <g><rect x="5" y="6" width="30" height="23" rx="3" fill="#d9eaff"/><path d="M2 33h36l-3-4H5z" fill="#fff"/><path class="screen-code" d="m15 13-5 4 5 4m10-8 5 4-5 4m-4-9-3 14"/></g>}
       {kind === "blog" && <g><path d="M5 6h25l5 5v24H5z" fill="#fff0b8"/><path d="M29 6v7h6M10 17h18M10 23h18M10 29h12"/><path class="page-turn" d="M30 25h-8v10z" fill="#fff"/></g>}
-      {kind === "youtube" && <g><rect x="3" y="7" width="34" height="26" rx="7" fill="#eee5fa"/><path class="play-mark" d="m16 13 12 7-12 7z" fill="#fff"/></g>}
+      {kind === "sns" && <g><rect x="3" y="7" width="34" height="26" rx="7" fill="#eee5fa"/><path class="play-mark" d="m16 13 12 7-12 7z" fill="#fff"/></g>}
       {kind === "diary" && <g><path d="M3 32h29" stroke-dasharray="2 4"/><g class="pencil"><path d="m9 26 17-19 7 6-17 19-10 3z" fill="#ffdf83"/><path d="m26 7 3-3q2-2 4 0l3 3q2 2 0 4l-3 2z" fill="#f4b8b4"/><path d="m9 26 7 6-10 3z" fill="#fff"/></g></g>}
     </svg>
   )}
@@ -109,7 +109,7 @@ const { kind = "about" } = Astro.props;
   :global(.drawer:is(:hover, :focus-visible)) .effect-blog .avatar-prop {
     animation: paper-flutter 600ms 750ms ease-in-out 2;
   }
-  :global(.drawer:is(:hover, :focus-visible)) .effect-youtube .drawer-avatar {
+  :global(.drawer:is(:hover, :focus-visible)) .effect-sns .drawer-avatar {
     animation: happy-bounce 700ms 750ms ease-in-out 2;
   }
   :global(.drawer:is(:hover, :focus-visible)) .play-mark {

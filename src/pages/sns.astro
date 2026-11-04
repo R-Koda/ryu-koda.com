@@ -11,21 +11,21 @@ import channels from "../data/youtube.json";
 <html lang="ja">
   <head>
     <BaseHead
-      title="YouTube・動画 | りゅうのらぼ"
-      description="りゅうのらぼの動画制作。AIことばラボ、しくみの裏側、からだの裏側など、テーマごとのYouTubeチャンネルをご紹介します。"
+      title="SNS・発信 | りゅうのらぼ"
+      description="りゅうのらぼのSNSでの発信。AIことばラボ、しくみの裏側、からだの裏側など、テーマごとのSNSアカウントをご紹介します。"
     />
   </head>
   <body>
     <Header />
     <main id="main" class="shell videos">
-      <p class="eyebrow">YOUTUBE</p>
-      <h1>動画のひきだし</h1>
+      <p class="eyebrow">SNS</p>
+      <h1>SNSのひきだし</h1>
       <p class="lead">
-        文章だけでなく、映像でも。
+        文章だけでなく、SNSでも。
         <br />
         AIの使い方、身近なしくみ、研究の話を動画にしています。
       </p>
-      <section class="channel-grid" aria-label="制作しているYouTubeチャンネル">
+      <section class="channel-grid" aria-label="SNSの活動一覧">
         {channels.map((channel, i) => (
           <article class="channel">
             <ChannelSurprise index={i} />
@@ -36,15 +36,15 @@ import channels from "../data/youtube.json";
             <h2>{channel.name}</h2>
             <p>{channel.description}</p>
             <ActionLink href={channel.url} external variant="outline">
-              YouTubeで見る
+              チャンネルを見る
             </ActionLink>
           </article>
         ))}
       </section>
       <div class="video-note">
-        <h2>それぞれのチャンネルで見る</h2>
+        <h2>それぞれのSNSで見る</h2>
         <p>
-          このページでは、制作しているチャンネルをテーマ別にまとめています。視聴できる動画は各チャンネルでご確認ください。
+          このページでは、SNSでの活動をテーマ別にまとめています。現在は動画チャンネルを掲載しています。視聴できる動画は各チャンネルでご確認ください。
         </p>
       </div>
     </main>

@@ -7,5 +7,6 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://ryu-koda.com',
+	redirects: { '/youtube/': '/sns/' },
 	integrations: [mdx(), sitemap()],
 });
