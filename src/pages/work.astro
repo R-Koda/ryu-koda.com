@@ -35,7 +35,13 @@ import ActionLink from "../components/ActionLink.astro";
       <section class="panel research-panel" id="research">
         <span class="genre-number">01</span>
         <h2>研究</h2>
-        <p>医学の公開データを解析し、新しい問いや知見を探る取り組みです。</p>
+        <p>研究室での活動と共同研究に取り組んでいます。現在の研究関連の所属・役職をご紹介します。</p>
+        <dl class="research-affiliations">
+          <div><dt>Brain Modulation Lab</dt><dd class="research-role">Visiting Research Scientist</dd><dd><time datetime="2025-10">2025年10月</time>〜現在</dd></div>
+          <div><dt>MIT Computer Science and Artificial Intelligence Laboratory (CSAIL)</dt><dd class="research-role">External Collaborator（外部共同研究者）</dd><dd><time datetime="2026-04">2026年4月</time>〜現在</dd><dd>Boris Katz教授との共同研究</dd></div>
+          <div><dt>Institute of Development, Aging and Cancer</dt><dd>Department of Clinical Aging Research</dd><dd class="research-role">Senior Engineer</dd><dd><time datetime="2024-10">2024年10月</time>〜現在</dd></div>
+        </dl>
+        <p class="affiliation-source"><a href="https://www.linkedin.com/in/ryu-koda/" target="_blank" rel="noopener noreferrer">LinkedInプロフィール ↗</a>の継続中の職歴に基づきます（2026年11月4日確認）。</p>
 
       </section>
       <section class="panel software-panel" id="software">
@@ -72,6 +78,13 @@ import ActionLink from "../components/ActionLink.astro";
   </body>
 </html>
 <style>
+  .research-affiliations { margin: 24px 0; }
+  .research-affiliations > div { border-top: 1px dashed #bdc9c0; padding: 22px 0; }
+  .research-affiliations dt { font-size: 17px; font-weight: 700; line-height: 1.6; }
+  .research-affiliations dd { margin: 8px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+  .research-affiliations .research-role { color: #344d3d; font-weight: 600; font-size: 14px; }
+  .research-panel .affiliation-source { font-size: 12px; margin-bottom: 0; }
+
   .landing {
     padding-top: 48px;
     max-width: 960px;
