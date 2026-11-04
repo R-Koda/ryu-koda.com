@@ -19,18 +19,34 @@ import ActionLink from "../components/ActionLink.astro";
       <span class="eyebrow">ABOUT</span>
       <h1>プロフィール</h1>
       <div class="bio">
+        <figure class="profile-photo">
+          <img src="/github-avatar.webp" alt="GitHubで使用しているプロフィールアイコン" width="96" height="96" />
+          <figcaption>このらぼの中の人</figcaption>
+        </figure>
         <div class="bio-text">
+          <h2 class="bio-heading">気になったら、まず試してみる。</h2>
           <p>
-            こんにちは、Ryu Kodaです。
-            <br />
-            ソフトウェア開発と医学の公開データ研究を軸に、技術を使って何ができるかを考え、手を動かしています。
+            こんにちは、Ryu Kodaです。「これ、もう少し便利にならないかな」「どういうしくみなんだろう」。そんな小さな疑問から、コードを書いたり、データを眺めたりしています。
           </p>
           <p>
-            このサイトは、個人としての活動をまとめる場所。ブログでは、AIやアプリ、小さな自動化、暮らしの道具について、調べたことや試したことを届けます。
+            関心があるのは、ソフトウェアやAI、医学の公開データ、そして日々の道具。何かをつくることも、使い方を工夫することも好きです。この「りゅうのらぼ」は、その途中で見つけたことを持ち寄る、個人の作業部屋のような場所です。
           </p>
           <p>
-            医学のデータ解析や論文の話は、別のプロジェクト「Solo
-            Researcher」で記録しています。
+            ブログでは、便利だった工夫だけでなく、つまずいたところや、うまくいかなかったことも伝えていきたいと思っています。読んだ方が「自分も試してみようかな」と思える、具体的なヒントを残すのが目標です。
+          </p>
+          <p>
+            医学の研究では、Neuroscience、とくにてんかんや認知症に関心があります。公開データの解析や読んだ論文、研究の過程は、別サイトの「Solo Researcher」にまとめています。
+          </p>
+          <div class="editorial-note">
+            <h3>ここで書くときに、大切にしたいこと</h3>
+            <ul>
+              <li><strong>試したことと、調べたことを分ける。</strong>実際に使った感想と、資料からわかった情報を混ぜずに伝えます。</li>
+              <li><strong>良いところも、気になるところも。</strong>道具や方法が合う場面・合わない場面まで考えます。</li>
+              <li><strong>わからないことは、そのままに。</strong>根拠や参照先を示し、間違いや変化に気づいたら見直していきます。</li>
+            </ul>
+          </div>
+          <p>
+            まだ試行錯誤の途中ですが、その過程も含めて楽しんでもらえたらうれしいです。気になるひきだしから、のぞいてみてください。
           </p>
           <div class="actions">
             <ActionLink href="https://github.com/R-Koda" external>
@@ -93,22 +109,43 @@ import ActionLink from "../components/ActionLink.astro";
     border-top: 1px solid var(--line);
     padding-top: 40px;
     display: grid;
-    grid-template-columns: 1fr;
-    max-width: 760px;
-    gap: 60px;
+    grid-template-columns: 150px minmax(0, 1fr);
+    max-width: 940px;
+    gap: 45px;
+    align-items: start;
   }
-  .name > span {
-    font: 42px var(--serif);
+  .profile-photo {
+    position: relative;
+    margin: 5px 0 0;
+    padding: 18px 12px 13px;
+    background: #fffdf7;
+    border: 1.5px solid #303d48;
+    border-radius: 4px 7px 4px 5px;
+    box-shadow: 4px 5px 0 #e7e6df;
+    transform: rotate(-3deg);
+    text-align: center;
+    width: 150px;
+    box-sizing: border-box;
   }
-  .dot {
-    color: var(--accent);
+  .profile-photo::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 14px;
+    top: -8px;
+    left: 48px;
+    background: #ffe9a4;
+    border: 1px solid #303d4820;
+    transform: rotate(5deg);
   }
-  .name small {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    margin-top: 14px;
-  }
+  .profile-photo img { display: block; width: 96px; height: 96px; margin: 0 auto; border-radius: 7px; }
+  .profile-photo figcaption { font-size: 10px; margin-top: 12px; color: var(--muted); }
+  .bio-heading { font-size: 21px; line-height: 1.7; margin: 0 0 20px; }
+  .editorial-note { background: #f7f5eb; border-left: 4px solid #d9bf6d; border-radius: 3px 8px 8px 3px; padding: 20px 24px; margin: 30px 0; }
+  .editorial-note h3 { font-size: 15px; margin: 0 0 16px; }
+  .editorial-note ul { padding-left: 20px; margin: 0; }
+  .editorial-note li { font-size: 13px; line-height: 1.9; margin: 12px 0; }
+  .editorial-note strong { display: block; }
   .bio-text p {
     font-size: 15px;
     line-height: 2.2;
