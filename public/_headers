@@ -1,0 +1,8 @@
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+/fonts/*
+  Cache-Control: public, max-age=604800
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:deployment.:project.pages.dev/*
+  X-Robots-Tag: noindex

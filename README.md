@@ -60,3 +60,30 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 ## Credit
 
 This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+## 本番公開（Cloudflare Pages）
+
+- 本番: https://ryu-koda.com
+- Pages プロジェクト: `ryu-koda`
+- 配信元: https://ryu-koda.pages.dev
+- ソース管理: GitHub の `main`
+
+Cloudflare にログイン済みの環境で `npm run deploy` を実行します。
+`dist/` のみをアップロードし、ソースや下書きは公開しません。
+現在は直接アップロード方式で、GitHub push による自動公開は行いません。
+旧 `/sitemap.xml` は `/sitemap-index.xml` へ転送します。
+旧 `/youtube/` は `/work/#youtube` へ301転送します。
+
+## SEOと公開前チェック
+
+`npm run build && python3 scripts/check-seo.py` でタイトル、説明文、canonical、OG URL、JSON-LD、内部リンク、目次リンク、サイトマップを検査します。GitHubでもpush/PR時に実行します。
+
+- `src/lib/seo.mjs`: サンプル・準備中ページのnoindexとサイトマップ除外を一元管理。SNS・日記・お問い合わせの公開内容が揃ったら対象から外します。
+- 本番正規URLは `https://ryu-koda.com/`。Cloudflareのシングルリダイレクトでwwwを301転送します（パス・クエリを維持）。
+- PagesのプレビューURLはX-Robots-Tagでnoindex、本番はインデックス可能です。
+- Google Search Consoleは個人アカウントでDNS所有権確認済み。確認用TXTを削除しないでください。
+- 記事の公開日をSEO目的だけで変更しないこと。更新日は内容を実際に見直した日を記録します。
+- 既存記事の価格・製品仕様・実体験・根拠の全面再検証は別途必要です。構造化データの追加だけで内容の正確性を保証しません。
+- 被リンクや紹介は実際の価値に基づいて獲得し、自動投稿やリンク購入は行いません。
+
+参考: https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ja

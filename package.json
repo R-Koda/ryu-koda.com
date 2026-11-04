@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "deploy": "npm run build && npx --yes wrangler pages deploy dist --project-name ryu-koda --branch main"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.0",

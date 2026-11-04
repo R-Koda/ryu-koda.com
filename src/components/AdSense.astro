@@ -18,7 +18,7 @@ const AD_CLIENT = '';
 const isAdEnabled = AD_CLIENT !== '' && adSlot !== '';
 ---
 
-<div class={`ad-container ${className}`} style={style}>
+{isAdEnabled && <div class={`ad-container ${className}`} style={style}>
 	{isAdEnabled ? (
 		<ins
 			class="adsbygoogle"
@@ -33,7 +33,7 @@ const isAdEnabled = AD_CLIENT !== '' && adSlot !== '';
 			<span>Advertisement</span>
 		</div>
 	)}
-</div>
+</div>}
 
 <style>
 	.ad-container {

@@ -1,11 +1,5 @@
 import { getCollection } from "astro:content";
-const samples = new Set([
-  "first-post",
-  "second-post",
-  "third-post",
-  "markdown-style-guide",
-  "using-mdx",
-]);
+import { sampleSlugs as samples } from "./seo.mjs";
 export async function journalPosts() {
   return (await getCollection("blog"))
     .filter((p) => !samples.has(p.id))
