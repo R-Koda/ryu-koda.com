@@ -1,5 +1,4 @@
 ---
-import RoomDoors from "../components/RoomDoors.astro";
 import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -48,7 +47,55 @@ const posts = (await journalPosts()).slice(0, 3);
           </div>
           <LabToys position="bottom" />
         </div>
-        <RoomDoors />
+        <aside class="index" aria-label="らぼのひきだし">
+          <div class="drawer-caption">
+            <span>りゅうのらぼ</span>
+            <b>らぼのひきだし</b>
+            <small>気になるところから、どうぞ。</small>
+          </div>
+          <div class="drawer-box">
+            <a href="#journal" class="drawer drawer-journal">
+              <span class="drawer-number" aria-hidden="true">
+                01
+              </span>
+              <span class="drawer-label">
+                <b>ブログ</b>
+                <small>AI・アプリ・自動化・道具</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="#work" class="drawer drawer-work">
+              <span class="drawer-number" aria-hidden="true">
+                02
+              </span>
+              <span class="drawer-label">
+                <b>プロジェクト</b>
+                <small>医学の公開データを使った研究</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/youtube/" class="drawer drawer-video">
+              <span class="drawer-number" aria-hidden="true">
+                03
+              </span>
+              <span class="drawer-label">
+                <b>YouTube</b>
+                <small>AI・しくみ・研究を動画で</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/about/" class="drawer drawer-about">
+              <span class="drawer-number" aria-hidden="true">
+                04
+              </span>
+              <span class="drawer-label">
+                <b>プロフィール</b>
+                <small>関心のあること、活動について</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+          </div>
+        </aside>
       </section>
       <section id="journal" class="content-section">
         <div class="section-heading">
