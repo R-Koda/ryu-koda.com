@@ -13,16 +13,13 @@ const links = [
 <header class="site-header">
   <nav class="shell top-nav" aria-label="メインナビゲーション">
     <a href="/" class="wordmark" aria-label="ホーム">
-      <span class="site-symbol" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path
-            d="M6 4h9l4 4v12H6zM14 4v5h5M9 12h7M9 15h5"
-            stroke="currentColor"
-            stroke-width="1.4"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </span>
+      <img
+        class="profile-avatar"
+        src="/github-avatar.webp"
+        width="36"
+        height="36"
+        alt=""
+      />
       <span>ノートと活動</span>
     </a>
     <div class="nav-links">
@@ -69,21 +66,6 @@ const links = [
     font-weight: 700;
     letter-spacing: 0.03em;
     white-space: nowrap;
-  }
-  .site-symbol {
-    width: 36px;
-    height: 40px;
-    border: 1px solid #bdcde2;
-    border-radius: 5px;
-    background: #f1f5fb;
-    color: var(--accent);
-    display: grid;
-    place-items: center;
-    box-shadow: 2px 2px 0 #e4ebf5;
-  }
-  .site-symbol svg {
-    width: 25px;
-    height: 25px;
   }
   .nav-links {
     display: flex;
@@ -134,13 +116,6 @@ const links = [
       font-size: 12px;
       gap: 7px;
     }
-    .site-symbol {
-      width: 27px;
-      height: 32px;
-    }
-    .site-symbol svg {
-      width: 21px;
-    }
     .nav-links {
       gap: 2px;
     }
@@ -161,6 +136,20 @@ const links = [
       max-width: 48px;
       white-space: normal;
       line-height: 1.5;
+    }
+  }
+  .profile-avatar {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #e2e7ee;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .profile-avatar {
+      width: 30px;
+      height: 30px;
     }
   }
 </style>
