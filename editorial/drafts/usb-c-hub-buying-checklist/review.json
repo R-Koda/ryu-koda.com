@@ -1,0 +1,28 @@
+{
+  "status": "awaiting_user_review",
+  "title": "USB-Cハブの選び方｜「映らない・充電できない」を防ぐ5つの確認ポイント",
+  "checkedDate": "2026-11-04",
+  "handsOnTested": false,
+  "userApproved": false,
+  "published": false,
+  "audience": "USB-Cハブの購入を検討する一般読者",
+  "searchIntent": [
+    "USB-C ハブ 選び方",
+    "USB-C ハブ 映らない",
+    "USB-C ハブ 充電できない"
+  ],
+  "monetizationHypothesis": "購入前の疑問を解消する記事を入口に、将来の実機比較・適合製品紹介へ接続。検索量・順位・CV・収益は未測定。",
+  "sources": [
+    "https://www.anker.com/blogs/hubs-and-docks/how-to-choose-the-right-usb-c-hub",
+    "https://www.ankerjapan.com/products/a8356",
+    "https://service.anker.com/article-description/Anker-556-USB-C-Hub-8-in-1-USB4-FAQ",
+    "https://support.apple.com/ja-jp/102555"
+  ],
+  "reviewNotes": [
+    "メーカー公式の仕様に限定。価格、実測速度、発熱、安定性を創作していない。",
+    "一般的なDP Alt Modeハブを対象とし、DisplayLinkなど特殊方式の網羅的解説ではない。",
+    "実機写真・検証環境が得られたら追加。UIや製品写真を捏造しない。",
+    "広告プログラム未設定。収益の保証や最強ランキングをしない。",
+    "公開前にユーザーがテーマと本文を確認。通常リンクを広告へ変更した場合は表示も更新。"
+  ]
+}
