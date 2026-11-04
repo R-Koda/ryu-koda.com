@@ -1,0 +1,9 @@
+[
+ {"slug":"powerrename-first-steps","title":"大量のファイル名をまとめて変える：PowerRenameのはじめ方","category":"小さな自動化","sources":["https://raw.githubusercontent.com/microsoft/PowerToys/main/README.md","https://learn.microsoft.com/en-us/windows/powertoys/powerrename"]},
+ {"slug":"keepassxc-password-basics","title":"パスワードを整理する前に知っておきたいこと：KeePassXC入門","category":"アプリと道具","sources":["https://raw.githubusercontent.com/keepassxreboot/keepassxc/develop/README.md"]},
+ {"slug":"obs-screen-recording","title":"画面を録画して説明を伝える：OBS Studioの基本","category":"アプリと道具","sources":["https://raw.githubusercontent.com/obsproject/obs-studio/master/README.rst","https://obsproject.com/kb/quick-start-guide"]},
+ {"slug":"blog-draft-review-workflow","title":"ブログの下書きをAIに手伝ってもらうとき、人が確認すること","category":"作ったものの裏側","sources":["https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests"]},
+ {"slug":"powertoys-text-extractor","title":"画像の文字をコピーしたい：Text Extractorでできること","category":"小さな自動化","sources":["https://learn.microsoft.com/en-us/windows/powertoys/text-extractor"]},
+ {"slug":"usb-c-cable-basics","title":"USB-Cケーブルはどれも同じ？購入前に確認したいポイント","category":"ガジェット","sources":["https://www.usb.org/usb-charger-pd"],"status":"needs_sources"},
+ {"slug":"desk-hub-checklist","title":"USBハブを選ぶ前に、机の上の機器を整理してみる","category":"ガジェット","sources":[],"status":"needs_sources"}
+]
