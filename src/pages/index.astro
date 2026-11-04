@@ -56,7 +56,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <a href="/blog/" class="drawer drawer-journal">
               <span class="drawer-number" aria-hidden="true">01</span>
               <span class="drawer-label">
-                <b>ブログ</b>
+                <b><span lang="en">Journal</span><span class="drawer-ja">ブログ</span></b>
                 <small>AI・アプリ・自動化・道具</small>
               </span>
               <DrawerAvatar />
@@ -65,7 +65,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <a href="/youtube/" class="drawer drawer-video">
               <span class="drawer-number" aria-hidden="true">02</span>
               <span class="drawer-label">
-                <b>YouTube</b>
+                <b><span lang="en">YouTube</span><span class="drawer-ja">動画</span></b>
                 <small>AI・しくみ・研究を動画で</small>
               </span>
               <DrawerAvatar />
@@ -74,7 +74,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <a href="#work" class="drawer drawer-research">
               <span class="drawer-number" aria-hidden="true">03</span>
               <span class="drawer-label">
-                <b>研究</b>
+                <b><span lang="en">Research</span><span class="drawer-ja">研究</span></b>
                 <small>医学の公開データを使った研究</small>
               </span>
               <DrawerAvatar />
@@ -83,7 +83,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <a href="/work/" class="drawer drawer-work">
               <span class="drawer-number" aria-hidden="true">04</span>
               <span class="drawer-label">
-                <b>おしごと</b>
+                <b><span lang="en">Work</span><span class="drawer-ja">おしごと</span></b>
                 <small>つくっているもの・取り組み</small>
               </span>
               <DrawerAvatar />
@@ -92,7 +92,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <a href="/diary/" class="drawer drawer-diary">
               <span class="drawer-number" aria-hidden="true">05</span>
               <span class="drawer-label">
-                <b>日記</b>
+                <b><span lang="en">Diary</span><span class="drawer-ja">日記</span></b>
                 <small>日々のこと、気づいたこと</small>
               </span>
               <DrawerAvatar />
@@ -747,6 +747,25 @@ const posts = (await journalPosts()).slice(0, 3);
     border-radius: 2px;
     padding: 1px 8px !important;
     font-size: 13px !important;
+  }
+  .drawer-label > b {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 76px;
+    padding: 3px 10px !important;
+    line-height: 1.35;
+  }
+  .drawer-label > b > span[lang="en"] {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .drawer-ja {
+    font-size: 9px;
+    font-weight: 400;
+    color: #4a555d;
+    margin-top: 2px;
   }
   .drawer-label > small {
     font-size: 10px;
