@@ -1,207 +1,395 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
+import { navigation } from "../data/navigation";
+const path = Astro.url.pathname;
+const links = navigation;
 ---
 
-<header>
-	<nav>
-		<p class="site-title"><a href="/">{SITE_TITLE}</a></p>
-		<button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
-			<span class="hamburger-line"></span>
-			<span class="hamburger-line"></span>
-			<span class="hamburger-line"></span>
-		</button>
-		<div class="nav-content">
-			<div class="internal-links">
-				<HeaderLink href="/">Home</HeaderLink>
-				<HeaderLink href="/blog">Blog</HeaderLink>
-				<HeaderLink href="/about">About</HeaderLink>
-			</div>
-			<div class="social-links">
-				<a href="https://github.com/ryukoda" target="_blank" rel="noopener noreferrer">
-					<span class="sr-only">GitHub</span>
-					<svg viewBox="0 0 16 16" aria-hidden="true" width="20" height="20"
-						><path
-							fill="currentColor"
-							d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-						></path></svg
-					>
-				</a>
-			</div>
-		</div>
-	</nav>
+<a class="skip-link" href="#main">
+  本文へ移動
+</a>
+<header class="site-header">
+  <nav class="shell top-nav" aria-label="メインナビゲーション">
+    <a href="/" class="wordmark" aria-label="ホーム">
+      <span class="handwritten-logo">りゅうのらぼ</span>
+    </a>
+    <div class="nav-links">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          style={`--tab: ${l.color}`}
+          aria-current={
+            (l.href === "/" ? path === "/" : path.startsWith(l.href))
+              ? "page"
+              : undefined
+          }
+        >
+          <span>{l.label}</span>
+          <small>{l.ja}</small>
+        </a>
+      ))}
+    </div>
+  </nav>
 </header>
-
-<script>
-	document.addEventListener('astro:page-load', () => {
-		const hamburger = document.querySelector('.hamburger');
-		const navContent = document.querySelector('.nav-content');
-		if (!hamburger || !navContent) return;
-
-		hamburger.addEventListener('click', () => {
-			const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-			hamburger.setAttribute('aria-expanded', String(!isOpen));
-			navContent.classList.toggle('is-open');
-			hamburger.classList.toggle('is-open');
-		});
-
-		// Close menu when a link is clicked
-		navContent.querySelectorAll('a').forEach((link) => {
-			link.addEventListener('click', () => {
-				navContent.classList.remove('is-open');
-				hamburger.classList.remove('is-open');
-				hamburger.setAttribute('aria-expanded', 'false');
-			});
-		});
-	});
-</script>
-
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: #ffffff;
-		border-bottom: 1px solid var(--border-color);
-		position: sticky;
-		top: 0;
-		z-index: 100;
-	}
-	.site-title {
-		margin: 0;
-		font-size: 0.95em;
-		font-weight: 500;
-		letter-spacing: -0.01em;
-	}
-	.site-title a,
-	.site-title a.active {
-		text-decoration: none;
-		color: rgb(var(--black));
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		max-width: 960px;
-		margin: 0 auto;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: rgb(var(--gray));
-		text-decoration: none;
-		font-size: 0.9em;
-		transition: color 0.15s ease;
-	}
-	nav a:hover {
-		color: rgb(var(--black));
-	}
-	nav a.active {
-		text-decoration: none;
-		color: rgb(var(--black));
-		font-weight: 500;
-	}
-
-	/* Hamburger button */
-	.hamburger {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 5px;
-		width: 44px;
-		height: 44px;
-		padding: 8px;
-		background: none;
-		border: none;
-		cursor: pointer;
-		z-index: 101;
-	}
-	.hamburger-line {
-		display: block;
-		width: 20px;
-		height: 1.5px;
-		background-color: rgb(var(--gray-dark));
-		transition: transform 0.3s ease, opacity 0.3s ease;
-	}
-	.hamburger.is-open .hamburger-line:nth-child(1) {
-		transform: translateY(6.5px) rotate(45deg);
-	}
-	.hamburger.is-open .hamburger-line:nth-child(2) {
-		opacity: 0;
-	}
-	.hamburger.is-open .hamburger-line:nth-child(3) {
-		transform: translateY(-6.5px) rotate(-45deg);
-	}
-
-	/* Mobile nav content */
-	.nav-content {
-		display: none;
-		width: 100%;
-		flex-direction: column;
-		align-items: center;
-		padding-bottom: 1em;
-		border-top: 1px solid var(--border-color);
-	}
-	.nav-content.is-open {
-		display: flex;
-	}
-	.internal-links {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		width: 100%;
-	}
-	.internal-links :global(a) {
-		display: block;
-		width: 100%;
-		text-align: center;
-		padding: 0.75em 0.5em;
-		min-height: 44px;
-		line-height: 44px;
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-		justify-content: center;
-	}
-	.social-links {
-		margin-top: 0.5em;
-	}
-	.social-links a {
-		min-height: 44px;
-		min-width: 44px;
-		align-items: center;
-		justify-content: center;
-		color: rgb(var(--gray));
-	}
-	.social-links a:hover {
-		color: rgb(var(--black));
-	}
-
-	/* Tablet and up (768px) */
-	@media (min-width: 768px) {
-		.hamburger {
-			display: none;
-		}
-		.nav-content {
-			display: flex;
-			width: auto;
-			flex-direction: row;
-			align-items: center;
-			padding-bottom: 0;
-			gap: 0.25em;
-			border-top: none;
-		}
-		.internal-links {
-			flex-direction: row;
-			width: auto;
-		}
-		.internal-links :global(a) {
-			width: auto;
-			line-height: normal;
-		}
-		.social-links {
-			margin-top: 0;
-		}
-	}
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: #fffffff5;
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid #e5e9ef;
+    box-shadow: 0 3px 12px #243b5305;
+    backdrop-filter: blur(12px);
+  }
+  .top-nav {
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  .nav-links a {
+    position: relative;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 54px;
+    padding: 8px 17px;
+    border-radius: 5px;
+    font-size: 13px;
+    transition:
+      background 0.18s,
+      color 0.18s;
+  }
+  .nav-links small {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .nav-links a:hover {
+    background: #f5f7fa;
+  }
+  .nav-links a[aria-current] {
+    background: #eef3fa;
+    color: var(--accent);
+  }
+  .nav-links a[aria-current]::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    left: 17px;
+    right: 17px;
+    bottom: 6px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  @media (max-width: 760px) {
+    .top-nav {
+      height: 74px;
+      gap: 8px;
+    }
+    .wordmark {
+      font-size: 12px;
+      gap: 7px;
+    }
+    .nav-links {
+      gap: 2px;
+    }
+    .nav-links a {
+      padding: 7px 8px;
+      font-size: 12px;
+    }
+    .nav-links small {
+      font-size: 8px;
+    }
+    .nav-links a[aria-current]::after {
+      left: 8px;
+      right: 8px;
+    }
+  }
+  @media (max-width: 360px) {
+    .wordmark > span:last-child {
+      max-width: 48px;
+      white-space: normal;
+      line-height: 1.5;
+    }
+  }
+  .profile-avatar {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #e2e7ee;
+    flex-shrink: 0;
+  }
+  @media (max-width: 760px) {
+    .profile-avatar {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  @media (max-width: 760px) {
+    .top-nav {
+      height: auto;
+      min-height: 112px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 8px;
+      gap: 6px;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .nav-links a {
+      flex: 1;
+      align-items: center;
+    }
+    .nav-links a[aria-current]::after {
+      left: 20%;
+      right: 20%;
+    }
+  }
+  @font-face {
+    font-family: "Yomogi Logo";
+    src: url("/fonts/yomogi-navigation.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  .wordmark .handwritten-logo {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: 0.035em;
+    line-height: 1.5;
+    transform: rotate(-2deg);
+    white-space: nowrap;
+    max-width: none;
+  }
+  @media (max-width: 760px) {
+    .wordmark .handwritten-logo {
+      font-size: 25px;
+      white-space: nowrap;
+      max-width: none;
+    }
+  }
+  /* Paper tabs on the edge of the toy box. */
+  .site-header {
+    border-top: 0;
+    border-bottom: 2px solid #303d48;
+    box-shadow: none;
+    background: #fff;
+  }
+  .top-nav {
+    align-items: center;
+    height: 96px;
+  }
+  .wordmark {
+    position: relative;
+    padding: 0 8px;
+  }
+  .wordmark::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    right: 5px;
+    bottom: 5px;
+    height: 7px;
+    background: #ffe493;
+    z-index: -1;
+    transform: rotate(-2deg);
+    border-radius: 40% 25% 35% 20%;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-links a {
+    --tab: #eaf2ff;
+    border: 1.5px solid #303d48;
+    background: var(--tab);
+    box-shadow: 2px 3px 0 #303d48;
+    border-radius: 8px 8px 3px 3px;
+    transform: rotate(-2deg);
+    min-width: 90px;
+    align-items: center;
+    transition:
+      transform 0.18s,
+      box-shadow 0.18s;
+  }
+  .nav-links a:nth-child(2) {
+    --tab: #fff0b8;
+    transform: rotate(2deg);
+  }
+  .nav-links a:nth-child(3) {
+    --tab: #fce3db;
+    transform: rotate(-1deg);
+  }
+  .nav-links a:nth-child(4) {
+    --tab: #e3f1e7;
+    transform: rotate(2deg);
+  }
+  .nav-links a:hover {
+    background: var(--tab);
+    transform: translateY(-3px) rotate(0);
+    box-shadow: 3px 5px 0 #303d48;
+  }
+  .nav-links a[aria-current] {
+    background: var(--tab);
+    color: #202f3e;
+    box-shadow: 1px 1px 0 #303d48;
+    transform: translateY(2px) rotate(0);
+  }
+  .nav-links a[aria-current]::after {
+    height: 2px;
+    background: #303d48;
+    bottom: 6px;
+  }
+  .nav-links small {
+    color: #4f5962;
+  }
+  @media (max-width: 760px) {
+    .top-nav {
+      height: auto;
+      padding: 16px 0 12px;
+      gap: 15px;
+    }
+    .nav-links {
+      gap: 8px;
+    }
+    .nav-links a {
+      min-width: 0;
+      padding: 7px 4px;
+      font-size: 12px;
+    }
+    .nav-links small {
+      font-size: 8px;
+    }
+    .wordmark .handwritten-logo {
+      font-size: 27px;
+    }
+  }
+  .nav-links a > span {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 19px;
+    line-height: 1.35;
+  }
+  .nav-links a:nth-child(3) {
+    --tab: #eee5fa;
+  }
+  .nav-links a:nth-child(4) {
+    --tab: #fce3db;
+  }
+  .nav-links a:nth-child(5) {
+    --tab: #e3f1e7;
+    transform: rotate(-1deg);
+  }
+  @media (max-width: 900px) {
+    .nav-links {
+      gap: 7px;
+    }
+    .nav-links a {
+      min-width: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  @media (max-width: 760px) {
+    .nav-links {
+      gap: 6px;
+    }
+    .nav-links a {
+      padding: 7px 2px;
+    }
+    .nav-links a > span {
+      font-size: 15px;
+    }
+    .nav-links small {
+      font-size: 8px;
+      white-space: nowrap;
+    }
+  }
+  .nav-links a {
+    min-width: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .nav-links a:nth-child(2) {
+    --tab: #fce3db;
+  }
+  .nav-links a:nth-child(3) {
+    --tab: #e3f1e7;
+  }
+  .nav-links a:nth-child(4) {
+    --tab: #fff0b8;
+  }
+  .nav-links a:nth-child(5) {
+    --tab: #eee5fa;
+  }
+  .nav-links a:nth-child(6) {
+    --tab: #fce9c8;
+    transform: rotate(1deg);
+  }
+  .nav-links a:nth-child(7) {
+    --tab: #e3f1e7;
+    transform: rotate(-1deg);
+  }
+  .nav-links a:last-child > span {
+    font-size: 16px;
+  }
+  @media (max-width: 1100px) {
+    .top-nav {
+      height: auto;
+      min-height: 112px;
+      flex-wrap: wrap;
+      padding-top: 14px;
+      padding-bottom: 12px;
+      gap: 14px;
+    }
+    .nav-links {
+      width: 100%;
+      justify-content: space-between;
+    }
+    .nav-links a {
+      flex: 1;
+      align-items: center;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  @media (max-width: 600px) {
+    .nav-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .nav-links a {
+      min-height: 49px;
+      padding: 6px 3px;
+    }
+    .nav-links a:last-child {
+      grid-column: 3 / span 2;
+    }
+    .nav-links a > span {
+      font-size: 17px;
+    }
+    .nav-links a:last-child > span {
+      font-size: 17px;
+    }
+  }
 </style>

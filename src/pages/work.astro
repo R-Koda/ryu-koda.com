@@ -1,0 +1,161 @@
+---
+import YouTubeChannels from "../components/YouTubeChannels.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ActionLink from "../components/ActionLink.astro";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title="Work・お仕事 | りゅうのらぼ"
+      description="りゅうのらぼの取り組み。ソフトウェア開発、医学の公開データ研究、動画制作について。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell landing">
+      <p class="eyebrow">WORK</p>
+      <h1>
+        Work<span>お仕事</span>
+      </h1>
+      <p class="lead">
+        開発と研究、コンテンツづくり。
+        <br />
+        現在の取り組みと、ご相談の窓口をまとめています。
+      </p>
+      <nav class="work-genres" aria-label="お仕事のジャンル">
+        <a href="#research">01 研究</a>
+        <a href="#software">02 ソフトウェア開発</a>
+        <a href="#writing">03 ブログ作成</a>
+        <a href="#media">04 SNS・動画制作</a>
+      </nav>
+      <section class="panel research-panel" id="research">
+        <span class="genre-number">01</span>
+        <h2>研究</h2>
+        <p>医学の公開データを解析し、新しい問いや知見を探る取り組みです。</p>
+
+      </section>
+      <section class="panel software-panel" id="software">
+        <span class="genre-number">02</span>
+        <h2>ソフトウェア開発</h2>
+        <p>Webサイトやアプリケーション、小さな作業の自動化など。技術を使って、日々の不便を少しずつ解決するものづくりに取り組んでいます。</p>
+        <ActionLink href="https://github.com/R-Koda" external variant="outline">GitHubを見る</ActionLink>
+      </section>
+      <section class="panel writing-panel" id="writing">
+        <span class="genre-number">03</span>
+        <h2>ブログ作成</h2>
+        <h3>りゅうのらぼ</h3>
+        <p>AIやアプリ、自動化、日々の道具について、調べたことや試したことを記事にしています。実体験と資料から得た情報を区別し、読者が試せる具体的なヒントを届けます。</p>
+        <ActionLink href="/blog/" variant="outline">ブログを読む</ActionLink>
+        <h3>Solo Researcher</h3>
+        <p>ブログ作成・運営の一環として取り組んでいる、医学の公開データをテーマにしたブログです。医学の公開データを使った研究の過程と、解説記事・論文紹介・データ紹介・研究日誌を掲載しています。</p>
+        <ActionLink href="https://solo-researcher.com/" external variant="outline">Solo Researcherを見る</ActionLink>
+      </section>
+      <section class="panel media-panel" id="media">
+        <span class="genre-number">04</span>
+        <h2>SNS・動画制作</h2>
+        <p>テーマに合わせたコンテンツの企画・制作と、発信の場づくりに取り組んでいます。</p>
+        <h3 id="youtube">YouTube運用</h3>
+        <p>現在運用しているチャンネルです。AIの活用、身近なしくみ、研究などを題材に動画を制作しています。</p>
+        <YouTubeChannels />
+      </section>
+      <aside class="work-contact" aria-labelledby="work-contact-title">
+        <h2 id="work-contact-title">お仕事のご相談</h2>
+        <p>制作のご相談や、レビュー・取材のご依頼については、お問い合わせページをご覧ください。現在、受付窓口を準備しています。</p>
+        <ActionLink href="/contact/" variant="outline">お問い合わせ</ActionLink>
+      </aside>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .landing {
+    padding-top: 48px;
+    max-width: 960px;
+  }
+  .eyebrow {
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+  h1 span {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 16px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 2;
+    margin-bottom: 35px;
+  }
+  .panel {
+    border: 1.5px solid #303d48;
+    border-top: 7px solid #dcebdc;
+    box-shadow: 4px 4px 0 #e5e8ee;
+    border-radius: 5px 10px 8px 5px;
+    padding: 30px;
+    margin: 28px 0;
+  }
+  .panel h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .panel p {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .work-genres { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .work-genres a { color: #303d48; text-decoration: none; background: #fff; border: 1px solid #303d48; border-radius: 4px; padding: 12px 14px; font-size: 12px; box-shadow: 2px 3px 0 #e5e8ee; }
+  .work-genres a:nth-child(1) { background: #e3f1e7; }
+  .work-genres a:nth-child(2) { background: #eaf2ff; }
+  .work-genres a:nth-child(3) { background: #fff0b8; }
+  .work-genres a:nth-child(4) { background: #eee5fa; }
+  .work-genres a:is(:hover, :focus-visible) { outline: 2px solid #41669b; outline-offset: 3px; }
+  .software-panel { border-top-color: #c7dbf4; }
+  .writing-panel { border-top-color: #ffe9a4; }
+  .media-panel { border-top-color: #ddd0ef; }
+  .genre-number { display: block; font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .panel h3 { font-size: 17px; margin: 26px 0 12px; }
+  .panel, #youtube { scroll-margin-top: 150px; }
+  .work-contact { border-top: 1px dashed #aeb5bc; margin-top: 44px; padding-top: 26px; }
+  .work-contact h2 { font-size: 19px; margin-bottom: 14px; }
+  .work-contact p { font-size: 14px; color: var(--muted); line-height: 2; margin-bottom: 20px; }
+  .note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 2;
+  }
+  .diary-panel {
+    border-top-color: #f5deae;
+  }
+  .badge {
+    display: inline-block;
+    background: #fff0cc;
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 600px) {
+    .landing {
+      padding-top: 30px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    .panel {
+      padding: 24px 20px;
+    }
+  }
+</style>

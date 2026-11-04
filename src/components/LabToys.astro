@@ -1,0 +1,451 @@
+---
+interface Props {
+  position: "top" | "bottom";
+}
+const { position } = Astro.props;
+---
+
+<div class:list={["lab-toys", `toys-${position}`]} aria-hidden="true">
+  {position === "top" ? (
+    <svg viewBox="0 0 560 130" fill="none">
+      <path d="M10 116h540" stroke="#d3d9de" stroke-dasharray="3 7" />
+      <g class="notebook">
+        <rect
+          x="20"
+          y="22"
+          width="96"
+          height="82"
+          rx="6"
+          fill="#dfece4"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M37 23v80M48 48h49M48 61h41M48 74h46"
+          stroke="#82988c"
+          stroke-width="1.5"
+        />
+        <path
+          d="M28 18v12m0 13v12m0 13v12m0 13v12"
+          stroke="#354550"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+        <path
+          d="m79 30 9-9 7 9-8 9z"
+          fill="#ffe28c"
+          stroke="#354550"
+          stroke-width="1.5"
+        />
+      </g>
+      <g class="keyboard">
+        <rect
+          x="177"
+          y="45"
+          width="207"
+          height="65"
+          rx="8"
+          fill="#e2eafa"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        {[0, 1, 2].map((row) =>
+          Array.from({ length: 10 }, (_, col) => (
+            <rect
+              class="keycap"
+              style={`--delay:${(row * 10 + col) * 35}ms`}
+              x={188 + col * 18}
+              y={54 + row * 14}
+              width="13"
+              height="9"
+              rx="2"
+              fill={row === 1 && col === 4 ? "#ffe18e" : "#fff"}
+              stroke="#96a8bf"
+              stroke-width="1"
+            />
+          )),
+        )}
+        <rect
+          x="224"
+          y="98"
+          width="108"
+          height="6"
+          rx="2"
+          fill="#fff"
+          stroke="#96a8bf"
+        />
+        <rect
+          class="active-key"
+          x="260"
+          y="68"
+          width="13"
+          height="9"
+          rx="2"
+          fill="#f4ce72"
+        />
+      </g>
+      <g class="mouse">
+        <path
+          d="M470 42v-9q0-15 16-15t17-12"
+          stroke="#94a3ad"
+          stroke-width="2"
+        />
+        <rect
+          x="447"
+          y="43"
+          width="49"
+          height="67"
+          rx="24"
+          fill="#f7e2b0"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path d="M471 44v29m-24 0h49" stroke="#354550" stroke-width="1.5" />
+        <rect
+          x="468"
+          y="55"
+          width="6"
+          height="12"
+          rx="3"
+          fill="#fff"
+          stroke="#354550"
+        />
+      </g>
+    </svg>
+  ) : (
+    <svg viewBox="0 0 560 140" fill="none">
+      <path d="M12 123h535" stroke="#d3d9de" stroke-dasharray="3 7" />
+      <g class="code-screen">
+        <rect
+          x="21"
+          y="29"
+          width="143"
+          height="82"
+          rx="6"
+          fill="#e3eee6"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path d="M21 47h143" stroke="#354550" stroke-width="1.5" />
+        <circle cx="33" cy="38" r="2" fill="#d49386" />
+        <circle cx="42" cy="38" r="2" fill="#dbbc64" />
+        <circle cx="51" cy="38" r="2" fill="#8eae98" />
+        <path
+          class="code-glyph"
+          d="m62 64-12 12 12 12m57-24 12 12-12 12m-22-29-10 34"
+          stroke="#527267"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="m15 112-8 11h172l-9-11"
+          fill="#d2deef"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <g class="screen-smile">
+          <path
+            d="M55 76q7-10 14 0m40 0q7-10 14 0M76 86q15 16 30 0"
+            stroke="#527267"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <ellipse cx="59" cy="87" rx="6" ry="3" fill="#e9b4a6" />
+          <ellipse cx="119" cy="87" rx="6" ry="3" fill="#e9b4a6" />
+        </g>
+        <path class="cursor" d="M141 98h10" stroke="#527267" stroke-width="2" />
+      </g>
+      <g class="data-note">
+        <rect
+          x="223"
+          y="22"
+          width="116"
+          height="98"
+          rx="4"
+          fill="#ffefba"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <rect
+          x="253"
+          y="15"
+          width="54"
+          height="16"
+          rx="2"
+          fill="#e4dccb"
+          stroke="#9a9589"
+        />
+        <path d="M239 103h85M239 46v57" stroke="#8d998b" stroke-width="1.5" />
+        <path
+          class="data-line"
+          d="m243 84 12-1 6-14 8 27 8-41 9 32 9-13 9 5 15-12"
+          stroke="#547b65"
+          stroke-width="2"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        />
+        <path d="M243 42h58" stroke="#b4aa86" stroke-width="1.5" />
+      </g>
+      <g class="video-camera">
+        <rect
+          x="404"
+          y="48"
+          width="98"
+          height="65"
+          rx="9"
+          fill="#e9dff5"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="m502 66 30-15v58l-30-15z"
+          fill="#d6c8e8"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <circle
+          cx="427"
+          cy="38"
+          r="16"
+          fill="#f8e7bb"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <circle
+          cx="464"
+          cy="32"
+          r="20"
+          fill="#f6d5cb"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <g class="reel">
+          <circle cx="464" cy="22" r="4" fill="#fff" />
+          <circle cx="454" cy="36" r="4" fill="#fff" />
+          <circle cx="474" cy="36" r="4" fill="#fff" />
+        </g>
+        <path
+          d="m445 69 18 12-18 12z"
+          fill="#fff"
+          stroke="#7e6f92"
+          stroke-width="1.5"
+        />
+      </g>
+    </svg>
+  )}
+</div>
+<style>
+  .lab-toys {
+    pointer-events: auto;
+    user-select: none;
+    width: 100%;
+    max-width: 560px;
+  }
+  .lab-toys svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+  .toys-top {
+    margin-bottom: 20px;
+  }
+  .toys-bottom {
+    margin-top: 24px;
+  }
+  .notebook {
+    transform: rotate(-8deg);
+    transform-origin: 70px 65px;
+  }
+  .keyboard {
+    transform: rotate(4deg);
+    transform-origin: 280px 85px;
+  }
+  .mouse {
+    animation: mouse-drift 7s ease-in-out infinite;
+    transform-origin: 472px 80px;
+  }
+  .active-key {
+    animation: key-breathe 4s ease-in-out infinite;
+  }
+  .code-screen {
+    transform: rotate(-3deg);
+    transform-origin: 90px 100px;
+  }
+  .cursor {
+    animation: cursor-breathe 3s ease-in-out infinite;
+  }
+  .data-note {
+    transform: rotate(7deg);
+    transform-origin: 280px 85px;
+  }
+  .data-line {
+    stroke-dasharray: 200;
+    animation: trace 8s ease-in-out infinite;
+  }
+  .video-camera {
+    transform: rotate(-5deg);
+    transform-origin: 465px 90px;
+  }
+  .reel {
+    animation: reel-turn 12s linear infinite;
+    transform-origin: 464px 32px;
+  }
+  @keyframes mouse-drift {
+    0%,
+    100% {
+      transform: translate(-3px, 0) rotate(-5deg);
+    }
+    50% {
+      transform: translate(5px, -3px) rotate(3deg);
+    }
+  }
+  @keyframes key-breathe {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(1px);
+    }
+  }
+  @keyframes cursor-breathe {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @keyframes trace {
+    0%,
+    100% {
+      stroke-dashoffset: 0;
+    }
+    45% {
+      stroke-dashoffset: 190;
+    }
+    85% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes reel-turn {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @media (max-width: 760px) {
+    .toys-top {
+      margin-bottom: 18px;
+    }
+    .toys-bottom {
+      margin-top: 20px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lab-toys * {
+      animation: none !important;
+    }
+  }
+
+  /* Decorative surprises, without navigation or sound. */
+  svg > g {
+    pointer-events: bounding-box;
+  }
+  .screen-smile {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .code-glyph {
+    transition: opacity 0.2s;
+  }
+  .code-screen:hover .screen-smile {
+    opacity: 1;
+  }
+  .code-screen:hover .code-glyph,
+  .code-screen:hover .cursor {
+    opacity: 0;
+    animation: none;
+  }
+  .code-screen:hover {
+    transform: rotate(2deg) translateY(-4px);
+  }
+  .code-screen,
+  .notebook,
+  .data-note,
+  .video-camera {
+    transition: transform 0.25s;
+  }
+  .notebook:hover {
+    transform: rotate(3deg) translateY(-7px);
+  }
+  .notebook:hover > rect {
+    fill: #e5f4dc;
+  }
+  .keyboard:hover .keycap {
+    animation: key-wave 1.8s ease-in-out infinite;
+    animation-delay: var(--delay);
+  }
+  .keyboard:hover .active-key {
+    opacity: 0;
+    animation: none;
+  }
+  .mouse:hover {
+    animation: mouse-happy 0.65s ease-in-out infinite;
+  }
+  .data-note:hover {
+    transform: rotate(-3deg) translateY(-5px);
+  }
+  .data-note:hover .data-line {
+    stroke: #c2778a;
+    animation-duration: 3s;
+  }
+  .video-camera:hover {
+    transform: rotate(3deg) translateY(-4px);
+  }
+  .video-camera:hover .reel {
+    animation-duration: 2s;
+  }
+  @keyframes key-wave {
+    0%,
+    80%,
+    100% {
+      fill: #fff;
+      transform: translateY(0);
+    }
+    25%,
+    45% {
+      fill: #f5d584;
+      transform: translateY(2px);
+    }
+  }
+  @keyframes mouse-happy {
+    0%,
+    100% {
+      transform: rotate(-5deg) translateY(0);
+    }
+    50% {
+      transform: rotate(8deg) translateY(-6px);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lab-toys * {
+      animation: none !important;
+      transition: none !important;
+    }
+    .code-screen:hover,
+    .notebook:hover,
+    .data-note:hover,
+    .video-camera:hover {
+      transform: none;
+    }
+    .keyboard:hover .keycap {
+      fill: #f5d584;
+    }
+  }
+</style>

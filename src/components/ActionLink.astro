@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "outline" | "text";
+  external?: boolean;
+}
+const { href, variant = "primary", external = false } = Astro.props;
+---
+
+<a
+  class:list={["action", `action--${variant}`]}
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <span>
+    <slot />
+  </span>
+  <span class="action-arrow" aria-hidden="true">
+    ↗
+  </span>
+  {external && <span class="sr-only">（新しいタブで開く）</span>}
+</a>

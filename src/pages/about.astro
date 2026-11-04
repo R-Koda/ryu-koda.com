@@ -1,124 +1,135 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { AUTHOR_NAME, SITE_TITLE } from '../consts';
-
-const personJsonLd = JSON.stringify({
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: AUTHOR_NAME,
-	url: Astro.site?.toString(),
-	jobTitle: 'Software Engineer',
-});
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ActionLink from "../components/ActionLink.astro";
 ---
 
 <!doctype html>
 <html lang="ja">
-	<head>
-		<BaseHead
-			title={`About | ${SITE_TITLE}`}
-			description="ソフトウェアエンジニア Ryu Koda のプロフィール。経歴、スキル、興味関心について。"
-		/>
-		<script type="application/ld+json" set:html={personJsonLd} />
-		<style>
-			.about-container {
-				max-width: 680px;
-				margin: 0 auto;
-				padding: 2em 0.5em;
-			}
-			.about-container h1 {
-				font-size: 1.5em;
-				margin-bottom: 0.75em;
-				letter-spacing: -0.02em;
-				font-weight: 600;
-			}
-			.about-container h2 {
-				font-size: 1.1em;
-				margin-top: 2em;
-				margin-bottom: 0.5em;
-				color: rgb(var(--black));
-				font-weight: 600;
-				letter-spacing: -0.01em;
-			}
-			.about-container p {
-				line-height: 1.8;
-				color: rgb(var(--gray-dark));
-			}
-			.about-container ul {
-				line-height: 2;
-				color: rgb(var(--gray-dark));
-				padding-left: 1.5em;
-			}
-			.about-container a {
-				min-height: auto;
-				min-width: auto;
-			}
-
-			@media (min-width: 480px) {
-				.about-container {
-					padding: 2em 1em;
-				}
-			}
-
-			@media (min-width: 768px) {
-				.about-container {
-					padding: 3em 1em;
-				}
-				.about-container h1 {
-					font-size: 1.75em;
-				}
-				.about-container h2 {
-					font-size: 1.2em;
-					margin-top: 2.5em;
-				}
-			}
-
-			@media (min-width: 1024px) {
-				.about-container h1 {
-					font-size: 2em;
-				}
-				.about-container h2 {
-					font-size: 1.3em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<div class="about-container">
-				<h1>About</h1>
-				<p>
-					こんにちは、Ryu Koda です。<br />
-					ソフトウェアエンジニアとして、AI・Web開発・クラウドアーキテクチャを中心に活動しています。
-				</p>
-
-				<h2>技術スタック</h2>
-				<ul>
-					<li><strong>言語:</strong> TypeScript, Python, Go</li>
-					<li><strong>フロントエンド:</strong> React, Next.js, Astro</li>
-					<li><strong>バックエンド:</strong> Node.js, FastAPI</li>
-					<li><strong>クラウド:</strong> AWS (Lambda, ECS, CDK)</li>
-					<li><strong>AI/LLM:</strong> Claude Code, MCP, プロンプトエンジニアリング</li>
-					<li><strong>DevOps:</strong> Docker, GitHub Actions, Terraform</li>
-				</ul>
-
-				<h2>このブログについて</h2>
-				<p>
-					このブログでは、日々の開発で得た知見や、新しい技術の活用方法について発信しています。
-					特に AI を活用した開発ワークフローの効率化や、モダンな Web 開発のベストプラクティスに
-					興味を持っています。
-				</p>
-
-				<h2>お問い合わせ</h2>
-				<p>
-					お仕事のご依頼やご質問は、
-					<a href="https://github.com/ryukoda" target="_blank" rel="noopener noreferrer">GitHub</a>
-					からお気軽にご連絡ください。
-				</p>
-			</div>
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead
+      title="プロフィール | りゅうのらぼ"
+      description="ソフトウェア開発、医学の公開データ研究、日々の道具。Ryu Kodaの活動と関心について。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell about">
+      <span class="eyebrow">ABOUT</span>
+      <h1>プロフィール</h1>
+      <div class="bio">
+        <figure class="profile-photo">
+          <img src="/github-avatar.webp" alt="GitHubで使用しているプロフィールアイコン" width="96" height="96" />
+          <figcaption>このらぼの中の人</figcaption>
+        </figure>
+        <div class="bio-text">
+          <h2 class="bio-heading">気になったら、まず試してみる。</h2>
+          <p>
+            こんにちは、Ryu Kodaです。<br />
+            「これ、もう少し便利にならないかな」「どういうしくみなんだろう」。<br />
+            そんな小さな疑問から、日々、開発や研究をしています。
+          </p>
+          <p>
+            関心があるのは、ソフトウェアやAI、研究、そして日々の道具。<br />
+            何かをつくることも、使い方を工夫することも好きです。この「りゅうのらぼ」は、その途中で見つけたことを持ち寄る、おもちゃ箱のような場所です。
+          </p>
+          <p>
+            ブログや日記では、便利だった工夫だけでなく、つまずいたところや、うまくいかなかったことも伝えていきたいと思っています。読んだ方が「自分も試してみようかな」と思える、具体的なヒントを残せたらいいなと思います。
+          </p>
+          <div class="editorial-note">
+            <h3>ここで書くときに、大切にしたいこと</h3>
+            <ul>
+              <li><strong>試したことと、調べたことを分ける。</strong>実際に使った感想と、資料からわかった情報を混ぜずに伝えます。</li>
+              <li><strong>良いところも、気になるところも。</strong>道具や方法が合う場面・合わない場面まで考えます。</li>
+              <li><strong>わからないことは、そのままに。</strong>根拠や参照先を示し、間違いや変化に気づいたら見直していきます。</li>
+            </ul>
+          </div>
+          <div class="actions">
+            <ActionLink href="https://github.com/R-Koda" external>
+              GitHub
+            </ActionLink>
+            <ActionLink
+              href="/work/"
+              variant="outline"
+            >
+              おしごとを見る
+            </ActionLink>
+          </div>
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
 </html>
+<style>
+  .about {
+    padding-top: 60px;
+  }
+  .about h1 {
+    font:
+      600 26px/1.5 Atkinson,
+      sans-serif;
+    margin: 16px 0 32px;
+  }
+  .bio {
+    border-top: 1px solid var(--line);
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    max-width: 940px;
+    gap: 45px;
+    align-items: start;
+  }
+  .profile-photo {
+    position: relative;
+    margin: 5px 0 0;
+    padding: 18px 12px 13px;
+    background: #fffdf7;
+    border: 1.5px solid #303d48;
+    border-radius: 4px 7px 4px 5px;
+    box-shadow: 4px 5px 0 #e7e6df;
+    transform: rotate(-3deg);
+    text-align: center;
+    width: 150px;
+    box-sizing: border-box;
+  }
+  .profile-photo::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 14px;
+    top: -8px;
+    left: 48px;
+    background: #ffe9a4;
+    border: 1px solid #303d4820;
+    transform: rotate(5deg);
+  }
+  .profile-photo img { display: block; width: 96px; height: 96px; margin: 0 auto; border-radius: 7px; }
+  .profile-photo figcaption { font-size: 10px; margin-top: 12px; color: var(--muted); }
+  .bio-heading { font-size: 21px; line-height: 1.7; margin: 0 0 20px; }
+  .editorial-note { background: #f7f5eb; border-left: 4px solid #d9bf6d; border-radius: 3px 8px 8px 3px; padding: 20px 24px; margin: 30px 0; }
+  .editorial-note h3 { font-size: 15px; margin: 0 0 16px; }
+  .editorial-note ul { padding-left: 20px; margin: 0; }
+  .editorial-note li { font-size: 13px; line-height: 1.9; margin: 12px 0; }
+  .editorial-note strong { display: block; }
+  .bio-text p {
+    font-size: 15px;
+    line-height: 2.2;
+    margin-bottom: 26px;
+  }
+  @media (max-width: 760px) {
+    .about {
+      padding-top: 35px;
+    }
+    .about h1 {
+      font-size: 24px;
+      margin-bottom: 26px;
+    }
+    .bio {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+  }
+</style>

@@ -1,0 +1,149 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ActionLink from "../components/ActionLink.astro";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title="お問い合わせ | りゅうのらぼ"
+      description="仕事のご相談、製品レビューのご依頼、記事へのご質問や訂正について。お問い合わせ窓口は現在準備中です。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell contact">
+      <p class="eyebrow">CONTACT</p>
+      <h1>お問い合わせ</h1>
+      <p class="lead">仕事のご相談や、記事についてのご連絡はこちら。</p>
+      <section class="status" aria-labelledby="contact-status">
+        <span class="status-label">準備中</span>
+        <h2 id="contact-status">お問い合わせ窓口を準備しています</h2>
+        <p>
+          受付方法が整い次第、このページでご案内します。
+          <br />
+          現在、このページからお問い合わせを送信することはできません。
+        </p>
+      </section>
+      <section class="topics" aria-labelledby="topics-title">
+        <h2 id="topics-title">お問い合わせについて</h2>
+        <dl>
+          <div>
+            <dt>仕事・制作のご相談</dt>
+            <dd>ソフトウェア開発やコンテンツ制作などのご相談。</dd>
+          </div>
+          <div>
+            <dt>製品レビュー・取材のご依頼</dt>
+            <dd>
+              ガジェットやアプリ、サービスのレビュー・取材に関するご相談。
+            </dd>
+          </div>
+          <div>
+            <dt>記事へのご質問・訂正</dt>
+            <dd>記事の内容に関するご質問や、誤り・リンク切れのご指摘。</dd>
+          </div>
+        </dl>
+        <p class="editorial-note">
+          製品提供や広告を含む記事では、その関係を明記し、評価内容は独立して判断します。
+        </p>
+      </section>
+      <ActionLink href="/" variant="text">
+        ホームに戻る
+      </ActionLink>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .contact {
+    padding-top: 56px;
+    max-width: 900px;
+  }
+  .eyebrow {
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .status {
+    margin: 40px 0 48px;
+    background: #f5f8fc;
+    border: 1px solid #dae3ef;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 26px 30px;
+  }
+  .status-label {
+    font-size: 11px;
+    color: var(--accent);
+    background: #e6edf8;
+    border-radius: 3px;
+    padding: 4px 9px;
+  }
+  .status h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 16px 0 12px;
+  }
+  .status p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 2;
+  }
+  .topics h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .topics dl {
+    margin: 20px 0;
+  }
+  .topics dl > div {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    border-top: 1px solid var(--line);
+    padding: 20px 0;
+  }
+  .topics dt {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .topics dd {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .editorial-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 20px 0 28px;
+    line-height: 2;
+  }
+  @media (max-width: 600px) {
+    .contact {
+      padding-top: 32px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    .status {
+      padding: 22px 20px;
+    }
+    .topics dl > div {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .status h2 {
+      font-size: 17px;
+    }
+  }
+</style>

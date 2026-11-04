@@ -1,0 +1,111 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ActionLink from "../components/ActionLink.astro";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <BaseHead
+      title="Diary・日記 | りゅうのらぼ"
+      description="りゅうのらぼの日記。日々の出来事や、制作の途中で考えたことを残していく場所です。"
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main" class="shell landing">
+      <p class="eyebrow">DIARY</p>
+      <h1>
+        Diary<span>日記</span>
+      </h1>
+      <p class="lead">
+        日々のことや、制作の途中で考えたこと。
+        <br />
+        記事にするほどでもない、小さな記録をここに。
+      </p>
+      <section class="panel diary-panel">
+        <span class="badge">準備中</span>
+        <h2>最初の日記は、これから。</h2>
+        <p>日記を公開したら、このページに並べていきます。</p>
+        <ActionLink href="/blog/" variant="text">
+          ブログを読む
+        </ActionLink>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+<style>
+  .landing {
+    padding-top: 48px;
+    max-width: 960px;
+  }
+  .eyebrow {
+    color: var(--muted);
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+  h1 span {
+    font-size: 16px;
+    color: var(--muted);
+    font-weight: 400;
+    margin-left: 16px;
+  }
+  .lead {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 2;
+    margin-bottom: 35px;
+  }
+  .panel {
+    border: 1.5px solid #303d48;
+    border-top: 7px solid #dcebdc;
+    box-shadow: 4px 4px 0 #e5e8ee;
+    border-radius: 5px 10px 8px 5px;
+    padding: 30px;
+    margin: 28px 0;
+  }
+  .panel h2 {
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  .panel p {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .note {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 2;
+  }
+  .diary-panel {
+    border-top-color: #f5deae;
+  }
+  .badge {
+    display: inline-block;
+    background: #fff0cc;
+    padding: 2px 9px;
+    font-size: 11px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+  }
+  @media (max-width: 600px) {
+    .landing {
+      padding-top: 30px;
+    }
+    h1 {
+      font-size: 30px;
+    }
+    .panel {
+      padding: 24px 20px;
+    }
+  }
+</style>

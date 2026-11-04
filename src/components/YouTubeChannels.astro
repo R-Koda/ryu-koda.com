@@ -1,0 +1,89 @@
+---
+import ActionLink from "./ActionLink.astro";
+import ChannelSurprise from "./ChannelSurprise.astro";
+import channels from "../data/youtube.json";
+---
+      <section class="channel-grid" aria-label="運用しているYouTubeチャンネル">
+        {channels.map((channel, i) => (
+          <article class="channel">
+            <ChannelSurprise index={i} />
+            <div class="channel-meta">
+              <span>0{i + 1}</span>
+              <span>{channel.topic}</span>
+            </div>
+            <h4>{channel.name}</h4>
+            <p>{channel.description}</p>
+            <ActionLink href={channel.url} external variant="outline">
+              チャンネルを見る
+            </ActionLink>
+          </article>
+        ))}
+      </section>
+
+<style>
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 78px 25px;
+  }
+  .channel {
+    position: relative;
+    transition: transform .2s, box-shadow .2s;
+    --color: #e6eefb;
+    border: 1.5px solid #303d48;
+    border-top: 8px solid var(--color);
+    border-radius: 6px 10px 8px 5px;
+    padding: 24px;
+    box-shadow: 4px 4px 0 #e5e8ee;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  .channel:is(:hover, :focus-within) {
+    transform: translateY(-4px);
+    box-shadow: 5px 8px 0 #303d4820;
+    z-index: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .channel { transition: none; }
+    .channel:is(:hover, :focus-within) { transform: none; }
+  }
+  .channel:nth-child(3n + 2) {
+    --color: #ffe9a4;
+  }
+  .channel:nth-child(3n) {
+    --color: #dcebdc;
+  }
+  .channel-meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--muted);
+    gap: 14px;
+  }
+  .channel-meta > span:last-child {
+    background: var(--color);
+    padding: 1px 7px;
+    border-radius: 3px;
+  }
+  .channel h4 {
+    font-size: 21px;
+    font-weight: 700;
+    margin: 22px 0 14px;
+    line-height: 1.6;
+  }
+  .channel p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 25px;
+  }
+  .channel :global(.action) {
+    margin-top: auto;
+    width: 100%;
+    gap: 8px;
+  }
+  .channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 80px; }
+  @media (max-width: 600px) { .channel-grid { grid-template-columns: 1fr; } .channel { padding: 20px; } }
+</style>

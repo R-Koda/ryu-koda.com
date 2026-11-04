@@ -1,0 +1,140 @@
+---
+interface Props { kind?: string }
+const { kind = "about" } = Astro.props;
+---
+<span class:list={["avatar-stage", `effect-${kind}`]} aria-hidden="true">
+  <span class="drawer-avatar">
+    <span class="avatar-body"></span>
+    <span class="avatar-arm"></span>
+    <img src="/github-avatar.webp" alt="" width="52" height="52" />
+  </span>
+  {kind !== "about" && (
+    <svg class="avatar-prop" width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="#303d48" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      {kind === "work" && <g><rect x="5" y="6" width="30" height="23" rx="3" fill="#d9eaff"/><path d="M2 33h36l-3-4H5z" fill="#fff"/><path class="screen-code" d="m15 13-5 4 5 4m10-8 5 4-5 4m-4-9-3 14"/></g>}
+      {kind === "blog" && <g><path d="M5 6h25l5 5v24H5z" fill="#fff0b8"/><path d="M29 6v7h6M10 17h18M10 23h18M10 29h12"/><path class="page-turn" d="M30 25h-8v10z" fill="#fff"/></g>}
+      {kind === "sns" && <g><rect x="3" y="7" width="34" height="26" rx="7" fill="#eee5fa"/><path class="play-mark" d="m16 13 12 7-12 7z" fill="#fff"/></g>}
+      {kind === "diary" && <g><path d="M3 32h29" stroke-dasharray="2 4"/><g class="pencil"><path d="m9 26 17-19 7 6-17 19-10 3z" fill="#ffdf83"/><path d="m26 7 3-3q2-2 4 0l3 3q2 2 0 4l-3 2z" fill="#f4b8b4"/><path d="m9 26 7 6-10 3z" fill="#fff"/></g></g>}
+    </svg>
+  )}
+</span>
+
+<style>
+  .avatar-stage {
+    position: absolute;
+    right: 10px;
+    top: -66px;
+    width: 112px;
+    height: 68px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+  .drawer-avatar {
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 8px;
+    width: 58px;
+    height: 65px;
+    opacity: 0;
+    transform: translateY(75px) rotate(-15deg);
+    transition: transform 220ms ease-in, opacity 150ms;
+  }
+  img {
+    position: absolute;
+    left: 3px;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border: 2px solid #303d48;
+    border-radius: 48% 48% 44% 44%;
+    background: #fff;
+    box-shadow: 2px 2px 0 #303d4820;
+  }
+  .avatar-body {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    width: 37px;
+    height: 25px;
+    background: #a9c9ec;
+    border: 2px solid #303d48;
+    border-radius: 14px 14px 0 0;
+  }
+  .avatar-arm {
+    position: absolute;
+    right: -3px;
+    bottom: 8px;
+    width: 12px;
+    height: 29px;
+    border: 2px solid #303d48;
+    border-radius: 9px;
+    background: #fce3db;
+    transform: rotate(24deg);
+    transform-origin: bottom center;
+  }
+  :global(.drawer:hover) .drawer-avatar,
+  :global(.drawer:focus-visible) .drawer-avatar {
+    opacity: 1;
+    transform: translateY(0) rotate(5deg);
+    transition: transform 580ms 100ms cubic-bezier(.2, 1.65, .4, 1), opacity 100ms 100ms;
+  }
+  :global(.drawer:hover) .effect-about .avatar-arm,
+  :global(.drawer:focus-visible) .effect-about .avatar-arm {
+    animation: wave 550ms 500ms ease-in-out 3;
+  }
+  @keyframes wave {
+    0%, 100% { transform: rotate(24deg); }
+    50% { transform: rotate(-16deg); }
+  }
+  .avatar-prop {
+    position: absolute;
+    right: 2px;
+    bottom: 1px;
+    opacity: 0;
+    transform: translateY(45px) rotate(-20deg);
+    transition: transform 250ms, opacity 180ms;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .avatar-prop {
+    opacity: 1;
+    transform: translateY(0) rotate(8deg);
+    transition: transform 550ms 200ms cubic-bezier(.2, 1.6, .4, 1), opacity 150ms 200ms;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .effect-work .drawer-avatar {
+    transform: translateY(3px) rotate(12deg);
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .screen-code {
+    animation: typing 700ms steps(2) 4;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .effect-blog .avatar-prop {
+    animation: paper-flutter 600ms 750ms ease-in-out 2;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .effect-sns .drawer-avatar {
+    animation: happy-bounce 700ms 750ms ease-in-out 2;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .play-mark {
+    transform-origin: 20px 20px;
+    animation: play-pop 650ms 700ms ease-in-out 2;
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .effect-diary .drawer-avatar {
+    transform: translateY(5px) rotate(15deg);
+  }
+  :global(.drawer:is(:hover, :focus-visible)) .pencil {
+    animation: scribble 350ms 700ms ease-in-out 5;
+  }
+  @keyframes typing { 50% { opacity: .25; } }
+  @keyframes paper-flutter {
+    0%, 100% { transform: rotate(8deg); }
+    35% { transform: translateY(-6px) rotate(-12deg); }
+    70% { transform: rotate(14deg); }
+  }
+  @keyframes happy-bounce {
+    0%, 100% { transform: translateY(0) rotate(5deg); }
+    50% { transform: translateY(-8px) rotate(-5deg); }
+  }
+  @keyframes play-pop { 50% { transform: scale(1.2); fill: #fff0b8; } }
+  @keyframes scribble { 50% { transform: translate(-4px, -2px); } }
+  @media (prefers-reduced-motion: reduce) {
+    .avatar-stage * { transition: none !important; animation: none !important; }
+  }
+</style>

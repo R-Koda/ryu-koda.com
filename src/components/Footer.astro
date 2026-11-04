@@ -1,48 +1,61 @@
----
-import { AUTHOR_NAME } from '../consts';
-
-const today = new Date();
----
-
 <footer>
-	<div class="footer-inner">
-		<span>&copy; {today.getFullYear()} {AUTHOR_NAME}</span>
-		<a href="https://github.com/ryukoda" target="_blank" rel="noopener noreferrer" class="github-link">
-			<span class="sr-only">GitHub</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"
-				><path
-					fill="currentColor"
-					d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-				></path></svg
-			>
-		</a>
-	</div>
+  <div class="shell footer-inner">
+    <div class="footer-grid">
+      <div class="footer-intro">
+        <a class="footer-brand" href="/">りゅうのらぼ</a>
+        <p>気になったことを調べ、つくり、記録しています。<br />寄り道しながら、今日もなんかやってます。</p>
+      </div>
+      <nav class="footer-card browse-card" aria-label="フッター：読む・見る">
+        <h2>読む・見る</h2>
+        <a href="/blog/"><span>ブログ</span><small>調べたこと、試したこと</small><i aria-hidden="true">↗</i></a>
+        <a href="/sns/"><span>SNS</span><small>SNSでも、あれこれ</small><i aria-hidden="true">↗</i></a>
+        <a href="/diary/"><span>日記</span><small>日々のこと、気づいたこと</small><i aria-hidden="true">↗</i></a>
+      </nav>
+      <nav class="footer-card about-card" aria-label="フッター：らぼのこと">
+        <h2>らぼのこと</h2>
+        <a href="/about/"><span>プロフィール</span><small>書いている人について</small><i aria-hidden="true">↗</i></a>
+        <a href="/work/"><span>おしごと</span><small>つくっているもの・取り組み</small><i aria-hidden="true">↗</i></a>
+        <a href="/contact/"><span>お問い合わせ</span><small>ご相談・ご連絡について</small><i aria-hidden="true">↗</i></a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>© {new Date().getFullYear()} りゅうのらぼ</span>
+      <nav class="footer-tools" aria-label="外部リンクと更新情報">
+        <a href="https://github.com/R-Koda" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span><span class="sr-only">（新しいタブで開く）</span></a>
+        <a href="/rss.xml">RSSで更新を読む <span aria-hidden="true">↗</span></a>
+      </nav>
+      <a class="back-top" href="#main"><span>また、上へ</span><b aria-hidden="true">↑</b><span class="sr-only">ページの先頭へ</span></a>
+    </div>
+  </div>
 </footer>
 <style>
-	footer {
-		padding: 2em 1em;
-		border-top: 1px solid var(--border-color);
-		color: rgb(var(--gray));
-		font-size: 0.8em;
-	}
-	.footer-inner {
-		max-width: 960px;
-		margin: 0 auto;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.github-link {
-		text-decoration: none;
-		color: rgb(var(--gray));
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 44px;
-		min-width: 44px;
-		transition: color 0.15s ease;
-	}
-	.github-link:hover {
-		color: rgb(var(--gray-dark));
-	}
+  footer { margin-top: 80px; background: #f6f1df; border-top: 2px solid #303d48; color: #4a555d; }
+  .footer-inner { position: relative; padding: 48px 0 20px; }
+  .footer-inner::before { content: ""; position: absolute; width: 64px; height: 15px; top: -9px; left: 4px; background: #f8d16b; border: 1px solid #b99a44; transform: rotate(-3deg); }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; align-items: start; }
+  a { color: inherit; text-decoration: none; }
+  .footer-brand { font: 400 29px/1.5 "Yomogi Logo", sans-serif; color: #303d48; display: inline-block; }
+  .footer-intro p { font-size: 12px; line-height: 2; margin: 14px 0 22px; }
+  .footer-card { position: relative; background: #fffdf7; border: 1.5px solid #303d48; border-radius: 5px 10px 5px 4px; padding: 18px 20px 10px; box-shadow: 4px 5px 0 #303d4815; }
+  .footer-card::before { content: ""; position: absolute; width: 47px; height: 13px; top: -8px; right: 20px; background: #fff0b8; border: 1px solid #303d4820; transform: rotate(5deg); }
+  .about-card::before { background: #eee5fa; transform: rotate(-6deg); }
+  h2 { font-size: 15px; font-weight: 600; color: #303d48; margin: 0 0 12px; letter-spacing: .08em; }
+  .footer-card a { position: relative; display: grid; gap: 3px; padding: 12px 24px 12px 3px; border-top: 1px dashed #d6d6cc; transition: background .2s, padding-left .2s; }
+  .footer-card a > span { font-size: 13px; color: #303d48; }
+  .footer-card a small { font-size: 10px; line-height: 1.6; }
+  .footer-card i { position: absolute; right: 3px; top: 17px; font-style: normal; transition: transform .2s; }
+  .footer-card a:hover { background: #fff5cf; padding-left: 8px; }
+  .about-card a:hover { background: #f2edfb; }
+  .footer-card a:hover i { transform: translate(2px, -2px); }
+  .footer-bottom { margin-top: 34px; padding-top: 18px; border-top: 1px dashed #aaa99c; display: flex; align-items: center; gap: 24px; font-size: 11px; }
+  .footer-tools { display: flex; gap: 20px; margin-left: auto; flex-wrap: wrap; }
+  .footer-tools a { display: inline-flex; align-items: center; gap: 7px; min-height: 44px; }
+  .footer-tools a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .back-top { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+  .back-top b { display: grid; place-items: center; width: 38px; height: 38px; background: #fff; border: 1.5px solid #303d48; border-radius: 9px; box-shadow: 2px 3px 0 #303d48; font-size: 19px; transition: transform .2s, background .2s; }
+  .back-top:hover b { background: #ffe9a8; transform: translateY(-3px); }
+  a:focus-visible { outline: 3px solid #41669b; outline-offset: 4px; }
+  @media (max-width: 850px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-intro { grid-column: 1 / -1; } .footer-bottom { flex-wrap: wrap; } }
+  @media (max-width: 520px) { footer { margin-top: 55px; } .footer-grid { grid-template-columns: 1fr; gap: 25px; } .footer-inner { padding-top: 34px; } .footer-intro { grid-column: auto; } .footer-card { padding: 18px 20px 10px; } .footer-bottom { gap: 10px 20px; } .footer-tools { margin-left: 0; width: 100%; order: 3; } .back-top { margin-left: auto; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before { transition: none !important; } }
 </style>
