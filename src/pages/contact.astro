@@ -19,6 +19,28 @@ import ActionLink from "../components/ActionLink.astro";
       <p class="eyebrow">CONTACT</p>
       <h1>お問い合わせ</h1>
       <p class="lead">仕事のご相談や、記事についてのご連絡はこちら。</p>
+      <section class="topics" aria-labelledby="topics-title">
+        <h2 id="topics-title">お問い合わせについて</h2>
+        <dl>
+          <div>
+            <dt>仕事・制作のご相談</dt>
+            <dd>ソフトウェア開発やコンテンツ制作などのご相談。</dd>
+          </div>
+          <div>
+            <dt>製品レビュー・取材のご依頼</dt>
+            <dd>
+              ガジェットやアプリ、サービスのレビュー・取材に関するご相談。
+            </dd>
+          </div>
+          <div>
+            <dt>記事へのご質問・訂正</dt>
+            <dd>記事の内容に関するご質問や、誤り・リンク切れのご指摘。</dd>
+          </div>
+        </dl>
+        <p class="editorial-note">
+          製品提供や広告を含む記事では、その関係を明記し、評価内容は独立して判断します。
+        </p>
+      </section>
       <form id="contact-form" class="contact-form">
         <p class="form-note">すべて必須項目です。お気軽にお送りください。</p>
         <label for="contact-name">お名前</label>
@@ -46,28 +68,6 @@ import ActionLink from "../components/ActionLink.astro";
         <p id="contact-result" role="status" aria-live="polite" tabindex="-1"></p>
         <noscript>送信にはJavaScriptが必要です。ブラウザの設定で有効にしてください。</noscript>
       </form>
-      <section class="topics" aria-labelledby="topics-title">
-        <h2 id="topics-title">お問い合わせについて</h2>
-        <dl>
-          <div>
-            <dt>仕事・制作のご相談</dt>
-            <dd>ソフトウェア開発やコンテンツ制作などのご相談。</dd>
-          </div>
-          <div>
-            <dt>製品レビュー・取材のご依頼</dt>
-            <dd>
-              ガジェットやアプリ、サービスのレビュー・取材に関するご相談。
-            </dd>
-          </div>
-          <div>
-            <dt>記事へのご質問・訂正</dt>
-            <dd>記事の内容に関するご質問や、誤り・リンク切れのご指摘。</dd>
-          </div>
-        </dl>
-        <p class="editorial-note">
-          製品提供や広告を含む記事では、その関係を明記し、評価内容は独立して判断します。
-        </p>
-      </section>
       <ActionLink href="/" variant="text">
         ホームに戻る
       </ActionLink>
