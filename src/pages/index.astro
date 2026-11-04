@@ -54,7 +54,7 @@ const posts = (await journalPosts()).slice(0, 3);
             <small>気になるところから、どうぞ。</small>
           </div>
           <div class="drawer-box">
-            {navigation.map((item, index) => (
+            {navigation.filter((item) => item.href !== "/" && item.href !== "/contact/").map((item, index) => (
               <a href={item.href} class="drawer" style={`--drawer-color: ${item.color}`}>
                 <span class="drawer-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <span class="drawer-label">
