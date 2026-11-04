@@ -1,6 +1,6 @@
 {
-  "name": "Ryu Koda | Tech Blog",
-  "short_name": "Ryu Koda",
+  "name": "りゅうのラボ",
+  "short_name": "りゅうのラボ",
   "description": "ソフトウェアエンジニア Ryu Koda のテックブログ。AI、Web開発、クラウドアーキテクチャなどの技術情報を発信しています。",
   "start_url": "/",
   "display": "standalone",
