@@ -1,0 +1,38 @@
+[
+  {
+    "name": "AIことばラボ",
+    "url": "https://www.youtube.com/channel/UCMFZ9Xc-jyWDF8zD9TWEDeg",
+    "topic": "AI活用",
+    "description": "AIへの頼み方や、仕事で使う文章の工夫を短い動画で紹介。"
+  },
+  {
+    "name": "しくみの裏側",
+    "url": "https://www.youtube.com/channel/UCTeADznPYH7NfHcFtSPFpsg",
+    "topic": "身近なしくみ",
+    "description": "身の回りの道具や機構が動くしくみを、映像で解説。"
+  },
+  {
+    "name": "からだの裏側",
+    "url": "https://www.youtube.com/channel/UClkFl1EhGaq2VVgx-Yg7q3w",
+    "topic": "からだと薬",
+    "description": "からだ・薬・検査のしくみを、短い映像でひもときます。"
+  },
+  {
+    "name": "Tech Paper Digest",
+    "url": "https://www.youtube.com/channel/UCmJ30DW2muYH_FCzi5i2SVg",
+    "topic": "技術の研究",
+    "description": "技術分野の論文や研究を、要点から紹介。"
+  },
+  {
+    "name": "Medical Research Digest",
+    "url": "https://www.youtube.com/channel/UCdxw1AwNtbpBQDWfuF5itOA",
+    "topic": "医学の研究",
+    "description": "医学研究の内容を、わかりやすく伝える動画を制作。"
+  },
+  {
+    "name": "Trend Parody JP",
+    "url": "https://www.youtube.com/channel/UCvMU6tj3lwC5RVLcwXi6EhQ",
+    "topic": "パロディ",
+    "description": "話題のテーマを題材にしたパロディ動画。"
+  }
+]

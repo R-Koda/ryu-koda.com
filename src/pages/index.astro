@@ -72,9 +72,19 @@ const posts = (await journalPosts()).slice(0, 3);
               </span>
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
-            <a href="/about/" class="drawer drawer-about">
+            <a href="/youtube/" class="drawer drawer-video">
               <span class="drawer-number" aria-hidden="true">
                 03
+              </span>
+              <span class="drawer-label">
+                <b>YouTube</b>
+                <small>AI・しくみ・研究を動画で</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/about/" class="drawer drawer-about">
+              <span class="drawer-number" aria-hidden="true">
+                04
               </span>
               <span class="drawer-label">
                 <b>プロフィール</b>
@@ -815,5 +825,8 @@ const posts = (await journalPosts()).slice(0, 3);
       transform: translate(-2px, -2px);
       box-shadow: 2px 5px 0 #303d48;
     }
+  }
+  .drawer-box .drawer-video {
+    background: #eee5fa;
   }
 </style>

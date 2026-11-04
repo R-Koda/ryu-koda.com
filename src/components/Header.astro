@@ -3,6 +3,7 @@ const path = Astro.url.pathname;
 const links = [
   { href: "/", label: "Home", ja: "ホーム" },
   { href: "/blog/", label: "Journal", ja: "ブログ" },
+  { href: "/youtube/", label: "YouTube", ja: "動画" },
   { href: "/about/", label: "About", ja: "プロフィール" },
   { href: "/contact/", label: "Contact", ja: "お問い合わせ" },
 ];
@@ -170,7 +171,7 @@ const links = [
   }
   @font-face {
     font-family: "Yomogi Logo";
-    src: url("/fonts/yomogi-logo.ttf") format("truetype");
+    src: url("/fonts/yomogi-navigation.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -285,6 +286,46 @@ const links = [
     }
     .wordmark .handwritten-logo {
       font-size: 27px;
+    }
+  }
+  .nav-links a > span {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 19px;
+    line-height: 1.35;
+  }
+  .nav-links a:nth-child(3) {
+    --tab: #eee5fa;
+  }
+  .nav-links a:nth-child(4) {
+    --tab: #fce3db;
+  }
+  .nav-links a:nth-child(5) {
+    --tab: #e3f1e7;
+    transform: rotate(-1deg);
+  }
+  @media (max-width: 900px) {
+    .nav-links {
+      gap: 7px;
+    }
+    .nav-links a {
+      min-width: 0;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  @media (max-width: 760px) {
+    .nav-links {
+      gap: 6px;
+    }
+    .nav-links a {
+      padding: 7px 2px;
+    }
+    .nav-links a > span {
+      font-size: 15px;
+    }
+    .nav-links small {
+      font-size: 8px;
+      white-space: nowrap;
     }
   }
 </style>
