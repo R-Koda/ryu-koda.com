@@ -192,4 +192,99 @@ const links = [
       max-width: none;
     }
   }
+  /* Paper tabs on the edge of the toy box. */
+  .site-header {
+    border-top: 0;
+    border-bottom: 2px solid #303d48;
+    box-shadow: none;
+    background: #fff;
+  }
+  .top-nav {
+    align-items: center;
+    height: 96px;
+  }
+  .wordmark {
+    position: relative;
+    padding: 0 8px;
+  }
+  .wordmark::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    right: 5px;
+    bottom: 5px;
+    height: 7px;
+    background: #ffe493;
+    z-index: -1;
+    transform: rotate(-2deg);
+    border-radius: 40% 25% 35% 20%;
+  }
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-links a {
+    --tab: #eaf2ff;
+    border: 1.5px solid #303d48;
+    background: var(--tab);
+    box-shadow: 2px 3px 0 #303d48;
+    border-radius: 8px 8px 3px 3px;
+    transform: rotate(-2deg);
+    min-width: 90px;
+    align-items: center;
+    transition:
+      transform 0.18s,
+      box-shadow 0.18s;
+  }
+  .nav-links a:nth-child(2) {
+    --tab: #fff0b8;
+    transform: rotate(2deg);
+  }
+  .nav-links a:nth-child(3) {
+    --tab: #e3f1e7;
+    transform: rotate(-1deg);
+  }
+  .nav-links a:nth-child(4) {
+    --tab: #fce3db;
+    transform: rotate(2deg);
+  }
+  .nav-links a:hover {
+    background: var(--tab);
+    transform: translateY(-3px) rotate(0);
+    box-shadow: 3px 5px 0 #303d48;
+  }
+  .nav-links a[aria-current] {
+    background: var(--tab);
+    color: #202f3e;
+    box-shadow: 1px 1px 0 #303d48;
+    transform: translateY(2px) rotate(0);
+  }
+  .nav-links a[aria-current]::after {
+    height: 2px;
+    background: #303d48;
+    bottom: 6px;
+  }
+  .nav-links small {
+    color: #4f5962;
+  }
+  @media (max-width: 760px) {
+    .top-nav {
+      height: auto;
+      padding: 16px 0 12px;
+      gap: 15px;
+    }
+    .nav-links {
+      gap: 8px;
+    }
+    .nav-links a {
+      min-width: 0;
+      padding: 7px 4px;
+      font-size: 12px;
+    }
+    .nav-links small {
+      font-size: 8px;
+    }
+    .wordmark .handwritten-logo {
+      font-size: 27px;
+    }
+  }
 </style>

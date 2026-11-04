@@ -22,7 +22,11 @@ const posts = (await journalPosts()).slice(0, 3);
       <section class="intro" aria-labelledby="intro-title">
         <div class="intro-copy">
           <p class="overline">ソフトウェア・医学データ・日々の道具</p>
-          <h1 id="intro-title">技術と研究の記録</h1>
+          <h1 id="intro-title">
+            気になるものを、
+            <br />
+            <span>ひとつずつ。</span>
+          </h1>
           <p class="intro-lead">
             ソフトウェアと、医学のデータ。
             <br />
@@ -396,6 +400,217 @@ const posts = (await journalPosts()).slice(0, 3);
     }
     .project-detail > p:first-child {
       font-size: 17px;
+    }
+  }
+
+  .intro {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 70px;
+    padding-top: 72px;
+    align-items: center;
+  }
+  .overline {
+    display: inline-block;
+    background: #e9f1fc;
+    border: 1px solid #aec1da;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    transform: rotate(-1deg);
+  }
+  .intro h1 {
+    font-size: clamp(30px, 3.4vw, 44px);
+    font-weight: 700;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+  .intro h1 > span {
+    background: linear-gradient(
+      transparent 75%,
+      #ffe698 75%,
+      #ffe698 95%,
+      transparent 95%
+    );
+  }
+  .intro-lead {
+    font-size: 15px;
+    margin: 24px 0 28px;
+  }
+  .index {
+    padding: 22px 22px 16px;
+    border: 1.5px solid #303d48;
+    border-radius: 10px 12px 8px 9px;
+    box-shadow: 5px 6px 0 #e5e8ed;
+    transform: rotate(2deg);
+    position: relative;
+    background: #fff;
+  }
+  .index::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 100px;
+    width: 75px;
+    height: 18px;
+    background: #ffe493d9;
+    border: 1px solid #dfbf69;
+    transform: rotate(-6deg);
+  }
+  .index-title {
+    font-size: 12px;
+    margin-bottom: 14px;
+    color: #394c5d;
+  }
+  .index a {
+    border-top: 1px dashed #b8c0c8;
+    padding: 16px 0;
+  }
+  .index a b {
+    display: inline-block;
+    padding: 0 6px;
+    background: #e9f1fc;
+  }
+  .index a:nth-of-type(2) b {
+    background: #e4f0e3;
+  }
+  .index a:nth-of-type(3) b {
+    background: #fce4dc;
+  }
+  .section-heading {
+    border-bottom: 1px dashed #adb4bb;
+    padding-bottom: 20px;
+  }
+  .section-heading h2 {
+    background: #fff0b8;
+    border: 1.5px solid #303d48;
+    padding: 8px 18px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 2px 3px 0 #303d48;
+    transform: rotate(-1deg);
+  }
+  #work .section-heading h2 {
+    background: #e2efe4;
+    transform: rotate(1deg);
+  }
+  .journal-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+    margin-top: 28px;
+  }
+  .journal-row {
+    grid-template-columns: minmax(0, 1fr) 22px;
+    gap: 16px;
+    border: 1.5px solid #303d48;
+    border-radius: 8px 10px 7px 9px;
+    padding: 24px;
+    box-shadow: 4px 4px 0 #e3ebf6;
+    position: relative;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .journal-row:nth-child(2n) {
+    box-shadow: 4px 4px 0 #f4e6d6;
+  }
+  .journal-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 5px 7px 0 #d4e2f4;
+  }
+  .article-date {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0;
+  }
+  .article-date span {
+    margin: 0;
+    border-radius: 3px;
+    background: #edf3fb;
+    padding: 2px 8px;
+  }
+  .article-copy h3 {
+    font-size: 18px;
+  }
+  .article-copy p {
+    font-size: 12px;
+  }
+  .row-arrow {
+    align-self: end;
+  }
+  .project {
+    background: #f5f9f4;
+    border: 1.5px solid #87998a;
+    border-radius: 9px;
+    padding: 35px;
+    margin-top: 28px;
+    gap: 45px;
+  }
+  .project-identity {
+    border-left: 0;
+    padding-left: 0;
+  }
+  .project-kicker {
+    background: white;
+    border: 1px solid #b2c3b5;
+    padding: 4px 8px;
+    border-radius: 3px;
+  }
+  .project-identity h3 {
+    font-size: 42px;
+  }
+  .personal-note {
+    border-top: 1px dashed #adb4bb;
+  }
+  .personal-note h2 {
+    font-size: 17px;
+  }
+  @media (max-width: 760px) {
+    .intro {
+      grid-template-columns: 1fr;
+      padding-top: 38px;
+      gap: 34px;
+    }
+    .intro h1 {
+      font-size: 30px;
+    }
+    .index {
+      display: block;
+      transform: rotate(0);
+      padding: 20px;
+      max-width: 100%;
+      box-shadow: 3px 4px 0 #e5e8ed;
+    }
+    .index a {
+      padding: 12px 0;
+    }
+    .journal-list {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .journal-row {
+      padding: 20px;
+      gap: 14px;
+    }
+    .section-heading h2 {
+      font-size: 16px;
+      padding: 7px 12px;
+    }
+    .section-heading {
+      gap: 14px;
+    }
+    .article-copy h3 {
+      font-size: 17px;
+    }
+    .project {
+      padding: 25px 20px;
+      gap: 28px;
+    }
+    .project-identity h3 {
+      font-size: 37px;
     }
   }
 </style>
