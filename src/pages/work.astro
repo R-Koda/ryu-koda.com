@@ -1,4 +1,5 @@
 ---
+import YouTubeChannels from "../components/YouTubeChannels.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -47,14 +48,10 @@ import ActionLink from "../components/ActionLink.astro";
           サイトを見る
         </ActionLink>
       </section>
-      <section class="panel">
-        <h2>SNS・動画制作</h2>
-        <p>
-          AIの使い方や身近なしくみ、研究の話を動画にしています。テーマごとのチャンネルをご覧いただけます。
-        </p>
-        <ActionLink href="/sns/" variant="outline">
-          SNSのひきだしへ
-        </ActionLink>
+      <section class="panel" id="youtube">
+        <h2>YouTube運用</h2>
+        <p>お仕事の一つとして、テーマごとのYouTubeチャンネルを運用しています。AIの活用、身近なしくみ、研究などを題材に動画を制作しています。</p>
+        <YouTubeChannels />
       </section>
       <section class="panel">
         <h2>お仕事のご相談</h2>
