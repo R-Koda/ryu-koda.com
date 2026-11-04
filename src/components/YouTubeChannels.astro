@@ -11,7 +11,7 @@ import channels from "../data/youtube.json";
               <span>0{i + 1}</span>
               <span>{channel.topic}</span>
             </div>
-            <h3>{channel.name}</h3>
+            <h4>{channel.name}</h4>
             <p>{channel.description}</p>
             <ActionLink href={channel.url} external variant="outline">
               チャンネルを見る
@@ -67,7 +67,7 @@ import channels from "../data/youtube.json";
     padding: 1px 7px;
     border-radius: 3px;
   }
-  .channel h3 {
+  .channel h4 {
     font-size: 21px;
     font-weight: 700;
     margin: 22px 0 14px;

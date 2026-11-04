@@ -26,42 +26,45 @@ import ActionLink from "../components/ActionLink.astro";
         <br />
         現在の取り組みと、ご相談の窓口をまとめています。
       </p>
-      <section class="panel">
-        <h2>ソフトウェア・Web開発</h2>
-        <p>
-          Webサイトやアプリケーション、小さな作業の自動化など。開発に関する活動はGitHubにまとめています。
-        </p>
-        <ActionLink href="https://github.com/R-Koda" external variant="outline">
-          GitHubを見る
-        </ActionLink>
+      <nav class="work-genres" aria-label="お仕事のジャンル">
+        <a href="#research">01 研究</a>
+        <a href="#software">02 ソフトウェア開発</a>
+        <a href="#writing">03 ブログ作成</a>
+        <a href="#media">04 SNS・動画制作</a>
+      </nav>
+      <section class="panel research-panel" id="research">
+        <span class="genre-number">01</span>
+        <h2>研究</h2>
+        <p>医学の公開データを解析し、新しい問いや知見を探る取り組みです。</p>
+        <h3>Solo Researcher</h3>
+        <p>研究活動の一つとして運営しているサイトです。医学の公開データを使った研究の過程と、解説記事・論文紹介・データ紹介・研究日誌を掲載しています。</p>
+        <ActionLink href="https://solo-researcher.com/" external variant="outline">Solo Researcherを見る</ActionLink>
       </section>
-      <section class="panel">
-        <h2>Solo Researcher</h2>
-        <p>
-          お仕事の一つとして運営している、医学の公開データを使った研究・情報発信のサイトです。解説記事、論文紹介、データ紹介、研究日誌を掲載しています。
-        </p>
-        <ActionLink
-          href="https://solo-researcher.com/"
-          external
-          variant="outline"
-        >
-          サイトを見る
-        </ActionLink>
+      <section class="panel software-panel" id="software">
+        <span class="genre-number">02</span>
+        <h2>ソフトウェア開発</h2>
+        <p>Webサイトやアプリケーション、小さな作業の自動化など。技術を使って、日々の不便を少しずつ解決するものづくりに取り組んでいます。</p>
+        <ActionLink href="https://github.com/R-Koda" external variant="outline">GitHubを見る</ActionLink>
       </section>
-      <section class="panel" id="youtube">
-        <h2>YouTube運用</h2>
-        <p>お仕事の一つとして、テーマごとのYouTubeチャンネルを運用しています。AIの活用、身近なしくみ、研究などを題材に動画を制作しています。</p>
+      <section class="panel writing-panel" id="writing">
+        <span class="genre-number">03</span>
+        <h2>ブログ作成</h2>
+        <p>AIやアプリ、自動化、日々の道具について、調べたことや試したことを記事にしています。実体験と資料から得た情報を区別し、読者が試せる具体的なヒントを届けます。</p>
+        <ActionLink href="/blog/" variant="outline">ブログを読む</ActionLink>
+      </section>
+      <section class="panel media-panel" id="media">
+        <span class="genre-number">04</span>
+        <h2>SNS・動画制作</h2>
+        <p>テーマに合わせたコンテンツの企画・制作と、発信の場づくりに取り組んでいます。</p>
+        <h3 id="youtube">YouTube運用</h3>
+        <p>現在運用しているチャンネルです。AIの活用、身近なしくみ、研究などを題材に動画を制作しています。</p>
         <YouTubeChannels />
       </section>
-      <section class="panel">
-        <h2>お仕事のご相談</h2>
-        <p>
-          制作のご相談や、レビュー・取材のご依頼については、お問い合わせページをご覧ください。現在、受付窓口を準備しています。
-        </p>
-        <ActionLink href="/contact/" variant="outline">
-          お問い合わせ
-        </ActionLink>
-      </section>
+      <aside class="work-contact" aria-labelledby="work-contact-title">
+        <h2 id="work-contact-title">お仕事のご相談</h2>
+        <p>制作のご相談や、レビュー・取材のご依頼については、お問い合わせページをご覧ください。現在、受付窓口を準備しています。</p>
+        <ActionLink href="/contact/" variant="outline">お問い合わせ</ActionLink>
+      </aside>
     </main>
     <Footer />
   </body>
@@ -110,6 +113,22 @@ import ActionLink from "../components/ActionLink.astro";
     color: var(--muted);
     margin-bottom: 22px;
   }
+  .work-genres { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+  .work-genres a { color: #303d48; text-decoration: none; background: #fff; border: 1px solid #303d48; border-radius: 4px; padding: 12px 14px; font-size: 12px; box-shadow: 2px 3px 0 #e5e8ee; }
+  .work-genres a:nth-child(1) { background: #e3f1e7; }
+  .work-genres a:nth-child(2) { background: #eaf2ff; }
+  .work-genres a:nth-child(3) { background: #fff0b8; }
+  .work-genres a:nth-child(4) { background: #eee5fa; }
+  .work-genres a:is(:hover, :focus-visible) { outline: 2px solid #41669b; outline-offset: 3px; }
+  .software-panel { border-top-color: #c7dbf4; }
+  .writing-panel { border-top-color: #ffe9a4; }
+  .media-panel { border-top-color: #ddd0ef; }
+  .genre-number { display: block; font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .panel h3 { font-size: 17px; margin: 26px 0 12px; }
+  .panel, #youtube { scroll-margin-top: 150px; }
+  .work-contact { border-top: 1px dashed #aeb5bc; margin-top: 44px; padding-top: 26px; }
+  .work-contact h2 { font-size: 19px; margin-bottom: 14px; }
+  .work-contact p { font-size: 14px; color: var(--muted); line-height: 2; margin-bottom: 20px; }
   .note {
     font-size: 12px;
     color: var(--muted);
