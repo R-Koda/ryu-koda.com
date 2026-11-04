@@ -13,7 +13,17 @@ const links = [
 <header class="site-header">
   <nav class="shell top-nav" aria-label="メインナビゲーション">
     <a href="/" class="wordmark" aria-label="ホーム">
-      ノートと活動
+      <span class="site-symbol" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 4h9l4 4v12H6zM14 4v5h5M9 12h7M9 15h5"
+            stroke="currentColor"
+            stroke-width="1.4"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </span>
+      <span>ノートと活動</span>
     </a>
     <div class="nav-links">
       {links.map((l) => (
@@ -34,38 +44,50 @@ const links = [
 </header>
 <style>
   .site-header {
-    background: var(--paper);
     position: sticky;
     top: 0;
     z-index: 50;
+    background: #fffffff5;
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid #e5e9ef;
+    box-shadow: 0 3px 12px #243b5305;
+    backdrop-filter: blur(12px);
   }
   .top-nav {
-    height: 80px;
+    height: 86px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--line);
-    gap: 28px;
+    justify-content: space-between;
+    gap: 24px;
   }
   .wordmark {
-    font:
-      700 16px/1.2 Atkinson,
-      serif;
-    letter-spacing: -0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
-    padding-right: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
   }
-  .wordmark span {
+  .site-symbol {
+    width: 36px;
+    height: 40px;
+    border: 1px solid #bdcde2;
+    border-radius: 5px;
+    background: #f1f5fb;
     color: var(--accent);
+    display: grid;
+    place-items: center;
+    box-shadow: 2px 2px 0 #e4ebf5;
   }
-  .header-note {
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    line-height: 1.6;
+  .site-symbol svg {
+    width: 25px;
+    height: 25px;
   }
   .nav-links {
     display: flex;
-    margin-left: auto;
-    gap: 36px;
+    gap: 8px;
   }
   .nav-links a {
     position: relative;
@@ -73,46 +95,72 @@ const links = [
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 56px;
-    font-size: 14px;
+    min-height: 54px;
+    padding: 8px 17px;
+    border-radius: 5px;
+    font-size: 13px;
+    transition:
+      background 0.18s,
+      color 0.18s;
   }
   .nav-links small {
     font-size: 9px;
-    letter-spacing: 0.06em;
     color: var(--muted);
+    margin-top: 2px;
   }
-  .nav-links a::after {
-    content: "";
-    height: 2px;
-    position: absolute;
-    bottom: 2px;
-    left: 0;
-    width: 100%;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s;
+  .nav-links a:hover {
+    background: #f5f7fa;
   }
-  .nav-links a:hover::after,
+  .nav-links a[aria-current] {
+    background: #eef3fa;
+    color: var(--accent);
+  }
   .nav-links a[aria-current]::after {
-    transform: scaleX(1);
+    content: "";
+    position: absolute;
+    height: 2px;
+    left: 17px;
+    right: 17px;
+    bottom: 6px;
+    background: var(--accent);
+    border-radius: 2px;
   }
   @media (max-width: 600px) {
     .top-nav {
-      height: 72px;
-      gap: 14px;
-    }
-    .header-note {
-      display: none;
-    }
-    .nav-links {
-      gap: 24px;
+      height: 74px;
+      gap: 8px;
     }
     .wordmark {
-      font-size: 14px;
+      font-size: 12px;
+      gap: 7px;
+    }
+    .site-symbol {
+      width: 27px;
+      height: 32px;
+    }
+    .site-symbol svg {
+      width: 21px;
+    }
+    .nav-links {
+      gap: 2px;
     }
     .nav-links a {
-      font-size: 13px;
+      padding: 7px 8px;
+      font-size: 12px;
+    }
+    .nav-links small {
+      font-size: 8px;
+    }
+    .nav-links a[aria-current]::after {
+      left: 8px;
+      right: 8px;
+    }
+  }
+  @media (max-width: 360px) {
+    .wordmark > span:last-child {
+      max-width: 48px;
+      white-space: normal;
+      line-height: 1.5;
     }
   }
 </style>
