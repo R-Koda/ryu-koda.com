@@ -75,7 +75,7 @@ const posts = (await journalPosts()).slice(0, 3);
         <p class="start-lead">作業を楽にしたい。道具を選びたい。何か作りたい。今日の気分でどうぞ。</p>
         <div class="starter-grid">{Object.entries(guides).map(([slug, guide]) => (
           <a class="starter-card" href={`/blog/${slug}/`}>
-            <img src={`/articles/${slug}/preview.webp`} alt={guide.alt} width="1200" height="630" loading="lazy" decoding="async" />
+            <img src={`/articles/${slug}/cover.webp`} alt={guide.label} width="1200" height="630" loading="lazy" decoding="async" />
             <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
           </a>
         ))}</div>

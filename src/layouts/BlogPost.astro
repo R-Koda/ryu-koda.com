@@ -25,7 +25,7 @@ const {
 
 const slug = Astro.url.pathname.split('/').filter(Boolean).at(-1) || '';
 const guide = guides[slug as keyof typeof guides];
-const preview = guide ? `/articles/${slug}/preview.webp` : undefined;
+const preview = guide ? `/articles/${slug}/cover.webp` : undefined;
 // Get related posts: prefer posts with shared tags, fallback to recent posts
 const allPosts = (await journalPosts())
   .filter((p) => p.data.title !== title)
@@ -247,7 +247,7 @@ const breadcrumbJsonLd = JSON.stringify({
           {guide && <section class="article-outcome" aria-label="この記事でわかること">
             <h2>こんなことを試しました。</h2><p>{guide.summary}</p>
             <p class="evidence">{guide.evidence}</p>
-            <figure><img src={preview} alt={guide.alt} width="1200" height="630" decoding="async" fetchpriority="high" /><figcaption>{guide.alt}</figcaption></figure>
+            <figure><img src={`/articles/${slug}/preview.webp`} alt={guide.alt} width="1200" height="630" decoding="async" fetchpriority="high" /><figcaption>{guide.alt}</figcaption></figure>
             {'resource' in guide && <a class="resource-link" href={guide.resource}>{guide.resourceLabel} ↗</a>}
           </section>}
           {headings.filter(h => h.depth === 2).length > 2 && (

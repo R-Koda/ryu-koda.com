@@ -6,8 +6,9 @@ import FormattedDate from "../../components/FormattedDate.astro";
 import { journalPosts } from "../../lib/posts";
 import guides from "../../data/article-guides.json";
 import FollowNote from "../../components/FollowNote.astro";
+import { categories, categoryFor } from "../../lib/categories";
 const posts = await journalPosts();
-const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
+const tags = categories;
 ---
 
 <!doctype html>
@@ -48,18 +49,18 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
         </label>
       </div>
       <p id="result-count" aria-live="polite">
-        {posts.length} articles
+        {posts.length}件の記事
       </p>
       <div class="articles">
         {posts.map((p, i) => (
           <article
             data-title={`${p.data.title} ${p.data.description}`}
-            data-tags={JSON.stringify(p.data.tags || [])}
+            data-tags={JSON.stringify([categoryFor(p.data.tags)])}
           >
             <a href={`/blog/${p.id}/`}>
-              {guides[p.id as keyof typeof guides] && <img class="post-preview" src={`/articles/${p.id}/preview.webp`} alt={guides[p.id as keyof typeof guides].alt} width="1200" height="630" loading="lazy" decoding="async" />}
+              {guides[p.id as keyof typeof guides] && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
               <div class="article-meta">
-                <span>{p.data.tags?.[0] || "TECHNOLOGY"}</span>
+                <span>{categoryFor(p.data.tags)}</span>
                 <FormattedDate date={p.data.pubDate} />
               </div>
               <h2>{p.data.title}</h2>
@@ -101,7 +102,7 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
       if (show) count++;
     });
     const result = document.getElementById("result-count");
-    if (result) result.textContent = `${count} articles`;
+    if (result) result.textContent = `${count}件の記事`;
     const empty = document.getElementById("no-results");
     if (empty) empty.hidden = count > 0;
     buttons.forEach((b) =>
