@@ -1,0 +1,285 @@
+---
+const rooms = [
+  {
+    label: "ブログ",
+    subtitle: "記事を読む",
+    href: "/blog/",
+    color: "#fff0b8",
+    number: "01",
+  },
+  {
+    label: "プロジェクト",
+    subtitle: "取り組みを見る",
+    href: "/work/",
+    color: "#e3f1e7",
+    number: "02",
+  },
+  {
+    label: "YouTube",
+    subtitle: "動画を見る",
+    href: "/youtube/",
+    color: "#eee5fa",
+    number: "03",
+  },
+  {
+    label: "プロフィール",
+    subtitle: "書いている人",
+    href: "/about/",
+    color: "#fce3db",
+    number: "04",
+  },
+];
+---
+
+<aside class="rooms" aria-label="らぼのおへや">
+  <div class="room-caption">
+    <span>りゅうのらぼ</span>
+    <h2>らぼのおへや</h2>
+    <p>気になるおへやへ、どうぞ。</p>
+  </div>
+  <div class="room-grid">
+    {rooms.map((room) => (
+      <a
+        class="room-link"
+        href={room.href}
+        style={`--door-color:${room.color}`}
+      >
+        <span class="door-scene" aria-hidden="true">
+          <span class="door-interior">
+            <span class="room-window"></span>
+            <span class="welcome">どうぞ</span>
+            <span class="room-floor"></span>
+          </span>
+          <span class="door-leaf">
+            <span class="door-number">{room.number}</span>
+            <span class="door-panel"></span>
+            <span class="door-knob"></span>
+          </span>
+          <span class="door-step"></span>
+        </span>
+        <span class="room-label">
+          {room.label}
+          <span aria-hidden="true"> →</span>
+        </span>
+        <small>{room.subtitle}</small>
+      </a>
+    ))}
+  </div>
+</aside>
+<style>
+  .rooms {
+    width: 100%;
+    max-width: 350px;
+    justify-self: end;
+    min-width: 0;
+  }
+  .room-caption {
+    text-align: center;
+    margin-bottom: 24px;
+    transform: rotate(-2deg);
+  }
+  .room-caption > span {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+  .room-caption h2 {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin: 5px 0;
+  }
+  .room-caption p {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .room-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 22px;
+  }
+  .room-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 4px;
+    color: #303d48;
+    border-radius: 7px;
+  }
+  .door-scene {
+    width: 116px;
+    height: 158px;
+    position: relative;
+    perspective: 650px;
+    display: block;
+    margin-bottom: 16px;
+  }
+  .door-interior {
+    position: absolute;
+    inset: 0;
+    border: 2px solid #354550;
+    border-radius: 8px 8px 2px 2px;
+    background: #f9f6ed;
+    overflow: hidden;
+    box-shadow: inset 8px 0 15px #35455018;
+  }
+  .room-window {
+    position: absolute;
+    top: 22px;
+    left: 35px;
+    width: 43px;
+    height: 42px;
+    border: 1.5px solid #7b9caa;
+    border-radius: 22px 22px 2px 2px;
+    background:
+      linear-gradient(
+        90deg,
+        transparent 48%,
+        #b1c9d0 48%,
+        #b1c9d0 52%,
+        transparent 52%
+      ),
+      linear-gradient(
+        transparent 48%,
+        #b1c9d0 48%,
+        #b1c9d0 52%,
+        transparent 52%
+      ),
+      #e1f0f5;
+  }
+  .welcome {
+    position: absolute;
+    top: 77px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #587264;
+    opacity: 0;
+    transform: translateY(5px);
+    transition:
+      opacity 0.25s 0.1s,
+      transform 0.25s 0.1s;
+  }
+  .room-floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 32px;
+    border-top: 1px solid #b9ae95;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 9px, #c8bca233 9px 10px),
+      #e8decb;
+  }
+  .door-leaf {
+    position: absolute;
+    inset: 0;
+    background: var(--door-color);
+    border: 2px solid #354550;
+    border-radius: 7px 7px 2px 2px;
+    transform-origin: 0% 50%;
+    transition:
+      transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
+      box-shadow 0.65s;
+    box-shadow: 3px 4px 0 #354550;
+    backface-visibility: hidden;
+  }
+  .door-number {
+    position: absolute;
+    top: 17px;
+    left: 38px;
+    right: 38px;
+    text-align: center;
+    border: 1px solid #35455055;
+    background: #ffffffb0;
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 23px;
+  }
+  .door-panel {
+    position: absolute;
+    inset: 55px 20px 18px;
+    border: 1px solid #35455030;
+    border-radius: 3px;
+  }
+  .door-knob {
+    position: absolute;
+    top: 80px;
+    right: 9px;
+    width: 9px;
+    height: 9px;
+    border: 1.5px solid #354550;
+    border-radius: 50%;
+    background: #fff9dc;
+    box-shadow: 1px 2px 0 #35455033;
+  }
+  .door-step {
+    position: absolute;
+    bottom: -7px;
+    left: -5px;
+    right: -5px;
+    height: 7px;
+    background: #d7dce1;
+    border: 1px solid #83909c;
+    border-radius: 2px;
+  }
+  .room-label {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .room-label > span {
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+  .room-link small {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+  .room-link:hover .door-leaf,
+  .room-link:focus-visible .door-leaf {
+    transform: rotateY(-72deg);
+    box-shadow: 4px 3px 8px #35455015;
+  }
+  .room-link:hover .welcome,
+  .room-link:focus-visible .welcome {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .room-link:hover .room-label > span {
+    transform: translateX(3px);
+  }
+  .room-link:hover {
+    color: var(--accent);
+  }
+  @media (max-width: 760px) {
+    .rooms {
+      justify-self: center;
+      max-width: 335px;
+    }
+    .room-grid {
+      gap: 22px 18px;
+    }
+    .door-scene {
+      width: 108px;
+      height: 147px;
+    }
+    .door-number {
+      left: 34px;
+      right: 34px;
+    }
+    .room-label {
+      font-size: 12px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .door-leaf,
+    .welcome,
+    .room-label > span {
+      transition: none;
+    }
+  }
+</style>
