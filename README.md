@@ -87,3 +87,16 @@ Cloudflare にログイン済みの環境で `npm run deploy` を実行します
 - 被リンクや紹介は実際の価値に基づいて獲得し、自動投稿やリンク購入は行いません。
 
 参考: https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=ja
+
+## Contact form
+
+The static `/contact/` form posts to the same-origin `/api/contact` Cloudflare Worker.
+Worker source/configuration: `workers/contact/`. Deploy with
+`npx wrangler deploy --config workers/contact/wrangler.jsonc`.
+Configure `CONTACT_TO` and `TURNSTILE_SECRET` as Worker secrets (never commit them).
+The recipient must be a verified Cloudflare Email Routing destination; the sending domain must have Email Routing enabled.
+The Turnstile public sitekey in the form is restricted to ryu-koda.com, action `contact`.
+Server checks origin, field lengths, consent, Turnstile hostname/action, and an IP rate limit.
+No submission bodies are logged or stored by the application. Notification mail is retained in the owner's Gmail.
+Run `node --test tests/*.test.mjs` for validation and failure-path tests; these do not send real mail.
+Deploy the Worker before publishing the form. Workers and Pages have separate deploy commands.

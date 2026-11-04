@@ -10,7 +10,7 @@ import ActionLink from "../components/ActionLink.astro";
   <head>
     <BaseHead
       title="お問い合わせ | りゅうのらぼ"
-      description="仕事のご相談、製品レビューのご依頼、記事へのご質問や訂正について。お問い合わせ窓口は現在準備中です。"
+      description="仕事のご相談、製品レビューのご依頼、記事へのご質問や訂正について。こちらのフォームからお送りください。"
     />
   </head>
   <body>
@@ -19,15 +19,33 @@ import ActionLink from "../components/ActionLink.astro";
       <p class="eyebrow">CONTACT</p>
       <h1>お問い合わせ</h1>
       <p class="lead">仕事のご相談や、記事についてのご連絡はこちら。</p>
-      <section class="status" aria-labelledby="contact-status">
-        <span class="status-label">準備中</span>
-        <h2 id="contact-status">お問い合わせ窓口を準備しています</h2>
-        <p>
-          受付方法が整い次第、このページでご案内します。
-          <br />
-          現在、このページからお問い合わせを送信することはできません。
-        </p>
-      </section>
+      <form id="contact-form" class="contact-form">
+        <p class="form-note">すべて必須項目です。お気軽にお送りください。</p>
+        <label for="contact-name">お名前</label>
+        <input id="contact-name" name="name" autocomplete="name" required maxlength="80" placeholder="お名前・活動名" />
+        <label for="contact-email">メールアドレス</label>
+        <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com" />
+        <p class="field-help">返信を受け取れるメールアドレスをご入力ください。</p>
+        <label for="contact-category">お問い合わせの種類</label>
+        <select id="contact-category" name="category" required>
+          <option value="">選んでください</option>
+          <option>仕事・制作のご相談</option><option>製品レビュー・取材</option>
+          <option>記事へのご質問・訂正</option><option>その他</option>
+        </select>
+        <label for="contact-message">お問い合わせ内容</label>
+        <textarea id="contact-message" name="message" required maxlength="5000" rows="8" placeholder="ご相談の内容や、対象の記事URLなどをお書きください。"></textarea>
+        <p class="field-help">5,000文字まで。パスワードや機密情報は入力しないでください。</p>
+        <div class="honey" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off" /></div>
+        <div class="privacy-note">
+          <strong>ご入力いただく情報について</strong>
+          <p>お名前・メールアドレス・お問い合わせ内容は、ご連絡への対応に使用します。送信と迷惑送信対策にCloudflareを利用し、内容は運営者のGmailで受信・保管します。</p>
+          <label class="consent"><input type="checkbox" name="consent" required />上記の個人情報の取り扱いに同意する</label>
+        </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAFzc_i1pUQee5j_X" data-action="contact" data-language="ja" data-size="flexible"></div>
+        <button type="submit" id="contact-submit">お問い合わせを送る <span aria-hidden="true">↗</span></button>
+        <p id="contact-result" role="status" aria-live="polite" tabindex="-1"></p>
+        <noscript>送信にはJavaScriptが必要です。ブラウザの設定で有効にしてください。</noscript>
+      </form>
       <section class="topics" aria-labelledby="topics-title">
         <h2 id="topics-title">お問い合わせについて</h2>
         <dl>
@@ -55,9 +73,58 @@ import ActionLink from "../components/ActionLink.astro";
       </ActionLink>
     </main>
     <Footer />
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script>
+      const form = document.querySelector<HTMLFormElement>('#contact-form')!;
+      const button = document.querySelector<HTMLButtonElement>('#contact-submit')!;
+      const result = document.querySelector<HTMLParagraphElement>('#contact-result')!;
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (button.disabled) return;
+        const data = new FormData(form);
+        const token = data.get('cf-turnstile-response');
+        if (!token) { result.textContent = '迷惑送信対策の確認が完了するまでお待ちください。表示されない場合はページを再読み込みしてください。'; result.focus(); return; }
+        button.disabled = true;
+        button.textContent = '送信しています…';
+        result.textContent = '';
+        try {
+          const response = await fetch('/api/contact', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({name:data.get('name'), email:data.get('email'), category:data.get('category'), message:data.get('message'), website:data.get('website'), consent:data.get('consent') === 'on', token}), signal:AbortSignal.timeout(30000)});
+          const body = await response.json();
+          result.textContent = body.message;
+          result.dataset.state = response.ok ? 'success' : 'error';
+          if (response.ok) form.reset();
+        } catch {
+          result.dataset.state = 'error';
+          result.textContent = '送信結果を確認できませんでした。入力内容は残っています。通信環境を確認し、少し時間をおいてお試しください。';
+        } finally {
+          button.disabled = false;
+          button.textContent = 'お問い合わせを送る ↗';
+          (window as Window & {turnstile?: {reset: () => void}}).turnstile?.reset();
+          result.focus();
+        }
+      });
+    </script>
   </body>
 </html>
 <style>
+  .contact-form { margin: 32px 0 48px; padding: 32px; border: 2px solid #34434d; border-radius: 14px; box-shadow: 6px 6px 0 #e4edf7; background: #fff; }
+  .form-note, .field-help { font-size: 13px; color: #596470; }
+  .contact-form > label { display: block; font-weight: 700; margin: 24px 0 8px; font-size: 15px; }
+  .contact-form > input, select, textarea { box-sizing: border-box; width: 100%; font: inherit; font-size: 16px; color: #25323c; background: #fcfcfa; border: 1px solid #97a5af; border-radius: 7px; padding: 13px; }
+  textarea { resize: vertical; }
+  .contact-form :focus-visible { outline: 3px solid #416fb1; outline-offset: 3px; }
+  .field-help { margin-top: 7px; }
+  .privacy-note { padding: 18px; background: #f4f7f4; border-radius: 8px; font-size: 13px; line-height: 1.9; margin: 24px 0; }
+  .consent { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .consent input { margin-top: 6px; width: 18px; height: 18px; flex-shrink: 0; }
+  .honey { position: absolute; left: -10000px; }
+  .cf-turnstile { margin-bottom: 20px; }
+  #contact-submit { border: 2px solid #34434d; border-radius: 9px; background: #ffedb2; color: #25323c; padding: 16px 24px; box-shadow: 4px 4px 0 #34434d; font: inherit; font-weight: 700; cursor: pointer; transition: transform .18s, box-shadow .18s, background .18s; }
+  #contact-submit:hover { background: #ffe18a; transform: translate(2px, 2px); box-shadow: 2px 2px 0 #34434d; }
+  #contact-submit:disabled { opacity: .6; cursor: wait; }
+  #contact-result:not(:empty) { padding: 16px; background: #edf5ef; border-radius: 6px; line-height: 1.8; }
+  #contact-result[data-state="error"] { background: #fff0eb; }
+  @media (max-width: 600px) { .contact-form { padding: 20px 16px; } }
   .contact {
     padding-top: 56px;
     max-width: 900px;
