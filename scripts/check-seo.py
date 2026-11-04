@@ -33,9 +33,10 @@ for p, page in pages.items():
     check(len(page.titles)==1 and bool(page.titles[0]), 'title missing/duplicate')
     check(bool(page.meta.get('description')), 'description missing')
     check(len(page.canonical)==1 and page.canonical[0].startswith('https://ryu-koda.com/'), 'canonical invalid')
-    check(page.meta.get('og:url')==page.canonical[0], 'OG URL differs from canonical')
+    check(bool(page.canonical) and page.meta.get('og:url')==page.canonical[0], 'OG URL differs from canonical')
     check('robots' in page.meta, 'robots missing')
-    check(page.titles[0] not in titles,'duplicate title'); titles.add(page.titles[0])
+    if page.titles:
+        check(page.titles[0] not in titles,'duplicate title'); titles.add(page.titles[0])
     for data in page.jsonld: json.loads(data)
     for link in page.links:
         u=urlsplit(link)

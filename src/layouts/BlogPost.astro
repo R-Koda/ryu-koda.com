@@ -181,9 +181,15 @@ const breadcrumbJsonLd = JSON.stringify({
       .prose :global(iframe) {
         max-width: 100%;
       }
-      .prose :global(pre) {
-        max-width: 100%;
-      }
+      .prose :global(pre) { max-width: 100%; overflow-x: auto; }
+      .prose :global(figure) { margin: 28px 0; }
+      .prose :global(figure img) { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; }
+      .prose :global(figcaption), .prose :global(.source) { font-size: 13px; line-height: 1.8; color: var(--muted); margin-top: 10px; }
+      .prose :global(.proof) { padding: 14px 18px; background: #eef4ef; border-radius: 8px; font-size: 13px; }
+      .prose :global(.voice) { font-size: 1.12em; color: #315f91; }
+      .prose :global(.card) { border: 1px solid var(--line); padding: 20px; border-radius: 10px; margin: 24px 0; }
+      .prose :global(.card h3) { margin-top: 0; }
+
     </style>
   </head>
 
