@@ -11,7 +11,10 @@ import channels from "../data/youtube.json";
               <span>0{i + 1}</span>
               <span>{channel.topic}</span>
             </div>
-            <h4>{channel.name}</h4>
+            <div class="channel-heading">
+              <img class="channel-avatar" src={channel.avatar} alt="" width="64" height="64" loading="lazy" decoding="async" />
+              <h4>{channel.name}</h4>
+            </div>
             <p>{channel.description}</p>
             <ActionLink href={channel.url} external variant="outline">
               チャンネルを見る
@@ -67,10 +70,13 @@ import channels from "../data/youtube.json";
     padding: 1px 7px;
     border-radius: 3px;
   }
+  .channel-heading { display: flex; align-items: center; gap: 14px; margin: 22px 0 14px; width: 100%; }
+  .channel-avatar { width: 64px; height: 64px; flex-shrink: 0; object-fit: cover; border-radius: 50%; border: 2px solid #303d48; background: #fff; box-shadow: 2px 3px 0 var(--color); }
   .channel h4 {
     font-size: 21px;
     font-weight: 700;
-    margin: 22px 0 14px;
+    margin: 0;
+    overflow-wrap: anywhere;
     line-height: 1.6;
   }
   .channel p {
