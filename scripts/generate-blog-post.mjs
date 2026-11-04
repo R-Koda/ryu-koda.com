@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, existsSync, mkdirSync, appendFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,6 +43,7 @@ async function main() {
     return;
   }
   const policy = readFileSync(resolve(ROOT, 'editorial/policy.md'), 'utf8');
+  const { default: Anthropic } = await import('@anthropic-ai/sdk');
   const client = new Anthropic({ maxRetries: 1, timeout: 120000 });
   const response = await client.messages.create({
     model: process.env.BLOG_MODEL || 'claude-sonnet-4-6', max_tokens: 6500,
