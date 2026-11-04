@@ -45,29 +45,44 @@ const posts = (await journalPosts()).slice(0, 3);
             </ActionLink>
           </div>
         </div>
-        <aside class="index" aria-label="このサイトの案内">
-          <span class="index-title">このサイトで読めること</span>
-          <a href="#journal">
-            <span>
-              <b>ブログ</b>
-              <small>AI・アプリ・自動化・道具</small>
-            </span>
-            <span aria-hidden="true">↓</span>
-          </a>
-          <a href="#work">
-            <span>
-              <b>プロジェクト</b>
-              <small>医学の公開データを使った研究</small>
-            </span>
-            <span aria-hidden="true">↓</span>
-          </a>
-          <a href="/about/">
-            <span>
-              <b>プロフィール</b>
-              <small>関心のあること、活動について</small>
-            </span>
-            <span aria-hidden="true">→</span>
-          </a>
+        <aside class="index" aria-label="ラボのひきだし">
+          <div class="drawer-caption">
+            <span>りゅうのラボ</span>
+            <b>ラボのひきだし</b>
+            <small>気になるところから、どうぞ。</small>
+          </div>
+          <div class="drawer-box">
+            <a href="#journal" class="drawer drawer-journal">
+              <span class="drawer-number" aria-hidden="true">
+                01
+              </span>
+              <span class="drawer-label">
+                <b>ブログ</b>
+                <small>AI・アプリ・自動化・道具</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="#work" class="drawer drawer-work">
+              <span class="drawer-number" aria-hidden="true">
+                02
+              </span>
+              <span class="drawer-label">
+                <b>プロジェクト</b>
+                <small>医学の公開データを使った研究</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/about/" class="drawer drawer-about">
+              <span class="drawer-number" aria-hidden="true">
+                03
+              </span>
+              <span class="drawer-label">
+                <b>プロフィール</b>
+                <small>関心のあること、活動について</small>
+              </span>
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+          </div>
         </aside>
       </section>
       <section id="journal" class="content-section">
@@ -611,6 +626,194 @@ const posts = (await journalPosts()).slice(0, 3);
     }
     .project-identity h3 {
       font-size: 37px;
+    }
+  }
+
+  /* A small cabinet is the site's recurring wayfinding motif. */
+  .intro {
+    grid-template-columns: minmax(0, 1fr) 335px;
+  }
+  .index {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: none;
+    overflow: visible;
+  }
+  .index::before {
+    display: none;
+  }
+  .drawer-caption {
+    text-align: center;
+    margin-bottom: 22px;
+    transform: rotate(-2deg);
+  }
+  .drawer-caption > span {
+    font-family: "Yomogi Logo", sans-serif;
+    font-size: 19px;
+    display: block;
+    line-height: 1.5;
+  }
+  .drawer-caption > b {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin: 5px 0;
+  }
+  .drawer-caption > small {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .drawer-box {
+    border: 2px solid #303d48;
+    border-radius: 9px 9px 4px 4px;
+    background: #e7e1d6;
+    padding: 10px 10px 15px;
+    box-shadow: 7px 8px 0 #e8ebef;
+    position: relative;
+    isolation: isolate;
+  }
+  .drawer-box::before,
+  .drawer-box::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    width: 25px;
+    height: 10px;
+    background: #303d48;
+    border-radius: 0 0 3px 3px;
+  }
+  .drawer-box::before {
+    left: 20px;
+  }
+  .drawer-box::after {
+    right: 20px;
+  }
+  .drawer-box .drawer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 23px minmax(0, 1fr) 29px;
+    align-items: center;
+    gap: 10px;
+    border: 1.5px solid #303d48;
+    border-radius: 4px;
+    background: #fff0b8;
+    padding: 19px 14px;
+    margin: 0 0 9px;
+    box-shadow: 0 4px 0 #303d48;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+    min-height: 93px;
+    transform-origin: center;
+  }
+  .drawer-box .drawer:last-child {
+    margin-bottom: 0;
+  }
+  .drawer-box .drawer-work {
+    background: #e3f1e7;
+  }
+  .drawer-box .drawer-about {
+    background: #fce3db;
+  }
+  .drawer-number {
+    align-self: start;
+    font:
+      11px/2 Atkinson,
+      sans-serif;
+    color: #58616a;
+  }
+  .drawer-label > b {
+    background: white !important;
+    border: 1px solid #303d4830;
+    border-radius: 2px;
+    padding: 1px 8px !important;
+    font-size: 13px !important;
+  }
+  .drawer-label > small {
+    font-size: 10px;
+    color: #4a555d !important;
+    margin-top: 7px;
+    line-height: 1.6;
+  }
+  .drawer-handle {
+    width: 27px;
+    height: 9px;
+    border: 1.5px solid #303d48;
+    border-radius: 3px;
+    background: #ffffffa6;
+    box-shadow: 0 2px 0 #303d4840;
+    transform: none !important;
+  }
+  .drawer-box .drawer:hover,
+  .drawer-box .drawer:focus-visible {
+    transform: translate(-5px, -2px);
+    box-shadow: 5px 7px 0 #303d48;
+    color: var(--ink);
+  }
+  .drawer-box .drawer:active {
+    transform: translate(0, 2px);
+    box-shadow: 0 2px 0 #303d48;
+  }
+  .journal-row {
+    border-radius: 4px 11px 7px 5px;
+    border-top: 7px solid #f2d46c;
+  }
+  .journal-row:nth-child(2n) {
+    border-top-color: #aecbe9;
+  }
+  .article-date span {
+    background: #fff4cc;
+  }
+  .journal-row:nth-child(2n) .article-date span {
+    background: #e9f1fc;
+  }
+  .project {
+    border-top: 7px solid #a9c5ad;
+  }
+  .personal-note h2 {
+    display: inline-block;
+    align-self: start;
+    justify-self: start;
+    background: #fce3db;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transform: rotate(-1deg);
+  }
+  @media (max-width: 760px) {
+    .intro {
+      grid-template-columns: 1fr;
+      gap: 42px;
+    }
+    .index {
+      width: min(335px, 100%);
+      margin: 0 auto;
+      padding: 0;
+      box-shadow: none;
+    }
+    .drawer-caption {
+      margin-bottom: 15px;
+    }
+    .drawer-caption > b {
+      font-size: 18px;
+    }
+    .drawer-box .drawer {
+      min-height: 83px;
+      padding: 14px 10px;
+      gap: 8px;
+    }
+    .drawer-label > small {
+      font-size: 9px;
+    }
+    .drawer-box {
+      box-shadow: 4px 5px 0 #e8ebef;
+    }
+    .drawer-box .drawer:hover,
+    .drawer-box .drawer:focus-visible {
+      transform: translate(-2px, -2px);
+      box-shadow: 2px 5px 0 #303d48;
     }
   }
 </style>
