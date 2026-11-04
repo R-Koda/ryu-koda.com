@@ -1,0 +1,35 @@
+---
+interface Props { index: number }
+const { index } = Astro.props;
+---
+<span class="surprise-window" aria-hidden="true">
+  <svg class:list={["surprise", `surprise-${index}`]} width="88" height="76" viewBox="0 0 88 76" fill="none" stroke="#303d48" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    {index === 0 && <g><path d="M12 15h58v38H39L24 65V53H12z" fill="#dceaff"/><path d="M22 26h37M22 33h29"/><g class="dots" fill="#303d48"><circle cx="29" cy="43" r="2"/><circle cx="41" cy="43" r="2"/><circle cx="53" cy="43" r="2"/></g><path d="m73 7 2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#ffdf83"/></g>}
+    {index === 1 && <g><g class="gear"><path d="m36 8 16 0 2 9 8 5 9-3 8 14-7 6v10l7 6-8 14-9-3-8 5-2 4H36l-2-4-8-5-9 3-8-14 7-6V39l-7-6 8-14 9 3 8-5z" fill="#ffe9a4"/><circle cx="44" cy="44" r="16" fill="#fff"/><circle cx="44" cy="44" r="5" fill="#e3f1e7"/></g></g>}
+    {index === 2 && <g class="heart"><path d="M44 66C31 56 8 40 12 24c4-16 24-18 32-3 8-15 28-13 32 3 4 16-19 32-32 42z" fill="#f7bcb8"/><path d="M20 40h12l6-12 8 24 6-12h16" stroke="#fff" stroke-width="3"/></g>}
+    {index === 3 && <g class="paper"><path d="M19 6h37l14 14v49H19z" fill="#e1eaff"/><path d="M56 6v15h14M28 30h30M28 37h22"/><path class="chart" d="m28 57 9-8 8 4 15-12" stroke="#436da6" stroke-width="3"/><path d="M28 44v18h32"/></g>}
+    {index === 4 && <g><path d="M16 17h43v53H16z" fill="#e3f1e7"/><path d="M27 11h22v12H27z" fill="#fff"/><path d="M25 33h24M25 41h17M25 49h22"/><g class="lens"><circle cx="58" cy="43" r="15" fill="#fff0b8" fill-opacity=".85"/><path d="m69 55 12 13" stroke-width="7"/><path d="M58 35v16M50 43h16" stroke="#60856d"/></g></g>}
+    {index === 5 && <g class="clapper"><path d="M12 28h64v39H12z" fill="#eee5fa"/><g class="clapper-top"><path d="M12 14h64v14H12z" fill="#fff"/><path d="m23 14-8 14m25-14-9 14m26-14-9 14m26-14-9 14"/></g><path d="m37 38 17 10-17 10z" fill="#fff0b8"/></g>}
+  </svg>
+</span>
+<style>
+  .surprise-window { position: absolute; right: 15px; top: -73px; width: 108px; height: 76px; overflow: hidden; pointer-events: none; }
+  .surprise { position: absolute; left: 10px; bottom: 0; opacity: 0; transform: translateY(82px) rotate(-14deg); transition: transform 230ms ease-in, opacity 180ms; }
+  :global(.channel:is(:hover, :focus-within)) .surprise { opacity: 1; transform: translateY(0) rotate(4deg); transition: transform 600ms cubic-bezier(.2, 1.5, .4, 1), opacity 150ms; }
+  :global(.channel:is(:hover, :focus-within)) .dots { animation: chatting 800ms 450ms ease-in-out 3; }
+  .gear { transform-origin: 44px 44px; }
+  :global(.channel:is(:hover, :focus-within)) .gear { animation: turn 2s 350ms ease-in-out 1; }
+  .heart { transform-origin: 44px 40px; }
+  :global(.channel:is(:hover, :focus-within)) .heart { animation: heartbeat 750ms 400ms ease-in-out 3; }
+  :global(.channel:is(:hover, :focus-within)) .paper { animation: paper-rock 700ms 450ms ease-in-out 2; transform-origin: 44px 65px; }
+  :global(.channel:is(:hover, :focus-within)) .lens { animation: inspect 1.4s 400ms ease-in-out 2; }
+  .clapper-top { transform-origin: 12px 28px; }
+  :global(.channel:is(:hover, :focus-within)) .clapper-top { animation: clap 650ms 350ms ease-in-out 2; }
+  @keyframes chatting { 50% { opacity: .2; transform: translateY(-2px); } }
+  @keyframes turn { to { transform: rotate(180deg); } }
+  @keyframes heartbeat { 30% { transform: scale(1.08); } 60% { transform: scale(.95); } }
+  @keyframes paper-rock { 50% { transform: rotate(-8deg); } }
+  @keyframes inspect { 50% { transform: translate(-10px, -7px); } }
+  @keyframes clap { 40% { transform: rotate(-18deg); } }
+  @media (prefers-reduced-motion: reduce) { .surprise, .surprise * { animation: none !important; transition: none !important; } }
+</style>
