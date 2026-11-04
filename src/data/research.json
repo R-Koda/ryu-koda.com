@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "brain-modulation-lab",
+    "name": "Brain Modulation Lab",
+    "subtitle": "Massachusetts General Hospital",
+    "role": "Visiting Research Scientist",
+    "since": "2025-10",
+    "sinceLabel": "2025年10月",
+    "icon": "/images/research/brain-modulation-lab.png",
+    "iconAlt": "Brain Modulation Labのロゴ",
+    "iconBackground": "#416e4d",
+    "personal": "2025年10月から、Brain Modulation LabでVisiting Research Scientistとして研究に参加しています。",
+    "overview": "Brain Modulation Labは、てんかん、運動障害、精神疾患の脳神経外科治療の機会を通じて、脳の働きと行動を研究するラボです。頭蓋内の記録・刺激技術を用いた研究を、脳機能を調節する治療の改善につなげることを目指しています。",
+    "themes": ["脳機能と行動", "頭蓋内記録・脳刺激", "てんかんなどの脳疾患"],
+    "official": "https://www.brainmodulationlab.org/",
+    "officialLabel": "Brain Modulation Lab 公式サイト"
+  },
+  {
+    "slug": "mit-csail",
+    "name": "MIT CSAIL",
+    "subtitle": "Computer Science and Artificial Intelligence Laboratory",
+    "role": "External Collaborator（外部共同研究者）",
+    "since": "2026-04",
+    "sinceLabel": "2026年4月",
+    "icon": "/images/research/mit-csail.svg",
+    "iconAlt": "MIT CSAILのロゴ",
+    "iconBackground": "#ffffff",
+    "personal": "2026年4月から、MIT CSAILのExternal Collaborator（外部共同研究者）として、Boris Katz教授との共同研究に参加しています。",
+    "overview": "Boris Katz教授が所属するInfolabでは、言語の学習、視覚と言語の関係、人と機械のやり取りなどを研究しています。自然言語処理、情報検索、コンピュータービジョンなどの方法を組み合わせて取り組んでいます。",
+    "themes": ["自然言語処理", "情報検索", "視覚と言語"],
+    "official": "https://www.csail.mit.edu/research/infolab",
+    "officialLabel": "MIT CSAIL / Infolab 公式紹介"
+  },
+  {
+    "slug": "clinical-aging",
+    "name": "東北大学 加齢医学研究所",
+    "subtitle": "臨床加齢医学研究分野 / Department of Clinical Aging Research",
+    "role": "Senior Engineer",
+    "since": "2024-10",
+    "sinceLabel": "2024年10月",
+    "icon": "/images/research/clinical-aging.png",
+    "iconAlt": "臨床加齢医学研究分野の公式サイトで使用されている東北大学のアイコン",
+    "iconBackground": "#ffffff",
+    "personal": "2024年10月から、Institute of Development, Aging and Cancer, Department of Clinical Aging ResearchでSenior Engineerとして活動しています。",
+    "overview": "臨床加齢医学研究分野（瀧研究室）では、脳の発達や加齢、生活習慣、遺伝要因などを扱う研究に取り組んでいます。大学の研究と社会のニーズを結ぶ産学共同研究も進めています。",
+    "themes": ["脳の発達と加齢", "生活習慣・遺伝要因", "産学共同研究"],
+    "official": "https://argm.idac.tohoku.ac.jp/",
+    "officialLabel": "瀧研究室・加齢老年病科 公式サイト",
+    "additional": "https://www.idac.tohoku.ac.jp/site_ja/research-facilities-faculty/research-facilities",
+    "additionalLabel": "東北大学 加齢医学研究所の研究部門一覧"
+  }
+]

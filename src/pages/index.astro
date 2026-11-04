@@ -70,16 +70,6 @@ const posts = (await journalPosts()).slice(0, 3);
           </div>
         </aside>
       </section>
-      <section class="start-here" aria-labelledby="start-title">
-        <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
-        <p class="start-lead">作業を楽にしたい。道具を選びたい。何か作りたい。今日の気分でどうぞ。</p>
-        <div class="starter-grid">{Object.entries(guides).map(([slug, guide]) => (
-          <a class="starter-card" href={`/blog/${slug}/`}>
-            <img src={`/articles/${slug}/cover.webp`} alt={guide.label} width="1200" height="630" loading="lazy" decoding="async" />
-            <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
-          </a>
-        ))}</div>
-      </section>
       <section id="journal" class="content-section">
         <div class="section-heading">
           <h2>最近の記事</h2>
@@ -104,6 +94,16 @@ const posts = (await journalPosts()).slice(0, 3);
             </a>
           ))}
         </div>
+      </section>
+      <section class="start-here" aria-labelledby="start-title">
+        <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
+        <p class="start-lead">作業を楽にしたい。道具を選びたい。何か作りたい。今日の気分でどうぞ。</p>
+        <div class="starter-grid">{Object.entries(guides).map(([slug, guide]) => (
+          <a class="starter-card" href={`/blog/${slug}/`}>
+            <img src={`/articles/${slug}/cover.webp`} alt={guide.label} width="1200" height="630" loading="lazy" decoding="async" />
+            <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
+          </a>
+        ))}</div>
       </section>
       <FollowNote />
       <section class="personal-note">

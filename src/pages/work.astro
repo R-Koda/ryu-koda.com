@@ -1,4 +1,5 @@
 ---
+import research from "../data/research.json";
 import YouTubeChannels from "../components/YouTubeChannels.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -37,9 +38,10 @@ import ActionLink from "../components/ActionLink.astro";
         <h2>研究</h2>
         <p>研究室での活動と共同研究に取り組んでいます。現在の研究関連の所属・役職をご紹介します。</p>
         <dl class="research-affiliations">
-          <div><dt>Brain Modulation Lab</dt><dd class="research-role">Visiting Research Scientist</dd><dd><time datetime="2025-10">2025年10月</time>〜現在</dd></div>
-          <div><dt>MIT Computer Science and Artificial Intelligence Laboratory (CSAIL)</dt><dd class="research-role">External Collaborator（外部共同研究者）</dd><dd><time datetime="2026-04">2026年4月</time>〜現在</dd><dd>Boris Katz教授との共同研究</dd></div>
-          <div><dt>Institute of Development, Aging and Cancer</dt><dd>Department of Clinical Aging Research</dd><dd class="research-role">Senior Engineer</dd><dd><time datetime="2024-10">2024年10月</time>〜現在</dd></div>
+          {research.map(item => <div>
+            <dt><a class="research-name" href={`/work/research/${item.slug}/`}><span class="research-icon" style={`background:${item.iconBackground}`}><img src={item.icon} alt="" width="120" height="80" loading="lazy" decoding="async" /></span><span>{item.name}<small>{item.subtitle}</small></span><span class="research-arrow" aria-hidden="true">↗</span></a></dt>
+            <dd class="research-role">{item.role}</dd><dd><time datetime={item.since}>{item.sinceLabel}</time>〜現在</dd>
+          </div>)}
         </dl>
         <p class="affiliation-source"><a href="https://www.linkedin.com/in/ryu-koda/" target="_blank" rel="noopener noreferrer">LinkedInプロフィール ↗</a>の継続中の職歴に基づきます（2026年11月4日確認）。</p>
 
@@ -78,6 +80,14 @@ import ActionLink from "../components/ActionLink.astro";
   </body>
 </html>
 <style>
+  .research-name { display: flex; gap: 20px; align-items: center; text-decoration: none; border-radius: 8px; padding: 5px 0; }
+  .research-name:hover { color: #315e91; }
+  .research-name:focus-visible { outline: 3px solid #315e91; outline-offset: 5px; }
+  .research-name small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 6px; }
+  .research-icon { display: grid; place-items: center; width: 136px; height: 96px; flex-shrink: 0; padding: 8px; border: 1px solid #d5dfd8; border-radius: 8px; }
+  .research-icon img { width: 100%; height: 100%; object-fit: contain; }
+  .research-arrow { margin-left: auto; font-size: 22px; }
+  @media(max-width:600px) { .research-name { gap: 12px; } .research-icon { width: 92px; height: 72px; } .research-arrow { display: none; } }
   .research-affiliations { margin: 24px 0; }
   .research-affiliations > div { border-top: 1px dashed #bdc9c0; padding: 22px 0; }
   .research-affiliations dt { font-size: 17px; font-weight: 700; line-height: 1.6; }

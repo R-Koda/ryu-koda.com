@@ -1,0 +1,13 @@
+{
+  "checked": "2026-11-05",
+  "brain-modulation-lab": "https://images.squarespace-cdn.com/content/v1/6906c5a576b79d73dbfb841e/36b60ed4-797f-41d5-8e94-9411d1f096fc/BMLv4+green.png?format=500w",
+  "clinical-aging": {
+    "asset": "https://storage.googleapis.com/production-os-assets/assets/0afa0372-e549-4fd7-a39a-7719e4d1ad35",
+    "page": "https://argm.idac.tohoku.ac.jp/english",
+    "type": "official site icon"
+  },
+  "mit-csail": {
+    "page": "https://www.csail.mit.edu/research/infolab",
+    "type": "header inline SVG"
+  }
+}
