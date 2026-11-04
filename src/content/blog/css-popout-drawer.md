@@ -1,5 +1,5 @@
 ---
-title: "サイトがちょっとおとなしい。引き出しから自分が出てくるようにしてみた"
+title: "HTMLとCSSで、引き出しから自分が飛び出す仕掛けを作ってみた"
 description: "アバターが飛び出す引き出しをHTMLとCSSで作る方法。動くサンプル、全コード、導入手順と調整方法を紹介します。"
 pubDate: 2026-11-04T22:00:00+09:00
 tags: ["Web制作", "CSS", "つくったもの"]
@@ -21,7 +21,7 @@ tags: ["Web制作", "CSS", "つくったもの"]
 
 <p>普段はこんな見た目です。プロフィール、おしごと、ブログ、SNS、日記。どこへ行くかは、何もしなくても読めます。</p>
 
-<figure><a href="/articles/css-popout-drawer/drawer-before-detail.jpg" target="_blank"><img src="/articles/css-popout-drawer/drawer-before-detail.jpg" alt="アバターが隠れている通常時の5つの引き出し" loading="lazy"></a><figcaption>通常時の実画面。動く部分だけでなく、行き先のラベルも残しています。</figcaption></figure>
+<figure><a href="/articles/css-popout-drawer/drawer-before-detail.jpg" target="_blank"><img width="380" height="585" decoding="async" src="/articles/css-popout-drawer/drawer-before-detail.jpg" alt="アバターが隠れている通常時の5つの引き出し" loading="lazy"></a><figcaption>通常時の実画面。動く部分だけでなく、行き先のラベルも残しています。</figcaption></figure>
 
 
 <p>引き出しは、ページへ移動するためのリンクです。飛び出す演出が分からなくても、押したら目的のページへ行ける。その土台に、少しだけ遊びを足しています。</p>
@@ -34,7 +34,7 @@ tags: ["Web制作", "CSS", "つくったもの"]
 
 <p>「ブログ」の引き出しにフォーカスを移してみると、枠が少しずれ、その上からアバターと紙が出てきました。</p>
 
-<figure><a href="/articles/css-popout-drawer/drawer-blog-detail.jpg" target="_blank"><img src="/articles/css-popout-drawer/drawer-blog-detail.jpg" alt="ブログの引き出しからGitHubの顔画像を使ったアバターと紙が出た状態" loading="lazy"></a><figcaption>今回はキーボードのTabキーで操作して撮影。青い枠はフォーカスの表示です。カーソルを重ねる場合も同じ表示切り替えを使っています。</figcaption></figure>
+<figure><a href="/articles/css-popout-drawer/drawer-blog-detail.jpg" target="_blank"><img width="380" height="585" decoding="async" src="/articles/css-popout-drawer/drawer-blog-detail.jpg" alt="ブログの引き出しからGitHubの顔画像を使ったアバターと紙が出た状態" loading="lazy"></a><figcaption>今回はキーボードのTabキーで操作して撮影。青い枠はフォーカスの表示です。カーソルを重ねる場合も同じ表示切り替えを使っています。</figcaption></figure>
 
 
 <p>顔はGitHubのプロフィール画像。体と腕は別の小さなパーツです。全部を一枚の絵にして動かすのではなく、顔・体・小物を組み合わせています。</p>
@@ -64,7 +64,7 @@ tags: ["Web制作", "CSS", "つくったもの"]
 
 <p>続いて「おしごと」へフォーカスを戻すと、紙の代わりにパソコンが出てきます。</p>
 
-<figure><a href="/articles/css-popout-drawer/drawer-work.jpg" target="_blank"><img src="/articles/css-popout-drawer/drawer-work.jpg" alt="おしごとの引き出しにフォーカスを当てたホームの実画面" loading="lazy"></a><figcaption>おしごとの実画面。アバターの横にパソコンが現れます。こちらもキーボード操作で確認しました。</figcaption></figure>
+<figure><a href="/articles/css-popout-drawer/drawer-work.jpg" target="_blank"><img width="1280" height="720" decoding="async" src="/articles/css-popout-drawer/drawer-work.jpg" alt="おしごとの引き出しにフォーカスを当てたホームの実画面" loading="lazy"></a><figcaption>おしごとの実画面。アバターの横にパソコンが現れます。こちらもキーボード操作で確認しました。</figcaption></figure>
 
 
 <p>実装上は、プロフィールでは手を振り、日記では鉛筆が書くように動く、といった違いも付けています。今回写真にしたのは、おしごととブログの2種類です。</p>
@@ -106,7 +106,7 @@ tags: ["Web制作", "CSS", "つくったもの"]
 <ol><li>下のコードをすべてコピーします。</li><li>エディタで <code>index.html</code> という名前のUTF-8のプレーンテキストファイルに保存します。末尾が <code>.html.txt</code> にならないようにします。Macのテキストエディットを使う場合は「フォーマット」→「標準テキストにする」を選びます。</li><li>保存したファイルをブラウザで開きます。</li><li>引き出しにカーソルを重ねて顔が出るか確認。次にクリックして中のリンクを開きます。</li><li>Tabキーで引き出しを選び、Enterで開閉できるかも試します。スマートフォンではタップで開閉します。</li></ol>
 
 
-<figure><img src="/articles/css-popout-drawer/drawer-demo-open.jpg" alt="配布用HTMLを実際にブラウザで開き、引き出しを開いた画面"><figcaption>配布コードそのものをブラウザで実行。クリックで開き、Enterで閉じることを確認しました。</figcaption></figure>
+<figure><img width="1280" height="720" decoding="async" src="/articles/css-popout-drawer/drawer-demo-open.jpg" alt="配布用HTMLを実際にブラウザで開き、引き出しを開いた画面"><figcaption>配布コードそのものをブラウザで実行。クリックで開き、Enterで閉じることを確認しました。</figcaption></figure>
 
 
 

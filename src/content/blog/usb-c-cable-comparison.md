@@ -27,7 +27,7 @@ tags: ["ガジェット", "USB-C", "比較"]
 
 <p>ページ内の「仕様」へ進んでみました。</p>
 
-<figure><a href="/articles/usb-c-cable-comparison/usb-spec.jpg" target="_blank"><img src="/articles/usb-c-cable-comparison/usb-spec.jpg" alt="エレコムMPA-CCPE05BKの仕様表。転送速度480Mbps、240W、DisplayPort Alternate Mode非対応の各欄" loading="lazy"></a><figcaption>仕様欄の実際の表示。今回見比べたのは「対応転送速度」「対応電圧/電流」「DisplayPort Alternate Mode対応」です。出典：<a href="https://www.elecom.co.jp/products/MPA-CCPE05BK.html">エレコム公式製品ページ</a>（2026年11月4日確認）。</figcaption></figure>
+<figure><a href="/articles/usb-c-cable-comparison/usb-spec.jpg" target="_blank"><img width="1280" height="720" decoding="async" src="/articles/usb-c-cable-comparison/usb-spec.jpg" alt="エレコムMPA-CCPE05BKの仕様表。転送速度480Mbps、240W、DisplayPort Alternate Mode非対応の各欄" loading="lazy"></a><figcaption>仕様欄の実際の表示。今回見比べたのは「対応転送速度」「対応電圧/電流」「DisplayPort Alternate Mode対応」です。出典：<a href="https://www.elecom.co.jp/products/MPA-CCPE05BK.html">エレコム公式製品ページ</a>（2026年11月4日確認）。</figcaption></figure>
 
 
 

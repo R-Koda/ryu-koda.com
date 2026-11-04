@@ -1,0 +1,5 @@
+{
+  "mac-finder-batch-rename": {"purpose":"面倒な作業を楽にしたい", "label":"Macのファイル名をまとめて変更", "summary":"Finderの「名称変更」で、IMG_をdesk_に置き換えられました。番号はそのまま。追加アプリなしで試せます。", "image":"/articles/mac-finder-batch-rename/finder-after-detail.jpg", "alt":"Finderで3枚のファイル名をdesk_に変更した結果", "evidence":"実際に操作・スクリーンショットあり", "resource":"/articles/mac-finder-batch-rename/rename-practice.zip", "resourceLabel":"練習用ファイルをダウンロード"},
+  "usb-c-cable-comparison": {"purpose":"道具選びで迷いたくない", "label":"USB-Cケーブルの仕様を見比べる", "summary":"充電のW数だけでは、転送速度や映像対応はわかりません。3製品の公式仕様を、充電・転送・映像の用途で読み比べます。", "image":"/articles/usb-c-cable-comparison/usb-spec.jpg", "alt":"USB-Cケーブルの電力、転送速度、映像対応を示す公式仕様欄", "evidence":"公式仕様の比較・実機の使用レビューではありません"},
+  "css-popout-drawer": {"purpose":"自分でも作ってみたい", "label":"HTMLとCSSで、飛び出す引き出し", "summary":"リンクにカーソルを重ねると、引き出しが動いてアバターがひょこっと登場。HTMLとCSSのサンプルを動かしながら作れます。", "image":"/articles/css-popout-drawer/drawer-blog-detail.jpg", "alt":"ブログの引き出しからアバターと紙が飛び出した画面", "evidence":"公開サイトで検証・動くデモと全コードあり", "resource":"/articles/css-popout-drawer/demo/", "resourceLabel":"動くデモを触ってみる"}
+}

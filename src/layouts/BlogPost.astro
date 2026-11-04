@@ -1,4 +1,6 @@
 ---
+import guides from "../data/article-guides.json";
+import FollowNote from "../components/FollowNote.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { journalPosts } from "../lib/posts";
@@ -21,6 +23,9 @@ const {
   headings = [],
 } = Astro.props;
 
+const slug = Astro.url.pathname.split('/').filter(Boolean).at(-1) || '';
+const guide = guides[slug as keyof typeof guides];
+const preview = guide ? `/articles/${slug}/preview.webp` : undefined;
 // Get related posts: prefer posts with shared tags, fallback to recent posts
 const allPosts = (await journalPosts())
   .filter((p) => p.data.title !== title)
@@ -37,7 +42,7 @@ const relatedPosts = (() => {
       .filter((p) => p.sharedTags > 0)
       .sort((a, b) => b.sharedTags - a.sharedTags)
       .map((p) => p.post);
-    if (withSharedTags.length >= 2) return withSharedTags.slice(0, 3);
+    return [...withSharedTags, ...allPosts.filter(p => !withSharedTags.includes(p))].slice(0, 3);
   }
   return allPosts.slice(0, 3);
 })();
@@ -59,9 +64,7 @@ const articleJsonLd = JSON.stringify({
   },
   datePublished: pubDate.toISOString(),
   ...(updatedDate && { dateModified: updatedDate.toISOString() }),
-  ...(heroImage && {
-    image: new URL(heroImage.src, Astro.site).toString(),
-  }),
+  image: new URL(preview ?? heroImage?.src ?? "/social-card.png", Astro.site).toString(),
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": new URL(Astro.url.pathname, Astro.site).href,
@@ -99,6 +102,7 @@ const breadcrumbJsonLd = JSON.stringify({
       title={`${title} | ${SITE_TITLE}`}
       description={description}
       image={heroImage}
+      socialImagePath={preview}
       type="article"
       publishedTime={pubDate}
       updatedTime={updatedDate}
@@ -107,6 +111,18 @@ const breadcrumbJsonLd = JSON.stringify({
     <script type="application/ld+json" set:html={articleJsonLd.replace(/</g, '\\u003c')} />
     <script type="application/ld+json" set:html={breadcrumbJsonLd.replace(/</g, '\\u003c')} />
     <style>
+      .article-outcome { background: #f6f8fc; border: 1px solid #c5d3e3; padding: 22px; border-radius: 10px; margin: 24px 0; }
+      .article-outcome h2 { font-size: 20px; margin: 0 0 12px; }
+      .article-outcome p { font-size: 15px; line-height: 1.9; }
+      .article-outcome .evidence { font-size: 12px; color: #53616a; }
+      .article-outcome img { width: 100%; height: auto; border-radius: 6px; }
+      .article-outcome figure { margin: 18px 0; }
+      .article-outcome figcaption { font-size: 12px; color: var(--muted); }
+      .resource-link { display: inline-block; padding: 10px 14px; background: #ffedb2; border: 1px solid #34434d; border-radius: 5px; }
+      .article-feedback { border-top: 1px dashed #aab6c0; margin-top: 40px; padding-top: 18px; font-size: 13px; }
+      .article-feedback button { background: white; border: 1px solid #34434d; padding: 12px; border-radius: 5px; cursor: pointer; font: inherit; }
+      #copy-result { display: block; margin-top: 8px; overflow-wrap: anywhere; }
+      .related-description { font-size: 13px; color: var(--muted); line-height: 1.8; margin-bottom: 8px; }
       main {
         width: min(1100px, calc(100% - 40px));
         margin: 0 auto;
@@ -228,6 +244,12 @@ const breadcrumbJsonLd = JSON.stringify({
             <hr />
           </div>
           <p class="article-author">書いた人：<a href="/about/">{AUTHOR_NAME}</a></p>
+          {guide && <section class="article-outcome" aria-label="この記事でわかること">
+            <h2>こんなことを試しました。</h2><p>{guide.summary}</p>
+            <p class="evidence">{guide.evidence}</p>
+            <figure><img src={preview} alt={guide.alt} width="1200" height="630" decoding="async" fetchpriority="high" /><figcaption>{guide.alt}</figcaption></figure>
+            {'resource' in guide && <a class="resource-link" href={guide.resource}>{guide.resourceLabel} ↗</a>}
+          </section>}
           {headings.filter(h => h.depth === 2).length > 2 && (
             <details class="article-toc">
               <summary>この記事の目次</summary>
@@ -235,11 +257,12 @@ const breadcrumbJsonLd = JSON.stringify({
             </details>
           )}
           <slot />
+          <aside class="article-feedback"><p>試してみてつまずいたことや、記事の訂正は<a href="/contact/">お問い合わせフォーム</a>へどうぞ。対象の記事URLを添えていただけると助かります。</p><button type="button" id="copy-article-link">この記事のリンクをコピー</button><span id="copy-result" role="status"></span></aside>
           <AdSense slot="in-article" format="rectangle" />
         </div>
         {relatedPosts.length > 0 && (
           <aside class="related-posts">
-            <h2>関連記事</h2>
+            <h2>こちらも、のぞいてみる？</h2>
             <ul>
               {relatedPosts.map((post) => (
                 <li>
@@ -254,6 +277,7 @@ const breadcrumbJsonLd = JSON.stringify({
                     )}
                     <div class="related-post-info">
                       <h3>{post.data.title}</h3>
+                      <p class="related-description">{post.data.description}</p>
                       <p class="date">
                         <FormattedDate date={post.data.pubDate} />
                       </p>
@@ -265,8 +289,17 @@ const breadcrumbJsonLd = JSON.stringify({
           </aside>
         )}
       </article>
+      <FollowNote />
     </main>
     <AdSense slot="footer" format="horizontal" className="footer-ad" />
     <Footer />
+    <script>
+      document.querySelector('#copy-article-link')?.addEventListener('click', async () => {
+        const status = document.querySelector('#copy-result')!;
+        const url = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')!.href;
+        try { await navigator.clipboard.writeText(url); status.textContent = 'リンクをコピーしました。'; }
+        catch { status.textContent = `こちらのURLをコピーしてください：${url}`; }
+      });
+    </script>
   </body>
 </html>

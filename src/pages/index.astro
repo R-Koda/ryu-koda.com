@@ -8,6 +8,8 @@ import Footer from "../components/Footer.astro";
 import ActionLink from "../components/ActionLink.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { journalPosts } from "../lib/posts";
+import guides from "../data/article-guides.json";
+import FollowNote from "../components/FollowNote.astro";
 const posts = (await journalPosts()).slice(0, 3);
 ---
 
@@ -68,6 +70,16 @@ const posts = (await journalPosts()).slice(0, 3);
           </div>
         </aside>
       </section>
+      <section class="start-here" aria-labelledby="start-title">
+        <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
+        <p class="start-lead">作業を楽にしたい。道具を選びたい。何か作りたい。今日の気分でどうぞ。</p>
+        <div class="starter-grid">{Object.entries(guides).map(([slug, guide]) => (
+          <a class="starter-card" href={`/blog/${slug}/`}>
+            <img src={`/articles/${slug}/preview.webp`} alt={guide.alt} width="1200" height="630" loading="lazy" decoding="async" />
+            <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
+          </a>
+        ))}</div>
+      </section>
       <section id="journal" class="content-section">
         <div class="section-heading">
           <h2>最近の記事</h2>
@@ -93,6 +105,7 @@ const posts = (await journalPosts()).slice(0, 3);
           ))}
         </div>
       </section>
+      <FollowNote />
       <section class="personal-note">
         <h2>このブログについて</h2>
         <div>
@@ -109,6 +122,21 @@ const posts = (await journalPosts()).slice(0, 3);
   </body>
 </html>
 <style>
+  .start-here { margin: 38px 0 56px; }
+  .start-lead { font-size: 14px; color: var(--muted); line-height: 1.9; margin: 24px 0; }
+  .starter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+  .starter-card { display: flex; flex-direction: column; padding: 16px; border: 1.5px solid #34434d; border-radius: 9px; text-decoration: none; box-shadow: 4px 4px 0 #e4edf7; transition: transform .2s; }
+  .starter-card:nth-child(2) { box-shadow: 4px 4px 0 #fff0b8; }
+  .starter-card:nth-child(3) { box-shadow: 4px 4px 0 #e3efdf; }
+  .starter-card:hover { transform: translateY(-3px); }
+  .starter-card img { width: 100%; height: auto; border-radius: 5px; margin-bottom: 18px; }
+  .starter-card span { font-size: 12px; color: #41638a; }
+  .starter-card h3 { font-size: 18px; line-height: 1.7; margin: 10px 0; }
+  .starter-card p { font-size: 12px; color: var(--muted); line-height: 1.8; margin-bottom: 18px; }
+  .starter-card b { margin-top: auto; font-size: 13px; }
+  @media(max-width:760px) { .starter-grid { grid-template-columns: 1fr; } }
+  @media(prefers-reduced-motion:reduce) { .starter-card { transition: none; } .starter-card:hover { transform: none; } }
+
   .intro {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 270px;

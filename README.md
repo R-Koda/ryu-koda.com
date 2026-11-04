@@ -100,3 +100,11 @@ Server checks origin, field lengths, consent, Turnstile hostname/action, and an 
 No submission bodies are logged or stored by the application. Notification mail is retained in the owner's Gmail.
 Run `node --test tests/*.test.mjs` for validation and failure-path tests; these do not send real mail.
 Deploy the Worker before publishing the form. Workers and Pages have separate deploy commands.
+
+## Reader experience and search maintenance
+
+`src/data/article-guides.json` controls the three curated home recommendations and the article outcome panels. Use real screenshots and clearly distinguish tested results from specification comparisons. Preview images are 1200×630 WebP files at `/articles/{slug}/preview.webp`, reused for article previews and social sharing.
+
+For each approved article: check that its title states the concrete task, add the result and tested environment near the beginning, keep reproducible steps and source links, and link to a relevant existing article. Do not imply hands-on testing without evidence. RSS automatically includes published posts.
+
+Monthly after sufficient search data accumulates: review Search Console queries, impressions, clicks and CTR by page; compare comparable periods; improve titles for mismatched search intent and expand answers where real queries reveal gaps. Keep a record of the page, change and date. Do not infer demand or ranking gains without data. Update product specifications and prices when revisiting reviews. SNS accounts and email subscriptions should only be linked after they are available.

@@ -10,6 +10,7 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	socialImagePath?: string;
 	type?: 'website' | 'article';
 	publishedTime?: Date;
 	updatedTime?: Date;
@@ -22,12 +23,13 @@ const {
 	title,
 	description,
 	image,
+	socialImagePath,
 	type = 'website',
 	publishedTime,
 	updatedTime,
 	tags = [],
 } = Astro.props;
-const socialImage = new URL(image?.src ?? '/social-card.png', Astro.site);
+const socialImage = new URL(socialImagePath ?? image?.src ?? '/social-card.png', Astro.site);
 const indexable = shouldIndex(Astro.url.pathname);
 const siteSchema = {
   '@context': 'https://schema.org', '@type': 'WebSite',

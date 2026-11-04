@@ -37,7 +37,17 @@ for p, page in pages.items():
     check('robots' in page.meta, 'robots missing')
     if page.titles:
         check(page.titles[0] not in titles,'duplicate title'); titles.add(page.titles[0])
-    for data in page.jsonld: json.loads(data)
+    for key in ('og:image', 'twitter:image'):
+        image_url=page.meta.get(key)
+        if image_url and urlsplit(image_url).netloc=='ryu-koda.com':
+            check((root/unquote(urlsplit(image_url).path.lstrip('/'))).is_file(), f'missing social image: {image_url}')
+    for data in page.jsonld:
+        schema=json.loads(data)
+        if isinstance(schema,dict) and schema.get('@type')=='BlogPosting':
+            image_url=schema.get('image')
+            check(bool(image_url), 'article structured-data image missing')
+            if isinstance(image_url,str) and urlsplit(image_url).netloc=='ryu-koda.com':
+                check((root/unquote(urlsplit(image_url).path.lstrip('/'))).is_file(), 'article structured-data image file missing')
     for link in page.links:
         u=urlsplit(link)
         if u.scheme or u.netloc: continue

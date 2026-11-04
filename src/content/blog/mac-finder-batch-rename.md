@@ -1,5 +1,5 @@
 ---
-title: "ファイル名、一個ずつ変えるのだるいな……。Macでまとめて変えてみた"
+title: "Macのファイル名、一個ずつ変えるのだるいな……。Finderで一括変更してみた"
 description: "MacのFinderでファイル名を一括変更。画像3枚を実際に操作したスクリーンショットと、練習用ファイル、再現手順を紹介します。"
 pubDate: 2026-11-04T22:00:00+09:00
 tags: ["Mac", "ファイル整理", "小さな工夫"]
@@ -24,7 +24,7 @@ tags: ["Mac", "ファイル整理", "小さな工夫"]
 
 <p>用意したのは、こんなファイルです。中身は練習用のサンプル画像で、机を撮影した写真ではありません。今回は名前の変わり方だけを見ます。</p>
 
-<figure><a href="/articles/mac-finder-batch-rename/finder-before-detail.jpg" target="_blank"><img src="/articles/mac-finder-batch-rename/finder-before-detail.jpg" alt="FinderにIMG_001.jpg、IMG_002.jpg、IMG_003.jpgが並ぶ変更前の画面" loading="lazy"></a><figcaption>変更前。3枚とも「IMG_」で始まっています。実際のFinder画面から一覧部分を切り出しました。</figcaption></figure>
+<figure><a href="/articles/mac-finder-batch-rename/finder-before-detail.jpg" target="_blank"><img width="930" height="180" decoding="async" src="/articles/mac-finder-batch-rename/finder-before-detail.jpg" alt="FinderにIMG_001.jpg、IMG_002.jpg、IMG_003.jpgが並ぶ変更前の画面" loading="lazy"></a><figcaption>変更前。3枚とも「IMG_」で始まっています。実際のFinder画面から一覧部分を切り出しました。</figcaption></figure>
 
 
 <p><code>IMG_001.jpg</code> が <code>desk_001.jpg</code> になれば成功。画像を開き直したり、番号を付け直したりはせずに済ませたいところです。</p>
@@ -40,7 +40,7 @@ tags: ["Mac", "ファイル整理", "小さな工夫"]
 
 <p>今回は「テキストを置き換える」を使います。検索文字列には <code>IMG_</code>、置換文字列には <code>desk_</code> を入力しました。</p>
 
-<figure><a href="/articles/mac-finder-batch-rename/finder-settings-detail.jpg" target="_blank"><img src="/articles/mac-finder-batch-rename/finder-settings-detail.jpg" alt="検索文字列IMG_、置換文字列desk_、例desk_001.jpgと表示されたFinderの名称変更画面" loading="lazy"></a><figcaption>入力したのはこの2か所。左下の「例」が desk_001.jpg になりました。</figcaption></figure>
+<figure><a href="/articles/mac-finder-batch-rename/finder-settings-detail.jpg" target="_blank"><img width="489" height="132" decoding="async" src="/articles/mac-finder-batch-rename/finder-settings-detail.jpg" alt="検索文字列IMG_、置換文字列desk_、例desk_001.jpgと表示されたFinderの名称変更画面" loading="lazy"></a><figcaption>入力したのはこの2か所。左下の「例」が desk_001.jpg になりました。</figcaption></figure>
 
 
 <p>ここで確認できたのは、<strong>変更後の例が1件表示される</strong>こと。3件すべての一覧が出るわけではありません。今回のように共通部分だけを変えるなら分かりやすいですが、名前がバラバラなファイルで試すときは、実行後も一通り見たいところです。</p>
@@ -53,7 +53,7 @@ tags: ["Mac", "ファイル整理", "小さな工夫"]
 
 <p>「名称変更」を押して、Finderへ戻ります。結果はこちら。</p>
 
-<figure><a href="/articles/mac-finder-batch-rename/finder-after-detail.jpg" target="_blank"><img src="/articles/mac-finder-batch-rename/finder-after-detail.jpg" alt="desk_001.jpg、desk_002.jpg、desk_003.jpgへ変わったFinderの実画面" loading="lazy"></a><figcaption>変更後。「IMG_」だけが「desk_」に変わり、001〜003と拡張子は残っています。</figcaption></figure>
+<figure><a href="/articles/mac-finder-batch-rename/finder-after-detail.jpg" target="_blank"><img width="930" height="180" decoding="async" src="/articles/mac-finder-batch-rename/finder-after-detail.jpg" alt="desk_001.jpg、desk_002.jpg、desk_003.jpgへ変わったFinderの実画面" loading="lazy"></a><figcaption>変更後。「IMG_」だけが「desk_」に変わり、001〜003と拡張子は残っています。</figcaption></figure>
 
 
 <p>3枚とも狙いどおり。ファイルの中身も変更前後で照合したところ一致していました。今回は、画像を書き換えずに名前だけを変えられています。</p>
