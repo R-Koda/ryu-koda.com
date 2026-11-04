@@ -53,10 +53,8 @@ const posts = (await journalPosts()).slice(0, 3);
             <small>気になるところから、どうぞ。</small>
           </div>
           <div class="drawer-box">
-            <a href="#journal" class="drawer drawer-journal">
-              <span class="drawer-number" aria-hidden="true">
-                01
-              </span>
+            <a href="/blog/" class="drawer drawer-journal">
+              <span class="drawer-number" aria-hidden="true">01</span>
               <span class="drawer-label">
                 <b>ブログ</b>
                 <small>AI・アプリ・自動化・道具</small>
@@ -64,21 +62,8 @@ const posts = (await journalPosts()).slice(0, 3);
               <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
-            <a href="#work" class="drawer drawer-work">
-              <span class="drawer-number" aria-hidden="true">
-                02
-              </span>
-              <span class="drawer-label">
-                <b>プロジェクト</b>
-                <small>医学の公開データを使った研究</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
             <a href="/youtube/" class="drawer drawer-video">
-              <span class="drawer-number" aria-hidden="true">
-                03
-              </span>
+              <span class="drawer-number" aria-hidden="true">02</span>
               <span class="drawer-label">
                 <b>YouTube</b>
                 <small>AI・しくみ・研究を動画で</small>
@@ -86,13 +71,29 @@ const posts = (await journalPosts()).slice(0, 3);
               <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
             </a>
-            <a href="/about/" class="drawer drawer-about">
-              <span class="drawer-number" aria-hidden="true">
-                04
-              </span>
+            <a href="#work" class="drawer drawer-research">
+              <span class="drawer-number" aria-hidden="true">03</span>
               <span class="drawer-label">
-                <b>プロフィール</b>
-                <small>関心のあること、活動について</small>
+                <b>研究</b>
+                <small>医学の公開データを使った研究</small>
+              </span>
+              <DrawerAvatar />
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/work/" class="drawer drawer-work">
+              <span class="drawer-number" aria-hidden="true">04</span>
+              <span class="drawer-label">
+                <b>おしごと</b>
+                <small>つくっているもの・取り組み</small>
+              </span>
+              <DrawerAvatar />
+              <span class="drawer-handle" aria-hidden="true"></span>
+            </a>
+            <a href="/diary/" class="drawer drawer-diary">
+              <span class="drawer-number" aria-hidden="true">05</span>
+              <span class="drawer-label">
+                <b>日記</b>
+                <small>日々のこと、気づいたこと</small>
               </span>
               <DrawerAvatar />
               <span class="drawer-handle" aria-hidden="true"></span>
@@ -727,10 +728,10 @@ const posts = (await journalPosts()).slice(0, 3);
   .drawer-box .drawer:last-child {
     margin-bottom: 0;
   }
-  .drawer-box .drawer-work {
+  .drawer-box .drawer-research {
     background: #e3f1e7;
   }
-  .drawer-box .drawer-about {
+  .drawer-box .drawer-work {
     background: #fce3db;
   }
   .drawer-number {
@@ -831,6 +832,9 @@ const posts = (await journalPosts()).slice(0, 3);
       transform: translate(-2px, -2px);
       box-shadow: 2px 5px 0 #303d48;
     }
+  }
+  .drawer-box .drawer-diary {
+    background: #e4effb;
   }
   .drawer-box .drawer-video {
     background: #eee5fa;
