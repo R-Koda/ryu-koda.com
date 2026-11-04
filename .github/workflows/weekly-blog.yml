@@ -1,9 +1,7 @@
 name: Weekly Blog Post Generator
 
 on:
-  schedule:
-    # 毎週月曜 09:00 JST。承認後に週1本公開（自動公開しない）
-    - cron: '0 0 * * 1'
+  # 週次処理はCodexで実行。Anthropic残高不足のためこちらは手動のみ。
   workflow_dispatch: # 手動実行も可能
 
 concurrency:
