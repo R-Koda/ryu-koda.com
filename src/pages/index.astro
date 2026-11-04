@@ -829,4 +829,24 @@ const posts = (await journalPosts()).slice(0, 3);
   .drawer-box .drawer-video {
     background: #eee5fa;
   }
+  @font-face {
+    font-family: "Yomogi Greeting";
+    src: url("/fonts/yomogi-greeting.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+  }
+  .intro h1 {
+    font-family: "Yomogi Greeting", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.8;
+    font-size: clamp(28px, 3.2vw, 40px);
+  }
+  @media (max-width: 760px) {
+    .intro h1 {
+      font-size: 28px;
+      letter-spacing: 0.04em;
+    }
+  }
 </style>
