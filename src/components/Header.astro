@@ -13,13 +13,8 @@ const links = [
 <header class="site-header">
   <nav class="shell top-nav" aria-label="メインナビゲーション">
     <a href="/" class="wordmark" aria-label="Ryu Koda ホーム">
-      rk<span aria-hidden="true">.</span>
+      Ryu Koda<span aria-hidden="true">.</span>
     </a>
-    <span class="header-note">
-      RYU KODA
-      <br />
-      PERSONAL PORTFOLIO
-    </span>
     <div class="nav-links">
       {links.map((l) => (
         <a
@@ -45,7 +40,7 @@ const links = [
     z-index: 50;
   }
   .top-nav {
-    height: 90px;
+    height: 80px;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--line);
@@ -53,9 +48,9 @@ const links = [
   }
   .wordmark {
     font:
-      bold 47px/0.9 Georgia,
+      700 22px/1.2 Atkinson,
       serif;
-    letter-spacing: -5px;
+    letter-spacing: -0.8px;
     text-decoration: none;
     padding-right: 8px;
   }
@@ -104,7 +99,7 @@ const links = [
   }
   @media (max-width: 600px) {
     .top-nav {
-      height: 76px;
+      height: 72px;
       gap: 14px;
     }
     .header-note {
@@ -114,7 +109,7 @@ const links = [
       gap: 24px;
     }
     .wordmark {
-      font-size: 40px;
+      font-size: 20px;
     }
     .nav-links a {
       font-size: 13px;

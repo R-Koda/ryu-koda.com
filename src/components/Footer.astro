@@ -1,68 +1,49 @@
----
-import ActionLink from "./ActionLink.astro";
----
-
-<footer>
-  <div class="shell">
-    <div class="footer-top">
-      <p>
-        また、ここで。
-        <br />
-        <em>Keep exploring.</em>
-      </p>
-      <ActionLink href="https://github.com/R-Koda" external variant="outline">
-        GitHubで活動を見る
-      </ActionLink>
-    </div>
-    <div class="footer-bottom">
-      <span>© {new Date().getFullYear()} Ryu Koda</span>
-      <span>Technology, research & everyday life.</span>
-      <a href="/rss.xml">RSS ↗</a>
-    </div>
-  </div>
+<footer class="shell">
+  <span>© {new Date().getFullYear()} Ryu Koda</span>
+  <nav aria-label="フッターナビゲーション">
+    <a
+      href="https://github.com/R-Koda"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      GitHub ↗<span class="sr-only">（新しいタブで開く）</span>
+    </a>
+    <a href="/rss.xml">RSS</a>
+    <a href="#main">ページの先頭へ ↑</a>
+  </nav>
 </footer>
 <style>
   footer {
-    margin-top: 110px;
-    background: #e8e9df;
-    padding: 54px 0 24px;
-  }
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    margin-bottom: 60px;
-  }
-  .footer-top p {
-    font-family: var(--serif);
-    font-size: 28px;
-  }
-  .footer-top em {
-    font-size: 38px;
-  }
-  .footer-bottom {
-    border-top: 1px solid #b8bcae;
-    padding-top: 22px;
+    margin-top: 80px !important;
+    border-top: 1px solid var(--line);
+    padding: 26px 0 35px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    font-size: 11px;
     color: var(--muted);
+    font-size: 11px;
+  }
+  nav {
+    display: flex;
+    gap: 24px;
+  }
+  a {
+    text-decoration: none;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  footer > span {
+    padding-top: 12px;
   }
   @media (max-width: 600px) {
     footer {
-      margin-top: 70px;
-    }
-    .footer-top {
-      align-items: start;
       flex-direction: column;
+      gap: 8px;
+      margin-top: 55px !important;
     }
-    .footer-bottom {
+    nav {
       flex-wrap: wrap;
-    }
-    .footer-bottom span:nth-child(2) {
-      display: none;
     }
   }
 </style>

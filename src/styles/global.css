@@ -10,12 +10,12 @@
   font-display: swap;
 }
 :root {
-  --paper: #f5f3ec;
-  --ink: #242821;
-  --muted: #64695e;
-  --line: #c9ccc0;
-  --accent: #a43d27;
-  --accent-dark: #7e2b1b;
+  --paper: #ffffff;
+  --ink: #202124;
+  --muted: #64676b;
+  --line: #e2e4e7;
+  --accent: #2458a6;
+  --accent-dark: #17427f;
   --black: 36, 40, 33;
   --gray: 100, 105, 94;
   --gray-dark: 36, 40, 33;
@@ -40,7 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: #decaba;
+  background: #dce8f8;
 }
 a {
   color: inherit;
@@ -88,7 +88,7 @@ main {
   min-height: 65vh;
 }
 .shell {
-  width: min(1240px, calc(100% - 96px));
+  width: min(1120px, calc(100% - 96px));
   margin: auto;
 }
 .eyebrow {
@@ -139,13 +139,13 @@ main {
 }
 .action--primary {
   background: var(--accent);
-  color: #fffaf1;
+  color: #fff;
   border-color: var(--accent);
 }
 .action--primary:hover {
   background: var(--accent-dark);
   color: #fff;
-  box-shadow: 4px 4px 0 #d8c8b9;
+  box-shadow: 0 3px 8px #2021241a;
 }
 .action--outline {
   border-color: var(--ink);
@@ -298,4 +298,37 @@ input {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.action {
+  border-radius: 5px;
+  gap: 24px;
+  min-height: 48px;
+  padding: 11px 18px;
+  font-size: 13px;
+}
+.action--outline {
+  border-color: #cbd0d6;
+  box-shadow: 0 1px 2px #20212408;
+}
+.action--outline:hover {
+  background: #f5f7fa;
+  color: var(--ink);
+  border-color: #929aa5;
+  box-shadow: 0 2px 5px #2021240c;
+}
+.action--text {
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+.action-arrow {
+  font-size: 18px;
+}
+.section-head h2 {
+  font-family: inherit;
+  font-size: 32px;
+}
+.section-head {
+  border-color: var(--line);
 }

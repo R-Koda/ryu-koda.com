@@ -19,11 +19,9 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
   <body>
     <Header />
     <main id="main" class="shell journal">
-      <span class="eyebrow">THE JOURNAL</span>
+      <span class="eyebrow">RYU KODA / BLOG</span>
       <div class="journal-heading">
-        <h1>
-          日々の、<em>発見。</em>
-        </h1>
+        <h1>ブログ</h1>
         <p>
           AI、アプリ、小さな自動化。
           <br />
@@ -57,22 +55,6 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
             data-tags={JSON.stringify(p.data.tags || [])}
           >
             <a href={`/blog/${p.id}/`}>
-              <div
-                class:list={[
-                  "article-cover",
-                  i % 2 === 0 ? "cover-clay" : "cover-moss",
-                ]}
-                aria-hidden="true"
-              >
-                <span class="cover-label">FIELD NOTES / 0{i + 1}</span>
-                <span class="cover-type">
-                  {i % 2 === 0 ? "Tools" : "Code"}
-                  <i>& ideas.</i>
-                </span>
-                <span class="cover-bottom">
-                  RYU KODA — JOURNAL <b>↗</b>
-                </span>
-              </div>
               <div class="article-meta">
                 <span>{p.data.tags?.[0] || "TECHNOLOGY"}</span>
                 <FormattedDate date={p.data.pubDate} />
@@ -331,5 +313,40 @@ const tags = [...new Set(posts.flatMap((p) => p.data.tags || []))];
     .cover-type {
       font-size: 64px;
     }
+  }
+  .articles {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .articles article {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .articles a {
+    display: block;
+    max-width: 820px;
+  }
+  .article-meta {
+    margin-top: 0;
+  }
+  .read-link {
+    border: 0;
+    justify-content: flex-start;
+    gap: 24px;
+    margin-top: 4px;
+  }
+  .journal h1 {
+    font-family: inherit;
+    font-size: 44px;
+    font-weight: 700;
+  }
+  .journal-heading {
+    margin-bottom: 35px;
+  }
+  .tag {
+    border-radius: 4px;
+  }
+  .tag:hover {
+    background: #f5f7fa;
   }
 </style>
