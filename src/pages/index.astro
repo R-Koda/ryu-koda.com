@@ -1,4 +1,5 @@
 ---
+import { navigation } from "../data/navigation";
 import DrawerAvatar from "../components/DrawerAvatar.astro";
 import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -53,51 +54,17 @@ const posts = (await journalPosts()).slice(0, 3);
             <small>気になるところから、どうぞ。</small>
           </div>
           <div class="drawer-box">
-            <a href="/blog/" class="drawer drawer-journal">
-              <span class="drawer-number" aria-hidden="true">01</span>
-              <span class="drawer-label">
-                <b>ブログ</b>
-                <small>AI・アプリ・自動化・道具</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
-            <a href="/youtube/" class="drawer drawer-video">
-              <span class="drawer-number" aria-hidden="true">02</span>
-              <span class="drawer-label">
-                <b>YouTube</b>
-                <small>AI・しくみ・研究を動画で</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
-            <a href="#work" class="drawer drawer-research">
-              <span class="drawer-number" aria-hidden="true">03</span>
-              <span class="drawer-label">
-                <b>研究</b>
-                <small>医学の公開データを使った研究</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
-            <a href="/work/" class="drawer drawer-work">
-              <span class="drawer-number" aria-hidden="true">04</span>
-              <span class="drawer-label">
-                <b>おしごと</b>
-                <small>つくっているもの・取り組み</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
-            <a href="/diary/" class="drawer drawer-diary">
-              <span class="drawer-number" aria-hidden="true">05</span>
-              <span class="drawer-label">
-                <b>日記</b>
-                <small>日々のこと、気づいたこと</small>
-              </span>
-              <DrawerAvatar />
-              <span class="drawer-handle" aria-hidden="true"></span>
-            </a>
+            {navigation.map((item, index) => (
+              <a href={item.href} class="drawer" style={`--drawer-color: ${item.color}`}>
+                <span class="drawer-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <span class="drawer-label">
+                  <b>{item.drawer}</b>
+                  <small>{item.description}</small>
+                </span>
+                <DrawerAvatar />
+                <span class="drawer-handle" aria-hidden="true"></span>
+              </a>
+            ))}
           </div>
         </aside>
       </section>
@@ -715,24 +682,18 @@ const posts = (await journalPosts()).slice(0, 3);
     gap: 10px;
     border: 1.5px solid #303d48;
     border-radius: 4px;
-    background: #fff0b8;
-    padding: 19px 14px;
+    background: var(--drawer-color, #fff0b8);
+    padding: 12px 14px;
     margin: 0 0 9px;
     box-shadow: 0 4px 0 #303d48;
     transition:
       transform 0.2s,
       box-shadow 0.2s;
-    min-height: 93px;
+    min-height: 80px;
     transform-origin: center;
   }
   .drawer-box .drawer:last-child {
     margin-bottom: 0;
-  }
-  .drawer-box .drawer-research {
-    background: #e3f1e7;
-  }
-  .drawer-box .drawer-work {
-    background: #fce3db;
   }
   .drawer-number {
     align-self: start;
@@ -832,12 +793,6 @@ const posts = (await journalPosts()).slice(0, 3);
       transform: translate(-2px, -2px);
       box-shadow: 2px 5px 0 #303d48;
     }
-  }
-  .drawer-box .drawer-diary {
-    background: #e4effb;
-  }
-  .drawer-box .drawer-video {
-    background: #eee5fa;
   }
   @font-face {
     font-family: "Yomogi Greeting";

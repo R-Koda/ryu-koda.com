@@ -1,14 +1,7 @@
 ---
+import { navigation } from "../data/navigation";
 const path = Astro.url.pathname;
-const links = [
-  { href: "/", label: "Home", ja: "ホーム" },
-  { href: "/about/", label: "About", ja: "プロフィール" },
-  { href: "/work/", label: "Work", ja: "お仕事" },
-  { href: "/blog/", label: "Journal", ja: "ブログ" },
-  { href: "/youtube/", label: "YouTube", ja: "動画" },
-  { href: "/diary/", label: "Diary", ja: "日記" },
-  { href: "/contact/", label: "お問い合わせ", ja: "Contact" },
-];
+const links = navigation;
 ---
 
 <a class="skip-link" href="#main">
@@ -23,6 +16,7 @@ const links = [
       {links.map((l) => (
         <a
           href={l.href}
+          style={`--tab: ${l.color}`}
           aria-current={
             (l.href === "/" ? path === "/" : path.startsWith(l.href))
               ? "page"
