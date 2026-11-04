@@ -1,0 +1,401 @@
+---
+interface Props {
+  position: "top" | "bottom";
+}
+const { position } = Astro.props;
+---
+
+<div class:list={["lab-toys", `toys-${position}`]} aria-hidden="true">
+  {position === "top" ? (
+    <svg viewBox="0 0 560 130" fill="none">
+      <path
+        d="M9 111q35-5 78 1m35-1q49 4 96-1m79 1q53-4 101 1m25-1h118"
+        stroke="#cbd1d5"
+        stroke-dasharray="3 6"
+      />
+      <g class="notebook">
+        <rect
+          x="21"
+          y="22"
+          width="96"
+          height="82"
+          rx="6"
+          fill="#dfece4"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M37 23v80M48 48h49M48 61h41M48 74h46"
+          stroke="#82988c"
+          stroke-width="1.5"
+        />
+        <path
+          d="M28 18v12m0 13v12m0 13v12m0 13v12"
+          stroke="#354550"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+        <path
+          d="m79 30 9-9 7 9-8 9z"
+          fill="#ffe28c"
+          stroke="#354550"
+          stroke-width="1.5"
+        />
+      </g>
+      <g class="pencil">
+        <path
+          d="m153 94 47-64 11 8-47 64-15 10z"
+          fill="#ffdd83"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="m200 30 7-9q3-3 6 0l5 4q3 2 0 6l-7 7"
+          fill="#efb5aa"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="m149 112 4-18 11 8z"
+          fill="#f1dfc1"
+          stroke="#354550"
+          stroke-width="1.5"
+        />
+        <path d="m149 112 3-8 4 3z" fill="#354550" />
+      </g>
+      <g class="robot">
+        <path d="M299 39V24" stroke="#354550" stroke-width="2" />
+        <circle
+          cx="299"
+          cy="20"
+          r="5"
+          fill="#f2b7a7"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <rect
+          x="270"
+          y="39"
+          width="60"
+          height="45"
+          rx="10"
+          fill="#dfeafa"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M270 55h-8v15h8m60-15h8v15h-8"
+          fill="#f5db84"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <g class="robot-eyes">
+          <circle cx="287" cy="58" r="3" fill="#354550" />
+          <circle cx="312" cy="58" r="3" fill="#354550" />
+        </g>
+        <path
+          d="M291 72q9 5 18-1"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <rect
+          x="280"
+          y="86"
+          width="40"
+          height="22"
+          rx="4"
+          fill="#ffe6a3"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M286 109v6m28-6v6"
+          stroke="#354550"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+      </g>
+      <g class="paper-plane">
+        <path
+          d="m400 44 126-22-46 76-21-32-59-22z"
+          fill="#eee5f8"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path
+          d="m459 66 67-44-81 35m14 9-7 25 16-11"
+          stroke="#354550"
+          stroke-width="1.5"
+        />
+        <path
+          d="m386 74-20 11m31 4-12 12"
+          stroke="#c5b8d6"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+  ) : (
+    <svg viewBox="0 0 560 140" fill="none">
+      <path d="M15 122h531" stroke="#cbd1d5" stroke-dasharray="3 6" />
+      <g class="cup">
+        <ellipse cx="71" cy="119" rx="43" ry="5" fill="#e9eced" />
+        <path
+          d="M42 64h53v38q0 15-26 15t-27-15z"
+          fill="#f9e4b1"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M96 72h8q17 0 12 16t-20 11"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M53 72h31"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+        <path
+          class="steam steam-one"
+          d="M58 54q-9-10 0-18t0-16"
+          stroke="#a7b4bd"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+        <path
+          class="steam steam-two"
+          d="M78 52q-9-10 0-18t0-16"
+          stroke="#a7b4bd"
+          stroke-width="2"
+          stroke-linecap="round"
+        />
+      </g>
+      <g class="code-screen">
+        <rect
+          x="158"
+          y="35"
+          width="128"
+          height="77"
+          rx="6"
+          fill="#e3eee6"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path d="M158 51h128" stroke="#354550" stroke-width="1.5" />
+        <circle cx="170" cy="43" r="2" fill="#d49386" />
+        <circle cx="179" cy="43" r="2" fill="#dbbc64" />
+        <circle cx="188" cy="43" r="2" fill="#8eae98" />
+        <path
+          d="m195 68-12 12 12 12m54-24 12 12-12 12m-21-29-10 34"
+          stroke="#527267"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="m151 113-8 10h157l-9-10"
+          fill="#d2deef"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <path class="cursor" d="M267 98h10" stroke="#527267" stroke-width="2" />
+      </g>
+      <g class="blocks">
+        <rect
+          x="344"
+          y="83"
+          width="46"
+          height="37"
+          rx="4"
+          fill="#f6d1c7"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <rect
+          x="396"
+          y="83"
+          width="48"
+          height="37"
+          rx="4"
+          fill="#dde8f6"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="m357 78 37-35 38 35z"
+          fill="#ffe18e"
+          stroke="#354550"
+          stroke-width="2"
+          stroke-linejoin="round"
+        />
+        <circle cx="367" cy="102" r="8" stroke="#bc897e" stroke-width="1.5" />
+        <path d="m410 104 7-10 10 12" stroke="#819abb" stroke-width="1.5" />
+      </g>
+      <g class="rolling-ball">
+        <circle
+          cx="486"
+          cy="101"
+          r="19"
+          fill="#e7ddf4"
+          stroke="#354550"
+          stroke-width="2"
+        />
+        <path
+          d="M470 91q17 7 32 0m-16-9q-12 18 0 38"
+          stroke="#a99bbd"
+          stroke-width="1.5"
+        />
+      </g>
+    </svg>
+  )}
+</div>
+<style>
+  .lab-toys {
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+    max-width: 560px;
+  }
+  .lab-toys svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+  .toys-top {
+    margin-bottom: 20px;
+  }
+  .toys-bottom {
+    margin-top: 24px;
+  }
+  .notebook {
+    transform: rotate(-8deg);
+    transform-origin: 70px 65px;
+  }
+  .pencil {
+    animation: pencil-rock 7s ease-in-out infinite;
+    transform-origin: 158px 104px;
+  }
+  .robot {
+    animation: robot-rock 5s ease-in-out infinite;
+    transform-origin: 300px 115px;
+  }
+  .robot-eyes {
+    animation: blink 7s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .paper-plane {
+    animation: plane-drift 8s ease-in-out infinite;
+    transform-origin: 460px 60px;
+  }
+  .cup {
+    transform: rotate(-5deg);
+    transform-origin: 70px 115px;
+  }
+  .steam {
+    animation: steam-rise 4s ease-in-out infinite;
+  }
+  .steam-two {
+    animation-delay: -2s;
+  }
+  .code-screen {
+    transform: rotate(3deg);
+    transform-origin: 220px 110px;
+  }
+  .cursor {
+    animation: cursor-breathe 3s ease-in-out infinite;
+  }
+  .rolling-ball {
+    animation: ball-roll 7s ease-in-out infinite;
+    transform-origin: 486px 101px;
+  }
+  .intro[data-toys-paused] .lab-toys * {
+    animation-play-state: paused !important;
+  }
+  @keyframes robot-rock {
+    0%,
+    100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg) translateY(-3px);
+    }
+  }
+  @keyframes pencil-rock {
+    0%,
+    100% {
+      transform: rotate(4deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+  }
+  @keyframes plane-drift {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(-4deg);
+    }
+    50% {
+      transform: translate(-8px, -10px) rotate(3deg);
+    }
+  }
+  @keyframes steam-rise {
+    0%,
+    100% {
+      transform: translateY(2px);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translateY(-6px);
+      opacity: 0.8;
+    }
+  }
+  @keyframes ball-roll {
+    0%,
+    100% {
+      transform: translateX(-8px) rotate(-25deg);
+    }
+    50% {
+      transform: translateX(16px) rotate(35deg);
+    }
+  }
+  @keyframes blink {
+    0%,
+    44%,
+    48%,
+    100% {
+      transform: scaleY(1);
+    }
+    46% {
+      transform: scaleY(0.15);
+    }
+  }
+  @keyframes cursor-breathe {
+    0%,
+    100% {
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  @media (max-width: 760px) {
+    .toys-top {
+      margin-bottom: 18px;
+    }
+    .toys-bottom {
+      margin-top: 20px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lab-toys * {
+      animation: none !important;
+    }
+  }
+</style>

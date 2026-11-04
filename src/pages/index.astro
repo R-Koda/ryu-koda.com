@@ -1,4 +1,5 @@
 ---
+import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -21,6 +22,7 @@ const posts = (await journalPosts()).slice(0, 3);
     <main id="main" class="shell">
       <section class="intro" aria-labelledby="intro-title">
         <div class="intro-copy">
+          <LabToys position="top" />
           <p class="overline">ソフトウェア・医学データ・日々の道具</p>
           <h1 id="intro-title">
             今日も、
@@ -44,6 +46,10 @@ const posts = (await journalPosts()).slice(0, 3);
               GitHub
             </ActionLink>
           </div>
+          <LabToys position="bottom" />
+          <button type="button" class="toy-motion" aria-pressed="false">
+            小物の動きを止める
+          </button>
         </div>
         <aside class="index" aria-label="ラボのひきだし">
           <div class="drawer-caption">
@@ -183,6 +189,18 @@ const posts = (await journalPosts()).slice(0, 3);
     <Footer />
   </body>
 </html>
+<script>
+  const motionButton = document.querySelector<HTMLButtonElement>(".toy-motion");
+  const intro = document.querySelector<HTMLElement>(".intro");
+  motionButton?.addEventListener("click", () => {
+    if (!intro) return;
+    const paused = intro.toggleAttribute("data-toys-paused");
+    motionButton.setAttribute("aria-pressed", String(paused));
+    motionButton.textContent = paused
+      ? "小物の動きを再開する"
+      : "小物の動きを止める";
+  });
+</script>
 <style>
   .intro {
     display: grid;
@@ -847,6 +865,50 @@ const posts = (await journalPosts()).slice(0, 3);
     .intro h1 {
       font-size: 28px;
       letter-spacing: 0.04em;
+    }
+  }
+  .intro {
+    padding-top: 38px;
+    align-items: center;
+    gap: 50px;
+  }
+  .intro-copy {
+    min-width: 0;
+  }
+  .intro-lead {
+    margin: 20px 0 24px;
+  }
+  .overline {
+    margin-bottom: 18px;
+  }
+  .toy-motion {
+    display: block;
+    margin: 6px 0 0 auto;
+    padding: 8px 10px;
+    min-height: 44px;
+    border: 0;
+    background: transparent;
+    font-size: 11px;
+    color: #66717a;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .toy-motion:hover {
+    color: var(--accent);
+  }
+  .intro[data-toys-paused] :global(.lab-toys *) {
+    animation-play-state: paused !important;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .toy-motion {
+      display: none;
+    }
+  }
+  @media (max-width: 760px) {
+    .intro {
+      padding-top: 22px;
+      gap: 26px;
     }
   }
 </style>
