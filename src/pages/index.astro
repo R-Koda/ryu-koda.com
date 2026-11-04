@@ -61,7 +61,7 @@ const posts = (await journalPosts()).slice(0, 3);
                   <b>{item.drawer}</b>
                   <small>{item.description}</small>
                 </span>
-                <DrawerAvatar />
+                <DrawerAvatar kind={item.href.split("/")[1]} />
                 <span class="drawer-handle" aria-hidden="true"></span>
               </a>
             ))}
