@@ -15,8 +15,10 @@
     <div class="footer-bottom">
       <span>© {new Date().getFullYear()} りゅうのラボ</span>
       <nav aria-label="フッターナビゲーション">
+        <a href="/work/">お仕事</a>
         <a href="/blog/">ブログ</a>
         <a href="/youtube/">YouTube</a>
+        <a href="/diary/">日記</a>
         <a href="/about/">プロフィール</a>
         <a href="/contact/">お問い合わせ</a>
         <a
@@ -184,5 +186,12 @@
   }
   .footer-main {
     padding-top: 16px;
+  }
+  nav {
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+  .footer-bottom {
+    flex-wrap: wrap;
   }
 </style>
