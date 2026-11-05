@@ -4,23 +4,23 @@
     "purpose": "つくる楽しさ",
     "label": "つくってみると、日常はもう少しおもしろい。",
     "evidence": "思いついた「こうだったらいいな」が、触れる形になる。旅行の地図というアイデアと、このサイトの制作から、つくる楽しさを伝えます。",
-    "image": "/articles/making-everyday-interesting/cover-illustration.webp",
-    "imageAlt": "ノートパソコンの画面から積み木の入った引き出しが飛び出すイラスト"
+    "image": "/articles/making-everyday-interesting/cover-sketch.webp",
+    "imageAlt": "引き出しの画面をつくるノートパソコンのラフなペン画"
   },
   {
     "slug": "joy-of-choosing-gadgets",
     "purpose": "道具を選ぶ楽しさ",
     "label": "ガジェットは、買う前に吟味するのがいちばんおもしろい。",
     "evidence": "自作PCをきっかけに、暮らしを便利にする道具選びへ。使う場面とコスパを考えながら、ガジェットを吟味する楽しさについて。",
-    "image": "/articles/joy-of-choosing-gadgets/cover-illustration.webp",
-    "imageAlt": "充電器を虫眼鏡で見比べる、ヘッドホンとノートのある机のイラスト"
+    "image": "/articles/joy-of-choosing-gadgets/cover-sketch.webp",
+    "imageAlt": "充電器とケーブルを、候補のスケッチと見比べるペン画"
   },
   {
     "slug": "a-place-for-curiosity",
     "purpose": "この場所のこと",
     "label": "好奇心の置き場所としての、りゅうのらぼ。",
     "evidence": "気になったことを調べ、試し、その途中も残す。開発や道具、研究への関心を、読者の次の好奇心につなげたい。りゅうのらぼの想いを紹介します。",
-    "image": "/articles/a-place-for-curiosity/cover-illustration.webp",
-    "imageAlt": "ノートや地図、虫眼鏡が詰まったおもちゃ箱のイラスト"
+    "image": "/articles/a-place-for-curiosity/cover-sketch.webp",
+    "imageAlt": "地図とノートと虫眼鏡を入れた箱のペン画"
   }
 ]

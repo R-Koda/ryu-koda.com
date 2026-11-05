@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-05",
+  "assets": [
+    {
+      "slug": "making-everyday-interesting",
+      "prompt": "Create a landscape editorial illustration for an independent personal technology blog. Aspect ratio 1.9:1. Visual language: a quick but confident observational pen sketch by a human illustrator for a small independent magazine, irregular graphite and black fineliner strokes, sparse imperfect crosshatching, off-white untextured paper with generous empty space, only ONE small muted spot-color area. Asymmetric and understated, slightly quirky rather than cute. No glossy rendering, no watercolor texture, no airbrush, no 3D, no decorative sparkles, no stars, no lightbulbs, no plants, no coffee, no floating objects, no ornamental borders, no text, no lettering, no logos. The objects should feel ordinary, useful and personal, not a stock advertising arrangement. Clear subject readable at thumbnail size. Subject: one ordinary open laptop drawn from a slightly awkward three-quarter angle, its screen shows a single simple little drawer-shaped UI box and a mouse pointer, with a crumpled scrap of blank paper at its side. Laptop occupies left two thirds, right side mostly empty. A small uneven muted brick-red fill inside the drawer on screen. Visible exploratory pencil construction lines. Evoke tinkering and making something work. Nothing physically emerging from the screen.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-12d89173-9174-4844-80cc-29a4cc1b9bf6.png",
+      "output": "public/articles/making-everyday-interesting/cover-sketch.webp"
+    },
+    {
+      "slug": "joy-of-choosing-gadgets",
+      "prompt": "Create a landscape editorial illustration for an independent personal technology blog. Aspect ratio 1.9:1. Visual language: a quick but confident observational pen sketch by a human illustrator for a small independent magazine, irregular graphite and black fineliner strokes, sparse imperfect crosshatching, off-white untextured paper with generous empty space, only ONE small muted spot-color area. Asymmetric and understated, slightly quirky rather than cute. No glossy rendering, no watercolor texture, no airbrush, no 3D, no decorative sparkles, no stars, no lightbulbs, no plants, no coffee, no floating objects, no ornamental borders, no text, no lettering, no logos. The objects should feel ordinary, useful and personal, not a stock advertising arrangement. Clear subject readable at thumbnail size. Subject: a very plain compact rectangular charging adapter with two ports and a loosely tangled short cable on a desk, beside an open blank notebook containing two tiny quick sketches of alternative rectangular gadgets, not words. View from overhead, objects occupy center-right, plenty of blank space on left. Small uneven muted olive green fill on one notebook page corner only. Imperfect natural cable shape. Evoke quietly comparing useful everyday objects, not showcasing luxury products.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-354bd2a3-399d-43e9-acff-da402200a1dc.png",
+      "output": "public/articles/joy-of-choosing-gadgets/cover-sketch.webp"
+    },
+    {
+      "slug": "a-place-for-curiosity",
+      "prompt": "Create a landscape editorial illustration for an independent personal technology blog. Aspect ratio 1.9:1. Visual language: a quick but confident observational pen sketch by a human illustrator for a small independent magazine, irregular graphite and black fineliner strokes, sparse imperfect crosshatching, off-white untextured paper with generous empty space, only ONE small muted spot-color area. Asymmetric and understated, slightly quirky rather than cute. No glossy rendering, no watercolor texture, no airbrush, no 3D, no decorative sparkles, no stars, no lightbulbs, no plants, no coffee, no floating objects, no ornamental borders, no text, no lettering, no logos. The objects should feel ordinary, useful and personal, not a stock advertising arrangement. Clear subject readable at thumbnail size. Subject: one slightly battered open shoebox containing a folded map with only simple lines, an old blank notebook and a magnifying glass resting against the edge. Three objects only, no laptop, no treasure chest. Eye-level three-quarter view, small composition across lower middle with substantial blank space above. One patch of faded mustard yellow on the outside of the shoebox. Restrained loose pen-and-pencil sketch, casually human and curious, like a drawing in the margin of a personal notebook.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-0f9500ee-d21c-494e-8c70-55adea02d4cf.png",
+      "output": "public/articles/a-place-for-curiosity/cover-sketch.webp"
+    }
+  ]
+}
