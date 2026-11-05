@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-05",
+  "status": "user-approved-for-publication",
+  "reviewer": "同一編集エージェント",
+  "articles": [
+    {
+      "file": "images.html",
+      "title": "ブログの画像、そのまま載せていい？ サムネ3枚を軽くしてみた。",
+      "thesis": "画像を載せる前に、必要な大きさと見た目を確かめて軽くする。",
+      "role": "身近な困りごとの検索流入と、再現できる体験による再訪",
+      "rounds": [
+        {
+          "round": 1,
+          "input": "images-initial.html",
+          "findings": [
+            "容量と速度の区別は明確だが、MB表記の基準が未記載",
+            "初心者にはターミナルでのフォルダ移動が不足"
+          ],
+          "changes": [
+            "容量の単位とログの読み方を追加",
+            "Macでのフォルダ移動を補足"
+          ],
+          "output": "images-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "images-round-1.html",
+          "findings": [
+            "実験出力と本番サムネイルの寸法の違いが未説明",
+            "アニメーションやHEICも対象と思われる余地",
+            "中断した出力の扱いが不足"
+          ],
+          "changes": [
+            "実験の1200×632と本番の切り抜きを明記",
+            "静止画PNG/JPEGに範囲を限定",
+            "再実行時の出力先と入力保管を明記"
+          ],
+          "output": "images.html"
+        }
+      ],
+      "verdict": "コマンド→結果→成功判定で改稿。2回再査読・修正済み、未公開。GUIの新規ランタイム導入は公式手順参照、実行検証は導入済み環境と新規展開ZIPで実施。",
+      "walkthroughReviews": [
+        {
+          "round": 1,
+          "input": "images-before-walkthrough.html",
+          "findings": [
+            "複数コマンドを一括提示し、どこで成功したか判断できない",
+            "展開・移動・未導入環境・再実行の動線が弱い"
+          ],
+          "changes": [
+            "各コマンドに結果と成功判定を追加",
+            "ダウンロードから実行まで番号付き手順に",
+            "エラーから戻る手順を明示"
+          ],
+          "output": "images-walkthrough-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "images-walkthrough-round-1.html",
+          "findings": [
+            "手順が増え、どこまでで成功か見失いやすい",
+            "ファイルのコピー操作が省略されている",
+            "困った箇所への移動がしにくい"
+          ],
+          "changes": [
+            "基本の完了位置を明示し、自分の画像で試す部分を応用に分離",
+            "ファイルのコピー操作まで具体化",
+            "手順とトラブル対応へ飛べるリンクを追加"
+          ],
+          "output": "images.html"
+        }
+      ]
+    },
+    {
+      "file": "duplicates.html",
+      "title": "名前が違っても、中身は同じ？ 重複ファイルを消さずに探してみた。",
+      "thesis": "削除を自動化する前に、中身が同じファイルを見えるようにする。",
+      "role": "身近な困りごとの検索流入と、再現できる体験による再訪",
+      "rounds": [
+        {
+          "round": 1,
+          "input": "duplicates-initial.html",
+          "findings": [
+            "期待結果はあるが、重複ゼロ・読み取りエラーの解釈が不足",
+            "初心者の作業開始位置が不明瞭"
+          ],
+          "changes": [
+            "空結果とerrorsの解釈を追加",
+            "展開先への移動手順を補足"
+          ],
+          "output": "duplicates-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "duplicates-round-1.html",
+          "findings": [
+            "タイトルが長く一読で効用が伝わりにくい",
+            "Python未導入時の開始条件が曖昧",
+            "サイズで先に絞り込む実装と誤読されうる説明"
+          ],
+          "changes": [
+            "効用をタイトルに集約",
+            "導入済み環境が前提と明記",
+            "全ファイルを読む実装に説明を合わせた"
+          ],
+          "output": "duplicates.html"
+        }
+      ],
+      "verdict": "コマンド→結果→成功判定で改稿。2回再査読・修正済み、未公開。GUIの新規ランタイム導入は公式手順参照、実行検証は導入済み環境と新規展開ZIPで実施。",
+      "walkthroughReviews": [
+        {
+          "round": 1,
+          "input": "duplicates-before-walkthrough.html",
+          "findings": [
+            "複数コマンドを一括提示し、どこで成功したか判断できない",
+            "展開・移動・未導入環境・再実行の動線が弱い"
+          ],
+          "changes": [
+            "各コマンドに結果と成功判定を追加",
+            "ダウンロードから実行まで番号付き手順に",
+            "エラーから戻る手順を明示"
+          ],
+          "output": "duplicates-walkthrough-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "duplicates-walkthrough-round-1.html",
+          "findings": [
+            "手順が増え、どこまでで成功か見失いやすい",
+            "ファイルのコピー操作が省略されている",
+            "困った箇所への移動がしにくい"
+          ],
+          "changes": [
+            "基本の完了位置と応用・任意手順を分離",
+            "自分のデータの用意を具体化",
+            "レポート保存とcatの出力を実行検証",
+            "手順へ飛べるリンクを追加"
+          ],
+          "output": "duplicates.html"
+        }
+      ]
+    }
+  ],
+  "approvedAt": "2026-11-05T17:56:43+09:00",
+  "approval": "これで投稿してください",
+  "publicSlugs": [
+    "resize-blog-images-webp",
+    "find-duplicate-files-python"
+  ]
+}

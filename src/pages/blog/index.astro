@@ -61,6 +61,7 @@ const tags = categories;
             <a href={`/blog/${p.id}/`}>
               {guides[p.id as keyof typeof guides] && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
               {starters.find(s => s.slug === p.id) && <img class="post-preview" src={starters.find(s => s.slug === p.id)!.image} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
+              {!guides[p.id as keyof typeof guides] && !starters.some(s => s.slug === p.id) && p.data.heroImage && <img class="post-preview" src={p.data.heroImage.src} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />}
               <div class="article-meta">
                 <span>{categoryFor(p.data.tags)}</span>
                 <FormattedDate date={p.data.pubDate} />

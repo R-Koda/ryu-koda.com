@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-05",
+  "assets": [
+    {
+      "slug": "resize-blog-images-webp",
+      "prompt": "Landscape editorial thumbnail 1.9:1 for a personal Japanese technology blog. Understated black fineliner and graphite observational sketch on off-white paper, asymmetric loose human drawing, one small muted spot-color area. No words, no letters, no numbers, no logos, no sparkles, no plants, no coffee. Plenty of white space, a few recognizable objects, not a polished corporate illustration, no glossy rendering or 3D. A large plain picture card with a simple mountain sketch, and a smaller card showing the same mountain image beside it, on a desk, a plain laptop corner visible. Suggest making image files smaller. One muted blue accent. No labels or arrows.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-2b2dca0b-a510-4b60-959f-2e56fcfaa25b.png",
+      "output": "public/articles/resize-blog-images-webp/cover-sketch.webp"
+    },
+    {
+      "slug": "find-duplicate-files-python",
+      "prompt": "Landscape editorial thumbnail 1.9:1 for a personal Japanese technology blog. Understated black fineliner and graphite observational sketch on off-white paper, asymmetric loose human drawing, one small muted spot-color area. No words, no letters, no numbers, no logos, no sparkles, no plants, no coffee. Plenty of white space, a few recognizable objects, not a polished corporate illustration, no glossy rendering or 3D. Two identical simple paper file folders resting beside one another, with a magnifying glass overlapping their edges, and a third distinct closed folder set farther back. Suggest carefully finding matching files, no deletion symbols. One muted olive accent. No labels or arrows.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-7cab3599-ee9c-4ed6-9022-2e7a33770c71.png",
+      "output": "public/articles/find-duplicate-files-python/cover-sketch.webp"
+    }
+  ]
+}
