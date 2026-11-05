@@ -64,7 +64,7 @@ const articleJsonLd = JSON.stringify({
   },
   datePublished: pubDate.toISOString(),
   ...(updatedDate && { dateModified: updatedDate.toISOString() }),
-  image: new URL(preview ?? heroImage?.src ?? "/social-card.png", Astro.site).toString(),
+  image: new URL(heroImage?.src ?? preview ?? "/social-card.png", Astro.site).toString(),
   mainEntityOfPage: {
     "@type": "WebPage",
     "@id": new URL(Astro.url.pathname, Astro.site).href,

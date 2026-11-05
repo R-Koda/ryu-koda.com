@@ -1,6 +1,7 @@
 ---
 title: "Macのファイル名、一個ずつ変えるのだるいな……。Finderで一括変更してみた"
 description: "MacのFinderでファイル名を一括変更。画像3枚を実際に操作したスクリーンショットと、練習用ファイル、再現手順を紹介します。"
+heroImage: "../../../public/articles/mac-finder-batch-rename/cover-sketch-v2.webp"
 updatedDate: 2026-11-05
 pubDate: 2026-11-04T22:00:00+09:00
 tags: ["Mac", "ファイル整理", "小さな工夫"]
