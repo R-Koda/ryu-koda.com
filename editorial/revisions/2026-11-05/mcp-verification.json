@@ -1,0 +1,34 @@
+[
+  {
+    "command": "claude --version",
+    "exit": 0,
+    "stdout": "2.1.283 (Claude Code)\n",
+    "stderr": ""
+  },
+  {
+    "command": "claude mcp add --transport http --scope project context7 https://mcp.context7.com/mcp",
+    "exit": 0,
+    "stdout": "Added HTTP MCP server context7 with URL: https://mcp.context7.com/mcp to project config\nFile modified: /private/tmp/ryu-mcp-check-vteyt1uz/project/.mcp.json\n",
+    "stderr": "",
+    "config": {
+      "mcpServers": {
+        "context7": {
+          "type": "http",
+          "url": "https://mcp.context7.com/mcp"
+        }
+      }
+    }
+  },
+  {
+    "command": "claude mcp get context7",
+    "exit": 0,
+    "stdout": "context7:\n  Scope: Project config (shared via .mcp.json)\n  Status: ⏸ Pending approval (run `claude` to approve)\n  Type: http\n  URL: https://mcp.context7.com/mcp\n\nTo remove this server, run: claude mcp remove context7 -s project\n",
+    "stderr": ""
+  },
+  {
+    "command": "claude mcp remove --scope project context7",
+    "exit": 0,
+    "stdout": "Removed MCP server context7 from project config\nFile modified: /private/tmp/ryu-mcp-check-vteyt1uz/project/.mcp.json\n",
+    "stderr": ""
+  }
+]

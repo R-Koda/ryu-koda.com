@@ -1,6 +1,7 @@
 ---
 title: "つくってみると、日常はもう少しおもしろい。"
 description: "思いついた「こうだったらいいな」が、触れる形になる。旅行の地図というアイデアと、このサイトの制作から、つくる楽しさを伝えます。"
+updatedDate: 2026-11-05
 pubDate: 2026-11-05T17:19:16+09:00
 heroImage: "../../../public/articles/making-everyday-interesting/cover-sketch.webp"
 tags: ["Web制作", "つくったもの"]
@@ -27,7 +28,7 @@ tags: ["Web制作", "つくったもの"]
 <p>りゅうのらぼをつくるときは、おもちゃ箱のような場所にしたいと思いました。</p>
 <p>そこで、ページへの入口を引き出しにしました。カーソルを合わせると開いて、アバターが飛び出してくる。引き出しごとに、出てくるものも変える。</p>
 <p>途中でドアにする案も出ましたが、引き出しに戻しました。見て、触って、また変える。言葉だけでは決めきれなかったことも、形を見ながら選んできました。</p>
-<figure><img src="/articles/css-popout-drawer/drawer-blog-detail.jpg" alt="ブログへの引き出しにカーソルを合わせたときの実画面" loading="lazy"><figcaption>このサイトの引き出し。触ったときに何が起こるかも、少しずつ形にしています。</figcaption></figure>
+<figure><img src="/articles/css-popout-drawer/drawer-blog-detail.jpg" alt="ブログへの引き出しにキーボードでフォーカスを移したときの実画面" loading="lazy"><figcaption>このサイトの引き出し。写真はキーボード操作で顔を表示したところです。触ったときに何が起こるかも、少しずつ形にしています。</figcaption></figure>
 <p>「触ると何かが飛び出してきたら」という思いつきが、実際の動きになる。このサイトにも、そんな小さな「こうしたい」を詰めています。</p>
 
 

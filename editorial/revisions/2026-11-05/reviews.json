@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-05",
+  "reviewer": "同一編集担当による2段階レビュー（独立査読ではない）",
+  "priority": "読者が得られる価値、再現のしやすさ、根拠、記事の軸、次への導線。集客効果の保証ではない",
+  "articles": [
+    {
+      "slug": "mac-finder-batch-rename",
+      "round1_finding": "準備と選択方法が末尾に埋もれ、成功判定が弱い",
+      "round1_action": "ZIPを先頭へ移し操作・表示・開けることの確認、失敗分岐を追加",
+      "round2_action": "実践後の見出しを用途判断へ変更。検証範囲は既存3枚に限定",
+      "final_sha256": "0d5354dd7a06d6a498e8bb3e5141afb67e09e13bed429350d217bbe5b8b739ce"
+    },
+    {
+      "slug": "usb-c-cable-comparison",
+      "round1_finding": "仕様を読んでも自分の候補を落とす作業が難しい",
+      "round1_action": "比較メモとページ内検索、条件外の具体例を追加。公式仕様再確認",
+      "round2_action": "途中の結論見出しを中間発見に変更し、比較前に記事が終わった印象を修正",
+      "final_sha256": "0b41c3a3ff4ddca53714dda06aa88a0ff88043313f786a9452feb443fdbdee14"
+    },
+    {
+      "slug": "css-popout-drawer",
+      "round1_finding": "コード保存からブラウザ確認までの手順が粗い",
+      "round1_action": "ZIP展開、表示、ホバー、開閉、編集後の再読込を追加",
+      "round2_action": "古いコピー手順との重複を削除。長いコードより前に実行手順を移動",
+      "final_sha256": "2be2fe49280e4de684385c7d00e3aad08cc0b0ddfc5c47c4c94d80d7f40ba425"
+    },
+    {
+      "slug": "claude-code-auto-dispatcher",
+      "round1_finding": "全自動化・大量ツール導入の実証がなく再現できない",
+      "round1_action": "実測済みの登録・設定閲覧・承認待ち・削除の手順へ改稿",
+      "round2_action": "mktempの例を実際の形式にし入力不要と明記。外部接続成功との混同を除外",
+      "final_sha256": "cb19492e69e9037c6f5ab598ac430b50c571a3eeb0c9c94c7f5d47491faea166"
+    },
+    {
+      "slug": "nintendo-switch-tech-tools-accessories",
+      "round1_finding": "株価と無関係な導入、未検証機能・価格・性能断定",
+      "round1_action": "公式手順を音・容量・LANに絞り機種と成功条件を明記",
+      "round2_action": "カード挿入手順への導線を具体化。未実機検証を明記",
+      "final_sha256": "c32cf980a3dea02cdcdca7a9c183742f9c6ccae54ca525081624c461a92d66bc"
+    },
+    {
+      "slug": "making-everyday-interesting",
+      "round1_finding": "総論の軸と実践導線は維持できている",
+      "round1_action": "創作例と実際の制作を区別していることを確認",
+      "round2_action": "画像altとキャプションを実際のキーボード撮影に合わせた",
+      "final_sha256": "e4bed9b9a16755a6617215f6cc3466931761e21ab7f75c05a669836c5aef3c23"
+    },
+    {
+      "slug": "joy-of-choosing-gadgets",
+      "round1_finding": "生活の便利さ→PCきっかけ→幅広いガジェットの軸を確認",
+      "round1_action": "ユーザー提供3事実のみを体験として記述していることを確認",
+      "round2_action": "USB-C実践への導線と仕様調査の区別を再確認。本文変更不要",
+      "final_sha256": "f28c4f70feeb3b3a67d76355e24ace3822f554dd05c55cfbd9210cc616e01ac3"
+    },
+    {
+      "slug": "a-place-for-curiosity",
+      "round1_finding": "好奇心と寄り道の総論として確認",
+      "round1_action": "未実施の公開データ体験は仮定として記述していることを確認",
+      "round2_action": "次の記事への導線を再確認。手順を無理に足さず本文変更不要",
+      "final_sha256": "f6df4238929b9f7d95832df391fb6029dffea1d5aa413bfa8088f72efd7a0059"
+    },
+    {
+      "slug": "resize-blog-images-webp",
+      "round1_finding": "最新基準の準備・コマンド・結果と検証範囲を確認",
+      "round1_action": "既存配布ファイルの検証記録がある。今回コード変更なし",
+      "round2_action": "画像サイズと計測値の区別を再確認。本文変更不要",
+      "final_sha256": "9dd3c5a254d8d9c84cea017d7ce048208be78cb9d2dad8049e763b06800c2cc5"
+    },
+    {
+      "slug": "find-duplicate-files-python",
+      "round1_finding": "最新基準の準備・コマンド・結果と非削除を確認",
+      "round1_action": "既存配布ファイルの検証記録がある。今回コード変更なし",
+      "round2_action": "同一バイトと似た画像の違い、失敗分岐を再確認。本文変更不要",
+      "final_sha256": "ccba6b051e4df182691f8a1b244cbb6e813e38c4931bcf120b25e2c0f10b7e45"
+    }
+  ]
+}

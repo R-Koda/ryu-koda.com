@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "css-popout-drawer",
+    "files": [
+      "index.html"
+    ],
+    "matches_live_demo": false,
+    "matches_article_code": true,
+    "live_demo_difference": "公開デモだけにnoindex・canonical等のメタデータ4行あり。本文とスタイルに差分なし"
+  },
+  {
+    "slug": "mac-finder-batch-rename",
+    "files": [
+      "IMG_001.jpg",
+      "IMG_002.jpg",
+      "IMG_003.jpg"
+    ]
+  }
+]

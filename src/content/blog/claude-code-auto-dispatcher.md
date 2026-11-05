@@ -1,410 +1,143 @@
 ---
-title: '【完全ガイド】Claude Codeに30個以上のツールを入れて「やりたいことを言うだけ」で全自動化した方法'
-description: 'Claude Codeに30以上のMCPサーバーとプラグインを追加し、やりたいことを伝えるだけで最適なツールが自動で選ばれる仕組みを作りました。設定ファイルも全て公開しています。'
+title: 'Claude CodeのMCP設定、どこに入った？ 追加・確認・削除を1つずつ試す'
+description: 'Claude CodeのMCP設定を練習用フォルダーへ追加し、.mcp.jsonの中身と承認待ち表示を確認して削除する手順。実行結果付きで解説します。'
 pubDate: 2025-03-13
-tags: ['ClaudeCode', 'MCP', 'AI', '開発環境', '自動化']
+updatedDate: 2026-11-05
+tags: ['ClaudeCode', 'MCP', '開発環境']
 ---
 
-## TL;DR
+ツールを追加するコマンドは見つかった。でも、それを実行すると、どこの設定が変わるんだろう。あとで戻せるのかな。
 
-Claude Code に **30以上のMCPサーバーとプラグイン**を統合し、「タスクを伝えるだけで最適なツールが自動選択される」**Auto-Dispatcher** を構築しました。さらに、新しいツールの発見から導入までを半自動化する **Self-Updating** の仕組みも実装。Claude Code をただのAIコーディングツールから、**自律型の開発プラットフォーム**へと進化させた全設定を公開します。
+連携を増やす前に、そこを一度見ておきたくなりました。今回は、**練習用のフォルダーへMCPの設定を1件追加し、中身を見て、最後に削除する**ところまで試します。
 
----
+MCPは、Claude Codeと外部のツールをつなぐための仕組みです。ただし、設定を書き込めたことと、実際にそのツールが使えることは別。今回はその境目も確認します。
 
-## この記事で構築するもの
+<p class="note">2026年11月5日改稿。以前の「30個以上のツールで全自動化」という記事を、実行確認できた設定操作の解説へ改めました。検証はClaude Code 2.1.283、macOS、隔離した設定ディレクトリで実施。外部サービスへの認証や、資料取得の成功を検証した記事ではありません。</p>
 
-```
-あなた: 「このPRをレビューして」
-Claude: → 自動で /pr-review を選択・実行（6種の専門エージェントが並列レビュー）
+## 1．ターミナルを開き、Claude Codeが使えるか確認する
 
-あなた: 「新機能を設計して実装まで」
-Claude: → /deep-project → /deep-plan → /deep-implement を順に実行
+この記事は、Claude Codeをインストール済みのMacが対象です。まだの場合は[公式セットアップ案内](https://code.claude.com/docs/en/setup)で導入を済ませてから戻ってください。
 
-あなた: 「一晩かけてリファクタリングして」
-Claude: → /ralph-loop で自律的に繰り返し実行
-```
+Command＋Spaceで「ターミナル」を検索して開きます。以下は1つの枠ずつ貼り付け、Returnキーで実行します。先頭に `$` を付ける必要はありません。
 
-**手動でプラグインを指定する必要は一切ありません。**
-
----
-
-## 全体アーキテクチャ
-
-```
-~/.claude/
-├── CLAUDE.md                  # グローバル指示 + Auto-Routing 宣言
-├── TOOLS.md                   # Single Source of Truth（全ツール定義）
-├── settings.json              # 権限・hooks・マーケットプレース
-├── skills/
-│   ├── auto.md                # Auto-Dispatcher（タスク→ツール選択）
-│   └── discover.md            # 新ツール発見スキル
-└── hooks/
-    ├── session-start.sh       # セッション開始時のツール状態表示
-    ├── check-updates.sh       # 7日ごとの更新リマインド
-    ├── cmux-notify.sh         # タスク完了通知
-    ├── cmux-notify-permission.sh  # 承認待ち通知
-    └── github-mcp.sh          # GitHub MCP ラッパー
+```sh
+claude --version
 ```
 
-設計思想は **3つの原則** に基づいています：
+検証時の結果：
 
-1. **Single Source of Truth** — ツール定義は `TOOLS.md` のみで管理
-2. **Zero-Config Routing** — タスクを伝えるだけで最適なツールが選ばれる
-3. **Self-Updating** — 新ツールの発見・導入・反映が半自動
-
----
-
-## 1. MCP サーバー：30超の外部ツール統合
-
-### なぜ MCP なのか
-
-Claude Code は単体でも強力ですが、MCP（Model Context Protocol）を通じて外部ツールと接続すると、**できることの次元が変わります**。ファイル操作やWeb検索だけでなく、GitHub操作、DB問い合わせ、ブラウザ自動操作、ドキュメント変換まで、あらゆる開発タスクを Claude の中で完結できるようになります。
-
-### インストール済みMCPサーバー一覧
-
-#### Tier 1: 設定不要ですぐ使えるもの
-
-```bash
-# ブラウザ自動操作（E2Eテスト、スクレイピング）
-claude mcp add playwright -s user -- npx -y @playwright/mcp@latest
-
-# 最新ドキュメント自動注入（React, Next.js 等の最新API）
-claude mcp add context7 -s user -- npx -y @upstash/context7-mcp
-
-# 複雑な推論の補助
-claude mcp add sequential-thinking -s user -- npx -y @modelcontextprotocol/server-sequential-thinking
-
-# PDF/pptx → マークダウン変換
-claude mcp add markitdown -s user -- npx -y @microsoft/markitdown-mcp
-
-# YouTube 字幕取得・要約
-claude mcp add youtube -s user -- npx -y @nicekid1/youtube-mcp
-
-# Knowledge Graph ベースの長期記憶
-claude mcp add memory -s user -- npx -y @modelcontextprotocol/server-memory
-
-# その他: fetch, puppeteer, sqlite, filesystem, docker
+```text
+2.1.283 (Claude Code)
 ```
 
-#### Tier 2: OAuth / SSE 認証（APIキー不要）
+バージョンが出れば先へ進めます。`command not found` なら、MCPを追加する段階にはまだ到達していません。インストール後にターミナルを開き直し、公式案内の導入確認へ戻ります。表示や仕様はバージョンによって変わります。
 
-```bash
-# GitHub API（PR, Issue, CI/CD）— OAuth で認証、キー管理不要
-claude mcp add github-sse -s user --transport sse https://api.github.com/mcp
+## 2．普段のプロジェクトと分けて、練習場所を作る
 
-# Sentry エラー監視
-claude mcp add sentry-sse -s user --transport sse https://mcp.sentry.dev/sse
+仕事のフォルダーへいきなり追加せず、Macの一時フォルダーに練習場所を作ります。
+
+```sh
+mcp_practice_dir=$(mktemp -d /tmp/mcp-practice.XXXXXX)
+cd "$mcp_practice_dir"
+pwd
 ```
 
-#### Tier 3: AWS 系
+結果の例は次のとおり。末尾の文字は実行ごとに変わります。この出力例は入力するコマンドではありません。
 
-```bash
-claude mcp add aws-docs -s user -- uvx awslabs.aws-documentation-mcp-server
-claude mcp add aws-cdk -s user -- uvx awslabs.cdk-mcp-server
-claude mcp add aws-cost -s user -- uvx awslabs.cost-analysis-mcp-server
-claude mcp add aws-bedrock -s user -- uvx awslabs.bedrock-mcp-server
+```text
+/tmp/mcp-practice.aB3xY9
 ```
 
-#### Tier 4: サービス連携（APIキー要）
+**確認：** 表示が `/tmp/mcp-practice.` で始まる専用フォルダーならOK。エラーになった場合は追加操作へ進みません。この練習場所は一時用なので、長期保存する設定の置き場所にはしません。
 
-```bash
-# Figma, Slack, Notion, Linear, Brave Search, Firecrawl,
-# Google Drive, PostgreSQL, Firebase
+## 3．プロジェクト用の設定を1件追加する
+
+例に使うのは、ライブラリの資料を扱うContext7のHTTPエンドポイントです。今回は接続先の登録までで、認証情報を入力する操作は含めません。
+
+```sh
+claude mcp add --transport http --scope project context7 https://mcp.context7.com/mcp
 ```
 
-### 実際の使い方
+検証時は次のメッセージが出ました。パス部分は自分の練習フォルダーに置き換わります。
 
-MCP サーバーは **明示的に呼び出す必要がありません**。自然言語で依頼するだけです：
-
-```
-「Reactの useOptimistic の最新の使い方を教えて」
-→ context7 が自動で最新ドキュメントを注入
-
-「このURLのスクリーンショットを撮って、UIの問題を指摘して」
-→ playwright が自動でブラウザ操作
-
-「今月のAWSコストを確認して」
-→ aws-cost が自動でコスト分析
+```text
+Added HTTP MCP server context7 with URL: https://mcp.context7.com/mcp to project config
+File modified: …/project/.mcp.json
 ```
 
----
+次に、保存された内容を見ます。
 
-## 2. プラグイン：開発ワークフローの自動化
-
-### 公式マーケットプレースから
-
-```bash
-/plugin install ralph-wiggum@claude-plugins-official    # 自律ループ実行
-/plugin install code-review@claude-plugins-official      # コードレビュー
-/plugin install pr-review-toolkit@claude-plugins-official # PR 多角的レビュー
-/plugin install superpowers@claude-plugins-official       # 構造的開発フレームワーク
+```sh
+cat .mcp.json
 ```
 
-### コミュニティマーケットプレースから
-
-```bash
-/plugin install claude-mem@thedotmack        # セッション間記憶
-/plugin install ccpm@ccpm                    # PRD→Issue→コード管理
-/plugin install session-logger@claude-session-logger  # セッションログ
-/plugin install claude-dev-toolkit@claude-dev-toolkit  # 開発補助
-
-# Deep Trilogy（アイデア→設計→実装の3段階）
-/plugin install deep-project@deep-project
-/plugin install deep-plan@deep-plan
-/plugin install deep-implement@deep-implement
-
-# 500+ サービス連携
-/plugin install connect-apps@composio
-```
-
-### 各プラグインの威力
-
-#### Ralph Wiggum Loop — 寝ている間にコードが書かれる
-
-```
-/ralph-loop "全テストファイルをVitestに移行して" --max-iterations 20
-```
-
-Claude が自律的にタスクを繰り返し実行。終了条件に達するか、最大イテレーションに到達するまで止まりません。**一晩放置して朝にはリファクタリング完了**、という使い方ができます。
-
-#### Deep Trilogy — 曖昧なアイデアから本番コードまで
-
-```
-/deep-project @requirements.md
-  → 要件を個別コンポーネントに分解
-
-/deep-plan @planning/01-auth/spec.md
-  → 各コンポーネントの実装計画を策定（リサーチ・インタビュー・マルチLLMレビュー付き）
-
-/deep-implement @planning/sections/
-  → TDD + コードレビュー付きで実装
-```
-
-「認証機能を追加したい」のような曖昧な要件から、テスト済みの本番コードまで一気通貫で到達できます。
-
-#### pr-review-toolkit — 6人の専門レビュアー
-
-```
-/pr-review
-```
-
-1つのコマンドで **6種の専門エージェントが並列でレビュー** を実行：
-
-| エージェント | 観点 |
-|---|---|
-| Comment Analyzer | ドキュメントとコードの整合性 |
-| PR Test Analyzer | テストカバレッジのギャップ |
-| Silent Failure Hunter | 隠れたエラーハンドリングの問題 |
-| Type Design Analyzer | 型設計の品質 |
-| Code Reviewer | プロジェクトガイドラインへの準拠 |
-| Code Simplifier | コードの簡潔化提案 |
-
----
-
-## 3. Auto-Dispatcher：これが本体
-
-ここまでのMCPとプラグインは「武器」です。Auto-Dispatcher は、その武器を **状況に応じて自動で選ぶAI** です。
-
-### 仕組み
-
-```
-CLAUDE.md（毎セッション自動読込）
-  └→ 「ツール選択は TOOLS.md を参照せよ」
-
-auto.md（/auto スキル）
-  └→ 「TOOLS.md を読み、タスクに最適なツールを選択・実行せよ」
-
-TOOLS.md（Single Source of Truth）
-  └→ 全ツールの一覧・呼び出し方・用途を定義
-```
-
-### なぜ Single Source of Truth が重要か
-
-従来のアプローチでは、ルーティングルールにツール名をハードコードします。ツールを追加するたびに、ルーティングルールも書き換える必要がありました。
-
-**この設計では、TOOLS.md を更新するだけで全てに反映されます：**
-
-```
-TOOLS.md にツール追加
-  ↓ auto.md が毎回 TOOLS.md を読む
-  ↓ CLAUDE.md が TOOLS.md を参照するよう指示
-  ↓ 自動的にルーティング対象に含まれる
-```
-
-ルーティングロジックを一切変更する必要がありません。
-
-### 実際の動作例
-
-```
-あなた: 「このAPIのレスポンスが遅い。原因を調べて直して」
-
-Claude の思考:
-  1. TOOLS.md を確認
-  2. デバッグ → 体系的デバッグアプローチ
-  3. パフォーマンス分析 → コードレビュー系プラグインも有用
-  4. テスト → TDD Guard が自動監視
-  → code-review + TDD Guard の組み合わせで対応
-
-あなた: 「Figmaのデザインを元にReactコンポーネントを作って」
-
-Claude の思考:
-  1. TOOLS.md を確認
-  2. Figma → figma MCP
-  3. React の最新API → context7 MCP
-  4. 実装 → deep-implement が適切
-  → figma MCP + context7 MCP + deep-implement の組み合わせ
-```
-
----
-
-## 4. Self-Updating：ツールが勝手に進化する
-
-### 7日ごとの自動リマインド
-
-```bash
-# ~/.claude/hooks/check-updates.sh
-# SessionStart 時に実行。7日経過で通知。
-
-「前回のツール更新チェックから7日経過しています。
- /discover で新しいプラグインやMCPサーバーを検索できます。」
-```
-
-### /discover — 新ツール発見スキル
-
-```
-/discover
-```
-
-以下のソースから自動検索し、**未導入のツールだけを提案**します：
-
-- `anthropics/claude-plugins-official`（公式）
-- `anthropics/claude-code/plugins`（公式）
-- `ComposioHQ/awesome-claude-plugins`（キュレーション）
-- `modelcontextprotocol` org（公式MCP）
-- npm レジストリ
-- Web 検索（最新トレンド）
-
-提案フォーマット：
-
-| 名前 | 種別 | 用途 | おすすめ度 |
-|---|---|---|---|
-| xxx | MCP | ○○ができる | 高 |
-| yyy | プラグイン | △△を自動化 | 中 |
-
-選んだものだけインストールされ、TOOLS.md が自動更新 → Auto-Dispatcher に即反映。
-
-### 更新の全体フロー
-
-```
-セッション開始
-  ↓
-check-updates.sh: 「7日経過。/discover で確認できます」
-  ↓
-/discover: ソースから新ツール検索 → TOOLS.md と差分比較
-  ↓
-ユーザーが選択 → インストール → TOOLS.md 更新
-  ↓
-次回から Auto-Dispatcher が新ツールも選択肢に含める
-```
-
-**ツールのエコシステムが自律的に進化し続けます。**
-
----
-
-## 5. 通知システム：cmux 連携
-
-バックグラウンドで Claude Code を動かしているとき、重要なイベントを見逃しません。
-
-```bash
-# タスク完了時
-cmux notify --title "Claude Code" --body "タスクが完了しました" --level info
-
-# 承認待ち時
-cmux notify --title "Claude Code" --body "承認を待っています" --level warning
-```
-
-| イベント | 通知レベル | タイミング |
-|---|---|---|
-| タスク完了 (`Stop`) | info | Claude が応答を終えたとき |
-| 承認待ち (`PermissionRequest`) | warning | 権限が必要な操作の実行前 |
-
-Ralph Loop で一晩放置しているときでも、完了や問題発生時に通知が飛んできます。
-
----
-
-## 6. セキュリティ：権限管理
-
-全てを自動化しつつも、危険な操作はブロックしています。
+検証時の内容：
 
 ```json
 {
-  "permissions": {
-    "allow": [
-      "Bash(git status*)", "Bash(git log*)", "Bash(git diff*)",
-      "Bash(git add*)", "Bash(git commit*)", "Bash(gh *)",
-      "Read", "Write", "Edit", "Glob", "Grep",
-      "WebFetch", "WebSearch"
-    ],
-    "deny": [
-      "Bash(rm -rf /)",
-      "Bash(git push --force*)",
-      "Bash(git reset --hard*)"
-    ]
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
   }
 }
 ```
 
-日常的な操作は自動許可し、破壊的な操作は明示的にブロック。自動化と安全性のバランスを取っています。
+**確認：** `context7`、`http`、登録したURLの3つが入っていれば、書き込みは成功です。今回の `--scope project` は、このフォルダーの `.mcp.json` を対象にしています。省略して同じ場所へ入るとは考えず、練習では毎回指定します。
 
----
+## 4．「追加できた」と「接続できた」を分けて読む
 
-## 7. GitHub MCP のトークン管理
-
-GitHub MCP サーバーのトークンを平文で保存せず、`gh auth token` を実行時に動的取得するラッパースクリプトを使用しています：
-
-```bash
-#!/bin/bash
-# ~/.claude/hooks/github-mcp.sh
-export GITHUB_PERSONAL_ACCESS_TOKEN="$(gh auth token)"
-exec npx -y @modelcontextprotocol/server-github "$@"
+```sh
+claude mcp get context7
 ```
 
-トークンのローテーションにも自動対応し、セキュリティリスクを最小化しています。
+検証時の結果はこうでした。
 
----
+```text
+context7:
+  Scope: Project config (shared via .mcp.json)
+  Status: ⏸ Pending approval (run `claude` to approve)
+  Type: http
+  URL: https://mcp.context7.com/mcp
+```
 
-## まとめ：何が変わったか
+**ここで分かったこと：** プロジェクト設定として登録されています。一方、状態は承認待ち。この表示を「資料を取得できた」と読み替えてはいけません。
 
-| Before | After |
-|---|---|
-| プラグインを手動で指定 | タスクを伝えるだけで自動選択 |
-| ツール追加のたびにルール書き換え | TOOLS.md に追記するだけで全反映 |
-| 新ツールを自分で探す | 7日ごとに /discover が提案 |
-| タスク完了を待って画面を見る | cmux 通知で離席OK |
-| トークンを平文管理 | 実行時に動的取得 |
+設定ファイルに名前がある、Claude Codeで承認されている、サービスへ接続できる、目的の資料を取得できる。この4つは、それぞれ確かめることが違います。今回は最初の段階を実際に確認しました。
 
-Claude Code はもはや「AIに質問するツール」ではなく、**30以上の専門ツールを使い分ける自律型の開発チーム**です。
+実際の利用へ進む場合は、[Context7の公式導入手順](https://context7.com/docs/clients/claude-code)で認証方法を確認してください。現在の案内にはOAuthやAPIキーの設定が含まれます。この記事の登録コマンドだけで、認証まで完了するわけではありません。
 
-タスクを伝えるだけ。あとは Claude が考えて、最適なツールを選び、実行する。
+## 5．練習で追加した設定を削除する
 
----
+同じターミナル、同じフォルダーのまま実行します。
 
-## 再現手順
+```sh
+claude mcp remove --scope project context7
+```
 
-この記事の全設定を再現するためのファイル一覧：
+検証時の結果：
 
-| ファイル | 内容 |
-|---|---|
-| `~/.claude/settings.json` | 権限、hooks、マーケットプレース |
-| `~/.claude.json` | MCP サーバー設定 |
-| `~/.claude/CLAUDE.md` | グローバル指示 + Auto-Routing |
-| `~/.claude/TOOLS.md` | 全ツール定義（SSoT） |
-| `~/.claude/skills/auto.md` | Auto-Dispatcher ルール |
-| `~/.claude/skills/discover.md` | 新ツール発見スキル |
-| `~/.claude/hooks/*.sh` | 各種フックスクリプト |
+```text
+Removed MCP server context7 from project config
+File modified: …/project/.mcp.json
+```
 
-全ファイルの内容は GitHub リポジトリで公開予定です。
+続けて、ファイルを確認します。
 
----
+```sh
+cat .mcp.json
+```
 
-*この記事自体も Claude Code で書かれています。*
+**確認：** `mcpServers` の中から `context7` がなくなっていれば、今回の練習は完了です。他のスコープに同名の設定がある環境では、その設定まで削除する操作ではありません。
+
+## 表示が違ったら、まず現在地と保存先を見る
+
+- **`.mcp.json` が見つからない：** `pwd` で練習場所にいるか確認し、追加コマンドに `--scope project` があったか見直します。
+- **すでに登録済みと出る：** 普段の設定を消して続けず、手順2から新しい練習フォルダーを作ります。管理された環境では管理者設定が優先される場合もあります。
+- **承認待ちと出る：** 今回の検証と同じ段階です。接続失敗と決めつけず、登録内容と承認状態を分けて確認します。
+- **実際の利用時に認証エラーが出る：** 追加コマンドの繰り返しでは解決しない場合があります。サービス側の認証手順を確認します。
+
+設定の場所が見え、戻し方も分かる。それだけでも、次の連携を試すときの見通しはよくなります。まずはこの1件が、どこへ入り、どう消えたかを確かめるところから。
+
+MCPのスコープと状態表示は[Claude Code公式ドキュメント](https://code.claude.com/docs/en/mcp)を参照しています。コマンドの出力は本記事の検証結果です。
