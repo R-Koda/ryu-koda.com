@@ -1,0 +1,11 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Experiment from '../../components/Experiment.astro';
+import { experiments } from '../../data/experiments';
+export function getStaticPaths() { return experiments.map(experiment=>({params:{slug:experiment.slug},props:{experiment}})); }
+const {experiment:e}=Astro.props;
+---
+<!doctype html><html lang="ja"><head><BaseHead title={`${e.name} | 仕掛けの実験室 | りゅうのらぼ`} description={e.description} /></head><body><Header /><main id="main" class="shell experiment-page"><a href="/playground/">← 実験室の一覧へ</a><p class="eyebrow">KIT {e.number} / {e.verb}</p><h1>{e.name}</h1><p class="lead">{e.description}</p><Experiment kind={e.slug} /><nav class="other-kits" aria-label="ほかの実験">{experiments.filter(x=>x.slug!==e.slug).map(x=><a href={`/playground/${x.slug}/`}>{x.name} ↗</a>)}</nav></main><Footer /></body></html>
+<style>.experiment-page{padding-top:38px;padding-bottom:55px}.experiment-page>a{font-size:13px}.eyebrow{margin:35px 0 12px;font-size:11px;letter-spacing:.13em;color:#5c6d74}h1{font-size:clamp(28px,4vw,46px);font-weight:700}.lead{margin:18px 0 32px;color:var(--muted)}.other-kits{display:flex;gap:16px 24px;flex-wrap:wrap;margin-top:45px;font-size:13px}</style>
