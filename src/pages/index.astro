@@ -8,7 +8,7 @@ import Footer from "../components/Footer.astro";
 import ActionLink from "../components/ActionLink.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { journalPosts } from "../lib/posts";
-import guides from "../data/article-guides.json";
+import starters from "../data/starter-articles.json";
 import FollowNote from "../components/FollowNote.astro";
 const posts = (await journalPosts()).slice(0, 3);
 ---
@@ -97,8 +97,8 @@ const posts = (await journalPosts()).slice(0, 3);
       </section>
       <section class="start-here" aria-labelledby="start-title">
         <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
-        <p class="start-lead">作業を楽にしたい。道具を選びたい。何か作りたい。今日の気分でどうぞ。</p>
-        <div class="starter-grid">{Object.entries(guides).map(([slug, guide]) => (
+        <p class="start-lead">つくること、道具を選ぶこと、気になることを掘り下げること。りゅうのらぼの楽しみ方を、3つの記事に。</p>
+        <div class="starter-grid">{starters.map(({slug, ...guide}) => (
           <a class="starter-card" href={`/blog/${slug}/`}>
             <img src={`/articles/${slug}/cover.webp`} alt={guide.label} width="1200" height="630" loading="lazy" decoding="async" />
             <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>

@@ -1,0 +1,130 @@
+{
+  "approvedBy": "user",
+  "approval": "3記事とも投稿してください",
+  "approvedAt": "2026-11-05T17:19:16+09:00",
+  "articles": [
+    {
+      "slug": "making-everyday-interesting",
+      "title": "つくってみると、日常はもう少しおもしろい。",
+      "reviewer": "同一編集エージェント",
+      "rounds": [
+        {
+          "round": 1,
+          "input": "making-before-axis-review.html",
+          "findings": [
+            "引き出しの個別制作記に偏って総論になっていない",
+            "便利さが主題のタイトルと、遊び心のある制作例が一致しない",
+            "一般的な始め方と他記事誘導が入り主張が散っている"
+          ],
+          "changes": [
+            "主張に合わせてタイトルと構成を変更",
+            "例示と本人確認済みの体験を区別",
+            "別記事と役割が重ならない結びと導線へ変更"
+          ],
+          "output": "making-axis-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "making-axis-round-1.html",
+          "findings": [
+            "旅行の例と実制作例で、試行錯誤の説明が重複",
+            "仮想の旅行記を完成実績と誤読しない明示が必要",
+            "結びに対比的で不要な表現がある"
+          ],
+          "changes": [
+            "旅行の例は可能性、引き出しは実体験と役割を明確化",
+            "反復を減らし想像から実物へつながる表現へ",
+            "結びを読者が試せる具体記事への誘導に整理"
+          ],
+          "output": "making.html"
+        }
+      ],
+      "publicPath": "/blog/making-everyday-interesting/"
+    },
+    {
+      "slug": "joy-of-choosing-gadgets",
+      "title": "ガジェットは、買う前に吟味するのがいちばんおもしろい。",
+      "reviewer": "同一編集エージェント",
+      "rounds": [
+        {
+          "round": 1,
+          "input": "choosing-before-axis-review.html",
+          "findings": [
+            "便利な道具の紹介・買い物の楽しさ・自作PC回想が並列で主従不明",
+            "生活例の羅列で本人の視点が薄くなる",
+            "後半の編集方針説明と対象ジャンル列挙が重複"
+          ],
+          "changes": [
+            "冒頭で一つの主張を提示",
+            "自作PCは原点、生活例は具体化、コスパは吟味の観点として配置",
+            "生活例を充電器一つに絞り、関連リンクに接続",
+            "編集方針の説明を短くした"
+          ],
+          "output": "choosing-axis-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "choosing-axis-round-1.html",
+          "findings": [
+            "自作PC節の末尾が早すぎるブログ紹介になっている",
+            "比較の例が仕様解説に寄りかけている",
+            "コスパ節で自作PC回想を再度繰り返している"
+          ],
+          "changes": [
+            "自作PC節末尾を日々の道具選びへの橋渡しに変更",
+            "仕様説明を吟味する思考の動きへ変更",
+            "回想の反復を削り、便利さと価格の関係で結ぶ",
+            "未使用品まで使用評価を約束しない表現を確認"
+          ],
+          "paragraphRoles": [
+            "導入：生活を想像しながら吟味する楽しさ",
+            "自作PC：その原点となる確認済みの体験",
+            "充電器：日常の道具でも同じ楽しみがあるという例示",
+            "コスパ：求める便利さと価格を吟味する視点",
+            "結び：同じ視点で多様な道具を紹介する約束"
+          ],
+          "output": "choosing.html"
+        }
+      ],
+      "publicPath": "/blog/joy-of-choosing-gadgets/"
+    },
+    {
+      "slug": "a-place-for-curiosity",
+      "title": "好奇心の置き場所としての、りゅうのらぼ。",
+      "reviewer": "同一編集エージェント",
+      "rounds": [
+        {
+          "round": 1,
+          "input": "lab-before-axis-review.html",
+          "findings": [
+            "制作の話とサイト案内が混ざり、つくる記事との違いが不明",
+            "未完成のものを置くこと自体が目的に見える",
+            "読者にとって未知の話題に出会う価値が伝わりにくい"
+          ],
+          "changes": [
+            "主張に合わせてタイトルと構成を変更",
+            "例示と本人確認済みの体験を区別",
+            "別記事と役割が重ならない結びと導線へ変更"
+          ],
+          "output": "lab-axis-round-1.html"
+        },
+        {
+          "round": 2,
+          "input": "lab-axis-round-1.html",
+          "findings": [
+            "サイト制作の回想が制作記事と重なる",
+            "未完成の記録と読者への価値のつながりが弱い",
+            "結びが書き手の話に戻っている"
+          ],
+          "changes": [
+            "制作履歴の回想を削り、問いをたどる過程の共有に統一",
+            "失敗から何がわかったかまで残す意味を補強",
+            "結びを読者自身の好奇心へ接続"
+          ],
+          "output": "lab.html"
+        }
+      ],
+      "publicPath": "/blog/a-place-for-curiosity/"
+    }
+  ]
+}
