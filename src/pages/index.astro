@@ -489,7 +489,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
   }
   .journal-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 26px;
     margin-top: 28px;
   }
