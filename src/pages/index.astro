@@ -100,7 +100,7 @@ const posts = (await journalPosts()).slice(0, 3);
         <p class="start-lead">つくること、道具を選ぶこと、気になることを掘り下げること。りゅうのらぼの楽しみ方を、3つの記事に。</p>
         <div class="starter-grid">{starters.map(({slug, ...guide}) => (
           <a class="starter-card" href={`/blog/${slug}/`}>
-            <img src={`/articles/${slug}/cover.webp`} alt={guide.label} width="1200" height="630" loading="lazy" decoding="async" />
+            <img src={guide.image} alt={guide.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />
             <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
           </a>
         ))}</div>

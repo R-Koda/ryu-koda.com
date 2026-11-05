@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-05",
+  "assets": [
+    {
+      "slug": "making-everyday-interesting",
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial blog thumbnail, approximately 1.9:1 aspect ratio. Create an original warm hand-drawn illustration for a Japanese personal tech blog with a white background, playful toybox aesthetic, imperfect charcoal pencil contours, flat pastel gouache fills, slight paper grain, charming but sophisticated. Large recognizable central objects that read well at 300px, generous clear margins for a 1200x630 crop. No lettering, no numbers, no words, no logos, no watermark, no title area. Not photorealistic, not glossy 3D, not corporate vector clipart. Dominant accent lavender, warm yellow and ink blue. Scene: a laptop on a small workbench; a tiny colorful pop-out drawer is playfully emerging from the screen, with a few geometric building pieces and a curling paper strip beside it. Evoke the delight of making an imagined idea become something tangible. One coherent illustration, laptop and impossible miniature drawer the unmistakable focal point. No people.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-29cee56b-ef72-4650-a302-4ebfcc7bf3ab.png",
+      "output": "public/articles/making-everyday-interesting/cover-illustration.webp"
+    },
+    {
+      "slug": "joy-of-choosing-gadgets",
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial blog thumbnail, approximately 1.9:1 aspect ratio. Create an original warm hand-drawn illustration for a Japanese personal tech blog with a white background, playful toybox aesthetic, imperfect charcoal pencil contours, flat pastel gouache fills, slight paper grain, charming but sophisticated. Large recognizable central objects that read well at 300px, generous clear margins for a 1200x630 crop. No lettering, no numbers, no words, no logos, no watermark, no title area. Not photorealistic, not glossy 3D, not corporate vector clipart. Dominant accent sage green with warm yellow and ink blue. Scene: cozy top-down arrangement of a compact everyday gadget kit on a desk, one pair of small headphones, one tiny portable charger with rounded corners, a neatly looped charging cable, and a magnifying glass inspecting the charger. A small open blank notebook with only simple outline sketches of alternative gadgets. Evoke thoughtful selection of useful tools and the anticipation of a convenient everyday life. Clear uncluttered hierarchy, 4 main objects. No people.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-11974d06-fc1a-4f57-959c-3bca44cba861.png",
+      "output": "public/articles/joy-of-choosing-gadgets/cover-illustration.webp"
+    },
+    {
+      "slug": "a-place-for-curiosity",
+      "prompt": "Use case: illustration-story. Asset type: landscape editorial blog thumbnail, approximately 1.9:1 aspect ratio. Create an original warm hand-drawn illustration for a Japanese personal tech blog with a white background, playful toybox aesthetic, imperfect charcoal pencil contours, flat pastel gouache fills, slight paper grain, charming but sophisticated. Large recognizable central objects that read well at 300px, generous clear margins for a 1200x630 crop. No lettering, no numbers, no words, no logos, no watermark, no title area. Not photorealistic, not glossy 3D, not corporate vector clipart. Dominant accent buttery yellow with sage and lavender. Scene: an open wooden toybox containing a small open notebook, magnifying glass, tiny laptop and a folded map, with a looping pencil line linking these discoveries into the air. Warm sense of rummaging through a personal collection of interesting questions, exploration and playful curiosity. Make the open toybox bold and central, just a few large objects rising from it. No people, no written labels.",
+      "source": "/Users/ryukoda/.codex/generated_images/01a1a5dd-2cce-7b71-a5e6-c81b8242337e/exec-0ddb951a-cf1f-4dab-8381-e995c73658c1.png",
+      "output": "public/articles/a-place-for-curiosity/cover-illustration.webp"
+    }
+  ]
+}

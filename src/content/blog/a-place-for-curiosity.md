@@ -2,7 +2,7 @@
 title: "好奇心の置き場所としての、りゅうのらぼ。"
 description: "気になったことを調べ、試し、その途中も残す。開発や道具、研究への関心を、読者の次の好奇心につなげたい。りゅうのらぼの想いを紹介します。"
 pubDate: 2026-11-05T17:19:16+09:00
-heroImage: "../../../public/articles/a-place-for-curiosity/cover.webp"
+heroImage: "../../../public/articles/a-place-for-curiosity/cover-illustration.webp"
 tags: ["りゅうのらぼ", "好奇心"]
 ---
 

@@ -5,6 +5,7 @@ import Footer from "../../components/Footer.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import { journalPosts } from "../../lib/posts";
 import guides from "../../data/article-guides.json";
+import starters from "../../data/starter-articles.json";
 import FollowNote from "../../components/FollowNote.astro";
 import { categories, categoryFor } from "../../lib/categories";
 const posts = await journalPosts();
@@ -59,6 +60,7 @@ const tags = categories;
           >
             <a href={`/blog/${p.id}/`}>
               {guides[p.id as keyof typeof guides] && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
+              {starters.find(s => s.slug === p.id) && <img class="post-preview" src={starters.find(s => s.slug === p.id)!.image} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
               <div class="article-meta">
                 <span>{categoryFor(p.data.tags)}</span>
                 <FormattedDate date={p.data.pubDate} />
