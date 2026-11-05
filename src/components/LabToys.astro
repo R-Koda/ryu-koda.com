@@ -5,11 +5,11 @@ interface Props {
 const { position } = Astro.props;
 ---
 
-<div class:list={["lab-toys", `toys-${position}`]} aria-hidden="true">
+<div class:list={["lab-toys", `toys-${position}`]} aria-label="つまんで遊べる、らぼの小物">
   {position === "top" ? (
-    <svg viewBox="0 0 560 130" fill="none">
+    <svg role="group" aria-label="動かせる小物" viewBox="0 0 560 130" fill="none">
       <path d="M10 116h540" stroke="#d3d9de" stroke-dasharray="3 7" />
-      <g class="notebook">
+      <g class="toy-handle" tabindex="0" role="button" aria-label="ノートで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="notebook">
         <rect
           x="20"
           y="22"
@@ -37,8 +37,8 @@ const { position } = Astro.props;
           stroke="#354550"
           stroke-width="1.5"
         />
-      </g>
-      <g class="keyboard">
+      </g></g>
+      <g class="toy-handle" tabindex="0" role="button" aria-label="キーボードで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="keyboard">
         <rect
           x="177"
           y="45"
@@ -83,8 +83,8 @@ const { position } = Astro.props;
           rx="2"
           fill="#f4ce72"
         />
-      </g>
-      <g class="mouse">
+      </g></g>
+      <g class="toy-handle" tabindex="0" role="button" aria-label="マウスで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="mouse">
         <path
           d="M470 42v-9q0-15 16-15t17-12"
           stroke="#94a3ad"
@@ -110,12 +110,12 @@ const { position } = Astro.props;
           fill="#fff"
           stroke="#354550"
         />
-      </g>
+      </g></g>
     </svg>
   ) : (
-    <svg viewBox="0 0 560 140" fill="none">
+    <svg role="group" aria-label="動かせる小物" viewBox="0 0 560 140" fill="none">
       <path d="M12 123h535" stroke="#d3d9de" stroke-dasharray="3 7" />
-      <g class="code-screen">
+      <g class="toy-handle" tabindex="0" role="button" aria-label="パソコンで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="code-screen">
         <rect
           x="21"
           y="29"
@@ -156,8 +156,8 @@ const { position } = Astro.props;
           <ellipse cx="119" cy="87" rx="6" ry="3" fill="#e9b4a6" />
         </g>
         <path class="cursor" d="M141 98h10" stroke="#527267" stroke-width="2" />
-      </g>
-      <g class="data-note">
+      </g></g>
+      <g class="toy-handle" tabindex="0" role="button" aria-label="研究ノートで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="data-note">
         <rect
           x="223"
           y="22"
@@ -187,8 +187,8 @@ const { position } = Astro.props;
           stroke-linecap="round"
         />
         <path d="M243 42h58" stroke="#b4aa86" stroke-width="1.5" />
-      </g>
-      <g class="video-camera">
+      </g></g>
+      <g class="toy-handle" tabindex="0" role="button" aria-label="カメラで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="video-camera">
         <rect
           x="404"
           y="48"
@@ -233,9 +233,10 @@ const { position } = Astro.props;
           stroke="#7e6f92"
           stroke-width="1.5"
         />
-      </g>
+      </g></g>
     </svg>
   )}
+<span class="sr-only" id={`toy-help-${position}`}>ドラッグ、または矢印キーで動かせます。Enterでジャンプ、Escapeで元の位置に戻ります。</span>
 </div>
 <style>
   .lab-toys {
@@ -449,3 +450,74 @@ const { position } = Astro.props;
     }
   }
 </style>
+
+<style>
+  .toy-handle { cursor: grab; touch-action: none; outline: none; }
+  .toy-handle:active { cursor: grabbing; }
+  .toy-handle:focus-visible > g { filter: drop-shadow(0 0 3px #2458a6); }
+  .toy-handle[data-held] > g { filter: drop-shadow(2px 5px 2px #35455033); }
+  .toy-handle > .code-screen > rect,
+  .toy-handle > .notebook > rect { fill: var(--toy-accent, #e3eee6); }
+</style>
+<script>
+  document.querySelectorAll<HTMLElement>('.lab-toys').forEach((scene) => {
+    const svg = scene.querySelector('svg')!;
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    scene.querySelectorAll<SVGGElement>('.toy-handle').forEach((handle) => {
+      let x = 0, y = 0, vx = 0, vy = 0, frame = 0, last = 0;
+      let active: number | null = null, originX = 0, originY = 0;
+      const draw = () => handle.setAttribute('transform', `translate(${x} ${y})`);
+      const reset = () => { cancelAnimationFrame(frame); frame = 0; x = y = vx = vy = 0; draw(); };
+      const settle = (time: number) => {
+        const dt = Math.min((time - last) / 1000 || 1 / 60, .032); last = time;
+        const bounce = Number(scene.closest('[data-toy-lab]')?.getAttribute('data-bounce') ?? 45);
+        const damping = 22 - bounce * .12;
+        vx += (-160 * x - damping * vx) * dt;
+        vy += (-160 * y - damping * vy) * dt;
+        x += vx * dt; y += vy * dt; draw();
+        if (Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) < .15) reset();
+        else frame = requestAnimationFrame(settle);
+      };
+      const release = () => { cancelAnimationFrame(frame); if (reduced.matches) reset(); else { last = performance.now(); frame = requestAnimationFrame(settle); } };
+      const point = (event: PointerEvent) => {
+        const matrix = svg.getScreenCTM();
+        return matrix ? new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse()) : new DOMPoint();
+      };
+      const clamp = () => {
+        const box = handle.getBBox();
+        x = Math.max(-box.x + 4, Math.min(svg.viewBox.baseVal.width - box.x - box.width - 4, x));
+        y = Math.max(-box.y + 4, Math.min(svg.viewBox.baseVal.height - box.y - box.height - 4, y));
+      };
+      handle.addEventListener('pointerdown', (e) => {
+        if (active !== null || (e.pointerType === 'mouse' && e.button !== 0)) return;
+        cancelAnimationFrame(frame); const p = point(e); originX = p.x - x; originY = p.y - y;
+        active = e.pointerId; handle.setPointerCapture(e.pointerId); handle.setAttribute('data-held', '');
+      });
+      handle.addEventListener('pointermove', (e) => {
+        if (active !== e.pointerId) return;
+        const p = point(e); x = p.x - originX; y = p.y - originY; clamp(); draw();
+      });
+      const finish = (e: PointerEvent) => {
+        if (active !== e.pointerId) return;
+        active = null; handle.removeAttribute('data-held');
+        if (handle.hasPointerCapture(e.pointerId)) handle.releasePointerCapture(e.pointerId);
+        release();
+      };
+      handle.addEventListener('pointerup', finish);
+      handle.addEventListener('pointercancel', finish);
+      handle.addEventListener('lostpointercapture', finish);
+      handle.addEventListener('keydown', (e) => {
+        if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape'].includes(e.key)) return;
+        e.preventDefault(); cancelAnimationFrame(frame);
+        if (e.key === 'Escape') { reset(); return; }
+        x += e.key === 'ArrowLeft' ? -20 : e.key === 'ArrowRight' ? 20 : 0;
+        y += e.key === 'ArrowDown' ? 15 : -15;
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') y += 15;
+        clamp(); draw(); release();
+      });
+      scene.addEventListener('toy-reset', reset);
+      reduced.addEventListener('change', reset);
+      document.addEventListener('visibilitychange', () => { if (document.hidden) reset(); });
+    });
+  });
+</script>

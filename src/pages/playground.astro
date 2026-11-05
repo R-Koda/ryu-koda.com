@@ -1,0 +1,106 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import LabToys from '../components/LabToys.astro';
+---
+<!doctype html>
+<html lang="ja">
+  <head><BaseHead title="仕掛けの実験室 | りゅうのらぼ" description="小物をつまんで、弾み方や色を変えてみる。りゅうのらぼの動く仕掛けを触って試せる、小さな実験室です。" /></head>
+  <body>
+    <Header />
+    <main id="main" class="shell playground" data-toy-lab data-bounce="45">
+      <a class="back" href="/">← らぼに戻る</a>
+      <p class="eyebrow">PLAY WITH THE CODE</p>
+      <h1>仕掛けの実験室</h1>
+      <p class="lead">ちょっと変えると、ちょっと楽しい。<br />つまんで、離して。自分好みの動きを探してみてください。</p>
+      <div class="workbench">
+        <section class="stage" aria-labelledby="stage-title">
+          <div class="stage-top"><h2 id="stage-title">今日のお題：机の上の小物</h2><span>01 / つまむ</span></div>
+          <div class="desk"><LabToys position="bottom" /></div>
+          <p class="stage-hint">小物をドラッグすると、手を離したところから<br />ぽよん、と元の場所に戻ります。</p>
+          <p class="keyboard-help">キーボードでも：Tabで選ぶ → 矢印キー / Enterで遊ぶ</p>
+        </section>
+        <section class="controls" aria-labelledby="controls-title">
+          <h2 id="controls-title">動きのレシピ</h2>
+          <label for="bounce">弾み方 <output id="bounce-value" for="bounce">45</output></label>
+          <input id="bounce" type="range" min="0" max="100" value="45" />
+          <div class="range-labels"><span>すっと戻る</span><span>ぽよんぽよん</span></div>
+          <fieldset><legend>パソコンの色</legend><div class="swatches">
+            <label style="--swatch:#e3eee6"><input type="radio" name="toy-color" value="#e3eee6" checked /><span>ミント</span></label>
+            <label style="--swatch:#ffe9ac"><input type="radio" name="toy-color" value="#ffe9ac" /><span>バター</span></label>
+            <label style="--swatch:#eadff5"><input type="radio" name="toy-color" value="#eadff5" /><span>ライラック</span></label>
+          </div></fieldset>
+          <button class="reset" type="button">最初のレシピに戻す ↺</button>
+          <p class="motion-note">端末で動きを減らす設定をしている場合は、弾まずに戻ります。</p>
+        </section>
+      </div>
+      <section class="under-the-hood" aria-labelledby="code-title">
+        <div><p class="eyebrow">小さな仕掛けの、裏側</p><h2 id="code-title">動きをつくるのは、<br />「元に戻りたい力」。</h2><p>離した位置から中心に引っぱる力と、勢いを弱める力。この2つで、ばねのような動きになります。弾み方を変えると、下の減衰の値も変わります。</p><p>絵はSVG、操作はPointer Events。指でもマウスでも同じように触れます。戻る動きの計算は、その間だけ実行しています。</p></div>
+        <div class="code-note"><span>いまの設定 · 実装の抜粋</span><pre><code id="recipe-code"></code></pre><p>この抜粋は計算の部分です。小物の描画・ドラッグ処理は含みません。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/components/LabToys.astro" target="_blank" rel="noopener noreferrer">動くコード全体をGitHubで見る ↗</a></div>
+      </section>
+      <a class="next" href="/blog/css-popout-drawer/">次は、自分で仕掛けをつくってみる？<br /><strong>引き出しから飛び出すアニメーションの作り方 →</strong></a>
+    </main><Footer />
+  </body>
+</html>
+<script>
+  const lab = document.querySelector<HTMLElement>('[data-toy-lab]')!;
+  const slider = document.querySelector<HTMLInputElement>('#bounce')!;
+  const output = document.querySelector<HTMLOutputElement>('#bounce-value')!;
+  const code = document.querySelector<HTMLElement>('#recipe-code')!;
+  const colors = Array.from(document.querySelectorAll<HTMLInputElement>('input[name="toy-color"]'));
+  function update() {
+    const bounce = Number(slider.value);
+    lab.dataset.bounce = slider.value; output.value = slider.value;
+    const color = colors.find(c => c.checked)!.value;
+    lab.style.setProperty('--toy-accent', color);
+    code.textContent = `// 色はCSS変数で変更\n// --toy-accent: ${color};\n\nconst stiffness = 160;\nconst damping = ${(22 - bounce * .12).toFixed(1)};\n\n// x: 元の場所からの距離\n// vx: 速度、dt: 前フレームからの秒数\nvx += (-stiffness * x - damping * vx) * dt;\nx += vx * dt;\n// 縦方向も同じ計算`;
+  }
+  slider.addEventListener('input', update);
+  colors.forEach(c => c.addEventListener('change', update));
+  document.querySelector('.reset')!.addEventListener('click', () => {
+    slider.value = '45'; colors[0].checked = true; update();
+    lab.querySelectorAll('.lab-toys').forEach(scene => scene.dispatchEvent(new Event('toy-reset')));
+  });
+  update();
+</script>
+<style>
+  .playground { padding-top:42px; padding-bottom:70px; }
+  .back { font-size:13px; }
+  .eyebrow { margin:36px 0 12px; font-size:11px; letter-spacing:.14em; color:#536a75; }
+  h1 { font-size:clamp(30px,5vw,52px); font-weight:700; letter-spacing:.03em; }
+  .lead { margin:22px 0 36px; line-height:2; color:var(--muted); }
+  .workbench { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr); gap:26px; }
+  .stage { border:2px solid #354550; border-radius:12px 18px 13px 9px; box-shadow:6px 7px 0 #e5edf5; padding:26px; background:radial-gradient(#a4b4c34a 1px,transparent 1px) 0 0/18px 18px; }
+  .stage-top { display:flex; justify-content:space-between; gap:14px; align-items:center; }
+  h2 { font-size:19px; font-weight:700; line-height:1.6; }
+  .stage-top span { font-size:10px; color:#526477; white-space:nowrap; }
+  .desk { padding:65px 0 30px; }
+  .stage-hint { text-align:center; font-size:14px; line-height:1.9; }
+  .keyboard-help { text-align:center; font-size:11px; margin-top:18px; color:var(--muted); }
+  .controls { padding:28px; background:#fffae8; border:1px solid #d7cba7; border-radius:8px 13px 9px 11px; }
+  .controls > label { display:flex; justify-content:space-between; margin-top:30px; font-size:14px; }
+  output { font-variant-numeric:tabular-nums; }
+  input[type=range] { width:100%; height:36px; accent-color:#365f8c; cursor:pointer; }
+  .range-labels { display:flex; justify-content:space-between; font-size:11px; color:var(--muted); }
+  fieldset { padding:0; border:0; margin:28px 0; }
+  legend { font-size:14px; margin-bottom:12px; }
+  .swatches { display:flex; flex-wrap:wrap; gap:10px; }
+  .swatches label { cursor:pointer; font-size:12px; padding:8px; border:1px solid #a8b1b5; border-radius:6px; background:var(--swatch); }
+  .swatches input { accent-color:#354550; }
+  .reset { border:1.5px solid #354550; background:white; border-radius:5px; padding:10px 16px; cursor:pointer; box-shadow:2px 3px 0 #354550; font-size:13px; }
+  .reset:hover { background:#e3eee6; }
+  .reset:active { transform:translateY(2px); box-shadow:none; }
+  .motion-note { font-size:11px; line-height:1.8; color:var(--muted); margin-top:20px; }
+  .under-the-hood { display:grid; grid-template-columns:1fr 1.2fr; gap:50px; margin:70px 0 40px; }
+  .under-the-hood .eyebrow { margin-top:0; }
+  .under-the-hood h2 { font-size:26px; }
+  .under-the-hood p:not(.eyebrow) { font-size:14px; margin-top:18px; }
+  .code-note { min-width:0; background:#f3f6f8; border:1px solid #d9e1e8; border-radius:8px; padding:24px; }
+  .code-note > span { font-size:11px; color:#536a75; }
+  pre { overflow-x:auto; font-size:12px; line-height:1.9; }
+  .code-note p { font-size:11px!important; }
+  .code-note a { font-size:13px; display:inline-block; margin-top:16px; }
+  .next { display:block; padding:24px; border-left:4px solid #dfbf61; background:#fffae8; text-decoration:none; font-size:14px; line-height:2; }
+  @media(max-width:760px) { .workbench,.under-the-hood { grid-template-columns:minmax(0,1fr); } .stage,.controls { padding:20px; } .desk { padding:35px 0 25px; } .stage-top { flex-wrap:wrap; } .under-the-hood { gap:24px; margin-top:44px; } }
+</style>
