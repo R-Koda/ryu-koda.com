@@ -9,8 +9,14 @@ import ActionLink from "../components/ActionLink.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import { journalPosts } from "../lib/posts";
 import starters from "../data/starter-articles.json";
+import guides from "../data/article-guides.json";
 import FollowNote from "../components/FollowNote.astro";
-const posts = (await journalPosts()).slice(0, 3);
+const posts = (await journalPosts()).slice(0, 3).map((post) => {
+  const starter = starters.find((item) => item.slug === post.id);
+  const guide = guides[post.id as keyof typeof guides];
+  const thumbnail = starter?.image ?? post.data.heroImage?.src ?? (guide ? `/articles/${post.id}/cover.webp` : undefined);
+  return { ...post, thumbnail };
+});
 ---
 
 <!doctype html>
@@ -80,6 +86,7 @@ const posts = (await journalPosts()).slice(0, 3);
         <div class="journal-list">
           {posts.map((p) => (
             <a class="journal-row" href={`/blog/${p.id}/`}>
+              {p.thumbnail && <img class="journal-thumbnail" src={p.thumbnail} alt="" width="1200" height="630" loading="lazy" decoding="async" />}
               <div class="article-date">
                 <FormattedDate date={p.data.pubDate} />
                 <span>{p.data.tags?.[0] || "ブログ"}</span>
@@ -122,6 +129,15 @@ const posts = (await journalPosts()).slice(0, 3);
   </body>
 </html>
 <style>
+  .journal-thumbnail {
+    grid-column: 1 / -1;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 630;
+    object-fit: cover;
+    border-radius: 5px;
+  }
   .start-here { margin: 38px 0 56px; }
   .start-lead { font-size: 14px; color: var(--muted); line-height: 1.9; margin: 24px 0; }
   .starter-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
