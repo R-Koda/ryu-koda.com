@@ -1,4 +1,5 @@
 ---
+import { thumbnailAttrs } from "../lib/thumbnails";
 import { navigation } from "../data/navigation";
 import DrawerAvatar from "../components/DrawerAvatar.astro";
 import HomeSurprises from "../components/HomeSurprises.astro";
@@ -88,7 +89,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
         <div class="journal-list">
           {posts.map((p) => (
             <a class="journal-row" href={`/blog/${p.id}/`}>
-              {p.thumbnail && <img class="journal-thumbnail" src={p.thumbnail} alt="" width="1200" height="630" loading="lazy" decoding="async" />}
+              {p.thumbnail && <img class="journal-thumbnail" {...thumbnailAttrs(p.id,p.thumbnail)} alt="" width="1200" height="630" loading="lazy" decoding="async" />}
               <div class="article-date">
                 <FormattedDate date={p.data.pubDate} />
                 <span>{p.data.tags?.[0] || "ブログ"}</span>
@@ -109,7 +110,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
         <p class="start-lead">つくること、道具を選ぶこと、気になることを掘り下げること。りゅうのらぼの楽しみ方を、3つの記事に。</p>
         <div class="starter-grid">{starters.map(({slug, ...guide}) => (
           <a class="starter-card" href={`/blog/${slug}/`}>
-            <img src={guide.image} alt={guide.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />
+            <img {...thumbnailAttrs(slug,guide.image)} alt={guide.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />
             <span>{guide.purpose}</span><h3>{guide.label}</h3><p>{guide.evidence}</p><b>読んでみる ↗</b>
           </a>
         ))}</div>

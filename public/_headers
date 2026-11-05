@@ -6,3 +6,5 @@ https://:project.pages.dev/*
   X-Robots-Tag: noindex
 https://:deployment.:project.pages.dev/*
   X-Robots-Tag: noindex
+/article-thumbnails/*
+  Cache-Control: public, max-age=31536000, immutable

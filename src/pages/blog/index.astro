@@ -1,4 +1,5 @@
 ---
+import { thumbnailAttrs } from "../../lib/thumbnails";
 import { readingGuides } from "../../data/reading-guides";
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
@@ -62,8 +63,8 @@ const tags = categories;
           >
             <a href={`/blog/${p.id}/`}>
               {guides[p.id as keyof typeof guides] && !p.data.heroImage && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
-              {starters.find(s => s.slug === p.id) && <img class="post-preview" src={starters.find(s => s.slug === p.id)!.image} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
-              {!starters.some(s => s.slug === p.id) && p.data.heroImage && <img class="post-preview" src={p.data.heroImage.src} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />}
+              {starters.find(s => s.slug === p.id) && <img class="post-preview" {...thumbnailAttrs(p.id,starters.find(s => s.slug === p.id)!.image,"(max-width: 600px) 100vw, 180px")} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
+              {!starters.some(s => s.slug === p.id) && p.data.heroImage && <img class="post-preview" {...thumbnailAttrs(p.id,p.data.heroImage.src,"(max-width: 600px) 100vw, 180px")} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />}
               <div class="article-body">
               <div class="article-meta">
                 <span>{categoryFor(p.data.tags)}</span>

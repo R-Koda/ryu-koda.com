@@ -1,4 +1,5 @@
 ---
+seoTitle: "Switch周辺機器を買う前に｜Bluetooth・microSD・有線LANの確認"
 title: 'Switchを便利にしたい。周辺機器を買う前に、音・容量・接続を確かめる'
 description: 'Nintendo SwitchのBluetooth設定、microSDの対応規格、有線LANの接続手順を確認。周辺機器を買う前に自分の本体で何を調べるか整理します。'
 pubDate: 2026-03-16

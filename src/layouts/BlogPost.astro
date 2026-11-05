@@ -1,4 +1,8 @@
 ---
+import entrypoints from "../data/article-entrypoints.json";
+import ShareLinks from "../components/ShareLinks.astro";
+import { readingGuides } from "../data/reading-guides";
+import { thumbnailAttrs } from "../lib/thumbnails";
 import NextRead from "../components/NextRead.astro";
 import guides from "../data/article-guides.json";
 import FollowNote from "../components/FollowNote.astro";
@@ -16,6 +20,7 @@ type Props = CollectionEntry<"blog">["data"] & { headings?: { depth: number; slu
 
 const {
   title,
+  seoTitle,
   description,
   pubDate,
   updatedDate,
@@ -26,6 +31,8 @@ const {
 
 const slug = Astro.url.pathname.split('/').filter(Boolean).at(-1) || '';
 const guide = guides[slug as keyof typeof guides];
+const entrypoint = entrypoints[slug as keyof typeof entrypoints];
+const collections = readingGuides.filter(g => g.items.some(item => item.slug === slug));
 const preview = guide ? `/articles/${slug}/cover.webp` : undefined;
 // Get related posts: prefer posts with shared tags, fallback to recent posts
 const allPosts = (await journalPosts())
@@ -100,7 +107,7 @@ const breadcrumbJsonLd = JSON.stringify({
 <html lang="ja">
   <head>
     <BaseHead
-      title={`${title} | ${SITE_TITLE}`}
+      title={`${seoTitle ?? title} | ${SITE_TITLE}`}
       description={description}
       image={heroImage}
       socialImagePath={heroImage ? undefined : preview}
@@ -187,9 +194,11 @@ const breadcrumbJsonLd = JSON.stringify({
         border-bottom: 1px solid var(--line);
         text-decoration: none;
       }
-      .related-posts img {
-        display: none;
-      }
+      .related-posts img { display:block; width:120px; height:auto; border-radius:5px; }
+      .related-posts li a:has(img) { display:grid; grid-template-columns:120px minmax(0,1fr); gap:18px; align-items:start; }
+      .topic-return { display:flex; gap:10px 18px; flex-wrap:wrap; font-size:13px; margin:24px 0; }
+      .try-lab {padding:22px;background:#edf3ef;border-radius:8px;}
+      .try-lab p {font-size:14px;}
       .related-posts h3 {
         font-size: 17px;
         margin-bottom: 8px;
@@ -260,6 +269,7 @@ const breadcrumbJsonLd = JSON.stringify({
             <hr />
           </div>
           <p class="article-author">書いた人：<a href="/about/">{AUTHOR_NAME}</a></p>
+          {entrypoint && <section class="article-outcome" aria-label="この記事でできること"><h2>先に、できることだけ。</h2><p>{entrypoint.result}</p><p class="evidence">{entrypoint.target}</p></section>}
           {guide && <section class="article-outcome" aria-label="この記事でわかること">
             <h2>こんなことを試しました。</h2><p>{guide.summary}</p>
             <p class="evidence">{guide.evidence}</p>
@@ -274,7 +284,10 @@ const breadcrumbJsonLd = JSON.stringify({
           )}
           <slot />
           <NextRead slug={slug} />
-          <aside class="article-feedback"><p>試してみてつまずいたことや、記事の訂正は<a href="/contact/">お問い合わせフォーム</a>へどうぞ。対象の記事URLを添えていただけると助かります。</p><button type="button" id="copy-article-link">この記事のリンクをコピー</button><span id="copy-result" role="status"></span></aside>
+          {collections.length > 0 && <nav class="topic-return" aria-label="同じテーマの記事"><span>このテーマをまとめて読む：</span>{collections.map(g=><a href={`/blog/guides/${g.slug}/`}>{g.label} →</a>)}</nav>}
+          {slug === 'css-popout-drawer' && <aside class="try-lab"><strong>ほかの仕掛けも、触ってみる？</strong><p>磁石、配線、ぷにぷにボタン。設定を変えながら遊べる6つの実験を公開しています。</p><a href="/playground/">仕掛けの実験室へ →</a></aside>}
+          <ShareLinks title={title} />
+          <aside class="article-feedback"><p>試してみてつまずいたことや、記事の訂正は<a href="/contact/">お問い合わせフォーム</a>へどうぞ。対象の記事URLを添えていただけると助かります。</p></aside>
           <AdSense slot="in-article" format="rectangle" />
         </div>
         {relatedPosts.length > 0 && (
@@ -285,12 +298,7 @@ const breadcrumbJsonLd = JSON.stringify({
                 <li>
                   <a href={`/blog/${post.id}/`}>
                     {post.data.heroImage && (
-                      <Image
-                        width={360}
-                        height={180}
-                        src={post.data.heroImage}
-                        alt={`${post.data.title} のサムネイル`}
-                      />
+                      <img {...thumbnailAttrs(post.id,post.data.heroImage.src,'120px')} width="120" height="63" loading="lazy" decoding="async" alt="" />
                     )}
                     <div class="related-post-info">
                       <h3>{post.data.title}</h3>
@@ -310,13 +318,6 @@ const breadcrumbJsonLd = JSON.stringify({
     </main>
     <AdSense slot="footer" format="horizontal" className="footer-ad" />
     <Footer />
-    <script>
-      document.querySelector('#copy-article-link')?.addEventListener('click', async () => {
-        const status = document.querySelector('#copy-result')!;
-        const url = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')!.href;
-        try { await navigator.clipboard.writeText(url); status.textContent = 'リンクをコピーしました。'; }
-        catch { status.textContent = `こちらのURLをコピーしてください：${url}`; }
-      });
-    </script>
+
   </body>
 </html>

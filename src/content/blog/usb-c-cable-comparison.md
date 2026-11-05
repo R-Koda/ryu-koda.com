@@ -1,4 +1,5 @@
 ---
+seoTitle: "USB-Cケーブル3製品を比較｜充電・転送・映像で選ぶ方法"
 title: "USB-C、見た目が同じで選ぶのがだるい。商品ページをちゃんと読んでみた"
 description: "USB-Cケーブル3製品の電力・転送速度・映像対応・価格を公式仕様で比較。用途に合う一本を選ぶ手順を紹介します。"
 heroImage: "../../../public/articles/usb-c-cable-comparison/cover-sketch-v2.webp"

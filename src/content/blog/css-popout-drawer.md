@@ -1,4 +1,5 @@
 ---
+seoTitle: "HTML・CSSでホバーアニメーションを作る｜飛び出す引き出し"
 title: "HTMLとCSSで、引き出しから自分が飛び出す仕掛けを作ってみた"
 description: "アバターが飛び出す引き出しをHTMLとCSSで作る方法。動くサンプル、全コード、導入手順と調整方法を紹介します。"
 heroImage: "../../../public/articles/css-popout-drawer/cover-sketch-v2.webp"

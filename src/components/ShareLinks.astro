@@ -1,0 +1,22 @@
+---
+const {title}=Astro.props;
+const url=new URL(Astro.url.pathname,Astro.site).href;
+const xUrl=`https://twitter.com/intent/tweet?${new URLSearchParams({text:title,url})}`;
+---
+<aside class="share-links" aria-label="共有と保存" data-share-url={url} data-share-title={title}>
+<p>あとで試す、誰かに教える。</p><div><a href={xUrl} target="_blank" rel="noopener noreferrer">Xで紹介する <span class="sr-only">（新しいタブ）</span>↗</a><button type="button" data-native-share hidden>ほかのアプリで共有</button><button type="button" data-copy-share>リンクをコピー</button></div><span data-share-status role="status"></span><input class="manual-link" aria-label="共有するURL" value={url} readonly hidden />
+</aside>
+<script>
+ document.querySelectorAll<HTMLElement>('.share-links').forEach(section=>{
+  const url=section.dataset.shareUrl!,title=section.dataset.shareTitle!;
+  const result=section.querySelector<HTMLElement>('[data-share-status]')!;
+  const native=section.querySelector<HTMLButtonElement>('[data-native-share]')!;
+  if(typeof navigator.share==='function')native.hidden=false;
+  native.addEventListener('click',async()=>{try{await navigator.share({title,url});result.textContent='共有画面を閉じました。';}catch(error){if((error as Error).name!=='AbortError')result.textContent='共有画面を開けませんでした。リンクのコピーをご利用ください。';}});
+  section.querySelector('[data-copy-share]')!.addEventListener('click',async()=>{
+   try{await navigator.clipboard.writeText(url);result.textContent='リンクをコピーしました。';}
+   catch{const input=section.querySelector<HTMLInputElement>('.manual-link')!;input.hidden=false;input.focus();input.select();result.textContent='URLを選択しました。コピーしてご利用ください。';}
+  });
+ });
+</script>
+<style>.share-links{margin:34px 0;padding:20px;border-top:1px dashed #9eaeb8;border-bottom:1px dashed #9eaeb8}.share-links p{font-size:14px!important;margin:0 0 14px!important}.share-links>div{display:flex;gap:10px;flex-wrap:wrap}.share-links a,.share-links button{display:inline-flex;align-items:center;min-height:44px;padding:8px 13px;border:1px solid #52636d;border-radius:5px;background:#fff;font:inherit;font-size:12px;cursor:pointer;text-decoration:none}.share-links a:hover,.share-links button:hover{background:#fff0bc}.share-links [hidden]{display:none}.share-links [role=status]{display:block;font-size:12px;margin-top:9px}.manual-link{width:100%;padding:10px;font-size:14px;border:1px solid #879ba9;border-radius:5px}</style>

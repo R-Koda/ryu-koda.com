@@ -1,0 +1,172 @@
+{
+  "a-place-for-curiosity": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/a-place-for-curiosity-360-bb2660cf3f.webp",
+        "width": 360,
+        "bytes": 5012
+      },
+      {
+        "src": "/article-thumbnails/a-place-for-curiosity-640-b6ee32250c.webp",
+        "width": 640,
+        "bytes": 14074
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 69634
+  },
+  "claude-code-auto-dispatcher": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/claude-code-auto-dispatcher-360-a2c5a46005.webp",
+        "width": 360,
+        "bytes": 9330
+      },
+      {
+        "src": "/article-thumbnails/claude-code-auto-dispatcher-640-c712253b80.webp",
+        "width": 640,
+        "bytes": 27012
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 139066
+  },
+  "css-popout-drawer": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/css-popout-drawer-360-42ec750e96.webp",
+        "width": 360,
+        "bytes": 8186
+      },
+      {
+        "src": "/article-thumbnails/css-popout-drawer-640-faf5fc3952.webp",
+        "width": 640,
+        "bytes": 23466
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 114496
+  },
+  "find-duplicate-files-python": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/find-duplicate-files-python-360-5c6da2bbbf.webp",
+        "width": 360,
+        "bytes": 7740
+      },
+      {
+        "src": "/article-thumbnails/find-duplicate-files-python-640-a881950882.webp",
+        "width": 640,
+        "bytes": 21786
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 98550
+  },
+  "joy-of-choosing-gadgets": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/joy-of-choosing-gadgets-360-2f328d7cf6.webp",
+        "width": 360,
+        "bytes": 4752
+      },
+      {
+        "src": "/article-thumbnails/joy-of-choosing-gadgets-640-ba37014195.webp",
+        "width": 640,
+        "bytes": 12624
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 52040
+  },
+  "mac-finder-batch-rename": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/mac-finder-batch-rename-360-9504d57253.webp",
+        "width": 360,
+        "bytes": 10780
+      },
+      {
+        "src": "/article-thumbnails/mac-finder-batch-rename-640-ee2c7acea8.webp",
+        "width": 640,
+        "bytes": 33000
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 175194
+  },
+  "making-everyday-interesting": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/making-everyday-interesting-360-11642fcf93.webp",
+        "width": 360,
+        "bytes": 7430
+      },
+      {
+        "src": "/article-thumbnails/making-everyday-interesting-640-273e7c6038.webp",
+        "width": 640,
+        "bytes": 20076
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 86992
+  },
+  "nintendo-switch-tech-tools-accessories": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/nintendo-switch-tech-tools-accessories-360-453d630f1b.webp",
+        "width": 360,
+        "bytes": 9340
+      },
+      {
+        "src": "/article-thumbnails/nintendo-switch-tech-tools-accessories-640-2159f3e8d9.webp",
+        "width": 640,
+        "bytes": 30184
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 169252
+  },
+  "resize-blog-images-webp": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/resize-blog-images-webp-360-1d2b86faa5.webp",
+        "width": 360,
+        "bytes": 7616
+      },
+      {
+        "src": "/article-thumbnails/resize-blog-images-webp-640-0586d94012.webp",
+        "width": 640,
+        "bytes": 21616
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 108992
+  },
+  "usb-c-cable-comparison": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/usb-c-cable-comparison-360-dae3752f0d.webp",
+        "width": 360,
+        "bytes": 12424
+      },
+      {
+        "src": "/article-thumbnails/usb-c-cable-comparison-640-0de2e7b210.webp",
+        "width": 640,
+        "bytes": 37716
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 204446
+  }
+}
