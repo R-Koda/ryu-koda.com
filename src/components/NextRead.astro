@@ -1,0 +1,13 @@
+---
+import paths from '../data/reader-paths.json';
+const { slug } = Astro.props;
+const next = paths[slug as keyof typeof paths];
+---
+{next && <aside class="next-read" aria-label="次に試すこと"><span>このあと、ひとつ試すなら。</span><a href={`/blog/${next.slug}/`}><strong>{next.title}</strong><span aria-hidden="true"> →</span></a><p>{next.reason}</p><a class="follow" href="/subscribe/">次の記事をRSSで受け取る ↗</a></aside>}
+<style>
+.next-read {margin:40px 0 28px;padding:24px;background:#fff9e9;border:1.5px solid #34434d;border-radius:8px 13px 9px 5px;box-shadow:4px 4px 0 #e9e0c7;}
+.next-read>span {display:block;font-size:13px;color:#596168;margin-bottom:12px;}
+.next-read>a {font-size:19px;line-height:1.65;text-underline-offset:5px;}
+.next-read p {font-size:14px;line-height:1.9;margin:12px 0 18px;}
+.next-read a.follow {font-size:13px;} a:hover {color:#245b89;} a:focus-visible {outline:3px solid #315f91;outline-offset:5px;}
+</style>

@@ -1,4 +1,5 @@
 ---
+import NextRead from "../components/NextRead.astro";
 import guides from "../data/article-guides.json";
 import FollowNote from "../components/FollowNote.astro";
 import { Image } from "astro:assets";
@@ -102,7 +103,7 @@ const breadcrumbJsonLd = JSON.stringify({
       title={`${title} | ${SITE_TITLE}`}
       description={description}
       image={heroImage}
-      socialImagePath={preview}
+      socialImagePath={heroImage ? undefined : preview}
       type="article"
       publishedTime={pubDate}
       updatedTime={updatedDate}
@@ -235,7 +236,11 @@ const breadcrumbJsonLd = JSON.stringify({
           {heroImage && (
             <Image
               width={1020}
-              height={510}
+              height={536}
+              widths={[480, 768, 1020]}
+              sizes="(max-width: 700px) 100vw, 1020px"
+              loading="eager"
+              fetchpriority="high"
               src={heroImage}
               alt={`${title} のヒーロー画像`}
             />
@@ -258,7 +263,7 @@ const breadcrumbJsonLd = JSON.stringify({
           {guide && <section class="article-outcome" aria-label="この記事でわかること">
             <h2>こんなことを試しました。</h2><p>{guide.summary}</p>
             <p class="evidence">{guide.evidence}</p>
-            <figure><img src={`/articles/${slug}/preview.webp`} alt={guide.alt} width="1200" height="630" decoding="async" fetchpriority="high" /><figcaption>{guide.alt}</figcaption></figure>
+            <figure><img src={`/articles/${slug}/preview.webp`} alt={guide.alt} width="1200" height="630" decoding="async" loading="lazy" /><figcaption>{guide.alt}</figcaption></figure>
             {'resource' in guide && <a class="resource-link" href={guide.resource}>{guide.resourceLabel} ↗</a>}
           </section>}
           {headings.filter(h => h.depth === 2).length > 2 && (
@@ -268,6 +273,7 @@ const breadcrumbJsonLd = JSON.stringify({
             </details>
           )}
           <slot />
+          <NextRead slug={slug} />
           <aside class="article-feedback"><p>試してみてつまずいたことや、記事の訂正は<a href="/contact/">お問い合わせフォーム</a>へどうぞ。対象の記事URLを添えていただけると助かります。</p><button type="button" id="copy-article-link">この記事のリンクをコピー</button><span id="copy-result" role="status"></span></aside>
           <AdSense slot="in-article" format="rectangle" />
         </div>

@@ -1,0 +1,52 @@
+{
+  "mac-finder-batch-rename": {
+    "slug": "find-duplicate-files-python",
+    "title": "名前が整ったら、同じ中身のファイルも探してみる",
+    "reason": "削除せずに重複を一覧にする練習用ファイルと、Pythonの実行手順があります。"
+  },
+  "find-duplicate-files-python": {
+    "slug": "mac-finder-batch-rename",
+    "title": "残すファイルが決まったら、名前をそろえる",
+    "reason": "MacのFinderだけで、3枚の画像の名前をまとめて変えてみます。"
+  },
+  "usb-c-cable-comparison": {
+    "slug": "joy-of-choosing-gadgets",
+    "title": "スペックの次は、使う場面を想像してみる",
+    "reason": "自分の生活がどう便利になるか。道具を買う前に考えていることを書きました。"
+  },
+  "css-popout-drawer": {
+    "slug": "resize-blog-images-webp",
+    "title": "サイトに載せる画像も、軽くしてみる",
+    "reason": "サムネイル3枚をWebPに変換。練習用の画像とコードで結果を確かめられます。"
+  },
+  "claude-code-auto-dispatcher": {
+    "slug": "find-duplicate-files-python",
+    "title": "手元のファイルで、小さな道具を動かしてみる",
+    "reason": "外部サービスに送らず、Pythonで同じ中身のファイルを探す実践です。"
+  },
+  "nintendo-switch-tech-tools-accessories": {
+    "slug": "usb-c-cable-comparison",
+    "title": "ケーブルも、形だけで選ばないために",
+    "reason": "充電・転送・映像の仕様を分け、候補を絞る比較メモを用意しています。"
+  },
+  "making-everyday-interesting": {
+    "slug": "css-popout-drawer",
+    "title": "まず、引き出しをひとつ作ってみる",
+    "reason": "ダウンロードしたHTMLを開くところから。顔が飛び出す仕掛けを試せます。"
+  },
+  "joy-of-choosing-gadgets": {
+    "slug": "usb-c-cable-comparison",
+    "title": "一本のケーブルから、吟味してみる",
+    "reason": "USB-Cケーブル3製品の公式仕様を、同じ項目で読み比べます。"
+  },
+  "a-place-for-curiosity": {
+    "slug": "making-everyday-interesting",
+    "title": "気になったことを、動く形にするなら",
+    "reason": "このサイトの引き出しから、つくる楽しさと実践記事へつながります。"
+  },
+  "resize-blog-images-webp": {
+    "slug": "css-popout-drawer",
+    "title": "軽くした画像を載せるサイトにも、ひと工夫",
+    "reason": "HTMLとCSSで、触ると顔が出る引き出しを作ってみます。"
+  }
+}
