@@ -7,7 +7,7 @@ const { position } = Astro.props;
 
 <div class:list={["lab-toys", `toys-${position}`]} aria-label="つまんで遊べる、らぼの小物">
   {position === "top" ? (
-    <svg role="group" aria-label="動かせる小物" viewBox="0 0 560 130" fill="none">
+    <svg role="group" aria-label="動かせる小物" viewBox="0 -100 560 230" fill="none">
       <path d="M10 116h540" stroke="#d3d9de" stroke-dasharray="3 7" />
       <g class="toy-handle" tabindex="0" role="button" aria-label="ノートで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="notebook">
         <rect
@@ -113,7 +113,7 @@ const { position } = Astro.props;
       </g></g>
     </svg>
   ) : (
-    <svg role="group" aria-label="動かせる小物" viewBox="0 0 560 140" fill="none">
+    <svg role="group" aria-label="動かせる小物" viewBox="0 -100 560 240" fill="none">
       <path d="M12 123h535" stroke="#d3d9de" stroke-dasharray="3 7" />
       <g class="toy-handle" tabindex="0" role="button" aria-label="パソコンで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="code-screen">
         <rect
@@ -463,44 +463,75 @@ const { position } = Astro.props;
   document.querySelectorAll<HTMLElement>('.lab-toys').forEach((scene) => {
     const svg = scene.querySelector('svg')!;
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const floor = scene.classList.contains('toys-top') ? 116 : 123;
     scene.querySelectorAll<SVGGElement>('.toy-handle').forEach((handle) => {
-      let x = 0, y = 0, vx = 0, vy = 0, frame = 0, last = 0;
+      // Measure the drawing once so hover animations do not move the boundaries.
+      const box = handle.getBBox();
+      const left = 4 - box.x, right = 556 - box.x - box.width;
+      const top = -96 - box.y, bottom = floor - box.y - box.height;
+      const shadow = document.createElementNS('http://www.w3.org/2000/svg', 'ellipse');
+      shadow.setAttribute('fill', '#354550'); shadow.setAttribute('pointer-events', 'none');
+      shadow.setAttribute('aria-hidden', 'true'); svg.prepend(shadow);
+      let x = 0, y = 0, vx = 0, vy = 0, frame = 0, last = 0, movedAt = 0;
       let active: number | null = null, originX = 0, originY = 0;
-      const draw = () => handle.setAttribute('transform', `translate(${x} ${y})`);
-      const reset = () => { cancelAnimationFrame(frame); frame = 0; x = y = vx = vy = 0; draw(); };
+      const draw = () => {
+        handle.setAttribute('transform', `translate(${x} ${y})`);
+        const height = Math.max(0, bottom - y);
+        shadow.setAttribute('cx', String(box.x + box.width / 2 + x));
+        shadow.setAttribute('cy', String(floor + 2));
+        shadow.setAttribute('rx', String(box.width * .36 / (1 + height / 180)));
+        shadow.setAttribute('ry', String(3 + height / 70));
+        shadow.setAttribute('opacity', String(.16 / (1 + height / 55)));
+      };
+      const stop = () => { cancelAnimationFrame(frame); frame = 0; vx = vy = 0; };
+      const reset = () => { stop(); x = y = 0; draw(); };
+      const clamp = () => { x = Math.max(left, Math.min(right, x)); y = Math.max(top, Math.min(bottom, y)); };
       const settle = (time: number) => {
-        const dt = Math.min((time - last) / 1000 || 1 / 60, .032); last = time;
-        const bounce = Number(scene.closest('[data-toy-lab]')?.getAttribute('data-bounce') ?? 45);
-        const damping = 22 - bounce * .12;
-        vx += (-160 * x - damping * vx) * dt;
-        vy += (-160 * y - damping * vy) * dt;
-        x += vx * dt; y += vy * dt; draw();
-        if (Math.abs(x) + Math.abs(y) + Math.abs(vx) + Math.abs(vy) < .15) reset();
+        const dt = Math.min((time - last) / 1000 || 1 / 60, .025); last = time;
+        const bounce = Number(scene.closest('[data-toy-lab]')?.getAttribute('data-bounce') ?? 65);
+        const restitution = .2 + bounce * .006;
+        vy += 1100 * dt;
+        vx *= Math.exp(-.5 * dt);
+        x += vx * dt; y += vy * dt;
+        if (x < left || x > right) { x = Math.max(left, Math.min(right, x)); vx *= -restitution; }
+        if (y < top) { y = top; vy = Math.abs(vy) * .4; }
+        if (y >= bottom) {
+          y = bottom;
+          if (Math.abs(vy) > 55) vy = -Math.abs(vy) * restitution;
+          else vy = 0;
+          vx *= Math.exp(-8 * dt);
+        }
+        draw();
+        if (y === bottom && vy === 0 && Math.abs(vx) < 2) stop();
         else frame = requestAnimationFrame(settle);
       };
-      const release = () => { cancelAnimationFrame(frame); if (reduced.matches) reset(); else { last = performance.now(); frame = requestAnimationFrame(settle); } };
+      const release = () => {
+        cancelAnimationFrame(frame);
+        if (reduced.matches) { stop(); clamp(); draw(); }
+        else { last = performance.now(); frame = requestAnimationFrame(settle); }
+      };
       const point = (event: PointerEvent) => {
         const matrix = svg.getScreenCTM();
         return matrix ? new DOMPoint(event.clientX, event.clientY).matrixTransform(matrix.inverse()) : new DOMPoint();
       };
-      const clamp = () => {
-        const box = handle.getBBox();
-        x = Math.max(-box.x + 4, Math.min(svg.viewBox.baseVal.width - box.x - box.width - 4, x));
-        y = Math.max(-box.y + 4, Math.min(svg.viewBox.baseVal.height - box.y - box.height - 4, y));
-      };
       handle.addEventListener('pointerdown', (e) => {
         if (active !== null || (e.pointerType === 'mouse' && e.button !== 0)) return;
-        cancelAnimationFrame(frame); const p = point(e); originX = p.x - x; originY = p.y - y;
+        stop(); const p = point(e); originX = p.x - x; originY = p.y - y; movedAt = performance.now();
         active = e.pointerId; handle.setPointerCapture(e.pointerId); handle.setAttribute('data-held', '');
       });
       handle.addEventListener('pointermove', (e) => {
         if (active !== e.pointerId) return;
-        const p = point(e); x = p.x - originX; y = p.y - originY; clamp(); draw();
+        const p = point(e), now = performance.now(), dt = Math.max((now - movedAt) / 1000, .008);
+        const oldX = x, oldY = y; x = p.x - originX; y = p.y - originY; clamp();
+        vx = Math.max(-900, Math.min(900, (x - oldX) / dt));
+        vy = Math.max(-900, Math.min(900, (y - oldY) / dt));
+        movedAt = now; draw();
       });
       const finish = (e: PointerEvent) => {
         if (active !== e.pointerId) return;
         active = null; handle.removeAttribute('data-held');
         if (handle.hasPointerCapture(e.pointerId)) handle.releasePointerCapture(e.pointerId);
+        if (performance.now() - movedAt > 100 || e.type === 'pointercancel') vx = vy = 0;
         release();
       };
       handle.addEventListener('pointerup', finish);
@@ -508,16 +539,19 @@ const { position } = Astro.props;
       handle.addEventListener('lostpointercapture', finish);
       handle.addEventListener('keydown', (e) => {
         if (!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape'].includes(e.key)) return;
-        e.preventDefault(); cancelAnimationFrame(frame);
+        e.preventDefault(); stop();
         if (e.key === 'Escape') { reset(); return; }
-        x += e.key === 'ArrowLeft' ? -20 : e.key === 'ArrowRight' ? 20 : 0;
-        y += e.key === 'ArrowDown' ? 15 : -15;
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') y += 15;
+        if (e.key === 'ArrowLeft') x -= 25;
+        if (e.key === 'ArrowRight') x += 25;
+        if (e.key === 'ArrowUp') y -= 35;
+        if (e.key === 'ArrowDown') y += 25;
+        if (e.key === 'Enter' || e.key === ' ') vy = -500;
         clamp(); draw(); release();
       });
       scene.addEventListener('toy-reset', reset);
       reduced.addEventListener('change', reset);
       document.addEventListener('visibilitychange', () => { if (document.hidden) reset(); });
+      draw();
     });
   });
 </script>

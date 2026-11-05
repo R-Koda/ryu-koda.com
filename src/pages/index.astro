@@ -1,6 +1,7 @@
 ---
 import { navigation } from "../data/navigation";
 import DrawerAvatar from "../components/DrawerAvatar.astro";
+import HomeSurprises from "../components/HomeSurprises.astro";
 import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
@@ -36,7 +37,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
           <h1 id="intro-title">
             今日も、
             <br />
-            <span>なんかやってます。</span>
+            <span><button class="greeting-play" type="button" aria-label="なんかやってます。文字を弾ませる">{Array.from("なんかやってます。").map(letter => <i aria-hidden="true">{letter}</i>)}</button></span>
           </h1>
           <p class="intro-lead">
             気になったことを調べ、つくり、記録しています。
@@ -125,6 +126,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
           </ActionLink>
         </div>
       </section>
+      <HomeSurprises />
     </main>
     <Footer />
   </body>

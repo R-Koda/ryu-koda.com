@@ -9,7 +9,7 @@ import LabToys from '../components/LabToys.astro';
   <head><BaseHead title="仕掛けの実験室 | りゅうのらぼ" description="小物をつまんで、弾み方や色を変えてみる。りゅうのらぼの動く仕掛けを触って試せる、小さな実験室です。" /></head>
   <body>
     <Header />
-    <main id="main" class="shell playground" data-toy-lab data-bounce="45">
+    <main id="main" class="shell playground" data-toy-lab data-bounce="65">
       <a class="back" href="/">← らぼに戻る</a>
       <p class="eyebrow">PLAY WITH THE CODE</p>
       <h1>仕掛けの実験室</h1>
@@ -18,26 +18,26 @@ import LabToys from '../components/LabToys.astro';
         <section class="stage" aria-labelledby="stage-title">
           <div class="stage-top"><h2 id="stage-title">今日のお題：机の上の小物</h2><span>01 / つまむ</span></div>
           <div class="desk"><LabToys position="bottom" /></div>
-          <p class="stage-hint">小物をドラッグすると、手を離したところから<br />ぽよん、と元の場所に戻ります。</p>
+          <p class="stage-hint">上下左右につまんで、ぽいっ。<br />離すと落ちて、床でぽんぽん跳ねます。</p>
           <p class="keyboard-help">キーボードでも：Tabで選ぶ → 矢印キー / Enterで遊ぶ</p>
         </section>
         <section class="controls" aria-labelledby="controls-title">
           <h2 id="controls-title">動きのレシピ</h2>
-          <label for="bounce">弾み方 <output id="bounce-value" for="bounce">45</output></label>
-          <input id="bounce" type="range" min="0" max="100" value="45" />
-          <div class="range-labels"><span>すっと戻る</span><span>ぽよんぽよん</span></div>
+          <label for="bounce">弾み方 <output id="bounce-value" for="bounce">65</output></label>
+          <input id="bounce" type="range" min="0" max="100" value="65" />
+          <div class="range-labels"><span>ずしっと</span><span>ぽよんぽよん</span></div>
           <fieldset><legend>パソコンの色</legend><div class="swatches">
             <label style="--swatch:#e3eee6"><input type="radio" name="toy-color" value="#e3eee6" checked /><span>ミント</span></label>
             <label style="--swatch:#ffe9ac"><input type="radio" name="toy-color" value="#ffe9ac" /><span>バター</span></label>
             <label style="--swatch:#eadff5"><input type="radio" name="toy-color" value="#eadff5" /><span>ライラック</span></label>
           </div></fieldset>
           <button class="reset" type="button">最初のレシピに戻す ↺</button>
-          <p class="motion-note">端末で動きを減らす設定をしている場合は、弾まずに戻ります。</p>
+          <p class="motion-note">端末で動きを減らす設定をしている場合は、離した位置で止まります。</p>
         </section>
       </div>
       <section class="under-the-hood" aria-labelledby="code-title">
-        <div><p class="eyebrow">小さな仕掛けの、裏側</p><h2 id="code-title">動きをつくるのは、<br />「元に戻りたい力」。</h2><p>離した位置から中心に引っぱる力と、勢いを弱める力。この2つで、ばねのような動きになります。弾み方を変えると、下の減衰の値も変わります。</p><p>絵はSVG、操作はPointer Events。指でもマウスでも同じように触れます。戻る動きの計算は、その間だけ実行しています。</p></div>
-        <div class="code-note"><span>いまの設定 · 実装の抜粋</span><pre><code id="recipe-code"></code></pre><p>この抜粋は計算の部分です。小物の描画・ドラッグ処理は含みません。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/components/LabToys.astro" target="_blank" rel="noopener noreferrer">動くコード全体をGitHubで見る ↗</a></div>
+        <div><p class="eyebrow">小さな仕掛けの、裏側</p><h2 id="code-title">動きをつくるのは、<br />「重さ」と「はずみ」。</h2><p>手を離すと重力で加速し、床に当たると上向きに跳ね返る。少しずつ勢いを失って、最後は止まります。上に持ち上げるほど影が薄く小さくなり、高さも感じられます。</p><p>絵はSVG、操作はPointer Events。指でもマウスでも同じように触れます。物が動いている間だけ、落下と跳ね返りを計算しています。</p></div>
+        <div class="code-note"><span>いまの設定 · 実装の抜粋</span><pre><code id="recipe-code"></code></pre><p>この抜粋は落下と反発の考え方です。実装には停止判定、壁との反発、摩擦、ドラッグ処理も含まれます。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/components/LabToys.astro" target="_blank" rel="noopener noreferrer">動くコード全体をGitHubで見る ↗</a></div>
       </section>
       <a class="next" href="/blog/css-popout-drawer/">次は、自分で仕掛けをつくってみる？<br /><strong>引き出しから飛び出すアニメーションの作り方 →</strong></a>
     </main><Footer />
@@ -54,12 +54,12 @@ import LabToys from '../components/LabToys.astro';
     lab.dataset.bounce = slider.value; output.value = slider.value;
     const color = colors.find(c => c.checked)!.value;
     lab.style.setProperty('--toy-accent', color);
-    code.textContent = `// 色はCSS変数で変更\n// --toy-accent: ${color};\n\nconst stiffness = 160;\nconst damping = ${(22 - bounce * .12).toFixed(1)};\n\n// x: 元の場所からの距離\n// vx: 速度、dt: 前フレームからの秒数\nvx += (-stiffness * x - damping * vx) * dt;\nx += vx * dt;\n// 縦方向も同じ計算`;
+    code.textContent = `// 色はCSS変数で変更\n// --toy-accent: ${color};\n\nconst gravity = 1100;\nconst restitution = ${(.2 + bounce * .006).toFixed(2)};\n\n// 下向きに加速する\nvy += gravity * dt;\ny += vy * dt;\n\n// 床で勢いを弱めて跳ね返る\nif (y >= floor) {\n  y = floor;\n  vy = -Math.abs(vy) * restitution;\n}`;
   }
   slider.addEventListener('input', update);
   colors.forEach(c => c.addEventListener('change', update));
   document.querySelector('.reset')!.addEventListener('click', () => {
-    slider.value = '45'; colors[0].checked = true; update();
+    slider.value = '65'; colors[0].checked = true; update();
     lab.querySelectorAll('.lab-toys').forEach(scene => scene.dispatchEvent(new Event('toy-reset')));
   });
   update();
@@ -75,7 +75,7 @@ import LabToys from '../components/LabToys.astro';
   .stage-top { display:flex; justify-content:space-between; gap:14px; align-items:center; }
   h2 { font-size:19px; font-weight:700; line-height:1.6; }
   .stage-top span { font-size:10px; color:#526477; white-space:nowrap; }
-  .desk { padding:65px 0 30px; }
+  .desk { padding:10px 0 30px; }
   .stage-hint { text-align:center; font-size:14px; line-height:1.9; }
   .keyboard-help { text-align:center; font-size:11px; margin-top:18px; color:var(--muted); }
   .controls { padding:28px; background:#fffae8; border:1px solid #d7cba7; border-radius:8px 13px 9px 11px; }
@@ -102,5 +102,5 @@ import LabToys from '../components/LabToys.astro';
   .code-note p { font-size:11px!important; }
   .code-note a { font-size:13px; display:inline-block; margin-top:16px; }
   .next { display:block; padding:24px; border-left:4px solid #dfbf61; background:#fffae8; text-decoration:none; font-size:14px; line-height:2; }
-  @media(max-width:760px) { .workbench,.under-the-hood { grid-template-columns:minmax(0,1fr); } .stage,.controls { padding:20px; } .desk { padding:35px 0 25px; } .stage-top { flex-wrap:wrap; } .under-the-hood { gap:24px; margin-top:44px; } }
+  @media(max-width:760px) { .workbench,.under-the-hood { grid-template-columns:minmax(0,1fr); } .stage,.controls { padding:20px; } .desk { padding:0 0 25px; } .stage-top { flex-wrap:wrap; } .under-the-hood { gap:24px; margin-top:44px; } }
 </style>
