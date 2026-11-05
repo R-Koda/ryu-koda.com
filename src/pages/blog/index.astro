@@ -64,6 +64,7 @@ const tags = categories;
               {guides[p.id as keyof typeof guides] && !p.data.heroImage && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
               {starters.find(s => s.slug === p.id) && <img class="post-preview" src={starters.find(s => s.slug === p.id)!.image} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
               {!starters.some(s => s.slug === p.id) && p.data.heroImage && <img class="post-preview" src={p.data.heroImage.src} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />}
+              <div class="article-body">
               <div class="article-meta">
                 <span>{categoryFor(p.data.tags)}</span>
                 <FormattedDate date={p.data.pubDate} />
@@ -73,6 +74,7 @@ const tags = categories;
               <span class="read-link">
                 記事を読む <span aria-hidden="true">↗</span>
               </span>
+              </div>
             </a>
           </article>
         ))}
@@ -131,10 +133,10 @@ const tags = categories;
   });
 </script>
 <style>
-  .post-preview { width: 180px; height: auto; float: left; margin: 0 24px 15px 0; border-radius: 7px; border: 1px solid #d6dce3; }
+  .post-preview { width: 180px; height: auto; margin: 0; border-radius: 7px; border: 1px solid #d6dce3; }
   .articles article { display: flow-root; }
   .articles article[hidden] { display: none; }
-  @media(max-width:600px) { .post-preview { float: none; width: 100%; max-width: 360px; margin: 0 0 18px; } }
+  @media(max-width:600px) { .post-preview { width: 100%; max-width: 360px; } }
 
   .journal {
     padding-top: 60px;
@@ -275,8 +277,11 @@ const tags = categories;
     color: var(--muted);
   }
   .articles h2 {
-    font-size: 21px;
+    font-size: 20px;
     line-height: 1.7;
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
   }
   .articles p {
     font-size: 13px;
@@ -338,8 +343,10 @@ const tags = categories;
     border-bottom: 1px solid var(--line);
   }
   .articles a {
-    display: block;
-    max-width: 820px;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
   }
   .article-meta {
     margin-top: 0;
@@ -364,6 +371,8 @@ const tags = categories;
   .tag:hover {
     background: #f5f7fa;
   }
+  .article-body { min-width: 0; }
+  @media(max-width:600px) { .articles a { grid-template-columns: minmax(0, 1fr); gap: 18px; } }
 </style>
 
 <style>.reading-entrances{display:flex;flex-wrap:wrap;gap:10px 20px;margin:0 0 26px;font-size:13px;line-height:1.9;}.reading-entrances a{text-underline-offset:4px;}.reading-entrances a:hover{color:#245b89;}</style>

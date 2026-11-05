@@ -831,3 +831,22 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
     }
   }
 </style>
+
+<style>
+  /* Keep both home article collections typographically consistent. */
+  .article-copy h3,
+  .starter-card h3 {
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+    text-wrap: pretty;
+  }
+  @media(max-width:760px) {
+    .article-copy h3,
+    .starter-card h3 { font-size: 17px; }
+  }
+</style>
