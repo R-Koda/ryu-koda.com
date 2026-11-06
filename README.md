@@ -110,3 +110,13 @@ For each approved article: check that its title states the concrete task, add th
 Monthly after sufficient search data accumulates: review Search Console queries, impressions, clicks and CTR by page; compare comparable periods; improve titles for mismatched search intent and expand answers where real queries reveal gaps. Keep a record of the page, change and date. Do not infer demand or ranking gains without data. Update product specifications and prices when revisiting reviews. SNS accounts and email subscriptions should only be linked after they are available.
 
 Article cover graphics: run `node scripts/generate-article-covers.mjs` to regenerate the three 1200×630 covers from real screenshots. The script uses system Japanese fonts (Hiragino Sans on macOS); inspect generated text before publishing. Covers are used in discovery cards and social metadata; outcome panels retain screenshot previews. Blog filters use the three broad categories in `src/lib/categories.ts`, while original tags are retained for related-article matching.
+# アクセス計測
+
+Cloudflare Web Analyticsを使用。2026年11月7日設定。
+管理画面のWeb Analytics → ryu-koda.comで、アクセス数・ページ表示数・参照元を確認する。
+Cloudflare側は「JS スニペットのインストールで有効にする」に設定し、自動挿入との二重計測を避ける。
+共通のBaseHeadが本番ホスト `ryu-koda.com` でだけ公開計測タグを読み込む。
+localhost、pages.dev、他のサブドメインは対象外。公開サイトでの運営者の動作確認は計測される。
+アクセス数は人数ではなく訪問単位の指標。ドメイン概要のIPベースの「一意の訪問者数」と区別する。
+設定前の閲覧は遡って集計されない。検索の表示回数・クリック数はSearch Consoleで別途確認する。
+

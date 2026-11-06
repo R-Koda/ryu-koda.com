@@ -58,6 +58,18 @@ const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage'
 <meta name="generator" content={Astro.generator} />
 <meta name="author" content={AUTHOR_NAME} />
 
+<!-- Load only on the public site; exclude previews and local development. -->
+<script is:inline>
+  if (location.hostname === 'ryu-koda.com' && !document.querySelector('script[data-cf-beacon]')) {
+    const beacon = document.createElement('script');
+    beacon.type = 'module';
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    // Public analytics site token, not an API credential.
+    beacon.dataset.cfBeacon = JSON.stringify({ token: '5f5b8a398c5443138132f293dc54f810' });
+    document.head.append(beacon);
+  }
+</script>
+
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
 <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
