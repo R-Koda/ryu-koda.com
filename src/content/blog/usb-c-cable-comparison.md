@@ -3,9 +3,10 @@ seoTitle: "USB-Cケーブル3製品を比較｜充電・転送・映像で選ぶ
 title: "USB-C、見た目が同じで選ぶのがだるい。商品ページをちゃんと読んでみた"
 description: "USB-Cケーブル3製品の電力・転送速度・映像対応・価格を公式仕様で比較。用途に合う一本を選ぶ手順を紹介します。"
 heroImage: "../../../public/articles/usb-c-cable-comparison/cover-sketch-v2.webp"
-updatedDate: 2026-11-05
+updatedDate: 2026-11-07
 pubDate: 2026-11-04T22:00:00+09:00
 tags: ["ガジェット", "USB-C", "比較"]
+affiliate: true
 ---
 
 <p class="voice">USB-Cのケーブルを選びたいだけなのに、数字が多いな……。</p>
@@ -103,7 +104,11 @@ tags: ["ガジェット", "USB-C", "比較"]
 
 <p>機器の必要電力が60W以内で、充電と通常のデータ転送をしたい場合の候補。映像出力や高速SSDの性能を優先する用途では別の仕様を探します。</p>
 
-<a href="https://www.elecom.co.jp/products/MPA-CCSB20BK.html">公式仕様・対応表・販売ページへのリンク</a></section>
+<a href="https://www.elecom.co.jp/products/MPA-CCSB20BK.html">公式仕様・対応表・販売ページへのリンク</a>
+<aside class="affiliate-product" aria-label="MPA-CCSB20BKの広告"><p><strong>広告｜楽天市場で販売条件を確認</strong></p><p>エレコムダイレクトショップの販売ページです。下の価格は素材作成時点の実売価格で、上のメーカー標準価格とは異なります。最新の価格・送料・在庫は販売ページでご確認ください。</p>
+<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:300px;"><tbody><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px; width:44px;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4549550405423%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10069979%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow"><img style="max-width: initial;" border="0" alt="" src="https://thumbnail.image.rakuten.co.jp/@0_mall/elecom/cabinet/s500_31/mpa-ccsb20bk_03r.jpg?_ex=64x64"></a></td><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4549550405423%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10069979%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow">エレコム usb c - usb c ケーブル USB2.0認証 60W 高耐久 2.0m ブラック ELECOM MPA-CCSB20BK</a></p><p style="color:#666; margin-top:5px; line-height:1.5;">価格:<span style="font-size:14px; color:#C00; font-weight:bold;">1080円</span><br><span style="font-size:10px; font-weight:normal;">(2026/11/7 22:44時点)</span><br><span style="font-weight:bold;">感想(0件)</span></p></td></tr></tbody></table>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BGD7B+5U61BM+2HOM+BWGDT" alt="">
+</aside></section>
 
 
 <section class="card"><h3>② 60Wを超える充電が必要なら：MPA-CCPE20BK</h3><p>最大240W／480Mbps／DisplayPort Alternate Mode非対応／約2m（コネクターを含まず）／税込標準価格2,684円。</p>
