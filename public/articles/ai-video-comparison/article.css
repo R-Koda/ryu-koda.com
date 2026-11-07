@@ -1,0 +1,23 @@
+
+.ai-video-article .takeaway{background:#edf5ef;border:1px solid #cbded0;border-radius:12px;padding:20px;margin:24px 0}
+.ai-video-article .article-jump{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.ai-video-article .article-jump a,.ai-video-article button{border:1px solid #adc7b7;border-radius:8px;padding:8px 14px;background:#f3f8f4;color:#20674f;font:inherit}
+.ai-video-article .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ai-video-article .video-card{border:1px solid #d8e3dd;border-radius:14px;padding:18px;min-width:0}
+.ai-video-article figure{margin:0}.ai-video-article video{display:block;width:100%;max-width:240px;aspect-ratio:9/16;margin:auto;background:#191919;border-radius:10px}
+.ai-video-article .meta,.ai-video-article figcaption{font-size:.85rem;color:#5a626b}
+.ai-video-article .video-card p{font-size:.9rem;line-height:1.85}
+.ai-video-article .video-card h3{margin:0 0 14px;font-size:1.2rem}.ai-video-article h4{font-size:1rem;line-height:1.7}
+.ai-video-article details{border:1px solid #d8e3dd;border-radius:10px;padding:14px;margin:12px 0;scroll-margin-top:100px}
+.ai-video-article summary{cursor:pointer;font-weight:650;color:#285d48}
+.ai-video-article .table-scroll{overflow:auto;max-width:100%;margin:24px 0;border:1px solid #d8e3dd;border-radius:10px}
+.ai-video-article table{border-collapse:collapse;table-layout:fixed;font-size:.86rem}
+.ai-video-article th,.ai-video-article td{padding:14px;text-align:left;vertical-align:top;line-height:1.8;word-break:normal;overflow-wrap:anywhere;border-bottom:1px solid #d8e3dd}
+.ai-video-article thead th{background:#e6eee8}.ai-video-article th:first-child{width:180px;position:sticky;left:0;background:#f1f6f2;z-index:1}.ai-video-article thead th:not(:first-child){width:280px}
+.ai-video-article caption{text-align:left;padding:12px;font-weight:bold}.ai-video-article caption:after{content:"（横にスクロールできます）";font-size:.75rem}
+.ai-video-article .observed{border-top:1px solid #d8e3dd;margin-top:16px}
+.ai-video-article .evidence-frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:16px}
+.ai-video-article .evidence-frames img{width:100%;height:auto}.ai-video-article .evidence-frames figcaption{font-size:.75rem}
+.ai-video-article pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;font:inherit;font-size:.9rem;background:#f1f5f3}
+.ai-video-article button{cursor:pointer}.ai-video-article :is(a,button,summary):focus-visible{outline:3px solid #54836c;outline-offset:3px}
+@media(max-width:600px){.ai-video-article .video-grid{grid-template-columns:1fr}.ai-video-article .video-card{padding:14px}}
