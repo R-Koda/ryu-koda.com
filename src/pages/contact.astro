@@ -75,6 +75,7 @@ import ActionLink from "../components/ActionLink.astro";
     <Footer />
     <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script>
+      import { track } from "../scripts/analytics";
       const form = document.querySelector<HTMLFormElement>('#contact-form')!;
       const button = document.querySelector<HTMLButtonElement>('#contact-submit')!;
       const result = document.querySelector<HTMLParagraphElement>('#contact-result')!;
@@ -92,7 +93,7 @@ import ActionLink from "../components/ActionLink.astro";
           const body = await response.json();
           result.textContent = body.message;
           result.dataset.state = response.ok ? 'success' : 'error';
-          if (response.ok) form.reset();
+          if (response.ok) { track("contact_success"); form.reset(); }
         } catch {
           result.dataset.state = 'error';
           result.textContent = '送信結果を確認できませんでした。入力内容は残っています。通信環境を確認し、少し時間をおいてお試しください。';

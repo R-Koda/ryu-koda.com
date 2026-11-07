@@ -7,6 +7,7 @@ const xUrl=`https://twitter.com/intent/tweet?${new URLSearchParams({text:title,u
 <p>あとで試す、誰かに教える。</p><div><a href={xUrl} target="_blank" rel="noopener noreferrer">Xで紹介する <span class="sr-only">（新しいタブ）</span>↗</a><button type="button" data-native-share hidden>ほかのアプリで共有</button><button type="button" data-copy-share>リンクをコピー</button></div><span data-share-status role="status"></span><input class="manual-link" aria-label="共有するURL" value={url} readonly hidden />
 </aside>
 <script>
+ import { track } from "../scripts/analytics";
  document.querySelectorAll<HTMLElement>('.share-links').forEach(section=>{
   const url=section.dataset.shareUrl!,title=section.dataset.shareTitle!;
   const result=section.querySelector<HTMLElement>('[data-share-status]')!;
@@ -14,7 +15,7 @@ const xUrl=`https://twitter.com/intent/tweet?${new URLSearchParams({text:title,u
   if(typeof navigator.share==='function')native.hidden=false;
   native.addEventListener('click',async()=>{try{await navigator.share({title,url});result.textContent='共有画面を閉じました。';}catch(error){if((error as Error).name!=='AbortError')result.textContent='共有画面を開けませんでした。リンクのコピーをご利用ください。';}});
   section.querySelector('[data-copy-share]')!.addEventListener('click',async()=>{
-   try{await navigator.clipboard.writeText(url);result.textContent='リンクをコピーしました。';}
+   try{await navigator.clipboard.writeText(url);track('share_link_copy');result.textContent='リンクをコピーしました。';}
    catch{const input=section.querySelector<HTMLInputElement>('.manual-link')!;input.hidden=false;input.focus();input.select();result.textContent='URLを選択しました。コピーしてご利用ください。';}
   });
  });

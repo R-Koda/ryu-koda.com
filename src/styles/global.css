@@ -441,3 +441,5 @@ input {
 .tag:active {
   box-shadow: none;
 }
+
+.code-copy { border:1px solid #52636d; border-radius:5px; background:#fff7d8; padding:8px 14px; min-height:44px; cursor:pointer; font:inherit; font-size:12px; margin-top:12px; }
