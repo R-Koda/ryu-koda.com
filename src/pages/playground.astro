@@ -1,4 +1,5 @@
 ---
+import ExperimentPreview from '../components/ExperimentPreview.astro';
 import ShareLinks from "../components/ShareLinks.astro";
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
@@ -19,7 +20,7 @@ import LabToys from '../components/LabToys.astro';
       <h1>Webの実験室</h1>
       <p class="lead">触って楽しい。作ってわかる。<br />サイトを華やかにするアイデアと、作り方。CSS・JavaScript・SVGで、画面に遊び心を。</p>
       <p>それぞれのページで「動くデモ → 試し方 → 手元で動かす → 仕組み → 変えてみる」の順に紹介します。HTML・CSSの基本がわかり、JavaScriptの動きを試してみたい方へ。</p>
-      <nav class="kit-grid" aria-label="実験を選ぶ">{experiments.map(e=><a class="kit" href={`/playground/${e.slug}/`} style={`--kit-color:${e.color}`}><span>KIT {e.number} / {e.verb}</span><strong>{guides[e.slug].seoTitle}</strong><p>{guides[e.slug].description}</p><b>デモと作り方を見る ↗</b></a>)}</nav>
+      <nav class="kit-grid" aria-label="実験を選ぶ">{experiments.map(e=><a class="kit" href={`/playground/${e.slug}/`} style={`--kit-color:${e.color}`}><span>KIT {e.number} / {e.verb}</span><ExperimentPreview kind={e.slug} /><strong>{guides[e.slug].seoTitle}</strong><p>{guides[e.slug].description}</p><b>デモと作り方を見る ↗</b></a>)}</nav>
       <LabDetails />
       <h2 class="first-kit">JavaScriptで、つまんで投げる物理演算UIを試す。</h2>
       <div class="workbench">
@@ -114,4 +115,4 @@ import LabToys from '../components/LabToys.astro';
   @media(max-width:760px) { .workbench,.under-the-hood { grid-template-columns:minmax(0,1fr); } .stage,.controls { padding:20px; } .desk { padding:0 0 25px; } .stage-top { flex-wrap:wrap; } .under-the-hood { gap:24px; margin-top:44px; } }
 </style>
 
-<style>.kit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:35px 0 60px}.kit{background:var(--kit-color);border:2px solid #354550;border-radius:7px 13px 8px 6px;padding:24px;box-shadow:4px 5px 0 #35455022;display:flex;flex-direction:column;text-decoration:none;transition:transform .2s}.kit:hover{transform:translateY(-4px) rotate(-.5deg)}.kit>span{font-size:10px;letter-spacing:.08em;color:#52646d}.kit strong{font-size:20px;margin:14px 0}.kit p{font-size:13px;line-height:1.9;flex:1}.kit b{font-size:12px;margin-top:22px}.first-kit{margin-bottom:24px}@media(max-width:850px){.kit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.kit-grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.kit{transition:none}.kit:hover{transform:none}}</style>
+<style>.kit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin:35px 0 60px}.kit{background:var(--kit-color);border:2px solid #354550;border-radius:7px 13px 8px 6px;padding:24px;box-shadow:4px 5px 0 #35455022;display:flex;flex-direction:column;text-decoration:none;transition:transform .2s}.kit:is(:hover,:focus-visible){transform:translateY(-4px) rotate(-.5deg)}.kit:focus-visible{outline:3px solid #2458a6;outline-offset:6px}.kit:active{box-shadow:1px 2px 0 #35455033}.kit>span{font-size:10px;letter-spacing:.08em;color:#52646d}.kit strong{font-size:20px;margin:14px 0}.kit p{font-size:13px;line-height:1.9;flex:1}.kit b{font-size:12px;margin-top:22px}.first-kit{margin-bottom:24px}@media(max-width:850px){.kit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.kit-grid{grid-template-columns:1fr}}@media(prefers-reduced-motion:reduce){.kit{transition:none}.kit:is(:hover,:focus-visible){transform:none}}</style>
