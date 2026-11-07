@@ -3,6 +3,7 @@ import ShareLinks from '../../components/ShareLinks.astro';
 import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import LabDetails from '../../components/LabDetails.astro';
 import Experiment from '../../components/Experiment.astro';
 import { experiments } from '../../data/experiments';
 import { guides } from '../../data/experiment-guides';
@@ -21,6 +22,7 @@ const commands='git clone https://github.com/R-Koda/ryu-koda.com.git\ncd ryu-kod
 <p class="intro">触って楽しい。作ってわかる。Webの小さな実験室。まず動かし、気になったらコードを開いて、ひとつ変えてみてください。</p>
 <nav class="contents" aria-label="この実験の目次"><a href="#demo">動くデモ</a><a href="#try">試し方</a><a href="#setup">手元で動かす</a><a href="#mechanism">仕組み</a><a href="#customize">変えてみる</a></nav>
 <section id="demo" aria-labelledby="demo-heading"><h2 id="demo-heading">まず、触ってみる。</h2><Experiment kind={e.slug} /></section>
+<LabDetails />
 <div class="guide prose">
 <section id="try"><h2>この順番で試すと、違いがわかります。</h2><ol>{guide.tryIt.map(step=><li>{step}</li>)}</ol></section>
 <section id="setup"><h2>自分のパソコンで動かすには。</h2><p>このページのデモ全体は公開リポジトリに入っています。以下はサイトを手元にコピーして動かす手順です。上の短いコード抜粋だけでは動きません。</p><h3>1. 実行環境を確認する</h3><p>ターミナルを開き、1行ずつ実行します。GitとNode.jsが必要です。</p><pre><code>{versions}</code></pre><p><strong>確認する結果：</strong>それぞれバージョン番号が出ます。このプロジェクトはNode.js 22.12.0以上を指定しています。コマンドが見つからなければ、<a href="https://git-scm.com/downloads">Git公式</a>と<a href="https://nodejs.org/en/download">Node.js公式</a>から環境を準備します。</p><h3>2. コードを取得して起動する</h3><p>保存したいフォルダへ移動してから、次を1行ずつ実行してください。同名のフォルダがある場合は別の場所を選びます。</p><pre><code>{commands}</code></pre><p><strong>確認する結果：</strong>最後にローカルサーバーのURLが表示され、ターミナルは起動したままになります。エラーになった場合は次へ進まず、直前のコマンドの出力を確認します。</p><h3>3. 実験ページを開く</h3><p>ブラウザで <code>{localUrl}</code> を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。</p><details><summary>どのファイルを読めばいい？</summary><ul><li><code>src/components/Experiment.astro</code>：SVG・HTML・見た目のCSS。</li><li><code>src/scripts/experiments.ts</code>：各実験の動作。<code>{branchCode}</code>を探します。</li><li><code>src/pages/playground/[slug].astro</code>：この解説ページの共通レイアウト。</li></ul><p>画面が白い場合はターミナルのエラーとブラウザの開発者ツールを確認します。動きが止まる場合は、端末の「視差効果を減らす」設定も確認してください。このデモはその設定に合わせて動きを抑えます。</p></details></section>
