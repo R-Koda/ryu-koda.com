@@ -21,6 +21,7 @@ type Props = CollectionEntry<"blog">["data"] & { headings?: { depth: number; slu
 const {
   title,
   seoTitle,
+  affiliate = false,
   description,
   pubDate,
   updatedDate,
@@ -119,6 +120,7 @@ const breadcrumbJsonLd = JSON.stringify({
     <script type="application/ld+json" set:html={articleJsonLd.replace(/</g, '\\u003c')} />
     <script type="application/ld+json" set:html={breadcrumbJsonLd.replace(/</g, '\\u003c')} />
     <style>
+      .affiliate-disclosure { padding: 16px; margin: 18px 0; border: 1px solid #b8c2c9; border-radius: 8px; background: #f6f8fa; font-size: 14px; line-height: 1.8; }
       .article-outcome { background: #f6f8fc; border: 1px solid #c5d3e3; padding: 22px; border-radius: 10px; margin: 24px 0; }
       .article-outcome h2 { font-size: 20px; margin: 0 0 12px; }
       .article-outcome p { font-size: 15px; line-height: 1.9; }
@@ -269,6 +271,7 @@ const breadcrumbJsonLd = JSON.stringify({
             <hr />
           </div>
           <p class="article-author">書いた人：<a href="/about/">{AUTHOR_NAME}</a></p>
+          {affiliate && <aside class="affiliate-disclosure"><strong>広告</strong> この記事にはアフィリエイト広告を含みます。リンク経由の購入・申し込みにより運営者が報酬を受け取ることがあります。<a href="/advertising/">掲載方針</a></aside>}
           {entrypoint && <section class="article-outcome" aria-label="この記事でできること"><h2>先に、できることだけ。</h2><p>{entrypoint.result}</p><p class="evidence">{entrypoint.target}</p></section>}
           {guide && <section class="article-outcome" aria-label="この記事でわかること">
             <h2>こんなことを試しました。</h2><p>{guide.summary}</p>
@@ -316,7 +319,7 @@ const breadcrumbJsonLd = JSON.stringify({
       </article>
       <FollowNote />
     </main>
-    <AdSense slot="footer" format="horizontal" className="footer-ad" />
+
     <Footer />
 
   </body>

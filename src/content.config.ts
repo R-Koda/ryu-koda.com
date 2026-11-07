@@ -10,6 +10,7 @@ const blog = defineCollection({
 		z.object({
 			title: z.string(),
             seoTitle: z.string().optional(),
+            affiliate: z.boolean().default(false),
 			description: z.string(),
 			// Transform string to Date object
 			pubDate: z.coerce.date(),
