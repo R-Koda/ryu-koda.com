@@ -17,7 +17,7 @@ interface Props {
 	tags?: string[];
 }
 
-const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? '';
+const adsenseClient = import.meta.env.PUBLIC_ADSENSE_CLIENT ?? 'ca-pub-9235096476290205';
 if (adsenseClient && !/^ca-pub-\d{16}$/.test(adsenseClient)) throw new Error('PUBLIC_ADSENSE_CLIENT must be a valid ca-pub ID');
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 

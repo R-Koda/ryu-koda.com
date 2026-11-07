@@ -27,3 +27,6 @@
 - https://support.google.com/adsense/answer/7584263?hl=ja
 - https://support.google.com/adsense/answer/12171612?hl=ja
 - https://www.caa.go.jp/policies/policy/representation/fair_labeling/faq/stealth_marketing/
+
+## 2026-11-07 アカウント作成
+個人用アカウントで規約同意の承認を受けて作成。pub-9235096476290205。確認用メタタグと公式ads.txtを配置。広告配信は未開始。支払先情報・審査状況は管理画面で確認する。
