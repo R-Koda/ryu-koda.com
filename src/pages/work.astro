@@ -54,6 +54,9 @@ import ActionLink from "../components/ActionLink.astro";
           <a class="project-preview" href="https://draw.ryu-koda.com/" target="_blank" rel="noopener noreferrer" aria-label="えがいて！を開く（新しいタブ）"><img src="/images/egaite-work.webp" alt="えがいて！のトップ画面。お絵描きの見本と、友だちと遊ぶ部屋を作るフォーム。" width="1100" height="562" loading="lazy" decoding="async" /></a>
           <div class="project-copy"><span class="project-label">公開中 · Webアプリ</span><h3><a href="https://draw.ryu-koda.com/" target="_blank" rel="noopener noreferrer">えがいて！ ↗</a></h3><p>描いて、当てて、笑おう。友だちと2〜8人で楽しめる、オンラインお絵描きゲームです。部屋を作ってリンクやコードで集まり、お題の絵を描く人と当てる人に分かれて遊べます。</p><ul><li>アプリのインストール不要。ブラウザから参加</li><li>描く時間やラウンド数を選んで遊べる</li><li>ひとりで操作を試せる「ためし描き」も用意</li></ul><ActionLink href="https://draw.ryu-koda.com/" external variant="outline">えがいて！で遊んでみる</ActionLink></div>
         </article>
+        <article class="software-project">
+          <div class="project-copy"><span class="project-label">開発プロジェクト · Webアプリ</span><h3><a href="https://spinometer-web.pages.dev/" target="_blank" rel="noopener noreferrer">背骨計 — Spinometer ↗</a></h3><p>Webカメラで捉えた頭の位置や角度をもとに、姿勢を推定・可視化するブラウザアプリの開発に取り組んでいます。日々の姿勢を振り返るための記録やフィードバックも扱います。</p><ul><li>カメラ入力からの姿勢推定と、画面上での可視化</li><li>ブラウザ内での推論処理</li><li>姿勢の記録・振り返りとフィードバック</li></ul><p class="project-caution">本アプリケーションは医療機器ではありません。姿勢の参考情報として利用するもので、診断を行うものではありません。</p><ActionLink href="https://spinometer-web.pages.dev/" external variant="outline">背骨計のアプリを見る</ActionLink></div>
+        </article>
         <ActionLink href="https://github.com/R-Koda" external variant="outline">GitHubを見る</ActionLink>
       </section>
       <section class="panel writing-panel" id="writing">
@@ -91,7 +94,7 @@ import ActionLink from "../components/ActionLink.astro";
   .project-preview:focus-visible{outline:3px solid #315e91;outline-offset:-4px}
   .project-copy{padding:24px}.project-label{font-size:11px;color:#526577;background:#e5f0e6;padding:5px 9px;border-radius:4px}
   .project-copy h3{font-size:24px;margin:18px 0 12px}.project-copy h3 a{text-decoration:none}.project-copy h3 a:hover{text-decoration:underline}
-  .project-copy ul{padding-left:20px;margin:0 0 24px;font-size:13px;line-height:2;color:var(--muted)}
+  .project-copy .project-caution{font-size:12px;padding:12px 14px;background:#f1f5f8;border-radius:6px}.project-copy ul{padding-left:20px;margin:0 0 24px;font-size:13px;line-height:2;color:var(--muted)}
   @media(prefers-reduced-motion:reduce){.project-preview img{transition:none}.project-preview:hover img{transform:none}}
 
   .research-name { display: flex; gap: 20px; align-items: center; text-decoration: none; border-radius: 8px; padding: 5px 0; }
