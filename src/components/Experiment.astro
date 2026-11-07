@@ -1,4 +1,5 @@
 ---
+import { snippets } from '../data/experiment-snippets';
 const { kind }=Astro.props;
 ---
 <section class="experiment" data-experiment={kind}>
@@ -20,7 +21,7 @@ const { kind }=Astro.props;
 {kind==='letters' && <><label for="toy-words">落とす言葉</label><input id="toy-words" type="text" value="りゅうのらぼ" maxlength="32" /><button data-drop type="button">文字を落とす ↓</button><button data-shake type="button">箱をゆらす ↔</button><button data-reset type="button">空にする ↺</button></>}
 <p data-status role="status" class="feedback">準備できました。</p><p class="small">端末の「視差効果を減らす」設定では、動きを抑えて表示します。</p></div>
 </div>
-<details class="source-note"><summary>この仕掛けのコードを見る</summary><pre><code data-code></code></pre><p>仕組みを示す抜粋です。描画、入力操作、停止処理を含む全体はこちら。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/scripts/experiments.ts" target="_blank" rel="noopener noreferrer">実装全体をGitHubで見る ↗</a></details>
+<details class="source-note"><summary>この仕掛けのコードを見る</summary><pre><code data-code>{snippets[kind]}</code></pre><p>仕組みを示す抜粋です。描画、入力操作、停止処理を含む全体はこちら。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/scripts/experiments.ts" target="_blank" rel="noopener noreferrer">実装全体をGitHubで見る ↗</a></details>
 </section>
 <script>import '../scripts/experiments';</script>
 <style>

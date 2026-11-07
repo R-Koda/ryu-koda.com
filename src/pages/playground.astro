@@ -4,20 +4,22 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { experiments } from '../data/experiments';
+import { guides } from '../data/experiment-guides';
 import LabToys from '../components/LabToys.astro';
 ---
 <!doctype html>
 <html lang="ja">
-  <head><BaseHead title="仕掛けの実験室 | りゅうのらぼ" description="小物をつまんで、弾み方や色を変えてみる。りゅうのらぼの動く仕掛けを触って試せる、小さな実験室です。" /></head>
+  <head><BaseHead title="Webの実験室｜CSS・JavaScriptの動くデモと作り方 | りゅうのらぼ" description="CSS・JavaScript・SVGで作る、触れるWebの実験室。ぷにぷにボタン、文字の物理演算、配線パズルなど、動くデモと実装コード、手元で再現する方法を紹介します。" /></head>
   <body>
     <Header />
     <main id="main" class="shell playground" data-toy-lab data-bounce="65">
       <a class="back" href="/">← らぼに戻る</a>
       <p class="eyebrow">PLAY WITH THE CODE</p>
-      <h1>仕掛けの実験室</h1>
-      <p class="lead">ちょっと変えると、ちょっと楽しい。<br />つまんで、離して。自分好みの動きを探してみてください。</p>
-      <nav class="kit-grid" aria-label="実験を選ぶ">{experiments.map(e=><a class="kit" href={`/playground/${e.slug}/`} style={`--kit-color:${e.color}`}><span>KIT {e.number} / {e.verb}</span><strong>{e.name}</strong><p>{e.description}</p><b>開けてみる ↗</b></a>)}</nav>
-      <h2 class="first-kit">KIT 01 / まずは、この机でひと遊び。</h2>
+      <h1>Webの実験室</h1>
+      <p class="lead">触って楽しい。作ってわかる。<br />Webの小さな実験室。CSS・JavaScript・SVGで、画面に遊び心を。</p>
+      <p>それぞれのページで「動くデモ → 試し方 → 手元で動かす → 仕組み → 変えてみる」の順に紹介します。HTML・CSSの基本がわかり、JavaScriptの動きを試してみたい方へ。</p>
+      <nav class="kit-grid" aria-label="実験を選ぶ">{experiments.map(e=><a class="kit" href={`/playground/${e.slug}/`} style={`--kit-color:${e.color}`}><span>KIT {e.number} / {e.verb}</span><strong>{guides[e.slug].seoTitle}</strong><p>{guides[e.slug].description}</p><b>デモと作り方を見る ↗</b></a>)}</nav>
+      <h2 class="first-kit">JavaScriptで、つまんで投げる物理演算UIを試す。</h2>
       <div class="workbench">
         <section class="stage" aria-labelledby="stage-title">
           <div class="stage-top"><h2 id="stage-title">今日のお題：机の上の小物</h2><span>01 / つまむ</span></div>
@@ -44,7 +46,7 @@ import LabToys from '../components/LabToys.astro';
         <div class="code-note"><span>いまの設定 · 実装の抜粋</span><pre><code id="recipe-code"></code></pre><p>この抜粋は落下と反発の考え方です。実装には停止判定、壁との反発、摩擦、ドラッグ処理も含まれます。</p><a href="https://github.com/R-Koda/ryu-koda.com/blob/main/src/components/LabToys.astro" target="_blank" rel="noopener noreferrer">動くコード全体をGitHubで見る ↗</a></div>
       </section>
       <a class="next" href="/blog/css-popout-drawer/">次は、自分で仕掛けをつくってみる？<br /><strong>引き出しから飛び出すアニメーションの作り方 →</strong></a>
-      <ShareLinks title="仕掛けの実験室 | りゅうのらぼ" />
+      <ShareLinks title="Webの実験室｜CSS・JavaScriptの動くデモと作り方 | りゅうのらぼ" />
     </main><Footer />
   </body>
 </html>
