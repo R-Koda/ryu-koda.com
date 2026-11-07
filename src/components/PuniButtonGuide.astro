@@ -1,0 +1,23 @@
+---
+import sample from '../../public/examples/puni-button.html?raw';
+---
+<div class="puni-guide prose">
+<section id="quickstart">
+<h2>まずは、HTMLファイル1つで動かしてみる。</h2>
+<p>「ボタンを少しかわいくしたいだけなのに、環境構築から始めるのは大変だな…」。そんなときは、この小さなCSS版からどうぞ。下のボタンと同じものを、インストールなしで試せます。</p>
+<iframe src="/examples/puni-button.html" title="CSSだけで動くぷにぷにボタンの見本" loading="lazy" sandbox></iframe>
+<p><strong>できること：</strong>押している間にボタンが沈み、少し横に広がり、離すと戻ります。上の3種類のデモと違い、離した後に大きく弾む処理は入れていません。</p>
+<ol><li><a href="/examples/puni-button.html" download="puni-button.html">サンプルHTMLを保存する</a>を押します。</li><li>保存した<code>puni-button.html</code>をChrome・Safari・Edgeなどのブラウザで開きます。</li><li>「押してみて」を長押しして、離します。沈んで戻れば成功です。</li></ol>
+<p><strong>確認する結果：</strong>薄紫のボタンが1つ表示されます。この例のボタンは見た目を試すためのもので、クリックしても送信や画面移動はしません。</p>
+<details><summary>コピーして使う：HTML・CSSの全コード</summary><p>次のコードをすべてコピーして、プレーンテキストのファイルに貼り付け、<code>puni-button.html</code>としてUTF-8で保存しても同じように動きます。</p><pre><code>{sample}</code></pre></details>
+<details><summary>ターミナルで保存して開きたい場合</summary><pre><code>curl -fL https://ryu-koda.com/examples/puni-button.html -o puni-button.html</code></pre><p><strong>結果：</strong>現在のフォルダに<code>puni-button.html</code>が作られます。同名のファイルがあると上書きするので、別のフォルダで実行してください。</p><p>macOSは<code>open puni-button.html</code>、WindowsのPowerShellは<code>Start-Process ./puni-button.html</code>で開けます。コマンドを使わず、ファイルをダブルクリックしても大丈夫です。</p></details>
+</section>
+<section id="css-mechanism"><h2>ぷにっと見える理由は、3つだけ。</h2><ol><li><strong>影で厚みを作る。</strong><code>box-shadow: 0 8px 0</code>で、ボタンの下に8pxの影を置いています。</li><li><strong>押したときだけ形を変える。</strong><code>:active</code>で下へ6px動かし、横幅を1.06倍、高さを0.92倍に。影は2pxに縮めます。</li><li><strong>離したら、元の形へ戻す。</strong><code>transition</code>で180msかけて変化させます。幅・高さそのものを変更しないので、隣の文章が押し出されません。</li></ol><p>CSSの<code>:active</code>は操作中の状態です。マウスを載せたときの<code>:hover</code>とは別です。詳しくは<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:active">MDNの:activeの説明</a>でも確認できます。</p></section>
+<section id="recipe"><h2>色・丸み・押し心地を変えてみる。</h2><p>保存したHTMLをテキストエディタで開き、まず1か所だけ変更して保存。ブラウザを再読み込みし、変更前と比べます。</p><ul><li><strong>ミント色に：</strong><code>--button-color: #e8dff5</code>を<code>#e3eee6</code>へ。通常時の色が変わります。ホバー時の色もそろえる場合は<code>:hover</code>の背景色も変更します。</li><li><strong>角を控えめに：</strong><code>border-radius: 24px</code>を<code>12px</code>へ。四角に近いボタンになります。</li><li><strong>沈み込みを浅く：</strong><code>translateY(6px)</code>を<code>translateY(3px)</code>へ。影の2pxを5pxにすると、厚みのつじつまも合わせやすくなります。</li><li><strong>戻りをゆっくり：</strong>2か所の<code>180ms</code>を<code>300ms</code>へ。押す・戻る動きの両方がゆっくりになります。</li></ul></section>
+<section id="integration"><h2>自分のサイトに入れるには？</h2><ol><li>サンプル内の<code>button</code>要素を、表示したい位置へ置きます。</li><li>CSSの<code>.puni-button</code>関連ルールと<code>@media</code>を、サイトのCSSへ追加します。見本の<code>body</code>ルールはページ全体を中央寄せにするものなので、持ち込む必要はありません。</li><li>ボタンの文言を目的に合わせて変えます。ページ移動ならボタンではなくリンクを使い、送信処理ならフォームの実装に合わせて調整します。</li></ol><p>装飾だけではクリック後の機能は増えません。まず遊び心のあるデモや、お試し機能のボタンに使ってみてください。決済や重要な送信では、押した結果のわかりやすさを優先します。</p></section>
+<section id="troubleshooting"><h2>うまく動かないとき。</h2><details><summary>コードが文字として表示される</summary><p>拡張子が<code>.html.txt</code>になっていないか確認します。Wordなどの文書形式ではなく、プレーンテキストで保存してください。</p></details><details><summary>色は変わるけれど、動かない</summary><p>端末の「視差効果を減らす」設定では、意図的に変形を省いています。また、既存サイトでは別のCSSがtransformやtransitionを上書きしていないか確認します。</p></details><details><summary>スマホやキーボードでは？</summary><p>指で押している間にも反応します。キーボードではTabでボタンを選び、Spaceで押して離してみてください。Enterの押下状態の見え方はブラウザによって異なります。フォーカスの青い枠は、操作する位置を伝えるために残します。</p></details></section>
+<section><h2>離したあとも、ゼリーみたいに弾ませたい。</h2><p>CSS版で仕組みがつかめたら、ページ上部の3種類のデモへ。こちらはJavaScriptのWeb Animations APIを使って「押した形→少し伸びた形→元の形」を順に再生します。次の手順では、そのデモ全体を手元で動かします。</p></section>
+</div>
+<style>
+.puni-guide{max-width:780px;margin:38px auto}.puni-guide section{padding:18px 0 26px;border-bottom:1px dashed #c2ccd2;scroll-margin-top:110px}.puni-guide h2{font-size:clamp(22px,2.5vw,28px);line-height:1.6;margin:20px 0}.puni-guide p,.puni-guide li{font-size:15px;line-height:2;margin:14px 0}.puni-guide ol,.puni-guide ul{padding-left:24px}.puni-guide a{text-decoration:underline;text-underline-offset:4px}.puni-guide iframe{display:block;width:100%;height:300px;border:1px solid #c4cdd1;border-radius:12px;background:#fffdf6}.puni-guide details{padding:16px;background:#f6f8fa;border:1px solid #d5dfe5;border-radius:8px;margin:16px 0}.puni-guide summary{cursor:pointer;font-weight:600;line-height:1.8}.puni-guide pre{max-height:480px;overflow:auto;padding:16px;background:#edf2f6;font-size:12px;line-height:1.8}.puni-guide :not(pre)>code{font-size:.9em;overflow-wrap:anywhere}
+</style>

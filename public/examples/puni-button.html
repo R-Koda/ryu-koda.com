@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<meta name="description" content="CSSだけで押すと沈むボタンを作る、単体で動くHTMLサンプル。">
+<link rel="canonical" href="https://ryu-koda.com/examples/puni-button.html">
+<meta property="og:url" content="https://ryu-koda.com/examples/puni-button.html">
+<title>ぷにぷにボタンの最小サンプル</title>
+<style>
+  body {
+    margin: 0;
+    min-height: 280px;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 24px;
+    background: #fffdf6;
+    color: #303d48;
+    font-family: system-ui, sans-serif;
+  }
+  .puni-button {
+    --button-color: #e8dff5;
+    padding: 20px 36px;
+    min-height: 48px;
+    border: 2px solid #354550;
+    border-radius: 24px;
+    background: var(--button-color);
+    color: #303d48;
+    box-shadow: 0 8px 0 #354550;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    touch-action: manipulation;
+    transform-origin: center bottom;
+    transition: transform 180ms ease-out, box-shadow 180ms ease-out;
+  }
+  .puni-button:hover { background: #ded0f1; }
+  .puni-button:focus-visible {
+    outline: 3px solid #2458a6;
+    outline-offset: 6px;
+  }
+  .puni-button:active {
+    transform: translateY(6px) scale(1.06, .92);
+    box-shadow: 0 2px 0 #354550;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .puni-button { transition: none; }
+    .puni-button:active {
+      transform: none;
+      background: #d4c2ee;
+      box-shadow: 0 8px 0 #354550;
+    }
+  }
+</style>
+</head>
+<body>
+  <button class="puni-button" type="button">押してみて</button>
+  <p>押すと沈み、離すと戻ります。</p>
+</body>
+</html>

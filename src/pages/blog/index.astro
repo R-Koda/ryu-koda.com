@@ -35,6 +35,7 @@ const tags = categories;
         </p>
       </div>
       <nav class="reading-entrances" aria-label="目的から記事を探す"><span>目的から読む：</span>{readingGuides.map(g => <a href={`/blog/guides/${g.slug}/`}>{g.label} ↗</a>)}</nav>
+      <p class="reading-entrances"><a href="/playground/buttons/">手を動かして試す：CSSでぷにぷにボタンを作る。完成コードと動くデモ →</a></p>
       <div class="filter-bar">
         <div class="tags" role="group" aria-label="記事の分類">
           <button type="button" class="tag" data-tag="" aria-pressed="true">
