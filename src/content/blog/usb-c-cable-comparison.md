@@ -115,14 +115,28 @@ affiliate: true
 
 <p>高い電力への対応を重視する場合の候補。ただし、240W対応でも①より転送の仕様が速いわけではありません。ケーブルだけで240W充電になるわけでもなく、充電器と受電側の対応が必要です。</p>
 
-<a href="https://www.elecom.co.jp/products/MPA-CCPE20BK.html">公式仕様・対応表・販売ページへのリンク</a></section>
+<a href="https://www.elecom.co.jp/products/MPA-CCPE20BK.html">公式仕様・対応表・販売ページへのリンク</a>
+<aside class="affiliate-product" aria-label="MPA-CCPE20BKの広告">
+<p><strong>広告｜楽天市場で販売条件を確認</strong></p>
+<p>エレコムダイレクトショップの販売ページです。メーカー標準価格とは異なります。価格は素材作成時点のものです。最新の価格・送料・在庫は販売ページでご確認ください。</p>
+<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:300px;"><tbody><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px; width:44px;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4549550403368%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10069753%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow"><img style="max-width: initial;" border="0" alt="" src="https://thumbnail.image.rakuten.co.jp/@0_mall/elecom/cabinet/s500_31/mpa-ccpe20bk_03r.jpg?_ex=64x64"></a></td><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4549550403368%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10069753%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow">エレコム usb c ケーブル 2m 240W PD対応 高速充電 データ通信 電圧自動調整 iPhone 充電 ブラック MPA-CCPE20BK</a></p><p style="color:#666; margin-top:5px; line-height:1.5;">価格:<span style="font-size:14px; color:#C00; font-weight:bold;">1880円</span><br><span style="font-size:10px; font-weight:normal;">(2026/11/7 22:55時点)</span><br><span style="font-weight:bold;">感想(0件)</span></p></td></tr></tbody></table>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BGD7B+5U61BM+2HOM+BWGDT" alt="">
+</aside>
+</section>
 
 
 <section class="card"><h3>③ データ・映像も使うなら：USB4-CLLY10NBK</h3><p>最大60W／20Gbps／DisplayPort Alternate Mode対応・最大4K/60Hz／約1m（コネクターを含む）／両端L字／税込標準価格6,644円。</p>
 
 <p>対応するPCやSSDとのデータ転送、USB-Cでの映像出力を検討する場合の候補。20Gbpsという数字だけで、手持ちの機器でもその速度が出るとは限りません。60Wを超える充電が必要なら、この製品は条件を満たしません。L字の向きや隣の端子との干渉も確認します。</p>
 
-<a href="https://www.elecom.co.jp/products/USB4-CLLY10NBK.html">公式仕様・対応表・販売ページへのリンク</a></section>
+<a href="https://www.elecom.co.jp/products/USB4-CLLY10NBK.html">公式仕様・対応表・販売ページへのリンク</a>
+<aside class="affiliate-product" aria-label="USB4-CLLY10NBKの広告">
+<p><strong>広告｜楽天市場で販売条件を確認</strong></p>
+<p>リコメン堂生活館の販売ページです。メーカー標準価格とは異なります。価格は素材作成時点のものです。最新の価格・送料・在庫は販売ページでご確認ください。</p>
+<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:300px;"><tbody><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px; width:44px;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00ramc4.2bo11662.g00ramc4.2bo120ca%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Frcmdse%252Fel-4549550431835%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Frcmdse%252Fi%252F17482335%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow"><img style="max-width: initial;" border="0" alt="" src="https://thumbnail.image.rakuten.co.jp/@0_mall/rcmdse/cabinet/el105/el-4549550431835.jpg?_ex=64x64"></a></td><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00ramc4.2bo11662.g00ramc4.2bo120ca%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Frcmdse%252Fel-4549550431835%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Frcmdse%252Fi%252F17482335%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow">USB Type-C ケーブル 両端L字 やわらか 60W USB4 20Gbps PD 4K/60Hz 1m ブラック USB4-CLLY10NBK(代引不可)【送料無料】</a></p><p style="color:#666; margin-top:5px; line-height:1.5;">価格:<span style="font-size:14px; color:#C00; font-weight:bold;">4780円</span><br><span style="font-size:10px; font-weight:normal;">(2026/11/7 22:56時点)</span><br><span style="font-weight:bold;">感想(0件)</span></p></td></tr></tbody></table>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BGD7B+5U61BM+2HOM+BWGDT" alt="">
+</aside>
+</section>
 
 
 

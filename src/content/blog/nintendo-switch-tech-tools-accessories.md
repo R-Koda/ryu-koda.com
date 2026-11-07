@@ -4,7 +4,8 @@ title: 'Switchを便利にしたい。周辺機器を買う前に、音・容量
 description: 'Nintendo SwitchのBluetooth設定、microSDの対応規格、有線LANの接続手順を確認。周辺機器を買う前に自分の本体で何を調べるか整理します。'
 pubDate: 2026-03-16
 heroImage: "../../../public/articles/nintendo-switch-tech-tools-accessories/cover-sketch-v2.webp"
-updatedDate: 2026-11-05
+updatedDate: 2026-11-07
+affiliate: true
 tags: ['Nintendo', 'ガジェット', 'ゲーミング']
 ---
 
@@ -54,6 +55,19 @@ microSDカードも、容量の数字だけで選ぶ前に、対応機種を確�
 
 Switch 2はソフトの保存用にmicroSD Expressカードを使います。同じ基準をそのまま当てはめず、[Switch 2専用の案内](https://support.nintendo.com/jp/switch2/mastery/sdcard/start-using/index.html)へ進んでください。
 
+### 対応を確認できる商品の例：GM-MFMS128G
+
+エレコムの128GB microSDXCカードです。[メーカーの製品ページ](https://www.elecom.co.jp/products/GM-MFMS128G.html)にNintendo Switchでの動作確認が明記され、規格はUHS-I・U1・Class10です。まず「設定」→「データ管理」で空き容量を確認し、今後保存したいソフトの容量と比べてみてください。
+
+これは対応条件を照合できる一例で、最安値や実機での性能を比較して選んだものではありません。同容量の他製品とも、送料込みの価格や保証を比べてからで大丈夫です。**microSD Expressではないため、Switch 2のソフト保存用には選ばないでください。**
+
+<aside class="affiliate-product" aria-label="GM-MFMS128Gの広告">
+<p><strong>広告｜楽天市場で販売条件を確認</strong></p>
+<p>エレコムダイレクトショップの販売ページです。価格は素材作成時点のものです。最新の価格・送料・在庫は販売ページでご確認ください。</p>
+<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:300px;"><tbody><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px; width:44px;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4953103356443%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10059877%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow"><img style="max-width: initial;" border="0" alt="" src="https://thumbnail.image.rakuten.co.jp/@0_mall/elecom/cabinet/s500_24/gm-mfms128g_03r.jpg?_ex=64x64"></a></td><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pkox4.2bo11ce8.g00pkox4.2bo12766%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Felecom%252F4953103356443%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Felecom%252Fi%252F10059877%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow">エレコム microSD XCカード NINTENDO SWITCH TM 検証済み 128G UHS-I U1 Class10 ニンテンドースイッチ ELECOM GM-MFMS128G</a></p><p style="color:#666; margin-top:5px; line-height:1.5;">価格:<span style="font-size:14px; color:#C00; font-weight:bold;">8280円</span><br><span style="font-size:10px; font-weight:normal;">(2026/11/7 22:57時点)</span><br><span style="font-weight:bold;">感想(0件)</span></p></td></tr></tbody></table>
+<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BGD7B+5U61BM+2HOM+BWGDT" alt="">
+</aside>
+
 ## 3．有線でつなぐなら、本体だけでなくドックを見る
 
 ここはTVモードで使うSwitch・有機ELモデル向けです。Liteやテーブルモードは接続構成が異なるので、[任天堂の機種別手順](https://support.nintendo.com/jp/switch/internet/wired.html)の該当欄を確認してください。
@@ -63,6 +77,19 @@ Switch 2はソフトの保存用にmicroSD Expressカードを使います。同
 **操作：** LAN端子、または対応アダプターとルーターをLANケーブルで接続し、本体をTVモードにします。HOMEの「設定」→「インターネット」→「インターネット設定」へ進み、登録済みネットワークの「有線接続」から接続します。
 
 **結果・確認：** 接続完了の表示が目印です。エラーなら表示されたコードを控え、上の公式案内のエラー対応へ進みます。接続できたことと、対戦の遅延が減ったことは別なので、この手順だけで速度改善を断定はできません。
+
+### LAN端子のないドック向けの例：LUA6-U3-AGTE-BK
+
+バッファローのUSB Type-A接続の有線LANアダプターです。[メーカーの製品ページ](https://www.buffalo.jp/product/detail/lua6-u3-agte-bk.html)でNintendo Switch対応を確認できます。この記事では、LAN端子のないHAC-007ドックでTVモードを使う場合の候補として紹介します。
+
+接続は「ドックのUSB-A端子 → このアダプター → LANケーブル → ルーター」です。LANケーブルも別途用意し、上記の本体設定を行います。**LAN端子のあるHEG-007ドックなら、このアダプターを買い足す必要はありません。** 通信速度や遅延改善の実測レビューではありません。
+
+<aside class="affiliate-product" aria-label="LUA6-U3-AGTE-BKの広告">
+<p><strong>広告｜楽天市場で販売条件を確認</strong></p>
+<p>Joshin web 家電とPCの大型専門店の販売ページです。価格は素材作成時点のものです。最新の価格・送料・在庫は販売ページでご確認ください。</p>
+<table cellpadding="0" cellspacing="0" border="0" style=" border:1px solid #ccc; width:300px;"><tbody><tr style="border-style:none;"><td style="vertical-align:top; border-style:none; padding:10px; width:44px;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pukw4.2bo116e3.g00pukw4.2bo12fbb%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Fjism%252F4981254077078-44-61-n%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Fjism%252Fi%252F14727643%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow"><img style="max-width: initial;" border="0" alt="" src="https://thumbnail.image.rakuten.co.jp/@0_mall/jism/cabinet/0054/4981254077078.jpg?_ex=64x64"></a></td><td style="font-size:12px; vertical-align:middle; border-style:none; padding:10px;"><p style="padding:0; margin:0;"><a href="https://rpx.a8.net/svt/ejp?a8mat=4BGD7B+5U61BM+2HOM+BWGDT&rakuten=y&a8ejpredirect=https%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2Fg00pukw4.2bo116e3.g00pukw4.2bo12fbb%2Fa26110478391_4BGD7B_5U61BM_2HOM_BWGDT%3Fpc%3Dhttps%253A%252F%252Fitem.rakuten.co.jp%252Fjism%252F4981254077078-44-61-n%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252Fjism%252Fi%252F14727643%252F%26rafcid%3Dwsc_i_is_a9f492a7-8ef9-40e2-ab89-4bc43a1ee283" rel="nofollow">バッファロー｜BUFFALO Giga対応 Type-A USB 3.2 (Gen1)用 LANアダプター（ブラック） LUA6-U3-AGTE-BK</a></p><p style="color:#666; margin-top:5px; line-height:1.5;">価格:<span style="font-size:14px; color:#C00; font-weight:bold;">1920円</span><br><span style="font-size:10px; font-weight:normal;">(2026/11/7 22:57時点)</span><br><span style="font-weight:bold;">感想(0件)</span></p></td></tr></tbody></table>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BGD7B+5U61BM+2HOM+BWGDT" alt="">
+</aside>
 
 ## 買うものが減っても、それでよさそう
 
