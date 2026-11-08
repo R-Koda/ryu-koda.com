@@ -64,7 +64,9 @@ const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage'
 
 <!-- Load only on the public site; exclude previews and local development. -->
 <script is:inline>
-  if (location.hostname === 'ryu-koda.com' && !document.querySelector('script[data-cf-beacon]')) {
+  let excluded = false;
+  try { excluded = localStorage.getItem('ryu-analytics-exclude-v1') === 'true'; } catch {}
+  if (!excluded && location.hostname === 'ryu-koda.com' && !document.querySelector('script[data-cf-beacon]')) {
     const beacon = document.createElement('script');
     beacon.type = 'module';
     beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';

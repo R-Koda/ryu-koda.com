@@ -3,13 +3,15 @@ const ID = 'G-RJXC50ZSJL';
 const KEY = 'ryu-analytics-consent-v1';
 const w = window as Window & { dataLayer?: unknown[]; gtag?: (...args: unknown[]) => void; [key: `ga-disable-${string}`]: boolean };
 let enabled = false;
+const EXCLUDE_KEY = 'ryu-analytics-exclude-v1';
+function excluded() { try { return localStorage.getItem(EXCLUDE_KEY) === 'true'; } catch { return false; } }
 function preference() { try { return localStorage.getItem(KEY); } catch { return null; } }
 function save(value: string) { try { localStorage.setItem(KEY, value); } catch {} }
 export function track(name: string, params: Record<string,string|number> = {}) {
-  if (enabled && location.hostname === 'ryu-koda.com') w.gtag?.('event', name, params);
+  if (enabled && !excluded() && location.hostname === 'ryu-koda.com') w.gtag?.('event', name, params);
 }
 function start() {
-  if (enabled || location.hostname !== 'ryu-koda.com' || !ID.startsWith('G-')) return;
+  if (excluded() || enabled || location.hostname !== 'ryu-koda.com' || !ID.startsWith('G-')) return;
   enabled = true;
   w[`ga-disable-${ID}`] = false;
   w.dataLayer = w.dataLayer || [];
@@ -27,9 +29,28 @@ function start() {
 function boot() {
   const panel=document.querySelector<HTMLElement>('[data-analytics-panel]');
   if(!panel) return;
-  if(preference()==='granted') start();
-  else if(preference()===null && location.hostname==='ryu-koda.com') panel.hidden=false;
+  if(!excluded() && preference()==='granted') start();
+  else if(!excluded() && preference()===null && location.hostname==='ryu-koda.com') panel.hidden=false;
+  const exclusion = panel.querySelector<HTMLButtonElement>('[data-analytics-exclude]');
+  if(exclusion) {
+    exclusion.textContent = excluded() ? 'このブラウザの除外を解除する' : 'このブラウザを計測から除外する';
+    exclusion.setAttribute('aria-pressed', String(excluded()));
+    exclusion.addEventListener('click',()=>{
+      try {
+        localStorage.setItem(EXCLUDE_KEY, excluded() ? 'false' : 'true');
+        enabled=false;
+        w[`ga-disable-${ID}`]=true;
+        location.reload();
+      } catch {
+        const status=panel.querySelector<HTMLElement>('[data-analytics-exclude-status]');
+        if(status) status.textContent='設定を保存できませんでした。ブラウザのサイトデータ設定をご確認ください。';
+      }
+    });
+  }
+  const status=panel.querySelector<HTMLElement>('[data-analytics-exclude-status]');
+  if(status) status.textContent=excluded() ? 'このブラウザはGA4・Cloudflare Web Analyticsの計測から除外中です。' : 'このブラウザは除外されていません。';
   document.querySelector('[data-analytics-settings]')?.addEventListener('click',()=>{panel.hidden=false;panel.querySelector<HTMLButtonElement>('button')?.focus();});
+  panel.querySelector('[data-analytics-close]')?.addEventListener('click',()=>{panel.hidden=true;});
   panel.querySelector('[data-analytics-accept]')?.addEventListener('click',()=>{save('granted');start();panel.hidden=true;});
   panel.querySelector('[data-analytics-reject]')?.addEventListener('click',()=>{
     save('denied');enabled=false;w[`ga-disable-${ID}`]=true;

@@ -4,6 +4,12 @@
   <p>許可すると、Google AnalyticsがCookieを使い、閲覧ページ、関連記事への移動、コードのコピーなどを集計します。氏名・メールアドレス・お問い合わせ内容・実験室の入力文は計測データに含めません。広告目的の計測は行いません。</p>
   <p>設定はフッターから変更できます。Cloudflareによるアクセス集計は、この選択とは別に動作します。<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Googleのプライバシーポリシー ↗</a></p>
   <div><button type="button" data-analytics-accept>許可する</button><button type="button" data-analytics-reject>許可しない</button></div>
+  <details><summary>このブラウザの計測を除外する</summary>
+    <p>運営者の確認用アクセスなどを、GA4とCloudflare Web Analyticsの両方から除外できます。設定したブラウザでの今後の閲覧に適用されます。別の端末・ブラウザでは個別に設定してください。サイトデータを消すと設定も解除されます。過去の集計は変わりません。</p>
+    <p data-analytics-exclude-status role="status"></p>
+    <button type="button" data-analytics-exclude aria-pressed="false">このブラウザを計測から除外する</button>
+  </details>
+  <button type="button" data-analytics-close>閉じる</button>
 </section>
 <script>import '../scripts/analytics';</script>
 <style>
