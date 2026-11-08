@@ -246,3 +246,6 @@ a { color: #245b89; }
 <p><strong>完成の確認：</strong>顔が出る／クリックやEnterで開閉する／中のリンクで移動する。この3つを自分の環境でも確認できたら、最初のひとつは完成です。</p>
 
 開閉に使った要素の仕様は、[MDNのdetails要素の解説](https://developer.mozilla.org/ja/docs/Web/HTML/Reference/Elements/details)でも確認できます。
+
+
+<p class="note">角丸を付けたら、飛び出す飾りまで切れてしまった場合は、<a href="/blog/css-overflow-popout/">overflow: hiddenを分けて角丸と飛び出しを両立する方法</a>も試してみてください。修正前後の比較デモと完成HTMLがあります。</p>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>角丸と飛び出す飾りを両立する</title>
+<meta name="robots" content="noindex,follow"><meta name="description" content="角丸カードの切り抜きと飛び出す飾りを比較する記事のサンプル。"><link rel="canonical" href="https://ryu-koda.com/articles/css-overflow-popout/example.html"><meta property="og:url" content="https://ryu-koda.com/articles/css-overflow-popout/example.html"><style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 80px 24px; font-family: sans-serif; color: #293b36; }
+.card { position: relative; max-width: 320px; margin: auto; overflow: visible; }
+.card-face { border-radius: 24px; overflow: hidden; background: #f7f4eb; }
+.banner { height: 100px; background: repeating-linear-gradient(135deg,#e0eee7 0 18px,#c6dfd1 18px 36px); }
+.copy { padding: 24px; }
+.copy h1 { font-size: 22px; }
+.mascot { position: absolute; right: 24px; top: 12px; z-index: 1; width: 64px; height: 64px; display: grid; place-items: center; border: 2px solid #293b36; border-radius: 50%; background: #ffe49c; font-size: 28px; pointer-events: none; transition: transform .35s ease; }
+.card:hover .mascot, .card:focus-within .mascot { transform: translateY(-44px) rotate(-8deg); }
+a { color: #23644e; }
+a:focus-visible { outline: 3px solid #23644e; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .mascot { transition: none; } }
+</style>
+<div class="card">
+  <div class="card-face">
+    <div class="banner" aria-hidden="true"></div>
+    <div class="copy">
+      <h1>小さな実験</h1>
+      <p>カードにカーソルを合わせるか、リンクを選択すると顔が飛び出します。</p>
+      <a href="#result">結果を見る</a>
+    </div>
+  </div>
+  <!-- 切り抜く箱の外側に、飾りを置く -->
+  <span class="mascot" aria-hidden="true">•ᴗ•</span>
+</div>
+<p id="result">上の角丸を保ったまま、顔が外に出れば成功です。</p>
+</html>
