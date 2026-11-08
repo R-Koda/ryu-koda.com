@@ -94,3 +94,8 @@ console.log(JSON.stringify(results,null,2));
 
 <p>毎回むずかしい最適化をするより、まず表示する大きさを考えて、容量と見た目を確認する。このひと手間なら、記事を書く流れにも入れられそうです。</p><p>WebPに変換しただけでサイトが必ず速くなるわけではありません。今回は、配信する画像ファイルそのものを小さくできた、というところまでの記録です。</p><p>画像をつくるところも含めて気になったら、<a href="https://ryu-koda.com/blog/making-everyday-interesting/">つくる楽しさについての記事</a>へ。調べたことを、実際に使える形にする話を増やしていきます。</p>
 <p>参照：<a href="https://sharp.pixelplumbing.com/api-resize/">sharpのリサイズ仕様</a>、<a href="https://sharp.pixelplumbing.com/api-output/">WebP出力の仕様</a>。APIの条件を確認し、上記の容量は手元で測定しました。</p>
+
+
+## 公開した記事を、検索から見つけてもらうには
+
+画像を軽くしたあとは、記事がGoogleに登録されているかも確認してみます。[個人ブログで実施したSEO対策の記録](/blog/blog-seo-practice/)では、Search Consoleの画面を見ながら、タイトルや内部リンク、計測を整える手順を紹介しています。
