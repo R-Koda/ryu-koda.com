@@ -48,5 +48,10 @@
     "slug": "css-popout-drawer",
     "title": "軽くした画像を載せるサイトにも、ひと工夫",
     "reason": "HTMLとCSSで、触ると顔が出る引き出しを作ってみます。"
+  },
+  "blog-seo-practice": {
+    "slug": "resize-blog-images-webp",
+    "title": "まず画像1枚から、軽くしてみる",
+    "reason": "練習用画像とコマンドを使って、変換前後の容量と見た目を比べられます。"
   }
 }

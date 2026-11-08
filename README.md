@@ -1,19 +1,35 @@
-# Astro Starter Kit: Blog
+# りゅうのらぼ — 動くデモと、手元で試せるコード
+
+CSS・JavaScriptの小さな仕掛け、Macのファイル整理、ブログづくりを試す個人サイトです。完成した画面だけでなく、準備・コード・実行結果・つまずいたときの確認方法を記事にしています。
+
+**[サイトを読む](https://ryu-koda.com/) · [Webの実験室](https://ryu-koda.com/playground/) · [更新を受け取る](https://ryu-koda.com/subscribe/)**
+
+## まず、インストールなしで試す
+
+- **[CSSぷにぷにボタン：動くデモと作り方](https://ryu-koda.com/playground/buttons/)** — HTMLファイル1つで押して沈むボタンを作ります。[完成HTML](public/examples/puni-button.html)にはキーボード操作・動きを減らす設定への対応も含めています。
+- **[HTMLとCSSで引き出しメニューを作る](https://ryu-koda.com/blog/css-popout-drawer/)** — 配布ZIPを開き、名前・色・リンク先を変更するところから。
+- **[MacのFinderでファイル名を一括変更する](https://ryu-koda.com/blog/mac-finder-batch-rename/)** — 練習用画像で、追加アプリなしの操作を確かめます。
+
+## 目的に合わせて読む
+
+- [Node.jsとsharpで画像をWebPに変換する](https://ryu-koda.com/blog/resize-blog-images-webp/) — サンプル画像3枚、コマンド、結果の確認まで。
+- [Pythonで重複ファイルを探す](https://ryu-koda.com/blog/find-duplicate-files-python/) — 削除せず一覧にする練習用ファイル付き。
+- [個人ブログのSEO対策を、Search Consoleで確認する](https://ryu-koda.com/blog/blog-seo-practice/) — 登録状況・タイトル・内部リンク・計測の実践記録。
+
+短い操作から試したい方は[サイト制作のガイド](https://ryu-koda.com/blog/guides/make-a-small-website/)へ。デモと解説は無料で閲覧できます。
+
+## サイト全体をローカルで動かす
+
+GitとNode.js 22.12.0以上が必要です。上のボタンHTML単体には、この準備は不要です。
 
 ```sh
-npm create astro@latest -- --template blog
+git clone https://github.com/R-Koda/ryu-koda.com.git
+cd ryu-koda.com
+npm ci
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+ターミナルに表示されたローカルURLを開きます。実験の見た目は `src/components/Experiment.astro`、動作は `src/scripts/experiments.ts` にあります。
 
 ## 🚀 Project Structure
 
@@ -143,3 +159,14 @@ URLのクエリ・フラグメント、フォーム内容、実験室の入力�
 GA4の「レポート」のイベント名で行動件数を確認し、「探索」でページパスやカスタム定義と組み合わせる。
 初回集計には時間がかかる。未同意・広告ブロッカー利用時は含まれず、運営者の本番確認は含まれる。
 検証: `node scripts/check-analytics.mjs`、通常のbuild/SEO/growthチェック。
+
+## 公開後の更新通知（IndexNow）
+
+新規・内容を更新したページのみ、公開完了後に通知します。Google向けの登録申請ではなく、IndexNow対応検索エンジンへの通知です。受付成功は掲載・順位を保証しません。
+
+```sh
+node scripts/notify-indexnow.mjs /blog/blog-seo-practice/
+node scripts/notify-indexnow.mjs --send /blog/blog-seo-practice/
+```
+
+最初は送信しない確認モードです。`--send` で本番のキーと対象ページを確認して送信します。キーはドメイン所有権の確認用ファイルであり、Cloudflare管理用の認証情報ではありません。
