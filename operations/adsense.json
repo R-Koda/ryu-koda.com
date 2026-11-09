@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-09",
+  "site": "ryu-koda.com",
+  "client": "ca-pub-9235096476290205",
+  "siteApproval": "準備中",
+  "adsTxt": "承認済み",
+  "autoAds": false,
+  "unit": { "name": "ryu-koda_blog_article-end_responsive", "slot": "2177506466", "format": "responsive display", "placement": "one unit after article feedback and before related posts" },
+  "servingEnabled": false,
+  "remainingBeforeActivation": [
+    "Confirm site status changes to Ready in AdSense",
+    "Configure and verify applicable Google-certified consent messaging",
+    "Update privacy and advertising pages to describe active advertising",
+    "Enable ADSENSE.enabled only after the above, build, validate and deploy"
+  ],
+  "notes": "Unit created in AdSense and wired into the article component. No ad requests or empty ad containers are rendered while pending. Existing affiliate links are independent."
+}

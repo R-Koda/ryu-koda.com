@@ -1,67 +1,29 @@
 ---
-interface Props {
-	slot?: string;
-	format?: 'auto' | 'rectangle' | 'horizontal' | 'vertical';
-	style?: string;
-	className?: string;
-}
-
-const {
-	slot: adSlot = '',
-	format = 'auto',
-	style = '',
-	className = '',
-} = Astro.props;
-
-// Replace with your actual AdSense client ID after approval
-const AD_CLIENT = '';
-const isAdEnabled = AD_CLIENT !== '' && adSlot !== '';
+import { ADSENSE } from '../lib/adsense';
+import { shouldIndex } from '../lib/seo.mjs';
+const enabled = ADSENSE.enabled && shouldIndex(Astro.url.pathname);
 ---
-
-{isAdEnabled && <div class={`ad-container ${className}`} style={style}>
-	{isAdEnabled ? (
-		<ins
-			class="adsbygoogle"
-			style="display:block"
-			data-ad-client={AD_CLIENT}
-			data-ad-slot={adSlot}
-			data-ad-format={format}
-			data-full-width-responsive="true"
-		/>
-	) : (
-		<div class="ad-placeholder">
-			<span>Advertisement</span>
-		</div>
-	)}
-</div>}
-
+{enabled && <aside class="ad-container" aria-label="Advertisement" translate="no">
+  <span class="ad-label">Advertisement</span>
+  <ins class="adsbygoogle" style="display:block" data-ad-client={ADSENSE.client}
+    data-ad-slot={ADSENSE.articleEndSlot} data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script is:inline define:vars={{client: ADSENSE.client}}>
+    // Never request real ads on development or Cloudflare preview URLs.
+    if (location.hostname === 'ryu-koda.com') {
+      if (!document.querySelector('script[data-ryu-adsense]')) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.dataset.ryuAdsense = 'true';
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client;
+        document.head.append(script);
+      }
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  </script>
+</aside>}
 <style>
-	.ad-container {
-		width: 100%;
-		max-width: 100%;
-		margin: 1em 0;
-		overflow: hidden;
-		box-sizing: border-box;
-	}
-	.ad-placeholder {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 60px;
-		background-color: rgba(var(--gray-light), 0.5);
-		border: 1px dashed rgb(var(--gray));
-		border-radius: 8px;
-		color: rgb(var(--gray));
-		font-size: 0.75em;
-	}
-
-	@media (min-width: 768px) {
-		.ad-container {
-			margin: 1.5em 0;
-		}
-		.ad-placeholder {
-			min-height: 90px;
-			font-size: 0.8em;
-		}
-	}
+  .ad-container { width: 100%; margin: 2.5rem 0; border-top: 1px solid #e7e3dd; padding-top: 1rem; }
+  .ad-label { display: block; text-align: center; font: 0.7rem/1.5 sans-serif; color: #777; margin-bottom: .6rem; }
+  .adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 </style>
