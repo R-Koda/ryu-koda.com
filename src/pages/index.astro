@@ -58,6 +58,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
             </ActionLink>
           </div>
           <LabToys position="bottom" />
+          <PlayfulDesk />
           <p class="toy-invitation">小物は、つまんで遊べます。<a href="/playground/">Webの実験室：動くデモと作り方 ↗</a></p><p class="toy-invitation"><a href="/playground/buttons/">まず1つ作ってみる：CSSでぷにぷにボタン。完成コード付き →</a></p>
         </div>
         <aside class="index" aria-label="らぼのひきだし">
@@ -68,6 +69,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
           </div>
           <div class="drawer-box">
             {navigation.filter((item) => item.href !== "/" && item.href !== "/contact/").map((item, index) => (
+              <div class:list={{"drawer-entry": item.href === "/blog/"}}>
               <a href={item.href} class="drawer" style={`--drawer-color: ${item.color}`}>
                 <span class="drawer-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                 <span class="drawer-label">
@@ -77,6 +79,8 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
                 <DrawerAvatar kind={item.href.split("/")[1]} />
                 <span class="drawer-handle" aria-hidden="true"></span>
               </a>
+              {item.href === "/blog/" && <><button class="drawer-open" type="button" aria-expanded="false" aria-controls="drawer-articles" aria-label="記事のひきだしを開ける"></button><div id="drawer-articles" hidden>{posts.map(p => <a href={`/blog/${p.id}/`}>{p.data.title}</a>)}</div></>}
+              </div>
             ))}
           </div>
         </aside>
@@ -107,7 +111,6 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
           ))}
         </div>
       </section>
-      <PlayfulDesk />
       <section class="start-here" aria-labelledby="start-title">
         <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
         <p class="start-lead">つくること、道具を選ぶこと、気になることを掘り下げること。りゅうのらぼの楽しみ方を、3つの記事に。</p>

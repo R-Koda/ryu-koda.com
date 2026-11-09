@@ -2,78 +2,72 @@
 import { journalPosts } from '../lib/posts';
 const articles = (await journalPosts()).slice(0, 8);
 ---
-<section id="play-desk" class="play-desk" aria-label="寄り道の机">
-  <div class="desk-caption"><span>ちょっと、寄り道。</span><button class="lamp-switch" type="button" aria-pressed="false">夜のらぼ</button></div>
-  <div class="desk-surface">
-    <div class="computer-corner">
-      <button class="desk-computer" type="button" aria-expanded="false" aria-controls="desk-screen"><span class="screen-glass" aria-hidden="true"><span>· · ·</span></span><span>パソコンを起動</span></button>
-      <div id="desk-screen" hidden><p>今日は何をつくる？</p><a href="/playground/">Webの実験室へ →</a></div>
-      <div class="pairing"><button type="button" class="desk-mouse" aria-pressed="false" aria-label="マウスを接続する"><svg viewBox="0 0 52 70" width="36" height="48" aria-hidden="true"><rect x="3" y="3" width="46" height="64" rx="22" fill="#ffdfa0" stroke="currentColor" stroke-width="2"/><path d="M26 3v27M3 30h46" stroke="currentColor"/><rect x="23" y="12" width="6" height="12" rx="3" fill="white"/></svg></button><span class="pair-hint">マウスを画面へドラッグ。タップでも接続。</span></div>
-    </div>
-    <details class="flip-note"><summary>これ、地味に便利だった。<span aria-hidden="true">↗</span></summary><div><p>小さな工夫で、毎日がちょっと楽になる。</p><a href="/blog/joy-of-choosing-gadgets/">道具を選ぶ楽しさ →</a><button class="note-doodle" type="button" aria-pressed="false">ノートに落書き</button><span class="doodle" hidden aria-hidden="true">✎ 〰 ☆</span></div></details>
-    <div class="flight-corner"><button type="button" class="send-plane"><svg class="paper-plane" width="65" height="55" viewBox="0 0 80 60" aria-hidden="true"><path d="M5 25 74 5 51 53 34 35 23 45 23 31z" fill="#e5efff" stroke="#354550" stroke-width="2" stroke-linejoin="round"/><path d="m23 31 51-26-40 30-11 10" fill="none" stroke="#354550" stroke-width="2"/></svg><span>今日の寄り道を届ける</span></button><div class="plane-delivery" hidden><span>今日の寄り道</span>{articles.map((p)=><a hidden href={`/blog/${p.id}/`}>{p.data.title}</a>)}</div></div>
-  </div>
-  <div class="desk-bottom">
-    <details class="article-drawer"><summary>記事のひきだしを開ける <span aria-hidden="true">▱</span></summary><div class="spilled-articles">{articles.slice(0,3).map((p)=><a href={`/blog/${p.id}/`}>{p.data.title}<span aria-hidden="true">↗</span></a>)}</div></details>
-    <button class="desk-resident" type="button" aria-label="らぼの住人に挨拶"><span class="resident-head"><img src="/github-avatar.webp" width="44" height="44" alt=""/><span class="resident-hand" aria-hidden="true">✋</span></span><span class="resident-slot" aria-hidden="true"></span></button>
-  </div>
-  <p class="desk-status" role="status" aria-live="polite"></p>
-  <noscript>パソコンや紙飛行機で遊ぶにはJavaScriptを有効にしてください。付箋と記事のひきだしはそのまま開けます。</noscript>
-</section>
+<!-- Small controls beside the existing toys; the toys themselves own the interactions. -->
+<div class="toy-extras">
+  <button class="lamp-switch" type="button" aria-pressed="false">夜のらぼ</button>
+  <button class="send-plane" type="button" aria-label="今日の寄り道を届ける"><svg class="paper-plane" width="38" height="32" viewBox="0 0 80 60" aria-hidden="true"><path d="M5 25 74 5 51 53 34 35 23 45 23 31z" fill="#e5efff" stroke="#354550" stroke-width="2"/><path d="m23 31 51-26-40 30-11 10" fill="none" stroke="#354550" stroke-width="2"/></svg></button>
+</div>
+<div id="toy-discovery" popover="auto" class="toy-discovery">
+ <button class="close-discovery" type="button" aria-label="メッセージを閉じる" popovertarget="toy-discovery" popovertargetaction="hide">×</button>
+ <div data-discovery="computer" hidden><p>今日は何をつくる？</p><a href="/playground/">Webの実験室へ →</a></div>
+ <div data-discovery="notebook" hidden><p>これ、地味に便利だった。</p><p>小さな工夫で、毎日がちょっと楽になる。</p><a href="/blog/joy-of-choosing-gadgets/">道具を選ぶ楽しさ →</a><button class="note-doodle" type="button" aria-pressed="false">ノートに落書き</button></div>
+ <div data-discovery="plane" hidden><p>今日の寄り道</p>{articles.map(p=><a hidden href={`/blog/${p.id}/`}>{p.data.title}</a>)}</div>
+ <p class="toy-feedback" role="status"></p>
+</div>
 <script>
- const desk=document.querySelector<HTMLElement>('.play-desk')!;
+ const intro=document.querySelector<HTMLElement>('.intro')!;
+ const panel=document.querySelector<HTMLElement>('#toy-discovery')!;
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
- const locale=document.documentElement.lang;
- const words=locale==='en'?['Connected. Ready to explore!','A little doodle for your notebook.','Hello! Take your time.']:locale.startsWith('zh')?['连接成功，开始探索吧！','在笔记本上画了一点涂鸦。','你好，慢慢逛！']:['接続できました。準備はばっちり。','ノートに、ちょっと落書き。','こんにちは。ごゆっくり。'];
- const status=desk.querySelector<HTMLElement>('.desk-status')!;
- const pc=desk.querySelector<HTMLButtonElement>('.desk-computer')!;
- const screen=desk.querySelector<HTMLElement>('#desk-screen')!;
- function boot(){const on=pc.getAttribute('aria-expanded')!=='true';pc.setAttribute('aria-expanded',String(on));screen.hidden=!on;desk.classList.toggle('booted',on);}
- pc.addEventListener('click',boot);
- const lamp=desk.querySelector<HTMLButtonElement>('.lamp-switch')!;
- lamp.addEventListener('click',()=>{const night=desk.classList.toggle('night');lamp.setAttribute('aria-pressed',String(night));});
- const mouse=desk.querySelector<HTMLButtonElement>('.desk-mouse')!;
- function connect(){mouse.setAttribute('aria-pressed','true');desk.classList.add('connected','booted');pc.setAttribute('aria-expanded','true');screen.hidden=false;status.textContent=words[0];}
- let dragged=false;
- mouse.addEventListener('click',()=>{if(!dragged)connect();dragged=false;});
- let drag: {id:number,x:number,y:number,moved:boolean}|null=null;
- mouse.addEventListener('pointerdown',e=>{if(e.button!==0)return;dragged=false;drag={id:e.pointerId,x:e.clientX,y:e.clientY,moved:false};mouse.setPointerCapture(e.pointerId);});
- mouse.addEventListener('pointermove',e=>{if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.moved ||= Math.hypot(dx,dy)>6;mouse.style.transform=`translate(${Math.max(-90,Math.min(180,dx))}px,${Math.max(-150,Math.min(30,dy))}px)`;});
- function end(e:PointerEvent){if(!drag)return;dragged=drag.moved;const r=pc.getBoundingClientRect();if(e.type==='pointerup'&&drag.moved&&e.clientX>=r.left-25&&e.clientX<=r.right+25&&e.clientY>=r.top-25&&e.clientY<=r.bottom+25)connect();if(e.type==='pointerup'&&drag.moved){const noteBox=desk.querySelector<HTMLElement>('.flip-note')!;const n=noteBox.getBoundingClientRect();if(e.clientX>=n.left&&e.clientX<=n.right&&e.clientY>=n.top&&e.clientY<=n.bottom){(noteBox as HTMLDetailsElement).open=true;desk.querySelector<HTMLElement>('.doodle')!.hidden=false;desk.querySelector('.note-doodle')!.setAttribute('aria-pressed','true');status.textContent=words[1];}}drag=null;mouse.style.transform='';}
- mouse.addEventListener('pointerup',end);mouse.addEventListener('pointercancel',end);mouse.addEventListener('lostpointercapture',end);
- const note=desk.querySelector<HTMLButtonElement>('.note-doodle')!;
- note.addEventListener('click',()=>{const doodle=desk.querySelector<HTMLElement>('.doodle')!;doodle.hidden=!doodle.hidden;note.setAttribute('aria-pressed',String(!doodle.hidden));status.textContent=doodle.hidden?'':words[1];});
- const flight=desk.querySelector<HTMLButtonElement>('.send-plane')!;
- const delivery=desk.querySelector<HTMLElement>('.plane-delivery')!;
- const links=Array.from(delivery.querySelectorAll<HTMLAnchorElement>('a'));
- let previous=-1,flightAnimation:Animation|undefined;
- flight.addEventListener('click',()=>{if(!links.length)return;let index=links.length===1?0:Math.floor(Math.random()*(previous<0?links.length:links.length-1));if(index>=previous&&previous>=0)index++;previous=index;links.forEach((a,i)=>a.hidden=i!==index);delivery.hidden=false;flightAnimation?.cancel();if(!reduced.matches)flightAnimation=desk.querySelector('.paper-plane')!.animate([{transform:'translate(0,0) rotate(0)'},{transform:'translate(70px,-50px) rotate(15deg)',offset:.4},{transform:'translate(-30px,-20px) rotate(-12deg)',offset:.75},{transform:'translate(0,0) rotate(0)'}],{duration:1000,easing:'ease-in-out'});});
- const resident=desk.querySelector<HTMLButtonElement>('.desk-resident')!;
+ const lang=document.documentElement.lang;
+ const words=lang==='en'?['Connected. Ready to explore!','A little doodle for your notebook.']:lang.startsWith('zh')?['连接成功，开始探索吧！','在笔记本上画了一点涂鸦。']:['接続できました。準備はばっちり。','ノートに、ちょっと落書き。'];
+ const feedback=panel.querySelector<HTMLElement>('.toy-feedback')!;
+ const pc=intro.querySelector<SVGGElement>('.code-screen')!;
+ const notebook=intro.querySelector<SVGGElement>('.notebook')!;
+ const mouse=intro.querySelector<SVGGElement>('.mouse')!;
+ function show(kind:string,anchor:Element){
+  panel.querySelectorAll<HTMLElement>('[data-discovery]').forEach(el=>el.hidden=el.dataset.discovery!==kind);
+  feedback.textContent='';panel.showPopover();
+  const r=anchor.getBoundingClientRect(), width=panel.getBoundingClientRect().width,height=panel.getBoundingClientRect().height;
+  panel.style.left=`${Math.max(12,Math.min(innerWidth-width-12,r.left))}px`;
+  panel.style.top=`${Math.max(12,Math.min(innerHeight-height-12,r.bottom+8))}px`;
+ }
+ pc.closest('.toy-handle')!.setAttribute('aria-controls','toy-discovery');
+ function activate(target:Element){
+  if(target.querySelector('.code-screen')){pc.classList.toggle('is-on');if(pc.classList.contains('is-on'))show('computer',pc);else panel.hidePopover();}
+  else if(target.querySelector('.notebook,.data-note'))show('notebook',target);
+  else if(target.querySelector('.mouse')){pc.classList.add('is-on');mouse.classList.add('is-connected');show('computer',mouse);feedback.textContent=words[0];}
+ }
+ intro.addEventListener('toy-activate',e=>activate(e.target as Element));
+ intro.addEventListener('toy-drop',e=>{
+  const event=e as CustomEvent<{x:number,y:number}>;const target=e.target as Element;
+  const contains=(el:Element)=>{const r=el.getBoundingClientRect();return event.detail.x>=r.left-20&&event.detail.x<=r.right+20&&event.detail.y>=r.top-20&&event.detail.y<=r.bottom+20;};
+  if(target.querySelector('.mouse')&&contains(pc)){pc.classList.add('is-on');mouse.classList.add('is-connected');show('computer',pc);feedback.textContent=words[0];}
+  else if(!target.querySelector('.notebook')&&contains(notebook)){notebook.classList.add('has-doodle');show('notebook',notebook);feedback.textContent=words[1];}
+ });
+ document.querySelector('.note-doodle')!.addEventListener('click',e=>{const on=notebook.classList.toggle('has-doodle');(e.currentTarget as HTMLElement).setAttribute('aria-pressed',String(on));feedback.textContent=on?words[1]:'';});
+ document.querySelector('.lamp-switch')!.addEventListener('click',e=>{const on=intro.classList.toggle('night-lab');(e.currentTarget as HTMLElement).setAttribute('aria-pressed',String(on));});
+ const plane=document.querySelector<HTMLElement>('.send-plane')!;
+ const choices=Array.from(panel.querySelectorAll<HTMLAnchorElement>('[data-discovery="plane"] a'));
+ let previous=-1,flight:Animation|undefined;
+ plane.addEventListener('click',()=>{if(!choices.length)return;let index=Math.floor(Math.random()*(previous<0?choices.length:Math.max(1,choices.length-1)));if(index>=previous&&previous>=0&&choices.length>1)index++;previous=index;choices.forEach((a,i)=>a.hidden=i!==index);show('plane',plane);flight?.cancel();if(!reduced.matches)flight=plane.querySelector('svg')!.animate([{transform:'translate(0,0)'},{transform:'translate(70px,-60px) rotate(20deg)',offset:.45},{transform:'translate(0,0)'}],{duration:900,easing:'ease-in-out'});});
+ const articles=document.querySelector<HTMLElement>('#drawer-articles')!;
+ const drawerButton=document.querySelector<HTMLButtonElement>('.drawer-open')!;
+ drawerButton.addEventListener('click',()=>{articles.hidden=!articles.hidden;drawerButton.setAttribute('aria-expanded',String(!articles.hidden));});
+ const resident=intro.querySelector<HTMLElement>('.drawer')!;
  let idle:ReturnType<typeof setTimeout>,hide:ReturnType<typeof setTimeout>;
- function schedule(){clearTimeout(idle);clearTimeout(hide);desk.classList.remove('peek');if(!reduced.matches&&!document.hidden)idle=setTimeout(()=>{desk.classList.add('peek');hide=setTimeout(()=>desk.classList.remove('peek'),4500);},12000);}
- resident.addEventListener('pointerenter',()=>desk.classList.remove('peek'));
- resident.addEventListener('click',()=>{clearTimeout(hide);desk.classList.add('peek');status.textContent=words[2];hide=setTimeout(()=>desk.classList.remove('peek'),4000);});
- // One brief appearance after inactivity, rather than an endless animation loop.
- ['pointerdown','keydown'].forEach(event=>document.addEventListener(event,schedule,{passive:true}));
- document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{flightAnimation?.cancel();schedule();});
- window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);flightAnimation?.cancel();});schedule();
+ function schedule(){clearTimeout(idle);clearTimeout(hide);resident.classList.remove('resident-peek');if(!reduced.matches&&!document.hidden)idle=setTimeout(()=>{resident.classList.add('resident-peek');hide=setTimeout(()=>resident.classList.remove('resident-peek'),4000);},12000);}
+ resident.addEventListener('pointerenter',()=>resident.classList.remove('resident-peek'));
+ ['pointerdown','keydown'].forEach(name=>document.addEventListener(name,schedule,{passive:true}));
+ document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{flight?.cancel();schedule();});window.addEventListener('resize',()=>panel.hidePopover());window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);flight?.cancel();});schedule();
 </script>
 <style>
- .play-desk{margin:25px 0 55px;padding:22px 26px 12px;background:#fffdf7;border:1.5px solid #354550;border-radius:8px 15px 9px 6px;box-shadow:5px 6px 0 #e4ddd0;color:#354550;position:relative;isolation:isolate}
- .desk-caption{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:'Yomogi Logo',sans-serif;font-size:23px}
- button,summary{cursor:pointer;font:inherit;color:inherit}button{min-height:44px}button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #477ab5;outline-offset:5px}
- .lamp-switch{font:14px Atkinson,sans-serif;border:1.5px solid #354550;border-radius:20px;padding:8px 17px;background:#fff0b8;box-shadow:2px 3px 0 #354550}
- .desk-surface{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;align-items:start;padding:30px 0;border-bottom:3px solid #cbbba1}
- .desk-computer{background:none;border:0;display:grid;gap:10px;font-size:12px;width:190px;max-width:100%;padding:0}.screen-glass{display:grid;place-items:center;height:100px;border:7px solid #435360;border-bottom-width:15px;border-radius:9px;background:#dbe2df;color:#7b9189;box-shadow:0 8px 0 -4px #435360;font-size:25px;transition:background .3s,box-shadow .3s}
- .booted .screen-glass{background:#ccf5df;color:#365c4b;box-shadow:0 8px 0 -4px #435360,0 0 30px #a6e2bd70}.connected .screen-glass span{color:#287248}
- #desk-screen{font-size:13px;margin-top:12px}#desk-screen p{margin:0 0 7px}.pairing{display:flex;align-items:center;gap:12px;margin-top:18px}.desk-mouse{border:0;background:none;touch-action:none;position:relative;z-index:2;cursor:grab}.desk-mouse:active{cursor:grabbing}.pair-hint{font-size:11px;max-width:150px}
- .flip-note{background:#fff0b8;color:#354550;transform:rotate(-3deg);box-shadow:3px 4px 0 #35455020;border:1px solid #d3bd75;padding:18px;font-size:14px}.flip-note summary{min-height:65px;list-style:none;display:flex;align-items:center;gap:10px}.flip-note summary span{font-size:25px}.flip-note[open]{transform:rotate(1deg)}.flip-note[open] summary{border-bottom:1px dashed #b5a56e}.flip-note p{font-size:13px;line-height:1.8}.flip-note a{font-size:13px}.note-doodle{display:block;border:0;border-bottom:1px dashed #a99451;background:none;font-size:12px;margin-top:10px}.doodle{font-size:28px;color:#315db0}
- .send-plane{display:grid;gap:10px;justify-items:center;width:100%;border:0;background:none;font-size:13px}.paper-plane{overflow:visible}.plane-delivery{padding:12px;background:#eaf2ff;color:#354550;border:1px dashed #8fa9c8;border-radius:5px;margin-top:10px}.plane-delivery>span{font-size:11px}.plane-delivery a{font-size:13px;line-height:1.7;display:block;margin-top:5px}.plane-delivery a[hidden],[hidden]{display:none!important}
- .desk-bottom{display:flex;align-items:end;gap:20px;padding-top:15px}.article-drawer{flex:1;min-width:0}.article-drawer summary{background:#e3f1e7;padding:13px 18px;border:1.5px solid #354550;border-radius:5px;color:#354550;box-shadow:0 4px 0 #354550;font-size:14px}.article-drawer summary span{float:right}.spilled-articles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:22px 8px 10px}.spilled-articles a{padding:16px 12px;box-shadow:3px 4px 0 #35455025;background:#fff0b8;border:1px solid #c3b78c;color:#354550;transform:rotate(-2deg);font-size:13px;line-height:1.7}.spilled-articles a:nth-child(2){background:#eaf2ff;transform:rotate(2deg)}.spilled-articles a:nth-child(3){background:#fce3db;transform:rotate(-1deg)}.spilled-articles a span{display:block;text-align:right}.article-drawer[open] .spilled-articles{animation:spill .45s ease-out}
- .desk-resident{position:relative;width:70px;height:70px;flex-shrink:0;border:0;background:none;overflow:hidden}.resident-slot{position:absolute;bottom:0;left:0;width:70px;height:12px;background:#354550;border:3px solid #cbbba1;border-radius:50%}.resident-head{position:absolute;bottom:0;left:12px;transform:translateY(55px);transition:transform .45s cubic-bezier(.2,1.5,.5,1);z-index:1}.resident-head img{border-radius:50%;border:2px solid #354550;background:#fff}.resident-hand{position:absolute;right:-10px;bottom:5px;font-size:22px;transform-origin:bottom}.peek .resident-head,.desk-resident:focus-visible .resident-head{transform:translateY(-8px)}.peek .resident-hand{animation:wave .5s 3 alternate}.desk-status{min-height:20px;font-size:12px;margin:14px 0 0}
- .night{background:#233343;color:#f3eddc;box-shadow:5px 6px 0 #11202e}.night .desk-surface{background:radial-gradient(ellipse at 25% 0,#ffe8ac26,transparent 65%)}.night .desk-caption{color:#ffe9aa}.night .lamp-switch{color:#354550}.night #desk-screen a{color:#ffe9aa}
- @keyframes spill{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:translateY(0)}}@keyframes wave{to{transform:rotate(25deg)}}
- @media(max-width:650px){.play-desk{padding:18px 16px 10px}.desk-surface{grid-template-columns:1fr 1fr;gap:25px 18px}.flight-corner{grid-column:1/-1}.send-plane{display:flex;justify-content:center}.spilled-articles{grid-template-columns:1fr}.desk-caption{font-size:20px}.pair-hint{font-size:10px}.flip-note{padding:12px}.desk-bottom{gap:8px}}
- @media(max-width:450px){.desk-surface{grid-template-columns:minmax(0,1fr)}.computer-corner{display:flex;flex-direction:column;align-items:center}.flip-note{margin:4px 8px}.desk-caption{font-size:18px}.desk-resident{width:55px}.desk-bottom{align-items:start}}
- @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+ .toy-extras{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:-10px}.toy-extras button{cursor:pointer;color:#354550;border:0;background:none;min-height:44px}.lamp-switch{font:12px 'Yomogi Logo',sans-serif!important;border-bottom:1px dashed #b1a887!important}.send-plane{width:48px;transform:rotate(-8deg)}
+ .toy-discovery{position:fixed;margin:0;padding:24px 38px 24px 22px;width:min(300px,calc(100vw - 24px));box-sizing:border-box;max-height:calc(100dvh - 24px);overflow:auto;background:#fff7d8;color:#354550;border:1.5px solid #354550;border-radius:4px 9px 5px 3px;box-shadow:4px 6px 0 #35455022;font-size:14px;line-height:1.8}.toy-discovery::backdrop{background:transparent}.toy-discovery p{margin:0 0 10px}.toy-discovery a{color:#264f85}.toy-discovery [hidden]{display:none!important}.close-discovery{position:absolute;right:3px;top:3px;width:36px;height:36px;border:0;background:none;cursor:pointer;font-size:22px}.note-doodle{display:block;background:none;border:0;border-bottom:1px dashed #8c815b;min-height:44px;cursor:pointer;color:inherit;margin-top:10px}.toy-feedback:empty{display:none}
+ :global(.code-screen.is-on>rect){fill:#bcebd0!important;filter:drop-shadow(0 0 8px #9ddbb6)}:global(.mouse.is-connected>rect){fill:#c4e9d3}:global(.notebook .toy-doodle){opacity:0}:global(.notebook.has-doodle .toy-doodle){opacity:1}
+ :global(.intro){transition:background .3s;border-radius:12px}:global(.intro.night-lab){background:#243443;color:#f5eddb;box-shadow:0 0 0 18px #243443}:global(.intro.night-lab .intro-copy){background:radial-gradient(ellipse at 15% 70%,#ffe6a424,transparent 65%)}:global(.intro.night-lab .intro-lead),:global(.intro.night-lab .toy-invitation),:global(.intro.night-lab .toy-invitation a),:global(.intro.night-lab .drawer-caption),:global(.intro.night-lab .drawer-caption small){color:#f5eddb!important}:global(.intro.night-lab .toy-extras button){color:#ffe6a4}:global(.intro.night-lab .actions a){color:#ffe6a4}
+ :global(.intro.night-lab .drawer),:global(.intro.night-lab #drawer-articles a),:global(.intro.night-lab .actions a:first-child){color:#354550!important}:global(.intro.night-lab h1){color:#fff5dc}:global(.intro.night-lab .greeting-play){color:#a8caff}
+ :global(.drawer-entry){position:relative}:global(.drawer-entry .drawer-open){position:absolute;right:15px;top:21px;width:44px;height:44px;border:0;background:transparent;cursor:pointer;z-index:4}:global(.drawer-entry .drawer-open::after){content:'';display:block;width:25px;height:9px;border:1.5px solid #354550;border-radius:3px;background:#fff5d7;box-shadow:0 2px 0 #35455055}:global(.drawer-entry .drawer-handle){visibility:hidden}:global(#drawer-articles){padding:5px 6px 16px;display:grid;gap:9px}:global(#drawer-articles[hidden]){display:none}:global(#drawer-articles a){background:#fff7d8;padding:12px!important;border:1px solid #bbae88;box-shadow:2px 3px 0 #35455022;transform:rotate(-1deg);font-size:12px!important;line-height:1.7}:global(#drawer-articles a:nth-child(2)){transform:rotate(1deg);background:#eaf2ff}:global(.drawer-entry:has(.drawer-open[aria-expanded="true"]) .drawer){transform:translate(-6px,3px);box-shadow:6px 7px 0 #303d48}
+ :global(.resident-peek .drawer-avatar){opacity:1!important;transform:translateY(0) rotate(5deg)!important}:global(.resident-peek .avatar-arm){animation:hello-wave .5s 3 alternate!important}
+ button:focus-visible,:global(.drawer-open:focus-visible){outline:3px solid #477ab5;outline-offset:3px}@keyframes hello-wave{to{transform:rotate(-20deg)}}
+ @media(prefers-reduced-motion:reduce){:global(.intro),:global(.resident-peek *){transition:none!important;animation:none!important}}
 </style>

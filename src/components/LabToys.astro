@@ -10,6 +10,7 @@ const { position } = Astro.props;
     <svg role="group" aria-label="動かせる小物" viewBox="0 -100 560 230" fill="none">
       <path d="M10 116h540" stroke="#d3d9de" stroke-dasharray="3 7" />
       <g class="toy-handle" tabindex="0" role="button" aria-label="ノートで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="notebook">
+
         <rect
           x="20"
           y="22"
@@ -37,6 +38,7 @@ const { position } = Astro.props;
           stroke="#354550"
           stroke-width="1.5"
         />
+        <path class="toy-doodle" d="m55 60 6-10 6 10 10 2-8 7 2 11-10-6-10 6 2-11-8-7z" fill="#ffe28c" stroke="#41669b" stroke-width="2" />
       </g></g>
       <g class="toy-handle" tabindex="0" role="button" aria-label="キーボードで遊ぶ" aria-describedby={`toy-help-${position}`}><g class="keyboard">
         <rect
@@ -473,7 +475,7 @@ const { position } = Astro.props;
       shadow.setAttribute('fill', '#354550'); shadow.setAttribute('pointer-events', 'none');
       shadow.setAttribute('aria-hidden', 'true'); svg.prepend(shadow);
       let x = 0, y = 0, vx = 0, vy = 0, frame = 0, last = 0, movedAt = 0;
-      let active: number | null = null, originX = 0, originY = 0;
+      let active: number | null = null, originX = 0, originY = 0, startX = 0, startY = 0, dragged = false;
       const draw = () => {
         handle.setAttribute('transform', `translate(${x} ${y})`);
         const height = Math.max(0, bottom - y);
@@ -517,10 +519,12 @@ const { position } = Astro.props;
       handle.addEventListener('pointerdown', (e) => {
         if (active !== null || (e.pointerType === 'mouse' && e.button !== 0)) return;
         stop(); const p = point(e); originX = p.x - x; originY = p.y - y; movedAt = performance.now();
+        startX=e.clientX;startY=e.clientY;dragged=false;
         active = e.pointerId; handle.setPointerCapture(e.pointerId); handle.setAttribute('data-held', '');
       });
       handle.addEventListener('pointermove', (e) => {
         if (active !== e.pointerId) return;
+        dragged ||= Math.hypot(e.clientX-startX,e.clientY-startY)>6;
         const p = point(e), now = performance.now(), dt = Math.max((now - movedAt) / 1000, .008);
         const oldX = x, oldY = y; x = p.x - originX; y = p.y - originY; clamp();
         vx = Math.max(-900, Math.min(900, (x - oldX) / dt));
@@ -529,11 +533,13 @@ const { position } = Astro.props;
       });
       const finish = (e: PointerEvent) => {
         if (active !== e.pointerId) return;
+        if(e.type==='pointerup'&&dragged)handle.dispatchEvent(new CustomEvent('toy-drop',{bubbles:true,detail:{x:e.clientX,y:e.clientY}}));
         active = null; handle.removeAttribute('data-held');
         if (handle.hasPointerCapture(e.pointerId)) handle.releasePointerCapture(e.pointerId);
         if (performance.now() - movedAt > 100 || e.type === 'pointercancel') vx = vy = 0;
         release();
       };
+      handle.addEventListener('click',()=>{if(!dragged)handle.dispatchEvent(new CustomEvent('toy-activate',{bubbles:true}));dragged=false;});
       handle.addEventListener('pointerup', finish);
       handle.addEventListener('pointercancel', finish);
       handle.addEventListener('lostpointercapture', finish);
@@ -545,7 +551,7 @@ const { position } = Astro.props;
         if (e.key === 'ArrowRight') x += 25;
         if (e.key === 'ArrowUp') y -= 35;
         if (e.key === 'ArrowDown') y += 25;
-        if (e.key === 'Enter' || e.key === ' ') vy = -500;
+        if (e.key === 'Enter' || e.key === ' ') { vy = -500;handle.dispatchEvent(new CustomEvent('toy-activate',{bubbles:true})); }
         clamp(); draw(); release();
       });
       scene.addEventListener('toy-reset', reset);
