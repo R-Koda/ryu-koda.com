@@ -49,14 +49,29 @@ const articles = (await journalPosts()).slice(0, 8);
  const plane=document.querySelector<HTMLElement>('.send-plane')!;
  const choices=Array.from(panel.querySelectorAll<HTMLAnchorElement>('[data-discovery="plane"] a'));
  let previous=-1,flight:Animation|undefined,airplane:SVGSVGElement|undefined;
+ let autoFlight:ReturnType<typeof setTimeout>|undefined;
+ function scheduleFlight(first=false){
+  clearTimeout(autoFlight);
+  if(reduced.matches||document.hidden)return;
+  autoFlight=setTimeout(()=>{
+   // Leave open notes, typing and dragging undisturbed.
+   if(flight||panel.matches(':popover-open')||document.querySelector('[data-held]')||document.activeElement?.matches('input,textarea,[contenteditable="true"]')){scheduleFlight();return;}
+   takeFlight(false);
+  },first?18000:30000+Math.random()*25000);
+ }
+
  function land(){flight?.cancel();flight=undefined;airplane?.remove();airplane=undefined;plane.style.opacity='';plane.removeAttribute('aria-busy');}
- plane.addEventListener('click',()=>{
-  if(!choices.length||flight)return;
+ function takeFlight(deliver:boolean){
+  if(flight)return;
+  clearTimeout(autoFlight);
+  if(deliver){
+  if(!choices.length){scheduleFlight();return;}
   let index=Math.floor(Math.random()*(previous<0?choices.length:Math.max(1,choices.length-1)));
   if(index>=previous&&previous>=0&&choices.length>1)index++;
   previous=index;choices.forEach((a,i)=>a.hidden=i!==index);
-  if(reduced.matches){show('plane',plane);return;}
-  panel.hidePopover();
+  }
+  if(reduced.matches){if(deliver)show('plane',plane);return;}
+  if(deliver)panel.hidePopover();
   const original=plane.querySelector('svg')!,r=original.getBoundingClientRect();
   airplane=original.cloneNode(true) as SVGSVGElement;
   airplane.setAttribute('aria-hidden','true');
@@ -67,8 +82,10 @@ const articles = (await journalPosts()).slice(0, 8);
   // Fixed to the viewport: the flight remains visible even if the reader scrolls.
   const points=[[x,y,0,0],[w*.78,h*.15,-18,.18],[w*.96,h*.38,65,.32],[w*.55,h*.83,150,.5],[w*.08,h*.55,210,.66],[w*.2,h*.12,285,.8],[x,y,360,1]];
   flight=airplane.animate(points.map(([px,py,angle,offset])=>({transform:`translate(${px}px,${py}px) rotate(${angle}deg)`,offset})),{duration:6200,easing:'ease-in-out',fill:'forwards'});
-  flight.onfinish=()=>{land();show('plane',plane);};
- });
+  flight.onfinish=()=>{land();if(deliver)show('plane',plane);scheduleFlight();};
+ }
+ plane.addEventListener('click',()=>takeFlight(true));
+ scheduleFlight(true);
  const articles=document.querySelector<HTMLElement>('#drawer-articles')!;
  const drawerButton=document.querySelector<HTMLButtonElement>('.drawer-open')!;
  drawerButton.addEventListener('click',()=>{articles.hidden=!articles.hidden;drawerButton.setAttribute('aria-expanded',String(!articles.hidden));});
@@ -77,7 +94,7 @@ const articles = (await journalPosts()).slice(0, 8);
  function schedule(){clearTimeout(idle);clearTimeout(hide);resident.classList.remove('resident-peek');if(!reduced.matches&&!document.hidden)idle=setTimeout(()=>{resident.classList.add('resident-peek');hide=setTimeout(()=>resident.classList.remove('resident-peek'),4000);},12000);}
  resident.addEventListener('pointerenter',()=>resident.classList.remove('resident-peek'));
  ['pointerdown','keydown'].forEach(name=>document.addEventListener(name,schedule,{passive:true}));
- document.addEventListener('visibilitychange',()=>{if(document.hidden)land();schedule();});reduced.addEventListener('change',()=>{land();schedule();});window.addEventListener('resize',()=>{land();panel.hidePopover();});window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);land();});schedule();
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)land();scheduleFlight();schedule();});reduced.addEventListener('change',()=>{land();scheduleFlight();schedule();});window.addEventListener('resize',()=>{land();scheduleFlight();panel.hidePopover();});window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);clearTimeout(autoFlight);land();});window.addEventListener('pageshow',e=>{if(e.persisted){scheduleFlight();schedule();}});schedule();
 </script>
 <style>
  .toy-extras{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:-10px}.toy-extras button{cursor:pointer;color:#354550;border:0;background:none;min-height:44px}.lamp-switch{font:12px 'Yomogi Logo',sans-serif!important;border-bottom:1px dashed #b1a887!important}.send-plane{width:48px;transform:rotate(-8deg)}
