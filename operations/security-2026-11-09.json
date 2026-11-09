@@ -13,7 +13,7 @@
     "ryu-koda.com": "max-age=2592000 verified",
     "includeSubDomains": false,
     "preload": false,
-    "solo-researcher.com": "PENDING EXPLICIT APPROVAL: static-to-Worker deployment rejected by auto-review; v39 remains live; main reverted to identical static content",
+    "solo-researcher.com": "Enabled after explicit owner approval; production HTTP 200 and max-age=2592000 verified 2026-11-09 15:12 JST",
     "draw.ryu-koda.com": "max-age=2592000 verified after Worker header-only change; home and practice drawing UI checked"
   },
   "dmarc": {
@@ -31,6 +31,10 @@
     "commit": "b8940750c1c5b092770865d42157b59b008052f2",
     "github_branch": "codex/hsts-worker-candidate",
     "tests": "94 exact bodies, HEAD, ETag, HSTS, redirects, 404, invalid method/path, 1047 links, analytics gating",
-    "not_deployed": true
+    "not_deployed": false,
+    "deployment": "appgdep_6af1640fe3d4819195d5a2c82c18654c",
+    "version": 40,
+    "approval": "User explicitly approved serving-mode change and deployment",
+    "main_commit": "35aed32b5a4096b3159654a669c1ad04793adf65"
   }
 }
