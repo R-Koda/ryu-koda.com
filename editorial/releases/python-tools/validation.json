@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "build": "passed: 44 base pages; 56 translated pages",
+    "seo": "passed: 107 HTML pages, local links, metadata, structured data, sitemap",
+    "tests": "10 passed",
+    "editorial": "2 review rounds completed by same agent",
+    "browser": "Chrome preview: article renders; GitHub links present; EventScore tolerance 0 -> 0.5 changes TP/FP/FN 2/3/2 -> 3/2/1; Notebook cell 3 output removal selected, cell 2 retained"
+  },
+  "translations": "60 new strings per language authored locally; external translation refresh rejected by approval review and was not executed",
+  "guides": "Existing purpose guides focus on file organization, websites and gadgets; no unrelated guide or navigation tab was added. Reader path and related Python article provide contextual navigation.",
+  "preview": "https://b242f56b.ryu-koda.pages.dev/blog/python-tools-splittrace-eventscore-notebook/",
+  "limits": "No real-user effectiveness claims. Browser notebook download itself not retested in this article task."
+}

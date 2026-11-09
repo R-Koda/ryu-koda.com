@@ -1,0 +1,3 @@
+データを分ける・評価する・公開する。その前後の確認を助けるPythonツールを3つ公開しました。SplitTrace、EventScore Explorer、Notebook Publish Check。合成デモとGitHubをまとめました。
+https://ryu-koda.com/blog/python-tools-splittrace-eventscore-notebook/
+※投稿用素材。SNSには未投稿。

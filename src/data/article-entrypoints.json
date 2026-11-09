@@ -2,5 +2,6 @@
   "find-duplicate-files-python": {"result":"Pythonで中身が同じファイルを一覧にします。名前が同じだけのファイルと区別し、削除はしません。","target":"MacでPythonの小さなスクリプトを動かしてみたい方。練習用ファイルと、コマンド→結果の確認手順があります。"},
   "resize-blog-images-webp": {"result":"Node.jsとsharpで画像3枚をWebPに変換します。今回のPNG原稿では、合計7.19MBが約0.21MBになりました。","target":"Macでブログ用の画像を軽くしたい方。配布した練習用画像で再現できます。画像の内容によって圧縮率は変わります。"},
   "claude-code-auto-dispatcher": {"result":"MCPの設定を追加し、.mcp.jsonの内容を確認して、最後に削除します。外部サービスとの接続成功を扱う記事ではありません。","target":"Claude Codeを導入済みのMacが対象です。設定場所を確かめながら、練習用フォルダーで試します。"},
-  "nintendo-switch-tech-tools-accessories": {"result":"イヤホン・保存容量・有線接続について、周辺機器を買う前に本体の設定と対応条件を確認します。","target":"Switch・有機ELモデル・Liteが対象です。Switch 2は対象外。公式情報を整理した記事で、実機レビューではありません。"}
+  "nintendo-switch-tech-tools-accessories": {"result":"イヤホン・保存容量・有線接続について、周辺機器を買う前に本体の設定と対応条件を確認します。","target":"Switch・有機ELモデル・Liteが対象です。Switch 2は対象外。公式情報を整理した記事で、実機レビューではありません。"},
+  "python-tools-splittrace-eventscore-notebook": {"result": "分割・評価・Notebook公開の3つの確認ツールを、合成デモで見比べられます。", "target": "Pythonでデータ分析・機械学習を行う方。まずブラウザの出力例を見て、用途が合えばGitHubから試せます。"}
 }

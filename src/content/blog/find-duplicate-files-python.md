@@ -100,3 +100,6 @@ print(json.dumps({&#x27;duplicate_groups&#x27;:result,&#x27;errors&#x27;:errors}
 ## 消す前に、わかるようにする。
 
 <p>今回つくったのは、片づけを全部やってくれる道具ではありません。同じかどうかを、開いて確認する手間を減らすものです。</p><p>どれを残すか考える前に、まず何が重なっているかを知る。それだけでも、次にすることを決めやすくなると思います。</p><p>ファイル名も整えたくなったら、<a href="https://ryu-koda.com/blog/mac-finder-batch-rename/">MacのFinderで名前をまとめて変えた記事</a>へ。小さな面倒を、ひとつずつ減らしていきたいです。</p><p>参照：<a href="https://docs.python.org/3/library/hashlib.html">Python公式のhashlib解説</a>。検出結果は配布サンプルで実行して確認しました。</p>
+
+
+Notebookや機械学習のデータも点検したい方へ。[分割・評価・公開を助けるPythonツール3つの紹介](/blog/python-tools-splittrace-eventscore-notebook/)では、ブラウザで見られる合成デモとGitHubをまとめています。

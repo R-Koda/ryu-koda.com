@@ -53,5 +53,10 @@
     "slug": "resize-blog-images-webp",
     "title": "まず画像1枚から、軽くしてみる",
     "reason": "練習用画像とコマンドを使って、変換前後の容量と見た目を比べられます。"
+  },
+  "python-tools-splittrace-eventscore-notebook": {
+    "slug": "find-duplicate-files-python",
+    "title": "Pythonで、手元のファイルも点検してみる",
+    "reason": "削除せずに重複だけを一覧にする、練習用サンプルと実行手順があります。"
   }
 }
