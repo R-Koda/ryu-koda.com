@@ -1,4 +1,4 @@
-const categories = ['仕事・制作のご相談', '製品レビュー・取材', '記事へのご質問・訂正', 'その他'];
+const categories = ['仕事・制作のご相談', '製品レビュー・取材', '記事へのご質問・訂正', 'その他', 'セキュリティの報告', 'Solo Researcherへのお問い合わせ'];
 const reply = (status, message) => Response.json({ok: status === 200, message}, {status, headers:{'Cache-Control':'no-store', 'X-Content-Type-Options':'nosniff'}});
 const encode = value => btoa(String.fromCharCode(...new TextEncoder().encode(value)));
 export async function handleContact(request, env, services) {

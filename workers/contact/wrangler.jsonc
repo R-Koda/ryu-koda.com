@@ -5,7 +5,7 @@
   "account_id": "b1f2db68d54c9bbf94a871b5ae37ad40",
   "workers_dev": false,
   "preview_urls": false,
-  "routes": [{"pattern":"ryu-koda.com/api/contact", "zone_name":"ryu-koda.com"}],
+  "routes": [{"pattern":"ryu-koda.com/security-contact*","zone_name":"ryu-koda.com"},{"pattern":"ryu-koda.com/.well-known/security.txt","zone_name":"ryu-koda.com"},{"pattern":"ryu-koda.com/api/contact", "zone_name":"ryu-koda.com"}],
   "send_email": [{"name":"EMAIL", "allowed_sender_addresses":["contact@ryu-koda.com"]}],
   "ratelimits": [{"name":"CONTACT_LIMIT", "namespace_id":"1041", "simple":{"limit":5,"period":60}}]
 }
