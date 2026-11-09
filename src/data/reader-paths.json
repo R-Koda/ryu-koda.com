@@ -58,5 +58,20 @@
     "slug": "find-duplicate-files-python",
     "title": "Pythonで、手元のファイルも点検してみる",
     "reason": "削除せずに重複だけを一覧にする、練習用サンプルと実行手順があります。"
+  },
+  "splittrace-data-leakage-check": {
+    "slug": "python-tools-splittrace-eventscore-notebook",
+    "title": "ほかの確認ツールも見る",
+    "reason": "分割・評価・Notebook公開の3つの用途から、次に試す道具を選べます。"
+  },
+  "eventscore-explorer-event-evaluation": {
+    "slug": "python-tools-splittrace-eventscore-notebook",
+    "title": "ほかの確認ツールも見る",
+    "reason": "分割・評価・Notebook公開の3つの用途から、次に試す道具を選べます。"
+  },
+  "notebook-publish-check-guide": {
+    "slug": "python-tools-splittrace-eventscore-notebook",
+    "title": "ほかの確認ツールも見る",
+    "reason": "分割・評価・Notebook公開の3つの用途から、次に試す道具を選べます。"
   }
 }

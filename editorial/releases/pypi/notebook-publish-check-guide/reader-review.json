@@ -1,0 +1,31 @@
+{
+  "claim": "図を残し、ログのあるセルだけを選ぶ",
+  "audience": "Python利用者。1つの用途を試したい読者",
+  "role": "新規流入から公開デモ・PyPI・GitHubへつなぐ",
+  "reviewer": "Codexによる2回の自己査読",
+  "rounds": [
+    {
+      "round": 1,
+      "input": "draft-0.md",
+      "findings": [
+        "出力ファイルの再実行時の扱いが曖昧"
+      ],
+      "changes": [
+        "別名で保存する案内を追加"
+      ],
+      "output": "round-1.md"
+    },
+    {
+      "round": 2,
+      "input": "round-1.md",
+      "findings": [
+        "公開デモとローカル入力が混同され得る"
+      ],
+      "changes": [
+        "合成デモはアップロードサービスでないと明記"
+      ],
+      "verdict": "公開可"
+    }
+  ],
+  "public_install_verification": "All 3 packages installed from official PyPI in a fresh environment; 39 tests and the documented sample commands passed."
+}
