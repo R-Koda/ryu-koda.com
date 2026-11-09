@@ -28,3 +28,10 @@ test('oversized requests and missing configuration fail closed',async()=>{
  assert.equal((await handleContact(request({...payload,message:'x'.repeat(25000)}),env,{})).status,413);
  assert.equal((await handleContact(request(),{},{})).status,503);
 });
+test('shared reporting categories use the same verified, fixed-recipient delivery',async()=>{
+ for(const category of ['セキュリティの報告','Solo Researcherへのお問い合わせ']) {
+  let recipient;
+  const response=await handleContact(request({...payload,category,message:'対象サイト: solo-researcher.com\n\nテスト'}),env,{verify,send:async(_from,to)=>{recipient=to;}});
+  assert.equal(response.status,200); assert.equal(recipient,env.CONTACT_TO);
+ }
+});
