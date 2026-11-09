@@ -1,0 +1,22 @@
+{
+  "reader": "初めてCLIを試すPython利用者",
+  "purpose": "ZIP取得から結果確認まで再現する",
+  "reviewer": "Codexによる自己査読",
+  "rounds": [
+    {
+      "round": 1,
+      "input": "draft-0.md",
+      "finding": "コマンドと説明の区別、Notebook保存後の再点検手順が不足",
+      "change": "入力ブロックの説明とNotebookのStep 6を追加",
+      "output": "round-1.md"
+    },
+    {
+      "round": 2,
+      "input": "round-1.md",
+      "finding": "実行結果を文章のみで示していた",
+      "change": "検証で得た実行結果の抜粋を入力コードと別表示",
+      "verdict": "公開可"
+    }
+  ],
+  "verification": "GitHub main ZIPを新規展開し、各専用venvへPyPI 0.1.0をインストール。記載のCLIで期待した出力と終了コードを確認。macOS環境。FinderのZIP展開操作やWindows/Linuxの実機検証は未実施。"
+}
