@@ -3,6 +3,7 @@ import { SITE_DESCRIPTION } from "../consts";
 import { thumbnailAttrs } from "../lib/thumbnails";
 import { navigation } from "../data/navigation";
 import DrawerAvatar from "../components/DrawerAvatar.astro";
+import PlayfulDesk from "../components/PlayfulDesk.astro";
 import HomeSurprises from "../components/HomeSurprises.astro";
 import LabToys from "../components/LabToys.astro";
 import BaseHead from "../components/BaseHead.astro";
@@ -106,6 +107,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
           ))}
         </div>
       </section>
+      <PlayfulDesk />
       <section class="start-here" aria-labelledby="start-title">
         <div class="section-heading"><h2 id="start-title">まずは、この3つから。</h2></div>
         <p class="start-lead">つくること、道具を選ぶこと、気になることを掘り下げること。りゅうのらぼの楽しみ方を、3つの記事に。</p>
