@@ -48,8 +48,27 @@ const articles = (await journalPosts()).slice(0, 8);
  document.querySelector('.lamp-switch')!.addEventListener('click',e=>{const on=intro.classList.toggle('night-lab');(e.currentTarget as HTMLElement).setAttribute('aria-pressed',String(on));});
  const plane=document.querySelector<HTMLElement>('.send-plane')!;
  const choices=Array.from(panel.querySelectorAll<HTMLAnchorElement>('[data-discovery="plane"] a'));
- let previous=-1,flight:Animation|undefined;
- plane.addEventListener('click',()=>{if(!choices.length)return;let index=Math.floor(Math.random()*(previous<0?choices.length:Math.max(1,choices.length-1)));if(index>=previous&&previous>=0&&choices.length>1)index++;previous=index;choices.forEach((a,i)=>a.hidden=i!==index);show('plane',plane);flight?.cancel();if(!reduced.matches)flight=plane.querySelector('svg')!.animate([{transform:'translate(0,0)'},{transform:'translate(70px,-60px) rotate(20deg)',offset:.45},{transform:'translate(0,0)'}],{duration:900,easing:'ease-in-out'});});
+ let previous=-1,flight:Animation|undefined,airplane:SVGSVGElement|undefined;
+ function land(){flight?.cancel();flight=undefined;airplane?.remove();airplane=undefined;plane.style.opacity='';plane.removeAttribute('aria-busy');}
+ plane.addEventListener('click',()=>{
+  if(!choices.length||flight)return;
+  let index=Math.floor(Math.random()*(previous<0?choices.length:Math.max(1,choices.length-1)));
+  if(index>=previous&&previous>=0&&choices.length>1)index++;
+  previous=index;choices.forEach((a,i)=>a.hidden=i!==index);
+  if(reduced.matches){show('plane',plane);return;}
+  panel.hidePopover();
+  const original=plane.querySelector('svg')!,r=original.getBoundingClientRect();
+  airplane=original.cloneNode(true) as SVGSVGElement;
+  airplane.setAttribute('aria-hidden','true');
+  airplane.style.cssText=`position:fixed;left:0;top:0;width:52px;height:44px;pointer-events:none;z-index:1000;filter:drop-shadow(2px 6px 3px #35455030);`;
+  document.body.append(airplane);plane.style.opacity='.25';plane.setAttribute('aria-busy','true');
+  const w=Math.max(0,innerWidth-64),h=Math.max(0,innerHeight-56);
+  const x=Math.max(8,Math.min(w,r.left)),y=Math.max(8,Math.min(h,r.top));
+  // Fixed to the viewport: the flight remains visible even if the reader scrolls.
+  const points=[[x,y,0,0],[w*.78,h*.15,-18,.18],[w*.96,h*.38,65,.32],[w*.55,h*.83,150,.5],[w*.08,h*.55,210,.66],[w*.2,h*.12,285,.8],[x,y,360,1]];
+  flight=airplane.animate(points.map(([px,py,angle,offset])=>({transform:`translate(${px}px,${py}px) rotate(${angle}deg)`,offset})),{duration:6200,easing:'ease-in-out',fill:'forwards'});
+  flight.onfinish=()=>{land();show('plane',plane);};
+ });
  const articles=document.querySelector<HTMLElement>('#drawer-articles')!;
  const drawerButton=document.querySelector<HTMLButtonElement>('.drawer-open')!;
  drawerButton.addEventListener('click',()=>{articles.hidden=!articles.hidden;drawerButton.setAttribute('aria-expanded',String(!articles.hidden));});
@@ -58,7 +77,7 @@ const articles = (await journalPosts()).slice(0, 8);
  function schedule(){clearTimeout(idle);clearTimeout(hide);resident.classList.remove('resident-peek');if(!reduced.matches&&!document.hidden)idle=setTimeout(()=>{resident.classList.add('resident-peek');hide=setTimeout(()=>resident.classList.remove('resident-peek'),4000);},12000);}
  resident.addEventListener('pointerenter',()=>resident.classList.remove('resident-peek'));
  ['pointerdown','keydown'].forEach(name=>document.addEventListener(name,schedule,{passive:true}));
- document.addEventListener('visibilitychange',schedule);reduced.addEventListener('change',()=>{flight?.cancel();schedule();});window.addEventListener('resize',()=>panel.hidePopover());window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);flight?.cancel();});schedule();
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)land();schedule();});reduced.addEventListener('change',()=>{land();schedule();});window.addEventListener('resize',()=>{land();panel.hidePopover();});window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);land();});schedule();
 </script>
 <style>
  .toy-extras{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:-10px}.toy-extras button{cursor:pointer;color:#354550;border:0;background:none;min-height:44px}.lamp-switch{font:12px 'Yomogi Logo',sans-serif!important;border-bottom:1px dashed #b1a887!important}.send-plane{width:48px;transform:rotate(-8deg)}
