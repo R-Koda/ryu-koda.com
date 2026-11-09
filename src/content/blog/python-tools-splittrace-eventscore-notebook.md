@@ -71,9 +71,48 @@ Notebook Publish Checkはコードを実行せずにNotebookを読み、認証�
 
 ## まずはデモ、次に手元のサンプルで
 
-3つともPython 3.10以上で動きます。実行部分はPython標準ライブラリだけで構成しています。PyPIにはまだ公開していないため、同名パッケージを探すのではなく、この記事のGitHubリンクから入手してください。
+3つともPython 3.10以上で動きます。実行部分はPython標準ライブラリだけで構成しています。PyPIからインストールする場合は、まず作業用フォルダーで仮想環境を作ります。
 
-GitHubのREADMEには、入手方法・コマンド・サンプル形式をまとめています。まず同梱の合成データで出力を確認し、それから自分の小さなデータで試す順番がおすすめです。
+```sh
+python3 -m venv .venv
+```
+
+通常はメッセージが出ず、`.venv`フォルダーができれば準備完了です。macOS・Linuxでは次のコマンドで有効にします。
+
+```sh
+source .venv/bin/activate
+```
+
+WindowsのPowerShellでは `.venv\Scripts\Activate.ps1` を使います。Windowsで `python3` が見つからなければ、仮想環境の作成には `py -3 -m venv .venv` を使います。
+
+必要なものだけ、次のコマンドでインストールできます。3つすべてを入れる必要はありません。
+
+**SplitTrace：分割の点検**
+
+```sh
+python -m pip install splittrace
+splittrace --help
+```
+
+**EventScore Explorer：時系列イベントの評価**
+
+```sh
+python -m pip install eventscore-explorer
+eventscore --help
+```
+
+**Notebook Publish Check：公開前の点検**
+
+```sh
+python -m pip install notebook-publish-check
+nbpublish --help
+```
+
+それぞれ最後のコマンドで使い方が表示されれば、コマンドを呼び出せています。インストール名と実行コマンド名は異なる場合があるので、上の組み合わせで試してください。パッケージ情報は[SplitTraceのPyPI](https://pypi.org/project/splittrace/)、[EventScore ExplorerのPyPI](https://pypi.org/project/eventscore-explorer/)、[Notebook Publish CheckのPyPI](https://pypi.org/project/notebook-publish-check/)で確認できます。
+
+サンプルCSV・Notebookはpipでは作業フォルダーに配置されません。GitHubの「Code → Download ZIP」でソースを取得・展開し、そのフォルダーに移動してREADMEのサンプルコマンドを実行します。公開デモを見るだけなら、インストールは不要です。
+
+`command not found` なら仮想環境を有効にしたターミナルか確認します。`No matching distribution found` なら `python --version` で3.10以上か、パッケージ名に誤字がないか確認してください。
 
 ## 使える範囲を確かめながら育てる
 
