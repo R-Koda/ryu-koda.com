@@ -101,7 +101,17 @@ macOSでは次のコマンドで、生成したHTMLを標準ブラウザで開�
 open pypi-audit.html
 ```
 
+以下は、この記事と同じ合成サンプルの公開デモをChromeで実際に操作して撮影した画面です。画像をクリックすると原寸で確認できます。
+
+[![SplitTraceのFAILと各検査の判定画面](/articles/python-tools/screenshots/splittrace-result.png)](/articles/python-tools/screenshots/splittrace-result.png)
+
+まず上部の「SplitTrace: FAIL」を確認します。下のlineageはFAIL、subjectとintervalはUNKNOWNです。UNKNOWNを「問題なし」と読み替えないのがポイントです。
+
 レポートのFAILと、a・bがepoch-01を共有する経路を探します。a → image-01 → epoch-01、b → epoch-01という入力の関係を、レポートと照合できれば完了です。UNKNOWNは情報不足で判定できない検査で、PASSとは別です。
+
+[![findings内のancestorと左右の派生経路](/articles/python-tools/screenshots/splittrace-lineage.png)](/articles/python-tools/screenshots/splittrace-lineage.png)
+
+少し下へスクロールしてfindingsを探します。ancestorがepoch-01、left_pathとright_pathの末尾もepoch-01になっています。別々のサンプルa・bが、同じ元データにつながることをここで確認します。
 
 ## つまずいたときと、次に自分のデータを使うとき
 

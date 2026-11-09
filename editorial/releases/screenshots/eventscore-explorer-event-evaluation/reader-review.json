@@ -1,0 +1,29 @@
+{
+  "audience": "CLIとHTMLレポートを初めて使う読者",
+  "purpose": "手順中の操作場所と期待結果を実画面で照合できるようにする",
+  "reviewer": "Codexによる自己査読",
+  "rounds": [
+    {
+      "round": 1,
+      "input": "before.md",
+      "finding": "文章だけでは操作場所と結果の対応を追いづらい",
+      "change": "実際の公開合成デモを操作し7枚を撮影、該当手順へ挿入",
+      "output": "round-1.md"
+    },
+    {
+      "round": 2,
+      "input": "round-1.md",
+      "finding": "NotebookとEventScoreの既存説明が図の説明と重複。画像の切り出し範囲も要確認",
+      "change": "重複説明を整理し、原因経路・セル選択の切り出しを実画像で検証。全画像に代替テキストと原寸リンクを付与",
+      "verdict": "公開可"
+    }
+  ],
+  "capture": {
+    "date": "2026-11-09",
+    "operator": "Codex",
+    "browser": "Chrome",
+    "data": "公開済み合成サンプルのみ。個人の実データなし",
+    "images": "public/articles/python-tools/screenshots/",
+    "method": "実画面のスクリーンショット。画像生成や再現HTMLは不使用"
+  }
+}

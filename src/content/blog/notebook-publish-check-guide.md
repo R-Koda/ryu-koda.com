@@ -101,7 +101,21 @@ macOSでは次のコマンドで、生成したHTMLを標準ブラウザで開�
 open reports/review.html
 ```
 
-上部の「4 cells · 7 findings」を確認します。セル3の「Remove all outputs and execution count from this cell」にチェックを入れ、セル2にはチェックを入れません。「Download selected copy (.ipynb)」を押し、reviewed-copy.ipynbを保存します。元のNotebookとは別のファイルです。
+以下は、この記事と同じ合成サンプルの公開デモをChromeで実際に操作して撮影した画面です。画像をクリックすると原寸で確認できます。
+
+[![Notebook Publish Checkの初期集計と保存ボタン](/articles/python-tools/screenshots/notebook-summary.png)](/articles/python-tools/screenshots/notebook-summary.png)
+
+① 最初に右側の「4 cells · 7 findings」を確認します。この時点では「0 cells: outputs removed」と表示され、削除対象はまだ選ばれていません。
+
+次は、図を残してログだけを外します。下の②・③の順に操作すると、reviewed-copy.ipynbという別ファイルが保存されます。
+
+[![セル3の出力削除チェックを入れた状態](/articles/python-tools/screenshots/notebook-cell3-selected.png)](/articles/python-tools/screenshots/notebook-cell3-selected.png)
+
+② Cell 3まで下へ進み、画像のチェック欄を選びます。Cell 2は選びません。チェックするとセル3のログ表示が消えますが、元ファイルは変更されません。
+
+[![1セル選択後の件数とDownload selected copyボタン](/articles/python-tools/screenshots/notebook-download-selection.png)](/articles/python-tools/screenshots/notebook-download-selection.png)
+
+③ 上へ戻り、「1 cells: outputs removed」を確認して緑色のボタンを押します。上の7 findingsは元Notebookの点検結果です。保存したコピーの指摘件数は、次のStep 6で調べ直します。
 
 ## Step 6：保存したコピーをもう一度点検する
 

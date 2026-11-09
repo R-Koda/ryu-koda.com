@@ -101,7 +101,17 @@ macOSでは次のコマンドで、生成したHTMLを標準ブラウザで開�
 open reports/events.html
 ```
 
-画面の「Endpoint tolerance (seconds)」で0を選びます。対応2件・誤検出3件・見逃し2件を確認したら、0.5に変更します。対応3件・誤検出2件・見逃し1件に変われば完了です。T2の終了35秒とP2の開始35.5秒の隙間が、この変更で許容されます。
+以下は、この記事と同じ合成サンプルの公開デモをChromeで実際に操作して撮影した画面です。画像をクリックすると原寸で確認できます。
+
+[![許容時間0秒で対応2件・誤検出3件・見逃し2件](/articles/python-tools/screenshots/eventscore-tolerance-0.png)](/articles/python-tools/screenshots/eventscore-tolerance-0.png)
+
+① 上部の選択欄が0になっていることを確認します。その下のMatched・False alarms・Missedを左から読むと、2・3・2です。
+
+[![許容時間を0.5秒に変えた後の対応3件・誤検出2件・見逃し1件](/articles/python-tools/screenshots/eventscore-tolerance-05.png)](/articles/python-tools/screenshots/eventscore-tolerance-05.png)
+
+② 同じ選択欄を0.5へ変えます。ページを開き直さずに、件数が3・2・1へ変わります。この前後を比べられれば操作はできています。
+
+件数が変わるのは、T2の終了35秒とP2の開始35.5秒の隙間が、この変更で許容されるためです。予測データそのものは変わっていません。
 
 ## つまずいたときと、次に自分のデータを使うとき
 
