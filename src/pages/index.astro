@@ -1,4 +1,5 @@
 ---
+import { SITE_DESCRIPTION } from "../consts";
 import { thumbnailAttrs } from "../lib/thumbnails";
 import { navigation } from "../data/navigation";
 import DrawerAvatar from "../components/DrawerAvatar.astro";
@@ -26,7 +27,7 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
   <head>
     <BaseHead
       title="りゅうのらぼ | AI・ソフトウェア・日々の道具"
-      description="AIやアプリ、自動化、日々の道具について調べ、つくり、記録する個人ブログ。ソフトウェア開発や研究の取り組み、仕事の紹介もまとめています。"
+      description={SITE_DESCRIPTION}
     />
   </head>
   <body>
@@ -116,11 +117,11 @@ const posts = (await journalPosts()).slice(0, 3).map((post) => {
         ))}</div>
       </section>
       <FollowNote />
-      <section class="personal-note">
-        <h2>このブログについて</h2>
+      <section class="personal-note" id="about-this-site">
+        <h2>りゅうのらぼについて</h2>
         <div>
           <p>
-            便利なアプリ、小さな自動化、仕事や暮らしに使う道具。調べたことと、実際に試したことを区別しながら、自分の言葉で残していく場所にしたいと思っています。
+            りゅうのらぼ（ryu-koda.com）は、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、読んだ人も試せる手順やコードを残しています。
           </p>
           <ActionLink href="/about/" variant="text">
             書いている人について

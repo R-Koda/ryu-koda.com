@@ -3,6 +3,6 @@
 
 export const SITE_TITLE = 'りゅうのらぼ';
 export const SITE_DESCRIPTION =
-	'Ryu Kodaの個人ポートフォリオとブログ。ソフトウェア、研究、日々を少し便利にする道具とアイデアを紹介します。';
+	'りゅうのらぼは、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、手順やコードとともに紹介します。';
 export const SITE_URL = 'https://ryu-koda.com';
 export const AUTHOR_NAME = 'Ryu Koda';

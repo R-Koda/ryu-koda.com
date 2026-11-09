@@ -297,7 +297,12 @@
     "Mac向け": "for Mac",
     "cdのあとに半角スペースを1つ": "one space after cd",
     "ファイルを消さずに、中身が同じものを一覧にする": "list files with identical contents without deleting them",
-    "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ": "Find duplicate files with Python, without deleting them | Ryu's Lab"
+    "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ": "Find duplicate files with Python, without deleting them | Ryu's Lab",
+    "りゅうのらぼは、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、手順やコードとともに紹介します。": "Ryu's Lab is a personal blog about choosing gadgets, using AI and software, and experimenting with the web. It distinguishes research from hands-on experience and shares practical steps and code.",
+    "りゅうのらぼについて": "About Ryu's Lab",
+    "りゅうのらぼの運営者": "The person behind Ryu's Lab",
+    "りゅうのらぼのホーム": "Ryu's Lab home",
+    "りゅうのらぼ（ryu-koda.com）は、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、読んだ人も試せる手順やコードを残しています。": "Ryu's Lab (ryu-koda.com) is a personal blog about choosing gadgets, using AI and software, and experimenting with the web. I distinguish what I have researched from what I have tried myself, and share steps and code so you can try things too."
   },
   "zh-cn": {
     "りゅうのらぼ": "Ryu的小实验室",
@@ -596,6 +601,11 @@
     "Mac向け": "适用于 Mac",
     "cdのあとに半角スペースを1つ": "cd 后的一个半角空格",
     "ファイルを消さずに、中身が同じものを一覧にする": "列出内容相同的文件，不删除任何文件",
-    "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ": "用 Python 查找重复文件：附不删除文件的示例 | Ryu的小实验室"
+    "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ": "用 Python 查找重复文件：附不删除文件的示例 | Ryu的小实验室",
+    "りゅうのらぼは、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、手順やコードとともに紹介します。": "りゅうのらぼ是一个分享数码产品选购、AI 与软件应用以及 Web 实验的个人博客。文章区分资料整理与亲手实践，并提供具体步骤和代码。",
+    "りゅうのらぼについて": "关于 Ryu's Lab",
+    "りゅうのらぼの運営者": "关于作者",
+    "りゅうのらぼのホーム": "りゅうのらぼ首页",
+    "りゅうのらぼ（ryu-koda.com）は、ガジェット選び、AI・ソフトウェアの活用、Webの実験を楽しむ個人ブログです。調べたことと実際に試したことを区別し、読んだ人も試せる手順やコードを残しています。": "りゅうのらぼ（ryu-koda.com）是一个分享数码产品选购、AI 与软件应用以及 Web 实验的个人博客。我会区分查阅资料得到的信息与亲手实践的经验，并分享具体步骤和代码，让读者也能动手尝试。"
   }
 }

@@ -4,7 +4,7 @@
 import '../styles/global.css';
 import type { ImageMetadata } from 'astro';
 import { shouldIndex } from '../lib/seo.mjs';
-import { SITE_TITLE, AUTHOR_NAME } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, AUTHOR_NAME } from '../consts';
 import { ADSENSE } from '../lib/adsense';
 
 interface Props {
@@ -37,11 +37,12 @@ const indexable = shouldIndex(Astro.url.pathname);
 const siteSchema = {
   '@context': 'https://schema.org', '@type': 'WebSite',
   '@id': new URL('/#website', Astro.site).href,
-  name: SITE_TITLE, alternateName: 'ryu-koda.com', url: Astro.site?.href,
-  inLanguage: 'ja',
+  name: SITE_TITLE, alternateName: ["Ryu's Lab", 'ryu-koda.com'], url: Astro.site?.href,
+  description: SITE_DESCRIPTION, inLanguage: ['ja', 'en', 'zh-CN'],
+  publisher: { '@type': 'Person', '@id': new URL('/about/#person', Astro.site).href, name: AUTHOR_NAME, url: new URL('/about/', Astro.site).href },
 };
 const person = { '@type': 'Person', '@id': new URL('/about/#person', Astro.site).href, name: AUTHOR_NAME, url: new URL('/about/', Astro.site).href, image: new URL('/github-avatar.webp', Astro.site).href, sameAs: ['https://github.com/R-Koda'] };
-const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage', url: canonicalURL.href, mainEntity: person };
+const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage', url: canonicalURL.href, isPartOf: { '@id': new URL('/#website', Astro.site).href }, mainEntity: person };
 ---
 
 <!-- Verification only: does not load advertising scripts. -->

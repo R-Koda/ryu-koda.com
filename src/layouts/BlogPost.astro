@@ -60,6 +60,7 @@ const articleJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   inLanguage: "ja",
+  isPartOf: { "@type": "WebSite", "@id": new URL("/#website", Astro.site).href, name: SITE_TITLE, url: Astro.site?.href },
   headline: title,
   description: description,
   author: {

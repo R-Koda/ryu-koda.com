@@ -84,6 +84,9 @@ const rewriteUrl=(s,l)=>{
 };
 function schemaTranslate(value,l,key=''){
  if(Array.isArray(value))return value.map(v=>schemaTranslate(v,l,key));
+ // The site is one entity across languages; keep its root identity and name.
+ if(value&&typeof value==='object'&&value['@type']==='WebSite')return value;
+ if(key==='@id'&&typeof value==='string'&&(/#(website|person)$/.test(value)))return value;
  if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).map(([k,v])=>[k,schemaTranslate(v,l,k)]));
  if(typeof value!=='string')return value;
  if(key==='inLanguage')return langTag[l];
