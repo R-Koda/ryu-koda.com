@@ -9,14 +9,16 @@ const xUrl=`https://twitter.com/intent/tweet?${new URLSearchParams({text:title,u
 <script>
  import { track } from "../scripts/analytics";
  document.querySelectorAll<HTMLElement>('.share-links').forEach(section=>{
+  const locale=document.documentElement.lang.toLowerCase();
+  const tr=(ja:string,en:string,zh:string)=>locale.startsWith('en')?en:locale.startsWith('zh')?zh:ja;
   const url=section.dataset.shareUrl!,title=section.dataset.shareTitle!;
   const result=section.querySelector<HTMLElement>('[data-share-status]')!;
   const native=section.querySelector<HTMLButtonElement>('[data-native-share]')!;
   if(typeof navigator.share==='function')native.hidden=false;
-  native.addEventListener('click',async()=>{try{await navigator.share({title,url});result.textContent='共有画面を閉じました。';}catch(error){if((error as Error).name!=='AbortError')result.textContent='共有画面を開けませんでした。リンクのコピーをご利用ください。';}});
+  native.addEventListener('click',async()=>{try{await navigator.share({title,url});result.textContent=tr("共有画面を閉じました。","The share dialog has closed.","分享窗口已关闭。");}catch(error){if((error as Error).name!=='AbortError')result.textContent=tr("共有画面を開けませんでした。リンクのコピーをご利用ください。","Could not open sharing. Please copy the link instead.","无法打开分享窗口，请复制链接。");}});
   section.querySelector('[data-copy-share]')!.addEventListener('click',async()=>{
-   try{await navigator.clipboard.writeText(url);track('share_link_copy');result.textContent='リンクをコピーしました。';}
-   catch{const input=section.querySelector<HTMLInputElement>('.manual-link')!;input.hidden=false;input.focus();input.select();result.textContent='URLを選択しました。コピーしてご利用ください。';}
+   try{await navigator.clipboard.writeText(url);track('share_link_copy');result.textContent=tr("リンクをコピーしました。","Link copied.","链接已复制。");}
+   catch{const input=section.querySelector<HTMLInputElement>('.manual-link')!;input.hidden=false;input.focus();input.select();result.textContent=tr("URLを選択しました。コピーしてご利用ください。","The URL is selected. Copy it to share.","已选中网址，请复制后使用。");}
   });
  });
 </script>

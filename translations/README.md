@@ -1,0 +1,11 @@
+# Static language editions
+
+Japanese remains canonical at existing routes; English is under `/en/` and Simplified Chinese under `/zh-cn/`. Each edition has a self-canonical and reciprocal ja/en/zh-CN/x-default links. Browser language only offers a suggestion; it never redirects or guesses a country.
+
+`npm run build` runs Astro followed by an **offline** translation build. The committed catalog maps complete source text nodes to machine translations; editorial corrections belong in `overrides.json`. Missing text causes a build failure, rather than silently publishing mixed-language or stale pages. `npm run preview` serves the complete translated output; `npm run dev` serves the Japanese Astro sources only.
+
+To update translations, first review the original and confirm it is approved for external processing. `npm run i18n:refresh` sends extracted site text to Google's translation endpoint and updates the catalog. It must not be used on unapproved drafts. This endpoint has no availability guarantee, and is not required to serve or build existing editions. Do not add runtime translation dependencies or private credentials. If it stops working, maintain the JSON catalog manually or migrate to an authorized translation provider.
+
+Scope: homepage, profile, published blog posts, blog lists/guides, and web-experiment pages. Sample posts and noindex pages are excluded. Other destination pages are explicitly labeled Japanese when linked from a translated page. Unpublished editorial drafts are not read. Original source code, download files, screenshots, movies, SVG diagrams and vendor-provided affiliate creatives remain intact and may be Japanese; the translated page discloses this. Dates, Japan-market prices, and review limitations must remain unchanged. Do not imply that the English or Chinese edition is an independently tested review.
+
+QA: `npm run build`, `python3 scripts/check-seo.py`, `node scripts/check-translations.mjs`, and browser-check all language switches, mobile layouts and representative articles. Review machine translations before publication. `translation-manifest.json` in dist lists the generated route inventory. The static sitemap includes all translated URLs; the RSS feed remains the Japanese feed.

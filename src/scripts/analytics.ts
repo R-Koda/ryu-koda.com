@@ -1,3 +1,6 @@
+// Dynamic controls follow the static page's language, without changing consent behavior.
+const analyticsLocale = document.documentElement.lang.toLowerCase();
+const uiText = (ja: string, en: string, zh: string) => analyticsLocale.startsWith('en') ? en : analyticsLocale.startsWith('zh') ? zh : ja;
 // Only explicit, non-content events are sent. No form values or selected text.
 const ID = 'G-RJXC50ZSJL';
 const KEY = 'ryu-analytics-consent-v1';
@@ -33,7 +36,7 @@ function boot() {
   else if(!excluded() && preference()===null && location.hostname==='ryu-koda.com') panel.hidden=false;
   const exclusion = panel.querySelector<HTMLButtonElement>('[data-analytics-exclude]');
   if(exclusion) {
-    exclusion.textContent = excluded() ? 'このブラウザの除外を解除する' : 'このブラウザを計測から除外する';
+    exclusion.textContent = excluded() ? uiText("このブラウザの除外を解除する","Include this browser in analytics","取消排除此浏览器") : uiText("このブラウザを計測から除外する","Exclude this browser from analytics","将此浏览器排除在统计之外");
     exclusion.setAttribute('aria-pressed', String(excluded()));
     exclusion.addEventListener('click',()=>{
       try {
@@ -43,12 +46,12 @@ function boot() {
         location.reload();
       } catch {
         const status=panel.querySelector<HTMLElement>('[data-analytics-exclude-status]');
-        if(status) status.textContent='設定を保存できませんでした。ブラウザのサイトデータ設定をご確認ください。';
+        if(status) status.textContent=uiText("設定を保存できませんでした。ブラウザのサイトデータ設定をご確認ください。","Could not save your preference. Check your browser’s site data settings.","无法保存设置，请检查浏览器的网站数据设置。");
       }
     });
   }
   const status=panel.querySelector<HTMLElement>('[data-analytics-exclude-status]');
-  if(status) status.textContent=excluded() ? 'このブラウザはGA4・Cloudflare Web Analyticsの計測から除外中です。' : 'このブラウザは除外されていません。';
+  if(status) status.textContent=excluded() ? uiText("このブラウザはGA4・Cloudflare Web Analyticsの計測から除外中です。","This browser is excluded from GA4 and Cloudflare Web Analytics.","此浏览器已从 GA4 和 Cloudflare Web Analytics 统计中排除。") : uiText("このブラウザは除外されていません。","This browser is not excluded.","此浏览器尚未被排除。");
   document.querySelector('[data-analytics-settings]')?.addEventListener('click',()=>{panel.hidden=false;panel.querySelector<HTMLButtonElement>('button')?.focus();});
   panel.querySelector('[data-analytics-close]')?.addEventListener('click',()=>{panel.hidden=true;});
   panel.querySelector('[data-analytics-accept]')?.addEventListener('click',()=>{save('granted');start();panel.hidden=true;});
@@ -71,9 +74,9 @@ function boot() {
   });
   document.querySelectorAll<HTMLElement>('.prose pre, [data-experiment] pre').forEach((pre,index)=>{
     const code=pre.querySelector('code');if(!code)return;
-    const button=document.createElement('button');button.type='button';button.className='code-copy';button.textContent='コードをコピー';
+    const button=document.createElement('button');button.type='button';button.className='code-copy';button.textContent=uiText("コードをコピー","Copy code","复制代码");
     pre.before(button);
-    button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(code.textContent||'');button.textContent='コピーしました';track('code_copy',{code_block:index+1});}catch{button.textContent='コピーできませんでした。コードを選択してコピーしてください。';}});
+    button.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(code.textContent||'');button.textContent=uiText("コピーしました","Copied","已复制");track('code_copy',{code_block:index+1});}catch{button.textContent=uiText("コピーできませんでした。コードを選択してコピーしてください。","Could not copy. Select the code and copy it manually.","无法复制，请选中代码后手动复制。");}});
   });
   document.querySelectorAll<HTMLElement>('[data-experiment]').forEach(root=>{
     let sent=false;

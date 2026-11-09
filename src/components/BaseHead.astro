@@ -45,6 +45,9 @@ const profileSchema = { '@context': 'https://schema.org', '@type': 'ProfilePage'
 
 <!-- Verification only: does not load advertising scripts. -->
 {adsenseClient && <meta name="google-adsense-account" content={adsenseClient} />}
+<!-- Static multilingual pages share these local assets; no translation requests from visitors. -->
+<link rel="stylesheet" href="/languages.css" />
+<script is:inline src="/languages.js" defer></script>
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
