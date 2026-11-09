@@ -11,7 +11,7 @@ const articles = (await journalPosts()).slice(0, 8);
  <button class="close-discovery" type="button" aria-label="メッセージを閉じる" popovertarget="toy-discovery" popovertargetaction="hide">×</button>
  <div data-discovery="computer" hidden><p>今日は何をつくる？</p><a href="/playground/">Webの実験室へ →</a></div>
  <div data-discovery="notebook" hidden><p>これ、地味に便利だった。</p><p>小さな工夫で、毎日がちょっと楽になる。</p><a href="/blog/joy-of-choosing-gadgets/">道具を選ぶ楽しさ →</a><button class="note-doodle" type="button" aria-pressed="false">ノートに落書き</button></div>
- <div data-discovery="plane" hidden><p>今日の寄り道</p>{articles.map(p=><a hidden href={`/blog/${p.id}/`}>{p.data.title}</a>)}</div>
+ <div data-discovery="plane" hidden><svg class="letter-envelope" viewBox="0 0 100 68" width="90" height="62" aria-hidden="true"><rect x="3" y="8" width="94" height="57" rx="5" fill="#fffdf3" stroke="#9b8a63" stroke-width="2"/><path d="m4 10 46 32 46-32M4 64l32-25m60 25L64 39" fill="none" stroke="#bba77c" stroke-width="2"/><path d="M44 39c-12-9-6-17 6-9 12-8 18 0 6 9l-6 4z" fill="#dca29a"/></svg><p>今日の寄り道</p>{articles.map(p=><a hidden href={`/blog/${p.id}/`}>{p.data.title}</a>)}</div>
  <p class="toy-feedback" role="status"></p>
 </div>
 <script>
@@ -26,7 +26,7 @@ const articles = (await journalPosts()).slice(0, 8);
  const mouse=intro.querySelector<SVGGElement>('.mouse')!;
  function show(kind:string,anchor:Element){
   panel.querySelectorAll<HTMLElement>('[data-discovery]').forEach(el=>el.hidden=el.dataset.discovery!==kind);
-  feedback.textContent='';panel.showPopover();
+  feedback.textContent='';panel.classList.toggle('delivered-letter',kind==='plane');panel.showPopover();
   const r=anchor.getBoundingClientRect(), width=panel.getBoundingClientRect().width,height=panel.getBoundingClientRect().height;
   panel.style.left=`${Math.max(12,Math.min(innerWidth-width-12,r.left))}px`;
   panel.style.top=`${Math.max(12,Math.min(innerHeight-height-12,r.bottom+8))}px`;
@@ -49,43 +49,56 @@ const articles = (await journalPosts()).slice(0, 8);
  const plane=document.querySelector<HTMLElement>('.send-plane')!;
  const choices=Array.from(panel.querySelectorAll<HTMLAnchorElement>('[data-discovery="plane"] a'));
  let previous=-1,flight:Animation|undefined,airplane:SVGSVGElement|undefined;
- let autoFlight:ReturnType<typeof setTimeout>|undefined;
- function scheduleFlight(first=false){
-  clearTimeout(autoFlight);
-  if(reduced.matches||document.hidden)return;
-  autoFlight=setTimeout(()=>{
-   // Leave open notes, typing and dragging undisturbed.
-   if(flight||panel.matches(':popover-open')||document.querySelector('[data-held]')||document.activeElement?.matches('input,textarea,[contenteditable="true"]')){scheduleFlight();return;}
-   takeFlight(false);
-  },first?18000:30000+Math.random()*25000);
+ let launchTimer:ReturnType<typeof setTimeout>|undefined;
+ function land(){clearTimeout(launchTimer);flight?.cancel();flight=undefined;airplane?.remove();airplane=undefined;plane.style.opacity='';plane.removeAttribute('aria-busy');}
+ function deliverLetter(){
+  show('plane',plane);
+  const r=panel.getBoundingClientRect();
+  panel.style.left=`${Math.max(12,(innerWidth-r.width)/2)}px`;
+  panel.style.top=`${Math.max(12,Math.min(innerHeight-r.height-12,innerHeight*.58))}px`;
+  if(!reduced.matches)panel.animate([{opacity:0,transform:'translateY(-20px) scale(.88) rotate(-4deg)'},{opacity:1,transform:'translateY(0) scale(1) rotate(0deg)'}],{duration:700,easing:'cubic-bezier(.2,.8,.2,1)'});
  }
-
- function land(){flight?.cancel();flight=undefined;airplane?.remove();airplane=undefined;plane.style.opacity='';plane.removeAttribute('aria-busy');}
- function takeFlight(deliver:boolean){
-  if(flight)return;
-  clearTimeout(autoFlight);
-  if(deliver){
-  if(!choices.length){scheduleFlight();return;}
+ function takeFlight(){
+  clearTimeout(launchTimer);
+  if(flight||!choices.length||document.hidden)return;
   let index=Math.floor(Math.random()*(previous<0?choices.length:Math.max(1,choices.length-1)));
   if(index>=previous&&previous>=0&&choices.length>1)index++;
   previous=index;choices.forEach((a,i)=>a.hidden=i!==index);
-  }
-  if(reduced.matches){if(deliver)show('plane',plane);return;}
-  if(deliver)panel.hidePopover();
+  if(reduced.matches){deliverLetter();return;}
+  panel.hidePopover();
   const original=plane.querySelector('svg')!,r=original.getBoundingClientRect();
   airplane=original.cloneNode(true) as SVGSVGElement;
   airplane.setAttribute('aria-hidden','true');
-  airplane.style.cssText=`position:fixed;left:0;top:0;width:52px;height:44px;pointer-events:none;z-index:1000;filter:drop-shadow(2px 6px 3px #35455030);`;
+  airplane.style.cssText='position:fixed;left:0;top:0;width:52px;height:44px;pointer-events:none;z-index:1000;transform-origin:center;filter:drop-shadow(2px 6px 3px #35455030);';
   document.body.append(airplane);plane.style.opacity='.25';plane.setAttribute('aria-busy','true');
-  const w=Math.max(0,innerWidth-64),h=Math.max(0,innerHeight-56);
-  const x=Math.max(8,Math.min(w,r.left)),y=Math.max(8,Math.min(h,r.top));
-  // Fixed to the viewport: the flight remains visible even if the reader scrolls.
-  const points=[[x,y,0,0],[w*.78,h*.15,-18,.18],[w*.96,h*.38,65,.32],[w*.55,h*.83,150,.5],[w*.08,h*.55,210,.66],[w*.2,h*.12,285,.8],[x,y,360,1]];
-  flight=airplane.animate(points.map(([px,py,angle,offset])=>({transform:`translate(${px}px,${py}px) rotate(${angle}deg)`,offset})),{duration:6200,easing:'ease-in-out',fill:'forwards'});
-  flight.onfinish=()=>{land();if(deliver)show('plane',plane);scheduleFlight();};
+  const w=innerWidth,h=innerHeight;
+  const start=[Math.max(30,Math.min(w-30,r.left+19)),Math.max(30,Math.min(h-30,r.top+16))];
+  // Two joined cubic curves share a tangent, avoiding corners or pauses in flight.
+  const join=[w*.5,h*.24],end=[w*.5,h*.58];
+  const curves=[[start,[w*.94,h*.42],[w*.82,h*.08],join],[join,[w*.18,h*.4],[w*.17,h*.7],end]];
+  const frames:Keyframe[]=[];
+  let previousAngle=-35;
+  for(let i=0;i<=180;i++){
+   const t=i/180,progress=t*t*(3-2*t),part=progress<.5?0:1,u=part===0?progress*2:(progress-.5)*2,v=1-u;
+   const [a,b,c,d]=curves[part];
+   const x=v*v*v*a[0]+3*v*v*u*b[0]+3*v*u*u*c[0]+u*u*u*d[0];
+   const y=v*v*v*a[1]+3*v*v*u*b[1]+3*v*u*u*c[1]+u*u*u*d[1];
+   const dx=3*v*v*(b[0]-a[0])+6*v*u*(c[0]-b[0])+3*u*u*(d[0]-c[0]);
+   const dy=3*v*v*(b[1]-a[1])+6*v*u*(c[1]-b[1])+3*u*u*(d[1]-c[1]);
+   let angle=Math.atan2(dy,dx)*180/Math.PI+35;
+   while(angle-previousAngle>180)angle-=360;
+   while(angle-previousAngle< -180)angle+=360;
+   previousAngle=angle;
+   const scale=.72+1.08*progress,flutter=Math.sin(t*Math.PI*6)*3*Math.sin(t*Math.PI);
+   frames.push({offset:t,transform:`translate(${x-26}px,${y-22+flutter}px) rotate(${angle}deg) scale(${scale})`,opacity:t>.94?1-(t-.94)/.06:1});
+  }
+  flight=airplane.animate(frames,{duration:5800,easing:'linear',fill:'forwards'});
+  flight.onfinish=()=>{land();deliverLetter();};
  }
- plane.addEventListener('click',()=>takeFlight(true));
- scheduleFlight(true);
+ plane.addEventListener('pointerenter',e=>{if(e.pointerType!=='touch'&&!flight)launchTimer=setTimeout(takeFlight,160);});
+ plane.addEventListener('pointerleave',()=>clearTimeout(launchTimer));
+ // Click remains available on touchscreens and with Enter/Space.
+ plane.addEventListener('click',takeFlight);
  const articles=document.querySelector<HTMLElement>('#drawer-articles')!;
  const drawerButton=document.querySelector<HTMLButtonElement>('.drawer-open')!;
  drawerButton.addEventListener('click',()=>{articles.hidden=!articles.hidden;drawerButton.setAttribute('aria-expanded',String(!articles.hidden));});
@@ -94,10 +107,11 @@ const articles = (await journalPosts()).slice(0, 8);
  function schedule(){clearTimeout(idle);clearTimeout(hide);resident.classList.remove('resident-peek');if(!reduced.matches&&!document.hidden)idle=setTimeout(()=>{resident.classList.add('resident-peek');hide=setTimeout(()=>resident.classList.remove('resident-peek'),4000);},12000);}
  resident.addEventListener('pointerenter',()=>resident.classList.remove('resident-peek'));
  ['pointerdown','keydown'].forEach(name=>document.addEventListener(name,schedule,{passive:true}));
- document.addEventListener('visibilitychange',()=>{if(document.hidden)land();scheduleFlight();schedule();});reduced.addEventListener('change',()=>{land();scheduleFlight();schedule();});window.addEventListener('resize',()=>{land();scheduleFlight();panel.hidePopover();});window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);clearTimeout(autoFlight);land();});window.addEventListener('pageshow',e=>{if(e.persisted){scheduleFlight();schedule();}});schedule();
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)land();schedule();});reduced.addEventListener('change',()=>{land();schedule();});window.addEventListener('resize',()=>{land();panel.hidePopover();});window.addEventListener('pagehide',()=>{clearTimeout(idle);clearTimeout(hide);land();});window.addEventListener('pageshow',e=>{if(e.persisted){schedule();}});schedule();
 </script>
 <style>
  .toy-extras{display:flex;align-items:center;gap:12px;justify-content:flex-end;margin-top:-10px}.toy-extras button{cursor:pointer;color:#354550;border:0;background:none;min-height:44px}.lamp-switch{font:12px 'Yomogi Logo',sans-serif!important;border-bottom:1px dashed #b1a887!important}.send-plane{width:48px;transform:rotate(-8deg)}
+ .letter-envelope{display:block;margin:0 auto 12px}.toy-discovery.delivered-letter{background:#fff9e9;border-color:#bba77c;box-shadow:0 16px 50px #35455028;padding:28px;text-align:center}.delivered-letter a{display:block;text-decoration:none;line-height:1.9}
  .toy-discovery{position:fixed;margin:0;padding:24px 38px 24px 22px;width:min(300px,calc(100vw - 24px));box-sizing:border-box;max-height:calc(100dvh - 24px);overflow:auto;background:#fff7d8;color:#354550;border:1.5px solid #354550;border-radius:4px 9px 5px 3px;box-shadow:4px 6px 0 #35455022;font-size:14px;line-height:1.8}.toy-discovery::backdrop{background:transparent}.toy-discovery p{margin:0 0 10px}.toy-discovery a{color:#264f85}.toy-discovery [hidden]{display:none!important}.close-discovery{position:absolute;right:3px;top:3px;width:36px;height:36px;border:0;background:none;cursor:pointer;font-size:22px}.note-doodle{display:block;background:none;border:0;border-bottom:1px dashed #8c815b;min-height:44px;cursor:pointer;color:inherit;margin-top:10px}.toy-feedback:empty{display:none}
  :global(.code-screen.is-on>rect){fill:#bcebd0!important;filter:drop-shadow(0 0 8px #9ddbb6)}:global(.mouse.is-connected>rect){fill:#c4e9d3}:global(.notebook .toy-doodle){opacity:0}:global(.notebook.has-doodle .toy-doodle){opacity:1}
  :global(.intro){transition:background .3s;border-radius:12px}:global(.intro.night-lab){background:#243443;color:#f5eddb;box-shadow:0 0 0 18px #243443}:global(.intro.night-lab .intro-copy){background:radial-gradient(ellipse at 15% 70%,#ffe6a424,transparent 65%)}:global(.intro.night-lab .intro-lead),:global(.intro.night-lab .toy-invitation),:global(.intro.night-lab .toy-invitation a),:global(.intro.night-lab .drawer-caption),:global(.intro.night-lab .drawer-caption small){color:#f5eddb!important}:global(.intro.night-lab .toy-extras button){color:#ffe6a4}:global(.intro.night-lab .actions a){color:#ffe6a4}
