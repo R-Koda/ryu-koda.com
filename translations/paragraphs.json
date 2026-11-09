@@ -1,0 +1,390 @@
+{
+  "つくる楽しさが気になったら、「つくってみると、日常はもう少しおもしろい。」へ。道具を選ぶ時間が好きなら、ガジェットを吟味する楽しさの記事へ。": {
+    "en": "If making things sounds fun, read {{0}}. If you enjoy choosing your tools, head to {{1}}.",
+    "zh-cn": "如果你对动手制作感兴趣，可以看看{{0}}；如果你喜欢挑选工具的过程，可以读读{{1}}。"
+  },
+  "Search Consoleを開き、対象のサイトを選びます。": {
+    "en": "Open {{0}} and select your site.",
+    "zh-cn": "打开{{0}}，选择自己的网站。"
+  },
+  "サイト側でサイトマップが生成されているか確認します。当サイトは https://ryu-koda.com/sitemap-index.xml です。URLはサイトの仕組みによって異なります。": {
+    "en": "Check whether your site generates a sitemap. This site's sitemap is {{0}}; the URL depends on how your site is built.",
+    "zh-cn": "先确认网站是否生成了站点地图。本站的地址是{{0}}，具体 URL 会因网站实现方式而异。"
+  },
+  "確認： context7、http、登録したURLの3つが入っていれば、書き込みは成功です。今回の --scope project は、このフォルダーの .mcp.json を対象にしています。省略して同じ場所へ入るとは考えず、練習では毎回指定します。": {
+    "en": "{{0}} The file was written successfully if it contains {{1}}, {{2}} and the URL you registered. Here, {{3}} targets {{4}} in this folder. Include the scope each time during practice; do not assume omitting it uses the same location.",
+    "zh-cn": "{{0}} 如果文件中包含{{1}}、{{2}}和注册的 URL 这三项，就说明写入成功。本次的{{3}}针对当前文件夹内的{{4}}。练习时每次都明确指定作用域，不要假定省略后仍会写入同一位置。"
+  },
+  "確認： mcpServers の中から context7 がなくなっていれば、今回の練習は完了です。他のスコープに同名の設定がある環境では、その設定まで削除する操作ではありません。": {
+    "en": "{{0}} The practice is complete when {{2}} is no longer inside {{1}}. This does not remove configurations with the same name in other scopes.",
+    "zh-cn": "{{0}} 确认{{1}}中已没有{{2}}，本次练习就完成了。如果其他作用域也有同名配置，这个操作不会将它们一并删除。"
+  },
+  ".mcp.json が見つからない： pwd で練習場所にいるか確認し、追加コマンドに --scope project があったか見直します。": {
+    "en": "{{0}} Use {{1}} to check that you are in the practice folder, then check that your add command included {{2}}.",
+    "zh-cn": "{{0}} 用{{1}}确认当前位于练习文件夹，再检查添加命令是否包含{{2}}。"
+  },
+  "このサンプルは、position: relativeを付けたカードの中に、position: absoluteの顔を配置しています。カードを基準に顔が動くので、そのカードに指定した切り抜きの影響を受けます。": {
+    "en": "This sample places a face with {{1}} inside a card with {{0}}. Because the face is positioned relative to the card, the card's clipping also affects it.",
+    "zh-cn": "这个示例把设置了{{1}}的头像放在设置了{{0}}的卡片内。头像相对于卡片定位，因此也会受到卡片裁切规则的影响。"
+  },
+  "translateY(-44px)で上へ44px、rotate(-8deg)で少し傾けています。pointer-events: noneは、飾りがカーソル操作を遮らないための指定。クリックさせたいボタン自体には付けません。": {
+    "en": "{{0}} moves it up 44px, and {{1}} tilts it slightly. {{2}} prevents this decorative element from blocking pointer interaction. Do not apply it to a button that needs to be clickable.",
+    "zh-cn": "{{0}}让元素上移 44px，{{1}}让它略微倾斜。{{2}}可以防止装饰元素挡住指针操作。不要给需要点击的按钮本身加上它。"
+  },
+  "行き先：href=\"#destination\" を自分のブログURLへ。確認用の section id=\"destination\" は、その後削除して構いません。": {
+    "en": "{{0}} Change {{1}} to your blog URL. You can then remove the test {{2}} section.",
+    "zh-cn": "{{0}} 将{{1}}改为自己的博客 URL，然后可以删除用于测试的{{2}}章节。"
+  },
+  "確認：名前を変えたら箱の文字、色を変えたら箱の背景、URLを変えたら中のリンクの行き先を確認します。文字が変わらない場合は、編集したファイルとブラウザで開いたファイルの場所を見比べてください。ファイル名が index.html.txt になっていたら、HTMLとして保存し直します。": {
+    "en": "{{0}} After changing the name, check the drawer label; after changing the color, check its background; after changing the URL, check the link destination. If the text has not changed, make sure you edited the same file you opened in the browser. If the file is named {{1}}, save it again as HTML.",
+    "zh-cn": "{{0}} 修改名称后检查抽屉文字，修改颜色后检查背景，修改 URL 后检查内部链接的去向。文字没有变化时，请确认编辑的文件与浏览器打开的是同一个文件。如果文件名是{{1}}，请重新保存为 HTML。"
+  },
+  "Finderから、先ほどのfind_duplicates.pyが入ったフォルダそのものをターミナルへドラッグします。": {
+    "en": "Drag {{1}} containing {{0}} from Finder into Terminal.",
+    "zh-cn": "从 Finder 将包含{{0}}的{{1}}拖入终端。"
+  },
+  "画面上は、たとえば cd /Users/自分の名前/Downloads/duplicate-kit のようになります。これは例なので、そのままコピーしません。移動が成功しても、通常はメッセージが出ません。": {
+    "en": "You will see something like {{0}}. This is only an example; do not copy it as your own path. A successful directory change usually produces no message.",
+    "zh-cn": "屏幕上会出现类似{{0}}的命令。这只是示例，不要直接复制这个路径。切换目录成功后，通常不会显示消息。"
+  },
+  "Python公式のmacOS向けページから、対応する安定版のmacOS installerをダウンロードします。": {
+    "en": "Download a compatible stable macOS installer from {{0}}.",
+    "zh-cn": "从{{0}}下载适合这台 Mac 的稳定版 macOS 安装程序。"
+  },
+  "ターミナルにpython3 find_duplicates.py と入力します。最後に半角スペースを入れます。": {
+    "en": "In Terminal, type {{0}}, including a space at the end.",
+    "zh-cn": "在终端中输入{{0}}，末尾加上一个半角空格。"
+  },
+  "Switch 2はソフトの保存用にmicroSD Expressカードを使います。同じ基準をそのまま当てはめず、Switch 2専用の案内へ進んでください。": {
+    "en": "Switch 2 uses microSD Express cards for game storage. Do not apply the same requirements to it; use {{0}} instead.",
+    "zh-cn": "Switch 2 使用 microSD Express 卡存储游戏。不要直接套用相同的条件，请查看{{0}}。"
+  },
+  "バッファローのUSB Type-A接続の有線LANアダプターです。メーカーの製品ページでNintendo Switch対応を確認できます。この記事では、LAN端子のないHAC-007ドックでTVモードを使う場合の候補として紹介します。": {
+    "en": "This is Buffalo’s wired Ethernet adapter with a USB Type-A connector. {{0}} lists Nintendo Switch support. Here it is a candidate for TV mode with the HAC-007 dock, which has no Ethernet port.",
+    "zh-cn": "这是 Buffalo 的 USB Type-A 有线网卡，{{0}}列明了对 Nintendo Switch 的支持。本文将它作为使用无网口的 HAC-007 底座连接电视时的候选。"
+  },
+  "ケーブル選びでも同じように整理したい場合は、USB-Cの電力・転送・映像を分けて比較した記事へ。候補を買う前に絞るためのメモも用意しています。": {
+    "en": "For the same approach to choosing cables, see {{0}}. It includes a worksheet to narrow down your options before buying.",
+    "zh-cn": "想用同样的方法挑选线缆，可以看看{{0}}，里面也有用于购买前筛选候选产品的比较笔记。"
+  },
+  "フォルダを開き、resize.mjsとinputが見えるところまで進みます。この2つが同じ場所にあれば準備できています。": {
+    "en": "Open the folder and locate {{0}} and {{1}}. You are ready when both are in the same folder.",
+    "zh-cn": "打开文件夹，找到{{0}}和{{1}}。两者位于同一文件夹内，就准备好了。"
+  },
+  "Finderから、先ほどのresize.mjsが入ったフォルダそのものをターミナルへドラッグします。": {
+    "en": "From Finder, drag {{1}} containing {{0}} into Terminal.",
+    "zh-cn": "从 Finder 将包含{{0}}的{{1}}拖入终端。"
+  },
+  "画面上は、たとえば cd /Users/自分の名前/Downloads/image-kit のようになります。これは例なので、そのままコピーしません。移動が成功しても、通常はメッセージが出ません。": {
+    "en": "You will see something like {{0}}. This is an example, not a path to copy. Changing directories successfully usually produces no message.",
+    "zh-cn": "屏幕上会出现类似{{0}}的命令。这只是路径示例，不要直接复制。切换目录成功后通常不会显示消息。"
+  },
+  "Node.js公式ダウンロードページを開き、LTS・macOS用のInstaller（.pkg）を選びます。Macに対応する版を選んでください。": {
+    "en": "Open {{0}} and choose the LTS macOS installer (.pkg) compatible with your Mac.",
+    "zh-cn": "打开{{0}}，选择适合你这台 Mac 的 LTS 版 macOS 安装程序（.pkg）。"
+  },
+  "node --versionとnpm --versionを再実行します。両方の数字が出てから先へ進みます。": {
+    "en": "Run {{0}} and {{1}} again. Continue once both display a version number.",
+    "zh-cn": "重新运行{{0}}和{{1}}。确认两者都显示版本号后再继续。"
+  },
+  "まず、設定ファイルを作ります。-yは、項目を一つずつ入力せず初期設定を使う指定です。": {
+    "en": "First create the configuration file. The {{0}} option accepts the defaults instead of asking you to fill in each setting.",
+    "zh-cn": "先创建配置文件。{{0}}表示采用默认设置，不必逐项输入。"
+  },
+  "inputが元画像の場所、outputが新しい画像の保存先です。inputは残したまま、outputに別ファイルを作ります。": {
+    "en": "{{0}} is the source folder and {{1}} is the destination. The script keeps input unchanged and creates separate files in output.",
+    "zh-cn": "{{0}}是原图所在文件夹，{{1}}是新图片的保存位置。脚本会保留 input 中的原图，在 output 中另存新文件。"
+  },
+  "Cannot find module ...resize.mjs：作業場所が違う可能性があります。手順2のls -1でファイルを確認します。": {
+    "en": "{{0}}: You may be in the wrong folder. Use {{1}} from step 2 to check the files.",
+    "zh-cn": "{{0}}：可能进入了错误的文件夹。使用步骤 2 的{{1}}检查文件。"
+  },
+  "Cannot find package 'sharp'：手順4のnpm install sharp@0.34.5を、resize.mjsのある場所で実行します。": {
+    "en": "{{0}}: Run {{1}} from step 4 in the folder containing resize.mjs.",
+    "zh-cn": "{{0}}：在 resize.mjs 所在文件夹中运行步骤 4 的{{1}}。"
+  },
+  "ENOENT ... input：入力フォルダの名前が違います。ls -1で名前を確認します。": {
+    "en": "{{0}}: The input folder name is incorrect. Check it with {{1}}.",
+    "zh-cn": "{{0}}：输入文件夹名称不正确，用{{1}}检查名称。"
+  },
+  "[]だけが出る：対象のPNG/JPEGがない可能性があります。ls -1 inputで中身を確認します。": {
+    "en": "If the only output is {{0}}, there may be no matching PNG or JPEG files. Check with {{1}}.",
+    "zh-cn": "如果只输出{{0}}，可能没有符合条件的 PNG 或 JPEG 文件。用{{1}}检查文件夹内容。"
+  },
+  "画像をつくるところも含めて気になったら、つくる楽しさについての記事へ。調べたことを、実際に使える形にする話を増やしていきます。": {
+    "en": "If you are also interested in making the images, read {{0}}. I will keep sharing ways to turn what I learn into something useful.",
+    "zh-cn": "如果你也对制作图片感兴趣，可以看看{{0}}。我会继续记录如何把学到的东西变成实际可用的成果。"
+  },
+  "参照：sharpのリサイズ仕様、WebP出力の仕様。APIの条件を確認し、上記の容量は手元で測定しました。": {
+    "en": "References: {{0}} and {{1}}. I checked the API requirements and measured the file sizes above locally.",
+    "zh-cn": "参考：{{0}}、{{1}}。我核对了 API 的使用条件，上述文件大小则是在本地实测的。"
+  },
+  "画像を軽くしたあとは、記事がGoogleに登録されているかも確認してみます。個人ブログで実施したSEO対策の記録では、Search Consoleの画面を見ながら、タイトルや内部リンク、計測を整える手順を紹介しています。": {
+    "en": "After reducing image file sizes, check whether Google has indexed the article. {{0}} walks through titles, internal links and analytics using Search Console.",
+    "zh-cn": "压缩图片后，也可以检查文章是否已被 Google 收录。{{0}}结合 Search Console 的界面，介绍了标题、内部链接和流量统计的整理步骤。"
+  },
+  "つまり、この製品では「240Wに対応」と「転送速度は最大480Mbps」が同時に成り立っています。Wが大きいからファイルも速く移せる、とは読めないわけです。": {
+    "en": "This product supports 240W charging and a maximum transfer rate of 480Mbps at the same time. {{0}}.",
+    "zh-cn": "这款产品同时支持 240W 充电和最高 480Mbps 的传输速度。{{0}}。"
+  },
+  "充電、ファイル転送、画面表示。ひとつの「USB-C」という言葉でまとめていたけれど、仕様欄では別々になっていました。今回の数値と対応状況の確認元はこちらです。": {
+    "en": "Charging, file transfers and video output: I had grouped them all under “USB-C”, but the specifications list them separately. See {{0}}.",
+    "zh-cn": "充电、文件传输、视频输出，我原本都归在“USB-C”这个词下，规格表里却是分开列出的。具体可查看{{0}}。"
+  },
+  "ケーブルの対応だけで接続する機器の性能が上がるわけではない点も、USB-IFの説明で確認できます。機器側の仕様もセットで見る必要があります。": {
+    "en": "{{0}} also explains why a cable's capabilities alone do not improve the connected devices' performance. Check the specifications of the devices as well.",
+    "zh-cn": "{{0}}也说明，线缆支持某项功能，并不意味着连接设备的性能就会提升。设备自身的规格也要一起核对。"
+  },
+  "操作： 上の公式リンクを開き、MacならCommand＋F、WindowsならCtrl＋Fでページ内検索。まず 対応転送速度、次に 対応電圧、最後に DisplayPort を探します。見つからなければページ内の「仕様」を開きます。": {
+    "en": "{{0}} Open the official link above. Use Command+F on Mac or Ctrl+F on Windows to search for {{1}}, then {{2}}, then {{3}}. If you cannot find them, open the specifications section.",
+    "zh-cn": "{{0}} 打开上面的官方链接，用 Mac 的 Command+F 或 Windows 的 Ctrl+F 进行页内搜索，依次查找{{1}}、{{2}}和{{3}}。找不到时，请进入页面的规格部分。"
+  },
+  "保存したpuni-button.htmlをChrome・Safari・Edgeなどのブラウザで開きます。": {
+    "en": "Open the saved {{0}} file in Chrome, Safari, Edge or another browser.",
+    "zh-cn": "用 Chrome、Safari、Edge 等浏览器打开保存的{{0}}文件。"
+  },
+  "macOSはopen puni-button.html、WindowsのPowerShellはStart-Process ./puni-button.htmlで開けます。コマンドを使わず、ファイルをダブルクリックしても大丈夫です。": {
+    "en": "On macOS, use {{0}}; in Windows PowerShell, use {{1}}. You can also simply double-click the file.",
+    "zh-cn": "macOS 可以运行{{0}}，Windows PowerShell 可以运行{{1}}。不使用命令，直接双击文件也可以。"
+  },
+  "CSSの:activeは操作中の状態です。マウスを載せたときの:hoverとは別です。詳しくはMDNの:activeの説明でも確認できます。": {
+    "en": "The CSS {{0}} state applies while the control is being activated. It is different from {{1}}, which applies when the pointer is over it. See {{2}} for details.",
+    "zh-cn": "CSS 的{{0}}表示控件正在被按下等激活状态，与鼠标悬停时的{{1}}不同。详细说明可查看{{2}}。"
+  },
+  "サンプル内のbutton要素を、表示したい位置へ置きます。": {
+    "en": "Place the sample's {{0}} element where you want the button to appear.",
+    "zh-cn": "把示例中的{{0}}元素放到希望显示按钮的位置。"
+  },
+  "CSSの.puni-button関連ルールと@mediaを、サイトのCSSへ追加します。見本のbodyルールはページ全体を中央寄せにするものなので、持ち込む必要はありません。": {
+    "en": "Add the rules for {{0}} and {{1}} to your site's CSS. You do not need the sample's {{2}} rule, which centers the entire page.",
+    "zh-cn": "将{{0}}相关规则和{{1}}加入网站 CSS。示例中的{{2}}规则用于整页居中，不必一并复制。"
+  },
+  "拡張子が.html.txtになっていないか確認します。Wordなどの文書形式ではなく、プレーンテキストで保存してください。": {
+    "en": "Check that the extension is not {{0}}. Save as plain text, not a Word document or another rich-text format.",
+    "zh-cn": "检查扩展名是否误写成了{{0}}。请保存为纯文本，而不是 Word 等文档格式。"
+  },
+  "エディタでsrc/scripts/experiments.tsを開き、この実験の分岐を探します。": {
+    "en": "Open {{0}} in your editor and find the branch for this experiment.",
+    "zh-cn": "在编辑器中打开{{0}}，找到对应这个实验的代码分支。"
+  },
+  "背景・画像・本文をcard-faceでまとめます。顔のmascotは、その箱の中ではなく、隣です。この位置がいちばん大事です。": {
+    "en": "{{0}} contains the clipped surface. Place {{1}} {{2}}. This arrangement is the key.",
+    "zh-cn": "{{0}}包含需要裁切的表面。{{1}}应放在{{2}}。这个位置关系最重要。"
+  },
+  "これで「中身の角は丸い」「顔は外に出られる」を同時に満たせます。mascotをcard-faceの中に戻すと、また顔が切れます。": {
+    "en": "If you put {{0}} back inside {{1}}, the face will be clipped again.",
+    "zh-cn": "如果把{{0}}放回{{1}}内部，头像就又会被裁切。"
+  },
+  ":focus-withinも指定すると、カード内のリンクをTabキーで選んだときにも顔が出ます。動きを減らす設定をしている環境では、アニメーションせず表示位置が切り替わります。": {
+    "en": "With {{0}}, the face also appears when you select a link inside the card with Tab. If reduced motion is enabled, it changes position without animation.",
+    "zh-cn": "加上{{0}}后，用 Tab 选中卡片内的链接时，头像也会出现。启用减少动态效果时，只切换位置，不播放动画。"
+  },
+  "ファイル名も整えたくなったら、MacのFinderで名前をまとめて変えた記事へ。小さな面倒を、ひとつずつ減らしていきたいです。": {
+    "en": "For tidier filenames as well, see {{0}}. I want to keep removing these small hassles, one at a time.",
+    "zh-cn": "如果还想整理文件名，可以看看{{0}}。这些小麻烦，我们一个个解决。"
+  },
+  "参照：Python公式のhashlib解説。検出結果は配布サンプルで実行して確認しました。": {
+    "en": "Reference: {{0}}. I verified the detection results by running the downloadable sample.",
+    "zh-cn": "参考：{{0}}。检测结果已通过运行提供下载的示例验证。"
+  },
+  "基本テストでは、5モデルにPCへ近づく映像を指示し、各1本を生成しました。近づき方や不要な動作にどんな違いが出たか、時刻付きの画像で確認できます。難関テストは別記事として準備中です。": {
+    "en": "In {{0}}, I generated one video with each of five models, asking for a camera move toward a PC. Timestamped frames show differences in the approach and unwanted movements. The difficult test is being prepared as a separate article.",
+    "zh-cn": "在{{0}}中，我让五款模型各生成一段镜头接近 PC 的视频。带时间点的截图可以帮助比较接近过程与多余动作。难度更高的测试正在另行准备。"
+  },
+  "今回の設定での必要量：5秒・9:16・出力1本に設定し、残高に収まるか確認します。": {
+    "en": "{{0}} Set 5 seconds, a 9:16 aspect ratio and one output, then check that the cost fits your balance.",
+    "zh-cn": "{{0}} 设置为 5 秒、9:16 纵横比、输出 1 段视频，再确认所需点数没有超过余额。"
+  },
+  "練習用ZIPをダウンロードします。この記事はMacのFinderで進めます。ターミナルや追加アプリは使いません。": {
+    "en": "{{0}}. This walkthrough uses Mac Finder, with no Terminal commands or extra apps.",
+    "zh-cn": "{{0}}。本文使用 Mac 的 Finder 操作，不需要终端或额外应用。"
+  },
+  "操作： ダウンロードした rename-practice.zip をダブルクリックし、展開されたフォルダーを開きます。ブラウザが自動で展開した場合は、そのフォルダーを開くだけで大丈夫です。": {
+    "en": "{{0}} Double-click the downloaded {{1}} and open the extracted folder. If your browser has already extracted it, simply open that folder.",
+    "zh-cn": "{{0}} 双击下载的{{1}}，打开解压后的文件夹。如果浏览器已自动解压，直接打开该文件夹即可。"
+  },
+  "確認： IMG_001.jpg、IMG_002.jpg、IMG_003.jpg の3枚が見えれば準備完了。ZIPの中を眺めるだけではなく、展開したファイルを操作します。": {
+    "en": "{{0}} You are ready when you can see {{1}}, {{2}} and {{3}}. Work with the extracted files, not just a preview of the ZIP's contents.",
+    "zh-cn": "{{0}} 能看到{{1}}、{{2}}和{{3}}这三个文件，就准备好了。请操作解压后的文件，不要只预览 ZIP 内的内容。"
+  },
+  "IMG_001.jpg が desk_001.jpg になれば成功。画像を開き直したり、番号を付け直したりはせずに済ませたいところです。": {
+    "en": "Success means {{0}} becomes {{1}}. The aim is to avoid reopening the images or changing their numbers.",
+    "zh-cn": "{{0}}变成{{1}}就算成功。目标是不必重新打开图片，也不必重编编号。"
+  },
+  "今回は「テキストを置き換える」を使います。検索文字列には IMG_、置換文字列には desk_ を入力しました。": {
+    "en": "Choose “Replace Text”. I entered {{0}} in the Find field and {{1}} in Replace with.",
+    "zh-cn": "选择“替换文本”，在查找字段输入{{0}}，在替换字段输入{{1}}。"
+  },
+  "ここで確認できたのは、変更後の例が1件表示されること。3件すべての一覧が出るわけではありません。今回のように共通部分だけを変えるなら分かりやすいですが、名前がバラバラなファイルで試すときは、実行後も一通り見たいところです。": {
+    "en": "The dialog confirms that {{0}}. It does not list all three results. That is easy to follow when changing a shared prefix, but with varied filenames, check all the results afterward too.",
+    "zh-cn": "这里可以确认{{0}}，但不会列出三个文件的全部结果。像本例这样只替换共同部分时比较直观；文件名各不相同时，执行后也要逐一检查。"
+  },
+  "例が変わらない： IMG_ と IMG- は別です。半角のアンダースコアまで合わせます。すでに desk_ に変えたファイルには、同じ置換は起きません。": {
+    "en": "{{0}} {{1}} and {{2}} are different. Match the underscore exactly. Files already changed to {{3}} will not be changed again by the same replacement.",
+    "zh-cn": "{{0}} {{1}}与{{2}}不同，要连同半角下划线一起匹配。已经改成{{3}}的文件，不会再次发生同样的替换。"
+  },
+  "完成の目印： 3枚が desk_001.jpg〜desk_003.jpg になり、ダブルクリックして画像が開けばOKです。この記事の検証では中身も照合しましたが、読者の練習では名前と表示をまず確かめてください。": {
+    "en": "{{0}} All three files should be named {{1}} through {{2}} and open when double-clicked. I also compared file contents for this article, but for practice, start by checking the names and that the images open.",
+    "zh-cn": "{{0}} 三个文件应变成{{1}}至{{2}}，双击后能打开图片。本文验证时还比对了文件内容；读者练习时，先确认名称和能否正常显示即可。"
+  },
+  "同じファイルが何枚もあるのも気になったら、重複ファイルを削除せずに探す手順も置いています。": {
+    "en": "If duplicate copies are another concern, I also have {{0}}.",
+    "zh-cn": "如果你还在意文件是否重复，也可以看看{{0}}。"
+  },
+  "まずは、引き出しのホバー演出をつくった記事へ。動くサンプルとコードがあるので、仕組みを見ながら試せます。": {
+    "en": "Start with {{0}}. It includes a working sample and code so you can try it while exploring how it works.",
+    "zh-cn": "可以先看{{0}}。里面有可运行的示例和代码，可以边理解边尝试。"
+  },
+  "でも、買い足す前に、本体の設定でできることと、自分の機種に必要なものを分けておきたい。今回はイヤホン・保存容量・有線接続の3つを、公式の案内で調べ直しました。": {
+    "en": "Before buying extras, I wanted to separate what the console settings can already do from what my particular model needs. I checked Nintendo's official guidance for three areas: {{0}}.",
+    "zh-cn": "添置配件前，我想先分清主机设置本身能解决什么，以及对应机型还需要什么。这次依据官方说明，重新查了三个方面：{{0}}。"
+  },
+  "サンプルHTMLを保存するを押します。": {
+    "en": "Click {{0}}.",
+    "zh-cn": "点击{{0}}。"
+  },
+  "次のコードをすべてコピーして、プレーンテキストのファイルに貼り付け、puni-button.htmlとしてUTF-8で保存しても同じように動きます。": {
+    "en": "Alternatively, copy all the code below into a plain-text file and save it as {{0}} with UTF-8 encoding. It works the same way.",
+    "zh-cn": "也可以复制下面的完整代码，粘贴到纯文本文件中，以 UTF-8 编码保存为{{0}}，效果相同。"
+  },
+  "結果：現在のフォルダにpuni-button.htmlが作られます。同名のファイルがあると上書きするので、別のフォルダで実行してください。": {
+    "en": "{{0}} This creates {{1}} in the current folder. It overwrites an existing file with that name, so run it in a separate folder.",
+    "zh-cn": "{{0}} 当前文件夹中会生成{{1}}。如果存在同名文件会被覆盖，因此请在单独的文件夹中运行。"
+  },
+  "影で厚みを作る。box-shadow: 0 8px 0で、ボタンの下に8pxの影を置いています。": {
+    "en": "{{0}} The {{1}} declaration adds an 8px shadow beneath the button.",
+    "zh-cn": "{{0}} {{1}}在按钮下方添加 8px 阴影。"
+  },
+  "押したときだけ形を変える。:activeで下へ6px動かし、横幅を1.06倍、高さを0.92倍に。影は2pxに縮めます。": {
+    "en": "{{0}} In {{1}}, move the button down 6px, scale its width to 1.06 times and its height to 0.92 times, and reduce the shadow to 2px.",
+    "zh-cn": "{{0}} 在{{1}}状态下，让按钮下移 6px，宽度缩放为 1.06 倍、高度为 0.92 倍，阴影减至 2px。"
+  },
+  "離したら、元の形へ戻す。transitionで180msかけて変化させます。幅・高さそのものを変更しないので、隣の文章が押し出されません。": {
+    "en": "{{0}} Use {{1}} to animate the change over 180ms. The layout width and height stay unchanged, so nearby text is not pushed aside.",
+    "zh-cn": "{{0}} 用{{1}}让变化在 180ms 内完成。不改变布局本身的宽高，旁边的文字就不会被挤开。"
+  },
+  "ミント色に：--button-color: #e8dff5を#e3eee6へ。通常時の色が変わります。ホバー時の色もそろえる場合は:hoverの背景色も変更します。": {
+    "en": "{{0}} Change {{1}} to {{2}}. This changes the default color. To match the hover color, also change the background in {{3}}.",
+    "zh-cn": "{{0}} 将{{1}}改为{{2}}，即可修改默认颜色。若要统一悬停颜色，也要修改{{3}}中的背景色。"
+  },
+  "角を控えめに：border-radius: 24pxを12pxへ。四角に近いボタンになります。": {
+    "en": "{{0}} Change {{1}} to {{2}} for a more rectangular button.",
+    "zh-cn": "{{0}} 将{{1}}改为{{2}}，按钮会更接近矩形。"
+  },
+  "沈み込みを浅く：translateY(6px)をtranslateY(3px)へ。影の2pxを5pxにすると、厚みのつじつまも合わせやすくなります。": {
+    "en": "{{0}} Change {{1}} to {{2}}. Changing the shadow from 2px to 5px helps keep the apparent thickness consistent.",
+    "zh-cn": "{{0}} 将{{1}}改为{{2}}。同时把阴影从 2px 改成 5px，厚度感会更一致。"
+  },
+  "戻りをゆっくり：2か所の180msを300msへ。押す・戻る動きの両方がゆっくりになります。": {
+    "en": "{{0}} Change both occurrences of {{1}} to {{2}}. Both the press and the return become slower.",
+    "zh-cn": "{{0}} 将两处{{1}}都改为{{2}}，按下和恢复的过程都会变慢。"
+  },
+  "確認する結果：それぞれバージョン番号が出ます。このプロジェクトはNode.js 22.12.0以上を指定しています。コマンドが見つからなければ、Git公式とNode.js公式から環境を準備します。": {
+    "en": "{{0}} Each command should display a version number. This project requires Node.js 22.12.0 or later. If a command is missing, use {{1}} and {{2}} to set up your environment.",
+    "zh-cn": "{{0}} 两条命令都应显示版本号。本项目要求 Node.js 22.12.0 或更高版本。找不到命令时，请参考{{1}}和{{2}}配置环境。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/buttons/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/cables/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/chain/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/letters/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/magnets/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "ブラウザで http://127.0.0.1:4321/playground/study/ を開きます。このページと同じデモが表示され、上の「試し方」と同じ操作ができれば起動成功です。ターミナルが別のポート番号を表示した場合は、その番号に置き換えてください。終了するときはターミナルでCtrl+Cを押します。": {
+    "en": "Open {{0}} in your browser. If the same demo appears and responds as described above, it is running successfully. If Terminal shows a different port, use that port instead. Press Ctrl+C in Terminal to stop the server.",
+    "zh-cn": "在浏览器中打开{{0}}。看到同样的演示，并能按上方步骤操作，就说明启动成功。如果终端显示其他端口号，请使用对应端口。结束时在终端按 Ctrl+C。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='buttons')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='cables')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='chain')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='letters')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='magnets')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "src/scripts/experiments.ts：各実験の動作。if(kind==='study')を探します。": {
+    "en": "{{0}} contains the experiment interactions. Look for {{1}}.",
+    "zh-cn": "{{0}}包含各实验的交互逻辑，查找{{1}}。"
+  },
+  "今読める記事では、USB-Cケーブルを、充電・データ転送・映像対応に分けて見比べています。こちらは公式仕様を調べた記事です。自分の用途ならどこを見るとよいのか、気になった方はのぞいてみてください。": {
+    "en": "In one published article, {{0}}. It is based on official specifications. Take a look if you want to know which details matter for your own needs.",
+    "zh-cn": "在已发布的文章中，{{0}}。这篇文章依据官方规格整理，如果想知道自己的用途该关注哪些参数，可以看看。"
+  },
+  "候補の一例は、エレコムのMPA-CCSB20BK。USB-C同士をつなぐ約2mのケーブルで、最大60WのUSB PDに対応しています。一方、転送は最大480Mbps（理論値）で、映像出力には対応しません。充電中心の用途で条件が合うかを考えるための例です。購入・使用レビューではありません。メーカーの公式仕様を確認しています。": {
+    "en": "One example is ELECOM's {{0}}, an approximately 2m USB-C to USB-C cable supporting USB PD up to 60W. Data transfer is limited to a theoretical 480Mbps, and it does not support video output. It illustrates how to check a cable for charging-focused use, not a purchase or hands-on review. I checked {{1}}.",
+    "zh-cn": "可以参考 ELECOM 的{{0}}：这是一根约 2m 的 USB-C 对 USB-C 线缆，最高支持 60W USB PD，理论传输速度为 480Mbps，不支持视频输出。这里只是用它说明如何判断是否满足充电为主的用途，并非购买或实测评测。参数已核对{{1}}。"
+  },
+  "60Wを超える給電やモニターへの映像出力が必要なら、別の候補へ。3製品の比較と選び方も用意しています。いまのケーブルで足りているなら、買い替えなくても大丈夫です。": {
+    "en": "If you need more than 60W or video output to a monitor, consider other options. See {{0}}. If your current cable already meets your needs, there is no need to replace it.",
+    "zh-cn": "需要超过 60W 的供电或向显示器输出视频时，就要考虑其他产品。可以参考{{0}}。如果现有线缆已经够用，也不必换新。"
+  },
+  "今回は、ファイルを消さずに、中身が同じものを一覧にする小さな道具を試しました。名前が違う同じファイルと、名前が同じ別のファイルを混ぜて、見分けられるか確かめます。": {
+    "en": "This time I tried a small tool to {{0}}. The test mixes identical files with different names and different files with the same name, to see whether it distinguishes them.",
+    "zh-cn": "这次试用的小工具用于{{0}}。测试时混合放入名称不同但内容相同的文件，以及同名但内容不同的文件，看看能否正确区分。"
+  },
+  "これは練習用フォルダで得られる結果です。保存場所によってパスの先頭部分は変わります。実行時の生ログも残しています。": {
+    "en": "This is the result from the practice folder. The beginning of each path depends on where you saved it. The {{0}} is also available.",
+    "zh-cn": "这是练习文件夹的结果。路径开头会因保存位置而不同，也可以查看{{0}}。"
+  },
+  "以下はMac向けの手順です。「入力するコマンド」の枠だけをコピーし、1つ実行するたびにEnterを押します。「結果」の枠は入力しません。行頭の%や$は入力待ちの記号なので、記事のコマンドには含めていません。": {
+    "en": "These instructions are {{0}}. Copy only the “Command to run” blocks and press Enter after each command. Do not type the result blocks. The {{1}} and {{2}} symbols at the start of a terminal line are prompts, so they are not included in the commands here.",
+    "zh-cn": "以下步骤{{0}}。只复制“输入以下命令”框内的内容，每条命令输入后按 Enter。不要输入“结果”框里的内容。终端行首的{{1}}和{{2}}是等待输入的提示符，因此本文命令没有包含它们。"
+  },
+  "フォルダを開き、find_duplicates.pyとsampleが見えるところまで進みます。この2つが同じ場所にあれば準備できています。": {
+    "en": "Open the folder and locate {{0}} and {{1}}. You are ready when both are in the same folder.",
+    "zh-cn": "打开文件夹，找到{{0}}和{{1}}。两者在同一位置，就准备好了。"
+  },
+  "開いた画面に cd  と入力します。cdのあとに半角スペースを1つ入れ、まだEnterは押しません。": {
+    "en": "Type {{0}} in Terminal, with {{1}}. Do not press Enter yet.",
+    "zh-cn": "在终端输入{{0}}，并加上{{1}}。先不要按 Enter。"
+  },
+  "最後のsampleが調べるフォルダです。プログラムは、その下にあるaやbのフォルダも調べます。": {
+    "en": "The final argument, {{0}}, is the folder to scan. The program also checks its a and b subfolders.",
+    "zh-cn": "最后的参数{{0}}是要扫描的文件夹，程序也会检查其下的 a、b 子文件夹。"
+  },
+  "catはテキストの中身を表示するコマンドです。ここでは練習用のテキストファイルだけに使います。": {
+    "en": "{{0}} displays the contents of a text file. Here, use it only with the practice text files.",
+    "zh-cn": "{{0}}用于显示文本文件内容。这里仅用它查看练习用的文本文件。"
+  },
+  "can't open file ...find_duplicates.py：手順2へ戻り、ls -1にプログラム名があるか確認します。": {
+    "en": "{{0}}: Return to step 2 and check whether the program's filename appears in the output of {{1}}.",
+    "zh-cn": "{{0}}：返回步骤 2，检查{{1}}的输出中是否有程序文件名。"
+  },
+  "対象フォルダがありません：指定したフォルダを探せていません。手順6のドラッグで指定し直します。": {
+    "en": "{{0}}: The specified folder was not found. Drag the folder again as shown in step 6.",
+    "zh-cn": "{{0}}：没有找到指定的文件夹。按步骤 6 重新拖入文件夹。"
+  },
+  "duplicate_groups: []、errors: []：対象にしたファイル内で重複が見つからなかったという意味です。対象の範囲は次の節も確認してください。": {
+    "en": "{{0}} and {{1}} mean no duplicates were found among the files checked. See the next section for what is included in the scan.",
+    "zh-cn": "{{0}}和{{1}}表示本次检查的文件中没有发现重复项。扫描范围请同时参考下一节。"
+  },
+  "errorsに項目がある：そのファイルを確認できていません。表示されたパスやアクセス権を確認します。すべて調べ終えた結果とは扱いません。": {
+    "en": "If {{0}} contains entries, those files could not be checked. Inspect the listed paths and permissions. Do not treat this as a complete scan of every file.",
+    "zh-cn": "如果{{0}}中有条目，表示这些文件未能完成检查。请检查对应路径及访问权限，不要把这当作所有文件均已查完的结果。"
+  }
+}

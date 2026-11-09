@@ -39,6 +39,20 @@ function segments(doc){const out=[];for(const n of walk(doc)){
  }return out.filter(x=>x.text);}
 let cache={en:{},'zh-cn':{}};try{cache=JSON.parse(await fs.readFile('translations/catalog.json','utf8'));}catch(e){if(e.code!=='ENOENT')throw e;}
 const overrides=JSON.parse(await fs.readFile('translations/overrides.json','utf8'));
+const paragraphs=JSON.parse(await fs.readFile('translations/paragraphs.json','utf8'));
+const textContent=n=>n.nodeName==='#text'?n.value:(n.childNodes??[]).map(textContent).join('');
+function contextualEdits(doc, locale){
+ return [...walk(doc)].filter(n=>['p','li'].includes(n.tagName)&&!blocked(n)).flatMap(n=>{
+  const template=paragraphs[textContent(n).trim()]?.[locale];if(!template)return [];
+  const slots=n.childNodes.filter(c=>c.nodeName!=='#text');
+  const ids=[...template.matchAll(/\{\{(\d+)\}\}/g)].map(m=>+m[1]);
+  if(ids.length!==slots.length||new Set(ids).size!==slots.length||ids.some(i=>i>=slots.length))throw Error('Invalid contextual translation placeholders: '+textContent(n));
+  return [()=>{n.childNodes=template.split(/(\{\{\d+\}\})/g).filter(Boolean).map(part=>{
+   const m=part.match(/^\{\{(\d+)\}\}$/);const child=m?slots[+m[1]]:{nodeName:'#text',value:part};child.parentNode=n;return child;
+  });}];
+ });
+}
+
 const required=[...new Set([...docs.values()].flatMap(d=>segments(d).map(s=>s.text)))];
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 async function translate(text,locale){
@@ -89,7 +103,9 @@ for(const p of paths){
   const oldSwitch=find(doc,n=>attr(n,'class')==='language-switch');if(oldSwitch)oldSwitch.parentNode.childNodes=oldSwitch.parentNode.childNodes.filter(n=>n!==oldSwitch);
   const oldSuggest=find(doc,n=>attr(n,'id')==='language-suggestion');if(oldSuggest)oldSuggest.parentNode.childNodes=oldSuggest.parentNode.childNodes.filter(n=>n!==oldSuggest);
   if(l!=='ja'){
+   const contextual=contextualEdits(doc,l);
    const d=dict(l);for(const s of segments(doc))s.write(d[s.text]??s.text);
+   for(const apply of contextual)apply();
    set(find(doc,n=>n.tagName==='html'),'lang',langTag[l]);
    for(const n of walk(doc)){
     if(n.tagName==='a'&&attr(n,'href')){const before=attr(n,'href');set(n,'href',rewriteUrl(before,l));if(before.startsWith('/')&&before.endsWith('/')&&!available.has(before))set(n,'hreflang','ja');}

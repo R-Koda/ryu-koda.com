@@ -12,6 +12,7 @@ let count=0;
 for(const p of paths){
  const source=parse(await fs.readFile('dist'+p+'index.html','utf8'));
  const originals=select(source,n=>n.tagName==='pre').map(serialize);
+ const inlineCode=select(source,n=>n.tagName==='code').map(text).sort();
  const external=select(source,n=>n.tagName==='a'&&/^https?:/.test(attr(n,'href')??'')&&!attr(n,'href').startsWith(origin)&&!attr(n,'href').startsWith('https://twitter.com/intent/tweet?')).map(n=>attr(n,'href')).sort();
  const media=select(source,n=>['img','video','iframe','source'].includes(n.tagName)).map(n=>attr(n,'src')).filter(Boolean).sort();
  const sections=select(source,n=>/^h[1-6]$/.test(n.tagName)).length;
@@ -23,6 +24,8 @@ for(const p of paths){
   assert.equal(alts.length,4);
   for(const a of ['ja','en','zh-cn'])assert(alts.some(n=>attr(n,'hreflang')===(a==='zh-cn'?'zh-CN':a)&&attr(n,'href')===origin+local(p,a)),p);
   assert.deepEqual(select(d,n=>n.tagName==='pre').map(serialize),originals,`${p} ${l}: code changed`);
+  assert.deepEqual(select(d,n=>n.tagName==='code').map(text).sort(),inlineCode,`${p} ${l}: inline code changed`);
+  assert(!/\{\{\d+\}\}/.test(text(d)),`${p} ${l}: unresolved translation placeholder`);
   assert.deepEqual(select(d,n=>n.tagName==='a'&&/^https?:/.test(attr(n,'href')??'')&&!attr(n,'href').startsWith(origin)&&!attr(n,'href').startsWith('https://twitter.com/intent/tweet?')).map(n=>attr(n,'href')).sort(),external,`${p}: external or affiliate URL changed`);
   assert.deepEqual(select(d,n=>['img','video','iframe','source'].includes(n.tagName)).map(n=>attr(n,'src')).filter(Boolean).sort(),media);
   assert.equal(select(d,n=>/^h[1-6]$/.test(n.tagName)).length,sections);

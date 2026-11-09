@@ -1,0 +1,2283 @@
+{
+  "date": "2026-11-09",
+  "scope": "Existing English and Simplified Chinese editions: homepage, profile, 14 published articles, guides and web experiments.",
+  "reviewer": "AI editorial review against Japanese sources; not a native-speaker certification.",
+  "passes": [
+    {
+      "pass": 1,
+      "focus": "Meaning, technical terminology, negations, evidence and test limitations",
+      "findings": [
+        "No traffic was confused with inability to open the blog.",
+        "Study room was mistranslated as research.",
+        "Generation credits and daily allowance were mistranslated.",
+        "Drop letter blocks was mistranslated as delete characters."
+      ],
+      "action": "Correct source-keyed translations, titles, descriptions and UI labels."
+    },
+    {
+      "pass": 2,
+      "focus": "Sentence context, inline code and links, completeness of corrections",
+      "findings": [
+        "Japanese particles translated separately created dangling sentence fragments.",
+        "Initial contextual drafts omitted caveats or confused inline placeholders; corrected against full source.",
+        "Rendered English duplicate-file steps retained Ya and broken command instructions; replaced complete paragraphs."
+      ],
+      "action": "Contextual paragraph translations preserving existing nodes; browser-read Chinese gadget article/profile and English duplicate-file tutorial."
+    }
+  ],
+  "contextual_paragraphs": 97,
+  "changed_strings": {
+    "en": 223,
+    "zh-cn": 224
+  },
+  "validation": [
+    "Offline production build",
+    "81 language variants: reciprocal links, canonical, code blocks AND inline code, media and affiliate URL preservation",
+    "101 pages: SEO metadata, headings, JSON-LD, internal links and sitemap"
+  ],
+  "limits": [
+    "Japanese screenshots, downloads, code and vendor creatives are preserved.",
+    "Underlying machine translations remain in the catalog; this is a focused editorial correction pass, not a claim that every sentence has native-level review."
+  ],
+  "changes": {
+    "en": [
+      {
+        "source": "AIやアプリ、自動化、日々の道具について調べ、つくり、記録する個人ブログ。ソフトウェア開発や研究の取り組み、仕事の紹介もまとめています。",
+        "before": "A personal blog where I research, create, and record about AI, apps, automation, and everyday tools. We also summarize information on software development, research initiatives, and work.",
+        "after": "A personal blog about AI, apps, automation and everyday tools: what I explore, build and learn along the way. You'll also find my software projects, research and other work here."
+      },
+      {
+        "source": "本文へ移動",
+        "before": "Go to main text",
+        "after": "Skip to content"
+      },
+      {
+        "source": "ドラッグ、または矢印キーで動かせます。Enterでジャンプ、Escapeで元の位置に戻ります。",
+        "before": "You can move it by dragging or using the arrow keys. Enter to jump, Escape to return to the original position.",
+        "after": "Drag or use the arrow keys to move. Press Enter to jump and Escape to return to the starting position."
+      },
+      {
+        "source": "Webの実験室：動くデモと作り方 ↗",
+        "before": "Web laboratory: Working demo and how to make it ↗",
+        "after": "Web experiments: interactive demos and step-by-step guides ↗"
+      },
+      {
+        "source": "まず1つ作ってみる：CSSでぷにぷにボタン。完成コード付き →",
+        "before": "First, let's create one: a squishy button with CSS. Completed code included →",
+        "after": "Start here: build a squishy CSS button, with complete code →"
+      },
+      {
+        "source": "つくっているもの・取り組み",
+        "before": "What we are making/Initiatives",
+        "after": "Projects and ongoing work"
+      },
+      {
+        "source": "りゅうのらぼの発信・準備中",
+        "before": "Ryu's Lab announcement/preparation in progress",
+        "after": "Social channels for Ryu's Lab — coming soon"
+      },
+      {
+        "source": "日々のこと、気づいたこと",
+        "before": "Things I noticed every day",
+        "after": "Everyday notes and discoveries"
+      },
+      {
+        "source": "角丸カードのアイコンが切れる原因と直し方を、動くデモで比較。z-indexで直らない理由、内側の箱だけ切り抜くHTML・CSS、保存して試せる完成コードを紹介します。",
+        "before": "Compare the causes of rounded corner card icons and how to fix them with a moving demo. I will introduce the reason why z-index does not fix it, the HTML/CSS to cut out only the inner box, and the completed code that you can save and try.",
+        "after": "An interactive comparison of why icons get clipped by rounded cards and how to fix it. Learn why z-index alone won't help, move the clipping to an inner wrapper, and try the complete HTML and CSS example."
+      },
+      {
+        "source": "ブログにアクセスがないとき、何から確認する？Search ConsoleのURL検査、サイトマップ、タイトル、内部リンク、画像軽量化、自分のアクセス除外を、実画面と手順付きで紹介します。",
+        "before": "How do you check when there is no access to your blog? Introducing Search Console's URL inspection, sitemap, title, internal links, image reduction, and excluding your own access with actual screens and instructions.",
+        "after": "Not getting visitors to your blog? Follow the actual screens and steps I used to check Search Console, sitemaps, page titles, internal links, image file sizes and the exclusion of my own visits from analytics."
+      },
+      {
+        "source": "同じ日本語プロンプトで生成した5本のPC動画を掲載。時刻付きフレームで初回出力の違いを確認し、モデル別の設定手順とコピーできるプロンプトを紹介します。",
+        "before": "Posting 5 PC videos generated with the same Japanese prompt. We'll show you the differences in the initial output with timed frames, and we'll show you the setup steps for each model and the prompts you can copy.",
+        "after": "Five PC-scene videos generated with the same Japanese prompt. Compare the first outputs using timestamped frames, then follow the settings for each model and reuse the original prompt."
+      },
+      {
+        "source": "思いついた「こうだったらいいな」が、触れる形になる。旅行の地図というアイデアと、このサイトの制作から、つくる楽しさを伝えます。",
+        "before": "The thoughts that come to mind, ``I wish it would be like this,'' become tangible. We will convey the idea of ​​a travel map and the joy of creating this site through the creation of this site.",
+        "after": "An idea becomes something you can actually interact with. Through a travel-map idea and the making of this website, I explore what makes building things enjoyable."
+      },
+      {
+        "source": "読んでみる ↗",
+        "before": "Read it ↗",
+        "after": "Read more ↗"
+      },
+      {
+        "source": "自作PCをきっかけに、暮らしを便利にする道具選びへ。使う場面とコスパを考えながら、ガジェットを吟味する楽しさについて。",
+        "before": "After building my own PC, I started choosing tools to make my life more convenient. About the fun of carefully examining gadgets while considering the usage situation and cost performance.",
+        "after": "Building my own PC led me to think about tools that make daily life easier. This is about the fun of choosing gadgets based on how I would use them and what I get for my money."
+      },
+      {
+        "source": "気になったことを調べ、試し、その途中も残す。開発や道具、研究への関心を、読者の次の好奇心につなげたい。りゅうのらぼの想いを紹介します。",
+        "before": "Research what you're interested in, try it out, and keep track of what you're doing. I hope to connect readers' interest in development, tools, and research to their next curiosity. I would like to introduce the thoughts of Ryu's Lab.",
+        "after": "Explore a question, try something, and record the process as well as the result. This is the idea behind Ryu's Lab: sharing an interest in making things, tools and research in the hope of sparking your next question."
+      },
+      {
+        "source": "次の「やってみた」も、手元に。",
+        "before": "The next ``I tried it'' is also at hand.",
+        "after": "Get the next experiment in your feed."
+      },
+      {
+        "source": "道具選びや、日々を少し便利にする工夫を更新しています。新しい記事のタイトルと概要を、RSSリーダーでまとめて受け取れます。",
+        "before": "We are updating tools selection and ideas to make your daily life a little more convenient. Receive the titles and summaries of new articles all at once using your RSS reader.",
+        "after": "I share ways to choose useful tools and make everyday tasks a little easier. Subscribe in an RSS reader to receive new article titles and summaries in one place."
+      },
+      {
+        "source": "書いている人について",
+        "before": "About the person writing",
+        "after": "About the author"
+      },
+      {
+        "source": "挨拶の文字、小物、引き出し。",
+        "before": "Greeting letters, accessories, drawers.",
+        "after": "The greeting, the little objects, the drawers."
+      },
+      {
+        "source": "気になったところに、そっと触れてみてください。",
+        "before": "Gently touch the areas that bother you.",
+        "after": "Try interacting with anything that catches your eye."
+      },
+      {
+        "source": "寄り道しながら、今日もなんかやってます。",
+        "before": "I'm doing something today as well while taking a detour.",
+        "after": "Still up to something, with a few detours along the way."
+      },
+      {
+        "source": "読む・見る",
+        "before": "read/view",
+        "after": "Explore"
+      },
+      {
+        "source": "SNSでも、あれこれ",
+        "before": "Even on SNS, this and that",
+        "after": "More from the lab on social media"
+      },
+      {
+        "source": "CSS・JavaScriptのデモと作り方",
+        "before": "Demo and how to make CSS/JavaScript",
+        "after": "Interactive CSS and JavaScript demos with tutorials"
+      },
+      {
+        "source": "広告・レビュー方針",
+        "before": "Advertising/review policy",
+        "after": "Advertising and review policy"
+      },
+      {
+        "source": "アクセス解析の設定",
+        "before": "Access analysis settings",
+        "after": "Analytics settings"
+      },
+      {
+        "source": "読みやすいらぼにするために",
+        "before": "To make the lab easy to read",
+        "after": "Help make the site easier to use"
+      },
+      {
+        "source": "許可すると、Google AnalyticsがCookieを使い、閲覧ページ、関連記事への移動、コードのコピーなどを集計します。氏名・メールアドレス・お問い合わせ内容・実験室の入力文は計測データに含めません。広告目的の計測は行いません。",
+        "before": "If you allow it, Google Analytics uses cookies to aggregate information such as pages viewed, navigation to related articles, and code copies. Your name, email address, inquiry details, and laboratory information will not be included in the measurement data. We do not measure for advertising purposes.",
+        "after": "If you allow it, Google Analytics uses cookies to count page views and actions such as following related-article links and copying code. Names, email addresses, contact-form messages and text entered in the web experiments are not included in these analytics. They are not used for advertising."
+      },
+      {
+        "source": "設定はフッターから変更できます。Cloudflareによるアクセス集計は、この選択とは別に動作します。",
+        "before": "Settings can be changed from the footer. Access aggregation by Cloudflare operates independently of this selection.",
+        "after": "You can change this choice in the footer. Cloudflare's traffic statistics operate separately from this setting."
+      },
+      {
+        "source": "許可する",
+        "before": "allow",
+        "after": "Allow"
+      },
+      {
+        "source": "許可しない",
+        "before": "not allowed",
+        "after": "Don't allow"
+      },
+      {
+        "source": "このブラウザの計測を除外する",
+        "before": "Exclude measurement for this browser",
+        "after": "Exclude this browser from analytics"
+      },
+      {
+        "source": "運営者の確認用アクセスなどを、GA4とCloudflare Web Analyticsの両方から除外できます。設定したブラウザでの今後の閲覧に適用されます。別の端末・ブラウザでは個別に設定してください。サイトデータを消すと設定も解除されます。過去の集計は変わりません。",
+        "before": "You can exclude things like operator verification access from both GA4 and Cloudflare Web Analytics. It will apply to your future browsing in the browser you set. Please configure the settings separately for other devices and browsers. If you delete the site data, the settings will also be deleted. Past totals remain unchanged.",
+        "after": "You can exclude visits from this browser, such as your own site checks, from both GA4 and Cloudflare Web Analytics. This applies to future visits in this browser only; set it separately on other browsers and devices. Clearing site data removes this preference. Past statistics are not changed."
+      },
+      {
+        "source": "このブラウザを計測から除外する",
+        "before": "Exclude this browser from measurement",
+        "after": "Exclude this browser from analytics"
+      },
+      {
+        "source": "RSSの登録方法",
+        "before": "How to register RSS",
+        "after": "How to subscribe via RSS"
+      },
+      {
+        "source": "また、上へ",
+        "before": "Also, up",
+        "after": "Back to top"
+      },
+      {
+        "source": "りゅうのらぼを書いているRyu Kodaの自己紹介。ソフトウェアやAI、研究、日々の道具について、気になったことを調べ、つくり、記録しています。",
+        "before": "Self-introduction of Ryu Koda, who writes Ryu's Lab. I research, create, and record things that interest me about software, AI, research, and everyday tools.",
+        "after": "Meet Ryu Koda, the author of Ryu's Lab. I explore software, AI, research and everyday tools, building things and recording what I discover."
+      },
+      {
+        "source": "このらぼの中の人",
+        "before": "people in this lab",
+        "after": "The person behind the lab"
+      },
+      {
+        "source": "気になったら、まず試してみる。",
+        "before": "If you're interested, try it first.",
+        "after": "When something catches my curiosity, I try it."
+      },
+      {
+        "source": "おしごとを見る",
+        "before": "see work",
+        "after": "Explore my work"
+      },
+      {
+        "source": "手を動かして試す：CSSでぷにぷにボタンを作る。完成コードと動くデモ →",
+        "before": "Try it out: Create a squishy button with CSS. Completed code and working demo →",
+        "after": "Try it yourself: make a squishy CSS button, with a working demo and complete code →"
+      },
+      {
+        "source": "Flow、Kling、Dreamina、Luma、Fireflyで実際に無料生成・保存できた5モデルを比較。2026年11月7日の設定、消費クレジット、透かし、試す前の確認点を紹介します。",
+        "before": "Comparison of 5 models that were actually created and saved for free with Flow, Kling, Dreamina, Luma, and Firefly. We will introduce the settings, consumption credits, watermarks, and points to check before trying it on November 7, 2026.",
+        "after": "Five models that I used to generate and download videos for free in Flow, Kling, Dreamina, Luma and Firefly. Settings, credit costs and watermarks were checked on November 7, 2026; here's what to check before trying them yourself."
+      },
+      {
+        "source": "Pythonで中身が同じファイルを探す方法。Macでの準備、コマンド、結果の読み方を一つずつ解説。削除しないコードと練習用ファイル付きです。",
+        "before": "How to find files with the same content in Python. Step by step explanation of preparation, commands, and how to read results on Mac. Includes non-deletable code and practice files.",
+        "after": "Find files with identical contents using Python, without deleting anything. Includes Mac setup, commands, explanations of the output, a read-only script and practice files."
+      },
+      {
+        "source": "Claude CodeのMCP設定を練習用フォルダーへ追加し、.mcp.jsonの中身と承認待ち表示を確認して削除する手順。実行結果付きで解説します。",
+        "before": "Steps to add Claude Code's MCP settings to the practice folder, check the contents of .mcp.json and the pending approval display, and delete it. I will explain with execution results.",
+        "after": "Add a Claude Code MCP configuration in a practice folder, inspect .mcp.json and the pending-approval status, then remove the configuration. Each step includes the observed output."
+      },
+      {
+        "source": "好奇心の置き場所としての、りゅうのらぼ。 | りゅうのらぼ",
+        "before": "Ryu's Lab is a place for curiosity. | Dragon Lab",
+        "after": "Ryu's Lab: a home for curiosity | Ryu's Lab"
+      },
+      {
+        "source": "パンくずリスト",
+        "before": "breadcrumb trail",
+        "after": "Breadcrumb navigation"
+      },
+      {
+        "source": "知りたいことは、ひとつ先にもある。",
+        "before": "There is one more thing I want to know.",
+        "after": "One question leads to another."
+      },
+      {
+        "source": "途中の考えにも、残しておきたいことがある。",
+        "before": "There are some thoughts that I would like to leave behind.",
+        "after": "The thoughts along the way are worth keeping, too."
+      },
+      {
+        "source": "「これ、どういうしくみなんだろう」「別のやり方はないのかな」。答えを探していたはずなのに、いつの間にか、最初とは少し違うことを調べている。",
+        "before": "\"I wonder how this works?\" \"Is there another way?\" You should have been looking for an answer, but before you know it, you're looking into something a little different than what you started with.",
+        "after": "“How does this work?” “Is there another way?” I set out to find an answer, then realize I've wandered into a slightly different question."
+      },
+      {
+        "source": "そんな寄り道で見つけたことを、ここに残していきたいと思っています。",
+        "before": "I would like to leave here what I found on such a detour.",
+        "after": "I want to keep a record of the things I find on those detours."
+      },
+      {
+        "source": "こんなふうに、自分の机で開いた数字から、誰かの研究や、まだ知らなかった問いにつながっていく。そういう広がりにひかれます。",
+        "before": "In this way, the numbers I open at my desk lead to someone's research or to questions I didn't know yet. I'm drawn to that kind of breadth.",
+        "after": "A few numbers opened at my own desk can lead me into someone else's research, or a question I hadn't thought to ask. That sense of possibility draws me in."
+      },
+      {
+        "source": "つくっている途中には、「こっちのほうが好きかも」と思った理由があります。調べものの途中には、「どうして？」と思ったきっかけがあります。",
+        "before": "While I was making it, there was a reason I thought, ``I might like this one better.'' In the middle of research, there are times when you wonder, \"Why?\"",
+        "after": "While making something, there's a reason I think, “I might prefer this version.” While researching, something prompts me to ask, “Why?” Those moments matter too."
+      },
+      {
+        "source": "うまくいかなかったことも、そこで何がわかったのかまで書いておく。そうすれば、途中の記録も、誰かが次に試すための手がかりになると思っています。",
+        "before": "Write down what didn't go well and what you learned. If I do that, I think the recordings I make along the way will serve as clues for someone to try next.",
+        "after": "I want to record what didn't work, along with what it taught me. Even an unfinished process can give someone else a useful starting point."
+      },
+      {
+        "source": "ここでは、開発も、道具も、研究も、日々の気づきも扱っていきます。",
+        "before": "Here, we will cover development, tools, research, and daily awareness.",
+        "after": "Here I write about development, tools, research and things I notice in daily life."
+      },
+      {
+        "source": "りゅうのらぼを、おもちゃ箱のようにしたいと思ったのも、いろいろなものを置ける場所にしたかったからです。",
+        "before": "The reason I wanted to make Dragon Lab like a toy box was because I wanted it to be a place where I could put a variety of things.",
+        "after": "I wanted Ryu's Lab to feel like a toy box: a place where all sorts of interests can sit together."
+      },
+      {
+        "source": "ひとつの記事を読みに来て、別の話も少し気になる。知らなかった道具や、考えたことのなかった問いに出会う。そんな寄り道をしてもらえたらうれしいです。",
+        "before": "I came to read one article and was a little curious about another story. You'll encounter tools you didn't know about or questions you'd never thought about. I would be happy if you could take a detour like that.",
+        "after": "You might arrive for one article and find yourself curious about something else—a tool you didn't know, or a question you'd never considered. I'd love this site to offer those kinds of detours."
+      },
+      {
+        "source": "読んだあとに、ひとつ調べてみたくなる。試してみたくなる。ここで見つけたことが、あなたの好奇心の続きにつながったらうれしいです。",
+        "before": "After reading this, I want to do some research. Makes me want to try it. I hope that what you find here will continue your curiosity.",
+        "after": "I hope you finish an article wanting to look something up or try it yourself. I'd be glad if something you find here sparks your next question."
+      },
+      {
+        "source": "Xで紹介する",
+        "before": "Introducing with X",
+        "after": "Share on X"
+      },
+      {
+        "source": "試してみてつまずいたことや、記事の訂正は",
+        "before": "What did you stumble upon when you tried it and corrections to the article?",
+        "after": "If you get stuck or spot a correction, please use the"
+      },
+      {
+        "source": "お問い合わせフォーム",
+        "before": "Contact form",
+        "after": "contact form"
+      },
+      {
+        "source": "へどうぞ。対象の記事URLを添えていただけると助かります。",
+        "before": "Please go to. It would be helpful if you could include the URL of the article in question.",
+        "after": ". Including the article URL will help me find the issue."
+      },
+      {
+        "source": "こちらも、のぞいてみる？",
+        "before": "Would you like to take a look too?",
+        "after": "You might also enjoy"
+      },
+      {
+        "source": "無料枠で動画生成AI 5モデルを試す。5秒のPC動画と作り方 のヒーロー画像",
+        "before": "Try out 5 video generation AI models for free. 5 seconds PC video and how to make hero image",
+        "after": "Five AI-generated PC-scene videos — cover illustration"
+      },
+      {
+        "source": "1. まずは5本を見比べてみる",
+        "before": "1. First, let's compare 5 books",
+        "after": "1. Compare the five videos"
+      },
+      {
+        "source": "ショート動画の冒頭に、デスクのPCへすっと近づく映像を入れたい。撮影の代わりにAIで作れたら便利ですよね。今回は同じ日本語の文章を使い、5つのモデルで試しました。",
+        "before": "At the beginning of the short video, I would like to include a video of someone approaching the computer on the desk. It would be convenient if you could use AI to create images instead of taking pictures. This time, we tested five models using the same Japanese sentences.",
+        "after": "I wanted an opening shot for a short video: the camera smoothly moving toward a PC on a desk. Could AI make it instead of filming it? I tried five models with the same Japanese prompt."
+      },
+      {
+        "source": "この記事では、実際の動画、モデル別の設定手順、コピーして使えるプロンプトをまとめています。無料枠や保存条件の一覧は",
+        "before": "This article includes practical videos, model-specific setup instructions, and copyable prompts. List of free credits and storage conditions",
+        "after": "This article includes the generated videos, each model's settings and the original prompt to copy. For free allowances and download conditions, see"
+      },
+      {
+        "source": "で確認できます。今回は、接近の構図を確認できたFlow・Kling、動きが控えめだったSeedance、不要な手が加わったLumaなど、初回出力に違いがありました。動画と時刻付きのフレームを根拠に見ていきます。",
+        "before": "You can check it here. This time, there were some differences in the initial output, such as Flow/Kling, whose approaching composition could be confirmed, Seedance, whose movement was modest, and Luma, where unnecessary moves were added. We will look at it based on the video and frames with time.",
+        "after": ". The first outputs differed: Flow and Kling produced an approaching camera composition, Seedance used subtler movement, and Luma added an unwanted hand. Let's look at the videos and timestamped frames."
+      },
+      {
+        "source": "確認方法：0.0秒から4.5秒まで0.5秒刻みと、終盤4.917秒の計11フレームを各動画から抽出して見比べました。以下はこの5本の観察です。フレーム間の細かな動きや、ファンの連続回転まで検証したものではありません。",
+        "before": "How to check: We extracted a total of 11 frames from each video in 0.5 second increments from 0.0 seconds to 4.5 seconds, and 4.917 seconds at the end, and compared them. Below are my observations of these five. We have not verified the detailed movement between frames or the continuous rotation of the fan.",
+        "after": "I extracted 11 frames from each video: every 0.5 seconds from 0.0 to 4.5 seconds, plus a final frame at 4.917 seconds. The observations below apply only to these five outputs. They do not verify fine motion between frames or continuous fan rotation."
+      },
+      {
+        "source": "最初は「撮影した映像に見えるか」。もう一度見るときは「ケースの縁が曲がらないか」「部品が途中で変わらないか」に注目すると、違いを探しやすくなります。",
+        "before": "The first question was, ``Does it look like the image that was shot?'' When looking at it again, it will be easier to spot differences if you pay attention to whether the edges of the case are bent or whether any parts change midway through.",
+        "after": "First, ask whether it looks like real product footage. Watch again for bent case edges or components that change partway through. Separating these checks makes the differences easier to spot."
+      },
+      {
+        "source": "15クレジット",
+        "before": "15 credits",
+        "after": "15 credits"
+      },
+      {
+        "source": "プロンプトの自動エージェントはオフで実行しました。",
+        "before": "I ran the prompt automatic agent off.",
+        "after": "I turned off the automatic prompt agent for this generation."
+      },
+      {
+        "source": "机から内部へ寄る構図が、今回のお題に近い",
+        "before": "The composition from the desk to the interior is close to this topic.",
+        "after": "The camera moves from the desk toward the PC interior, close to the requested composition"
+      },
+      {
+        "source": "0.0秒ではPC、モニター、キーボード、マウスが入り、2.5秒ではケース側面が画面の大半を占めます。4.917秒には内部を大きく見せる構図です。抜き出したフレームでは、丸いクーラーと背面ファンの位置関係を追えました。",
+        "before": "At 0.0 seconds, the PC, monitor, keyboard, and mouse fit in, and at 2.5 seconds, the sides of the case take up most of the screen. At 4.917 seconds, the composition makes the interior look larger. In the extracted frame, we were able to track the positional relationship between the round cooler and the rear fan.",
+        "after": "At 0.0 seconds, the PC, monitor, keyboard and mouse are all in view. At 2.5 seconds, the case side fills most of the frame; by 4.917 seconds, the interior is shown close up. In the sampled frames, I could follow the relative positions of the round cooler and rear fan."
+      },
+      {
+        "source": "デスクの全景からPC内部へ視線を誘導する導入カットの候補。実在製品の仕様を説明する映像としては確認が必要です。",
+        "before": "A candidate for an introductory cut that guides the eye from the panoramic view of the desk to the inside of the PC. Confirmation is required as the video explains the specifications of the actual product.",
+        "after": "A possible opening shot that draws attention from the whole desk into the PC. It would need further checking before being used to explain a real product's specifications."
+      },
+      {
+        "source": "根拠のフレームを見る（時刻付き）",
+        "before": "View evidence frame (with time)",
+        "after": "View the supporting frames and timestamps"
+      },
+      {
+        "source": "50クレジット",
+        "before": "50 credits",
+        "after": "50 credits"
+      },
+      {
+        "source": "無料残高66クレジットから1本を生成し、残りは16でした。",
+        "before": "I generated one from my free balance of 66 credits and had 16 left.",
+        "after": "Generating one video used 50 of the 66 free credits in my balance, leaving 16."
+      },
+      {
+        "source": "0.0秒・0.5秒・1.0秒のフレームではモニターとPCを一緒に見せ、2.5秒にはPC側面の比重が増えます。4.917秒には白いRAM状の部品2本、上部の3つのファン、左側のファンが大きく映ります。白を基調にした照明は今回の指定に近い見た目です。",
+        "before": "At frames of 0.0 seconds, 0.5 seconds, and 1.0 seconds, the monitor and PC are shown together, and at 2.5 seconds, the weight of the sides of the PC increases. At 4.917 seconds, two white RAM-like parts, three fans at the top, and a fan on the left side are clearly visible. The white-based lighting has an appearance similar to this designation.",
+        "after": "At 0.0, 0.5 and 1.0 seconds, the monitor and PC are both visible. At 2.5 seconds, the PC's side occupies more of the frame. At 4.917 seconds, two white RAM-like components, three top fans and the left-side fan appear close up. The mostly white lighting is close to the prompt."
+      },
+      {
+        "source": "45クレジット",
+        "before": "45 credits",
+        "after": "45 credits"
+      },
+      {
+        "source": "明るい部屋の雰囲気は出たが、接近の変化は控えめ",
+        "before": "The atmosphere of a bright room was created, but the change in approach was modest",
+        "after": "A convincing bright room, but only a subtle move toward the PC"
+      },
+      {
+        "source": "0.0秒から4.917秒までの確認したフレームではPC全体と机が画面内に残り、FlowやKlingほど大きく内部に寄りません。明るい窓と木の机、本棚の組み合わせで、生活感のあるデスクの場面として読み取りやすい構図です。",
+        "before": "In the observed frames from 0.0 seconds to 4.917 seconds, the entire PC and desk remain within the screen, and are not as far inside as Flow and Kling. The combination of a bright window, wooden desk, and bookshelf creates a composition that is easy to read as a desk scene with a sense of life.",
+        "after": "In the sampled frames from 0.0 to 4.917 seconds, the whole PC and desk remain visible. The camera does not move as close to the interior as in Flow or Kling. The bright window, wooden desk and bookshelf make the setting recognizable as a lived-in room."
+      },
+      {
+        "source": "大きなカメラ移動を求めない、デスクの雰囲気を見せるカットの候補。今回のようにしっかり接近させたい場合は、動きの指定を改めて試す余地があります。",
+        "before": "Candidates for cuts that do not require large camera movements and show the atmosphere of the desk. If you want to get them close together like we did this time, you may want to try specifying the movement again.",
+        "after": "A possible desk-atmosphere shot when you don't need much camera movement. For a stronger approach like the one requested here, the motion instructions would be worth revising and testing again."
+      },
+      {
+        "source": "Dreaminaで試す設定へ ↓",
+        "before": "Go to the settings to try on Dreamina ↓",
+        "after": "Dreamina setup instructions ↓"
+      },
+      {
+        "source": "「サービス」は作業するサイト、「モデル」はそこで選ぶ生成AIです。下の名前を確認し、出力数は1本、入力画像はなしにします。画面名や無料枠は変更されることがあるので、最後に表示される消費量を確認してください。",
+        "before": "The \"service\" is the site you work on, and the \"model\" is the generated AI you select there. Check the name below and set the number of outputs to 1 and the input image to none. Screen names and free tiers may change, so please check the consumption amount displayed at the end.",
+        "after": "The service is the website you use; the model is the AI generator you select within it. Choose the model listed below, request one output and do not supply an image. Interfaces and free allowances can change, so check the credit cost shown before generating."
+      },
+      {
+        "source": "Klingの設定を見る",
+        "before": "View Kling settings",
+        "after": "Kling setup instructions"
+      },
+      {
+        "source": "動画生成で「Kling 4.0」を選択。5秒・9:16・720pに設定します。",
+        "before": "Select \"Kling 4.0\" for video generation. Set to 5 seconds, 9:16, 720p.",
+        "after": "Select Kling 4.0, then choose a duration of 5 seconds, a 9:16 aspect ratio and 720p resolution."
+      },
+      {
+        "source": "Lumaの設定を見る",
+        "before": "View Luma settings",
+        "after": "Luma setup instructions"
+      },
+      {
+        "source": "100クレジット",
+        "before": "100 credits",
+        "after": "100 credits"
+      },
+      {
+        "source": "動画生成でAdobe製の「Firefly Video」を選択。5秒・9:16・540pに設定し、当日の無料生成枠を確認します。",
+        "before": "Select Adobe's \"Firefly Video\" for video generation. Set it to 5 seconds, 9:16, and 540p and check the free generation slot for the day.",
+        "after": "Choose Adobe's Firefly Video model, then set 5 seconds, a 9:16 aspect ratio and 540p. Check the free generation allowance available that day."
+      },
+      {
+        "source": "無料生成1回",
+        "before": "Free generation 1 time",
+        "after": "One free generation"
+      },
+      {
+        "source": "動画を見るときは、実写らしさと指示を守ったかを分けます。今回のLumaのように、部屋の雰囲気が出ていても、閉じたままの指定に対してパネルが開けば、見た目と指示の再現性で評価が分かれます。",
+        "before": "When watching a video, you need to decide whether it looks like a live action video or whether you followed the instructions. As with Luma, even if the atmosphere of the room is expressed, if the panel is opened when it is specified to remain closed, evaluations will be divided on the appearance and the reproducibility of the instructions.",
+        "after": "Judge realism and prompt adherence separately. In the Luma output, for example, the room may look convincing, but opening a panel that was supposed to stay closed is still a failure to follow that instruction."
+      },
+      {
+        "source": "各モデル1回の試行なので、成功率や「いつもこの品質になる」とは言えません。正確な生成時間、抜き出したフレームの間の細かな動き、Flow・Klingの音声内容は未確認です。静止フレームの比較から、動きの滑らかさやファンの連続回転までは判断しません。この記事の無料生成の確認と、公開・収益化時の利用許諾は別です。",
+        "before": "Since each model is tested once, we cannot say that it will have a success rate or that it will always be of this quality. The exact generation time, detailed movements between extracted frames, and audio content of Flow/Kling have not been confirmed. We do not judge the smoothness of movement or the continuous rotation of the fan by comparing static frames. Confirmation of free generation of this article and usage permission when publishing and monetizing are separate.",
+        "after": "With only one attempt per model, this test cannot establish success rates or typical output quality. Exact generation times, fine motion between sampled frames and the audio content of Flow and Kling were not checked. Still frames cannot establish smooth motion or continuous fan rotation. Being able to generate for free also does not establish permission to publish or monetize the result."
+      },
+      {
+        "source": "今回整えたのは、Googleに見つけてもらう設定、記事の内容が伝わる見せ方、そして自分の閲覧を混ぜない計測です。",
+        "before": "This time, I set up settings for Google to find me, how to present the article to convey the content, and measurements that don't include my own views.",
+        "after": "I worked on three things: helping Google discover the site, making the articles clear in search results, and measuring visits without counting my own."
+      },
+      {
+        "source": "Googleへの登録",
+        "before": "Registration with Google",
+        "after": "Google indexing"
+      },
+      {
+        "source": "計測",
+        "before": "measurement",
+        "after": "Analytics"
+      },
+      {
+        "source": "→ ② 登録される",
+        "before": "→ ② Registered",
+        "after": "→ ② Indexed"
+      },
+      {
+        "source": "日次無料枠1回",
+        "before": "1 free daily slot",
+        "after": "One free generation per day"
+      },
+      {
+        "source": "クレジット換算は非表示。今回は540pで生成しました。",
+        "before": "Credit conversion is hidden. This time it was generated at 540p.",
+        "after": "The credit equivalent was not shown. This test used 540p output."
+      },
+      {
+        "source": "画像を軽くする記事",
+        "before": "Articles to lighten images",
+        "after": "The image compression tutorial"
+      },
+      {
+        "source": "例に使うのは、ライブラリの資料を扱うContext7のHTTPエンドポイントです。今回は接続先の登録までで、認証情報を入力する操作は含めません。",
+        "before": "The example used is Context7's HTTP endpoint for library materials. This time, we will only register the connection destination and will not include the operation of entering authentication information.",
+        "after": "The example uses Context7’s HTTP endpoint, which provides library documentation. This walkthrough only registers the endpoint; it does not include entering authentication credentials."
+      },
+      {
+        "source": "overflow: hiddenで子要素が切れるときの対処｜角丸を残してはみ出すCSS | りゅうのらぼ",
+        "before": "What to do when child elements are cut off with overflow: hidden | CSS that protrudes leaving rounded corners | Ryu's Lab",
+        "after": "Fix children clipped by overflow: hidden while keeping rounded corners | Ryu's Lab"
+      },
+      {
+        "source": "まだ切れるとき",
+        "before": "When it still breaks",
+        "after": "If it still gets clipped"
+      },
+      {
+        "source": "デモを大きく開く",
+        "before": "Open demo wide",
+        "after": "Open the demo in a larger view"
+      },
+      {
+        "source": "仕掛けの実験室へ →",
+        "before": "To the gimmicky laboratory →",
+        "after": "Explore the web experiments →"
+      },
+      {
+        "source": "入力するコマンド",
+        "before": "Command to enter",
+        "after": "Command to run"
+      },
+      {
+        "source": "ターミナルに",
+        "before": "to the terminal",
+        "after": "In Terminal,"
+      },
+      {
+        "source": "引き出しのサンプルはHTMLを開くだけで動きます。画像変換にはNode.jsを使います。それぞれ準備が違うので、まず前提と完成の目印を確かめてください。公開サイトの仕組みと、練習用の小さなサンプルは区別して説明しています。",
+        "before": "The drawer sample works just by opening the HTML. Use Node.js for image conversion. The preparation is different for each, so first check the prerequisites and completion marks. The mechanism of the public site and the small sample for practice are explained separately.",
+        "after": "The drawer sample runs by opening its HTML file; image conversion requires Node.js. Each has different prerequisites, so check what you need and how to recognize success first. The tutorials distinguish the live site's implementation from the small practice samples."
+      },
+      {
+        "source": "磁石やボタン、文字の積み木。仕掛けの実験室で動き方を試し、各ページから実装コードも読めます。",
+        "before": "Magnets, buttons, and letter building blocks. You can try out how it works in the gimmicky laboratory and read the implementation code on each page.",
+        "after": "Try magnets, buttons and letter blocks in the web experiments. Each page also links to its implementation code."
+      },
+      {
+        "source": "仕掛けの実験室を開く →",
+        "before": "Open a gimmicky laboratory →",
+        "after": "Open the web experiments →"
+      },
+      {
+        "source": "Macでファイル名を一括変更する方法｜Finderの操作手順 | りゅうのらぼ",
+        "before": "How to rename files in bulk on Mac | Finder steps | Ryu's Lab",
+        "after": "Batch rename files on Mac: a step-by-step Finder guide | Ryu's Lab"
+      },
+      {
+        "source": "入力したのはこの2か所。左下の「例」が desk_001.jpg になりました。",
+        "before": "I entered these two places. The \"example\" at the bottom left is now desk_001.jpg.",
+        "after": "These are the two fields I filled in. The example at the bottom left now reads desk_001.jpg."
+      },
+      {
+        "source": "変更後。「IMG_」だけが「desk_」に変わり、001〜003と拡張子は残っています。",
+        "before": "After change. Only \"IMG_\" changes to \"desk_\", and the extensions 001 to 003 remain.",
+        "after": "After renaming: only “IMG_” changed to “desk_”. The numbers 001–003 and the file extensions stayed the same."
+      },
+      {
+        "source": "3枚とも狙いどおり。ファイルの中身も変更前後で照合したところ一致していました。今回は、画像を書き換えずに名前だけを変えられています。",
+        "before": "All three were on target. When I compared the contents of the files before and after the change, they matched. This time, only the name was changed without rewriting the image.",
+        "after": "All three files were renamed as intended. Comparing their contents before and after confirmed that the contents matched: only the names changed, not the images."
+      },
+      {
+        "source": "試した範囲では「3枚に同じ変更を入れる」操作を一度にできました。何百枚も試したわけではないので、大量のファイルでの結果や、何分短縮できるかまでは分かりません。",
+        "before": "As far as I tried, I was able to \"make the same changes to 3 sheets\" at once. I haven't tried it with hundreds of files, so I don't know the results with a large number of files or how many minutes it saves.",
+        "after": "In this test, I applied the same change to three files at once. I have not tested hundreds of files, so I cannot say how it performs at that scale or how much time it would save."
+      },
+      {
+        "source": "ファイル整理、全部きれいにしようとすると腰が重くなるので。今日は同じ名前を3回打ち直さずに済んだ、くらいで。",
+        "before": "When I try to organize my files and clean them all, I feel heavy. At least I didn't have to retype the same name three times today.",
+        "after": "Trying to organize every file at once feels like a chore. Today, simply avoiding typing the same name three times is enough."
+      },
+      {
+        "source": "1枚しか変えられない：",
+        "before": "Only one card can be changed:",
+        "after": "Only one file gets renamed:"
+      },
+      {
+        "source": "そのまま次の作業へ進まず、練習用ZIPを別の場所へ展開してやり直します。まずは元のファイルが開けるか切り分けます。",
+        "before": "Rather than proceeding to the next step, extract the practice ZIP to another location and try again. First, open or separate the original file.",
+        "after": "Stop before moving on. Extract the practice ZIP into a different location and try again. First check whether the original file opens, so you can narrow down the problem."
+      },
+      {
+        "source": "このサイトも、「こうしたい」からできています。",
+        "before": "This site is also made up of people who want to do this.",
+        "after": "This site also began with an idea of how I wanted it to work."
+      },
+      {
+        "source": "商品を探すときは「Switch対応」だけで決めず、対象機種まで読みます。",
+        "before": "When looking for a product, don't just decide on whether it's compatible with Switch; read up on the compatible models.",
+        "after": "When shopping, do not stop at “Switch compatible”. Check exactly which models the product supports."
+      },
+      {
+        "source": "登録後は自動接続される案内です。自分の環境では、接続中の表示と実際にイヤホンから音が聞こえることを確認してください。名前が出るまで40秒ほどかかる場合があります。",
+        "before": "After registration, you will be automatically connected. In your environment, make sure that the connection appears and that you can actually hear sound from the earphones. It may take up to 40 seconds for your name to appear.",
+        "after": "Nintendo says the earphones should connect automatically after pairing. Check the connection status and make sure you can actually hear audio through them. Their name may take around 40 seconds to appear."
+      },
+      {
+        "source": "Switch 2専用の案内",
+        "before": "Information for Switch 2 only",
+        "after": "Nintendo’s Switch 2 guide"
+      },
+      {
+        "source": "画像をWebPに変換・軽量化する方法｜Node.jsとsharpで実践 | りゅうのらぼ",
+        "before": "How to convert images to WebP and reduce their weight | Practice with Node.js and sharp | Ryu's Lab",
+        "after": "Convert images to WebP and reduce file sizes with Node.js and sharp | Ryu's Lab"
+      },
+      {
+        "source": "まず、画像の重さを見てみる。",
+        "before": "First, let's look at the weight of the image.",
+        "after": "First, check the image file sizes."
+      },
+      {
+        "source": "このファイル、そのままサイトに載せて大丈夫なんだろう。",
+        "before": "I think it's okay to put this file on the site as is.",
+        "after": "Is it really OK to upload this file as it is?"
+      },
+      {
+        "source": "今回試すのは、横幅を最大1200pxにし、WebPの品質設定を85にする方法です。これは今回選んだ条件で、どの画像にも最適という意味ではありません。",
+        "before": "What we will try this time is to increase the width to a maximum of 1200px and set the WebP quality setting to 85. This is the condition I chose this time, and it does not mean that it is optimal for every image.",
+        "after": "For this test, I capped the width at 1200px and set WebP quality to 85. These are the settings I chose for this example, not necessarily the best settings for every image."
+      },
+      {
+        "source": "次に、画像を変換するsharpを追加します。ここではインターネット接続が必要です。",
+        "before": "Next, add sharp to transform the image. An internet connection is required here.",
+        "after": "Next, install sharp, the library that converts the images. This step requires an internet connection."
+      },
+      {
+        "source": "3枚のWebPができ、Finderで開ければ成功。次の手順は、自分の画像でも試したい方だけ進んでください。",
+        "before": "If you can create 3 WebP pages and open them in Finder, it will be successful. Proceed to the next step only if you want to try it on your own images.",
+        "after": "If all three WebP images have been created and open in Finder, the practice worked. Continue only if you also want to try your own images."
+      },
+      {
+        "source": "今回のコードは直下の静止画PNG・JPEGが対象です。HEICやアニメーション、サブフォルダ内の画像は対象外です。画像の外部送信処理はありません。",
+        "before": "This code is for the still image PNG/JPEG directly below. HEIC, animations, and images in subfolders are not eligible. There is no external transmission process for images.",
+        "after": "This script processes still PNG and JPEG images directly inside the input folder. It does not process HEIC files, animations or images in subfolders, and it does not send images to an external service."
+      },
+      {
+        "source": "sharpのリサイズ仕様",
+        "before": "sharp resizing specifications",
+        "after": "sharp resize documentation"
+      },
+      {
+        "source": "で、実際に買うなら？ 3つの商品を並べてみた",
+        "before": "So, what if you actually buy it? I arranged three products",
+        "after": "Which one would I actually buy? Comparing three products"
+      },
+      {
+        "source": "開いたのは、エレコムの「MPA-CCPE05BK」というケーブルの公式ページです。製品名には240Wとあります。大きな数字なので、何でも得意そうに見えてしまいますが、ほかの欄はどうでしょう。",
+        "before": "What I opened was the official page for ELECOM's \"MPA-CCPE05BK\" cable. The product name says 240W. It's a big number, so it looks like you're good at everything, but what about other fields?",
+        "after": "I opened ELECOM’s official page for the MPA-CCPE05BK cable. The product name says 240W. That big number makes it look capable of everything—but what do the other specifications say?"
+      },
+      {
+        "source": "Wが大きいからファイルも速く移せる、とは読めない",
+        "before": "It cannot be read that because W is large, files can be transferred quickly.",
+        "after": "A higher wattage does not mean faster file transfers"
+      },
+      {
+        "source": "今回の数値と対応状況の確認元",
+        "before": "Source of confirmation of current figures and response status",
+        "after": "The source for these specifications and compatibility details"
+      },
+      {
+        "source": "1．まず、何と何をつなぐか書く",
+        "before": "1. First, write what is connected to what.",
+        "after": "1. Write down which devices you want to connect"
+      },
+      {
+        "source": "③は映像対応ですが60Wまでなので、条件外。",
+        "before": "③ supports video, but it is up to 60W, so it is not a requirement.",
+        "after": "③ supports video, but its 60W limit means it does not meet the requirements."
+      },
+      {
+        "source": "設定のON/OFFに。色だけに頼らず、ラベルとaria-pressedも一緒に切り替えます。",
+        "before": "To turn settings ON/OFF. Instead of relying only on color, we also switch labels and aria-pressed together.",
+        "after": "Use this for an on/off setting. Update the label and aria-pressed along with the color, rather than relying on color alone."
+      },
+      {
+        "source": "FAQや補足説明に。HTMLのdetailsとsummaryなら、JavaScriptなしでも開閉でき、キーボードでも操作できます。",
+        "before": "For FAQs and supplementary explanations. HTML details and summaries can be opened and closed without JavaScript and can be operated using the keyboard.",
+        "after": "Useful for FAQs and extra details. HTML's details and summary elements open and close without JavaScript and support keyboard interaction."
+      },
+      {
+        "source": "どれも音は鳴りません。動きを減らす端末設定ではアニメーションを省きます。",
+        "before": "None make any sound. Omit animations in device settings that reduce movement.",
+        "after": "None of these demos plays sound. Animations are skipped when your device requests reduced motion."
+      },
+      {
+        "source": "ずしっと",
+        "before": "Smoothly",
+        "after": "Heavy"
+      },
+      {
+        "source": "ぽよんぽよん",
+        "before": "Poyonpoyon",
+        "after": "Bouncy"
+      },
+      {
+        "source": "「重さ」と「はずみ」。",
+        "before": "\"Weight\" and \"momentum\".",
+        "after": "Weight and bounce."
+      },
+      {
+        "source": "動くデモ",
+        "before": "moving demo",
+        "after": "Interactive demo"
+      },
+      {
+        "source": "手元で動かす",
+        "before": "move by hand",
+        "after": "Run it locally"
+      },
+      {
+        "source": "むにっ",
+        "before": "Muni",
+        "after": "Squish"
+      },
+      {
+        "source": "ぷるん",
+        "before": "Purun",
+        "after": "Jiggle"
+      },
+      {
+        "source": "キー",
+        "before": "key",
+        "after": "Keycap"
+      },
+      {
+        "source": "押している間にボタンが沈み、少し横に広がり、離すと戻ります。上の3種類のデモと違い、離した後に大きく弾む処理は入れていません。",
+        "before": "While you hold it down, the button sinks, spreads out a little, and returns when you release it. Unlike the three demos above, there is no processing that causes the ball to bounce significantly after being released.",
+        "after": "The button sinks and widens slightly while pressed, then returns when released. Unlike the three demos above, this version does not add a pronounced bounce after release."
+      },
+      {
+        "source": "角を控えめに：",
+        "before": "Understate the corners:",
+        "after": "Less rounded corners:"
+      },
+      {
+        "source": "沈み込みを浅く：",
+        "before": "Shallower subduction:",
+        "after": "A shallower press:"
+      },
+      {
+        "source": "ゴム・ゼリー・キーをそれぞれ長押ししてから離します。押している間と離した後の違いを見ます。",
+        "before": "Press and hold each of the rubber, jelly, and jelly keys, then release them. Look at the difference while pressing and after releasing.",
+        "after": "Press and hold the rubber, jelly and keycap buttons in turn, then release them. Compare their appearance while pressed and after release."
+      },
+      {
+        "source": "pointerupだけでなく、pointercancel、lostpointercapture、blurでも押下を解除します。途中で指が離れたりフォーカスが移ったりしても押しっぱなしにしないためです。",
+        "before": "Not only pointerup, but also pointercancel, lostpointercapture, and blur cancel the press. This is to prevent you from holding down the button even if you remove your finger or the focus changes.",
+        "after": "Release the pressed state on pointercancel, lostpointercapture and blur as well as pointerup. This prevents the button from getting stuck when a gesture is interrupted or focus moves elsewhere."
+      },
+      {
+        "source": "buttonsのup内で、ゼリーの戻り方translateY(-5px) scale(.94,1.1)をtranslateY(-2px) scale(.98,1.04)に変えます。",
+        "before": "In button up, change the jelly return method translateY(-5px) scale(.94,1.1) to translateY(-2px) scale(.98,1.04).",
+        "after": "In the buttons experiment's up handler, change the jelly return transform from translateY(-5px) scale(.94,1.1) to translateY(-2px) scale(.98,1.04)."
+      },
+      {
+        "source": "動作のコード全体",
+        "before": "Whole code of behavior",
+        "after": "Full interaction source code"
+      },
+      {
+        "source": "PCの電源入力と充電器の電源出力もつなぎます。Hello, lab!が表示されれば接続完了です。",
+        "before": "Also connect the power input of the PC and the power output of the charger. If Hello, lab! is displayed, the connection is complete.",
+        "after": "Also connect the PC's power input to the charger's power output. The connection is complete when “Hello, lab!” appears."
+      },
+      {
+        "source": "接続済みの組もSetへ保存します。同じ接続を何度行っても、線が無限に増えることを避けられます。",
+        "before": "Connected pairs are also saved to Set. No matter how many times you make the same connection, you can avoid creating an infinite number of lines.",
+        "after": "Store connected pairs in a Set as well. This prevents repeated attempts at the same connection from creating endless duplicate lines."
+      },
+      {
+        "source": "映像だけで画面が点灯するようになります。元へ戻すと再び2本必要になります。見た目ではなく、状態の条件で結果が変わる実験です。",
+        "before": "The screen will light up with just the image. If you put it back, you will need two pieces again. This is an experiment in which the results change depending on the condition, not the appearance.",
+        "after": "The screen will now light up with the video connection alone. Restore the code and it will need both cables again. This experiment changes the outcome through state conditions, not styling."
+      },
+      {
+        "source": "Element.animate()はAnimationを返します。そのfinishedをawaitすると、前の動きが完了してから次の処理へ進めます。",
+        "before": "Element.animate() returns Animation. Awaiting for that finished allows the previous movement to complete before proceeding to the next process.",
+        "after": "Element.animate() returns an Animation. Await its finished promise to wait for the current animation to finish before starting the next step."
+      },
+      {
+        "source": "ドミノはfor...ofの中で1つずつawaitします。Promise.allに変えると同時に倒れるため、順番を守る処理とは異なります。",
+        "before": "Domino awaits one by one in for...of. This is different from the process that protects the order because it collapses at the same time as changing to Promise.all.",
+        "after": "Await each domino in a for...of loop. Switching to Promise.all makes them fall together, rather than one after another."
+      },
+      {
+        "source": "リセット時には進行中のAnimationをcancelし、generationも更新します。古い処理が完了しても、その後の動きを再開させないためです。",
+        "before": "At reset, the animation in progress will be canceled and the generation will also be updated. This is because even if the old process completes, it will not restart the subsequent movement.",
+        "after": "On reset, cancel the active Animation and update generation. This prevents an older sequence from resuming later even if its pending work completes."
+      },
+      {
+        "source": "落とす言葉",
+        "before": "words to drop",
+        "after": "Text to drop"
+      },
+      {
+        "source": "文字を落とす ↓",
+        "before": "Drop characters ↓",
+        "after": "Drop the letters ↓"
+      },
+      {
+        "source": "短い言葉を入力して「文字を落とす」を押します。文字ごとの積み木が落ちます。",
+        "before": "Enter a short word and press \"Drop character\". Building blocks for each letter will fall.",
+        "after": "Enter a short word or phrase and press “Drop the letters”. A block for each character will fall into the box."
+      },
+      {
+        "source": "積み木を持ち上げて離し、箱をゆらして積み直します。",
+        "before": "Lift the building blocks apart, shake the box, and re-stack it.",
+        "after": "Lift a block and let go, then shake the box to rearrange the stack."
+      },
+      {
+        "source": "lettersのstep内にあるb.vy+=1000*dtの1000を400へ変更します。",
+        "before": "Change 1000 of b.vy+=1000*dt in the letters step to 400.",
+        "after": "In the letters experiment's step function, change 1000 in b.vy+=1000*dt to 400."
+      },
+      {
+        "source": "積み木の落下がゆっくりになります。「文字を落とす」で初期状態からやり直し、変更前の落下と比べます。",
+        "before": "The building blocks will fall more slowly. Start over from the initial state with \"Drop text\" and compare it with the drop before the change.",
+        "after": "The blocks now fall more slowly. Use “Drop the letters” to restart from the initial state and compare the fall with the original version."
+      },
+      {
+        "source": "magnetsのstep内にあるMath.exp(-3*dt)をMath.exp(-6*dt)へ変更します。x方向とy方向の両方を変えてください。",
+        "before": "Change Math.exp(-3*dt) in the step of magnets to Math.exp(-6*dt). Change both the x and y directions.",
+        "after": "In the magnets experiment's step function, change Math.exp(-3*dt) to Math.exp(-6*dt) for both the x and y directions."
+      },
+      {
+        "source": "ランプを動かすと影も動く。SVGとJavaScriptで小さな書斎を作る",
+        "before": "When you move the lamp, the shadow also moves. Create a small study with SVG and JavaScript",
+        "after": "Move the lamp, move the shadows: build a small study with SVG and JavaScript"
+      },
+      {
+        "source": "studyのdraw内で影の中心を決める350-x*.65を350-x*1.0に変えます。",
+        "before": "Change 350-x*.65, which determines the center of the shadow, to 350-x*1.0 in the study draw.",
+        "after": "In the study experiment's draw function, change the expression for the shadow's center from 350-x*.65 to 350-x*1.0."
+      },
+      {
+        "source": "まだ切れるときは、もう1つ外側を見る",
+        "before": "If it still cuts, look outside one more time.",
+        "after": "Still clipped? Check the next outer container"
+      },
+      {
+        "source": "さらに外側にoverflow: hiddenやclipがないか。",
+        "before": "Furthermore, are there any overflow: hidden or clips on the outside?",
+        "after": "Does an ancestor have overflow: hidden or overflow: clip?"
+      },
+      {
+        "source": "clip-pathやmaskで切り抜いていないか。",
+        "before": "Isn't it clipped using clip-path or mask?",
+        "after": "Is clip-path or mask doing the clipping?"
+      },
+      {
+        "source": "。検出結果は配布サンプルで実行して確認しました。",
+        "before": ". The detection results were confirmed by running the distributed sample.",
+        "after": ". I ran the downloadable sample to verify the detection results."
+      },
+      {
+        "source": "5秒・9:16・出力1本に設定し、残高に収まるか確認します。",
+        "before": "Set it to 5 seconds, 9:16, and 1 output, and check if it fits within the balance.",
+        "after": "Set the duration to 5 seconds, the aspect ratio to 9:16 and the output count to one, then check that the credit cost fits within your balance."
+      },
+      {
+        "source": "5モデルの基本テスト",
+        "before": "Basic test of 5 models",
+        "after": "The five-model basic test"
+      },
+      {
+        "source": "名前の共通部分をそろえたいなら、Finderの名称変更から。追加アプリなしで画像3枚を練習できます。",
+        "before": "If you want to match the common parts of the names, start by renaming the Finder. You can practice with 3 images without any additional apps.",
+        "after": "To change the shared part of filenames, start with Finder's Rename command. Practice on three images without installing an extra app."
+      },
+      {
+        "source": "きっかけは、自分の書斎をつくること。",
+        "before": "The idea was to create my own study.",
+        "after": "It started with making a study of my own."
+      },
+      {
+        "source": "その便利さに、いくらなら納得できるだろう。",
+        "before": "I'm sure you'll be satisfied with how convenient it is.",
+        "after": "How much would that convenience be worth to me?"
+      },
+      {
+        "source": "自分がガジェット選びを楽しむきっかけになったのは、自作PCでした。「自分の書斎をつくりたい」と思って、パーツを選びました。",
+        "before": "The thing that made me enjoy choosing gadgets was building my own PC. I thought, ``I want to create my own study,'' so I selected the parts.",
+        "after": "Building my own PC is what got me interested in choosing gadgets. I wanted a study of my own, and that led me to choosing the parts."
+      },
+      {
+        "source": "どれがいちばんコスパがいいのか。候補を比べて、値段を見て、吟味する。お得に買えたときが、いちばんワクワクしました。",
+        "before": "Which one has the best cost performance? Compare candidates, look at prices, and do your research. I was most excited when I got a good deal.",
+        "after": "Which option offered the best value? I compared the parts, checked prices and weighed my choices. Finding a good deal was the most exciting part."
+      },
+      {
+        "source": "自分にとっての入口は、書斎づくりでした。これから道具を選ぶときも、まずは「どんなふうに暮らしたいか」「何が便利になったらうれしいか」から考えていきたいです。",
+        "before": "The entry point for me was creating a study. When choosing tools from now on, I would like to first think about how I want to live my life and what conveniences I would like.",
+        "after": "For me, it began with setting up a study. When choosing tools in future, I want to keep starting with how I want to live and what would make everyday life easier."
+      },
+      {
+        "source": "でも、まとめた充電器が大きくて重かったらどうだろう。持っている機器は、一緒に充電できるのだろうか。",
+        "before": "But what if the charger you put together is large and heavy? Can I charge my devices at the same time?",
+        "after": "But what if that one charger is bulky and heavy? Can it charge all my devices together?"
+      },
+      {
+        "source": "そうやって考えると、商品ページを見る理由ができてきます。バッグに入る大きさか。必要な機器をつなげるか。自分の使い方に合うかを、ひとつずつ確かめたくなる。",
+        "before": "If you think about it that way, you will have a reason to look at the product page. Is it big enough to fit in a bag? Can you connect the necessary equipment? You will want to check each item one by one to see if it suits your usage.",
+        "after": "Those questions give me a reason to read the product page. Will it fit in my bag? Can it connect the devices I need? I want to check, one point at a time, whether it fits the way I use things."
+      },
+      {
+        "source": "少し高くても、毎日使うならうれしい違いなのか。機能が少なくても、自分のやりたいことには十分なのか。",
+        "before": "Even if it's a little expensive, it's a nice difference if you use it every day. Even if it has fewer functions, is it enough for what I want to do?",
+        "after": "Would a slightly higher price buy a difference I would appreciate every day? Could a simpler product still do everything I need?"
+      },
+      {
+        "source": "りゅうのらぼでは、仕事で使うもの、持ち歩くもの、家で使うものを、幅広く紹介していきます。共通して考えたいのは、「これがあると、毎日の何が便利になるか」です。",
+        "before": "At Ryu's Lab, we will introduce a wide range of things that you use at work, things you carry around, and things you use at home. What we all want to think about is, ``What would be more convenient in everyday life if I had this?''",
+        "after": "On Ryu's Lab, I plan to cover a wide range of gadgets for work, for carrying around and for home. The question running through them all is: what would this make easier in everyday life?"
+      },
+      {
+        "source": "読んだ方が「それなら、自分にも合いそう」と思ったり、「自分なら、こっちを選ぶかな」と考えたりできるように。",
+        "before": "We hope that those who read this book will be able to think to themselves, ``That seems like a good fit for me,'' or ``If it were me, I would choose this.''",
+        "after": "I hope readers can think, “That might suit me too,” or “For my needs, I would choose the other one.”"
+      },
+      {
+        "source": "たとえば「机の充電器から手元まで、もう少し余裕を持ってケーブルを伸ばしたい」。そんなときも、長ければ何でもよいとは限りません。必要な長さと、つなぐ機器の端子、充電に必要な電力を先に確認します。",
+        "before": "For example, \"I would like to have a little more room to extend the cable from the charger on my desk to my hand.\" In such cases, longer is not necessarily better. First, check the required length, the terminal of the device to be connected, and the power required for charging.",
+        "after": "For example, you might want a little more cable length between the charger on your desk and the device in your hand. Longer is not automatically better. First check the length you need, the connectors on your devices and the power required for charging."
+      },
+      {
+        "source": "Claude CodeのMCP設定方法｜追加・設定場所の確認・削除 | りゅうのらぼ",
+        "before": "How to set MCP for Claude Code | Add/confirm setting location/delete | Ryu's Lab",
+        "after": "Set up MCP in Claude Code: add, locate and remove a configuration | Ryu's Lab"
+      },
+      {
+        "source": "中ではなく、隣",
+        "before": "Not inside, but next door",
+        "after": "beside it, not inside it"
+      },
+      {
+        "source": "動画生成AIの無料枠を比較｜実際に試せた5モデルと保存条件 | りゅうのらぼ",
+        "before": "Compare the free credits of video generation AI | 5 models that you can actually try and storage conditions | Ryu's Lab",
+        "after": "Free AI video generation compared: five models I could use and download conditions | Ryu's Lab"
+      },
+      {
+        "source": "ガジェット選び、買う前に確かめたいこと。 | りゅうのらぼ",
+        "before": "Things to check before choosing a gadget and buying it. | Dragon Lab",
+        "after": "Choosing gadgets: what to check before buying | Ryu's Lab"
+      },
+      {
+        "source": "Macのファイル整理、どこから始める？ | りゅうのらぼ",
+        "before": "Where to start organizing files on your Mac? | Dragon Lab",
+        "after": "Organizing files on Mac: where to start | Ryu's Lab"
+      },
+      {
+        "source": "HTML・CSSの作り方から、ブログのSEO対策まで。 | りゅうのらぼ",
+        "before": "From how to create HTML/CSS to blog SEO measures. | Dragon Lab",
+        "after": "From HTML and CSS to blog SEO | Ryu's Lab"
+      },
+      {
+        "source": "ガジェットは、買う前に吟味するのがいちばんおもしろい。 | りゅうのらぼ",
+        "before": "The most interesting thing about gadgets is to examine them carefully before buying them. | Dragon Lab",
+        "after": "The best part of choosing gadgets happens before you buy | Ryu's Lab"
+      },
+      {
+        "source": "つくってみると、日常はもう少しおもしろい。 | りゅうのらぼ",
+        "before": "Once you create it, everyday life becomes a little more interesting. | Dragon Lab",
+        "after": "Making things makes everyday life a little more interesting | Ryu's Lab"
+      },
+      {
+        "source": "りゅうのらぼをつくるときは、おもちゃ箱のような場所にしたいと思いました。",
+        "before": "When I created Dragon Lab, I wanted it to be a place like a toy box.",
+        "after": "When I built Ryu's Lab, I wanted it to feel like a toy box."
+      },
+      {
+        "source": "そこで今回は、りゅうのらぼのサムネイル原稿3枚を使って、幅を整え、WebPに変換してみました。",
+        "before": "So this time, I used three thumbnail manuscripts from Ryuunorabo, adjusted the width, and converted them to WebP.",
+        "after": "This time, I resized three source thumbnail images for Ryu's Lab and converted them to WebP."
+      },
+      {
+        "source": "Webの実験室｜CSS・JavaScriptの動くデモと作り方 | りゅうのらぼ",
+        "before": "Web Laboratory | CSS/JavaScript moving demo and how to make | Ryu's Lab",
+        "after": "Web experiments: interactive CSS and JavaScript demos and tutorials | Ryu's Lab"
+      },
+      {
+        "source": "昼夜、ランプ、ブラインドを操作できるSVGの書斎デモ。状態から色・位置・透明度を更新する仕組みと、影の動かし方を紹介します。",
+        "before": "SVG study demo with day/night control, lamps, and blinds. We will introduce the mechanism for updating the color, position, and transparency from the state, and how to move the shadow.",
+        "after": "An SVG study-room demo with day/night, lamp and blind controls. Learn how state updates change colors, positions and opacity, and how to animate the shadows."
+      },
+      {
+        "source": "たとえば、サイト制作のガイドから動くデモへ。デモから具体的なコードへ。記事の末尾から関連する実践記事へ。",
+        "before": "For example, from site creation guides to moving demos. From demo to concrete code. Go to related practical articles from the end of the article.",
+        "after": "For example, from site creation guides to interactive demos. From demo to concrete code. Go to related practical articles from the end of the article."
+      },
+      {
+        "source": "このサイトでも、動くデモ、練習用ファイル、実際の画面や生成動画を記事に加えてきました。設定だけでなく、「このページを読む意味」を作ることもSEOの中心だと考えています。",
+        "before": "On this site, we have added moving demos, practice files, actual screens, and generated videos to the articles. We believe that the core of SEO is not only setting, but also creating a meaning for reading this page.",
+        "after": "On this site, we have added interactive demos, practice files, actual screens, and generated videos to the articles. We believe that the core of SEO is not only setting, but also creating a meaning for reading this page."
+      },
+      {
+        "source": "動くデモを触ってみる ↗",
+        "before": "Try out the moving demo ↗",
+        "after": "Try out the interactive demo ↗"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ",
+        "before": "Make a squishy button with CSS | Copy and paste code/moving demo",
+        "after": "Make a squishy button with CSS | Copy and paste code/interactive demo"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ｜Webの実験室",
+        "before": "Make a squishy button with CSS | Copy and paste code/moving demo | Web laboratory",
+        "after": "Make a squishy button with CSS | Copy and paste code/interactive demo | Web laboratory"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ →",
+        "before": "Make a squishy button with CSS | Copy and paste code/moving demo →",
+        "after": "Make a squishy button with CSS | Copy and paste code/interactive demo →"
+      },
+      {
+        "source": "この記事にはアフィリエイト広告を含みます。リンク経由の購入・申し込みにより運営者が報酬を受け取ることがあります。",
+        "before": "This article contains affiliate advertising. The operator may receive compensation for purchases and applications made through links.",
+        "after": "This article contains affiliate links. The site owner may receive a commission if you buy or sign up through them."
+      },
+      {
+        "source": "掲載方針",
+        "before": "Publication policy",
+        "after": "Advertising policy"
+      },
+      {
+        "source": "「これがあったら」を、自分の一日に重ねてみる。",
+        "before": "Try adding ``I wish I had this'' to your day.",
+        "after": "Imagine how “having this” would fit into your day."
+      },
+      {
+        "source": "ひとつ選んでみるなら、身近なケーブルから。",
+        "before": "If I had to choose one, it would be from a familiar cable.",
+        "after": "Start with something familiar: a cable."
+      },
+      {
+        "source": "ガジェットを選んでいるとき、楽しいのは、それを使っている自分を想像する時間です。",
+        "before": "When choosing a gadget, the fun part is spending time imagining yourself using it.",
+        "after": "My favorite part of choosing gadgets is imagining what it would be like to use them."
+      },
+      {
+        "source": "これがあったら、いつもの作業が少し楽になるかもしれない。持ち歩く荷物が減るかもしれない。毎日なんとなく面倒に感じていることが、ひとつ片づくかもしれない。",
+        "before": "If I had this, my usual work might become a little easier. You may be able to reduce the amount of luggage you carry around. You might be able to get rid of one thing that you feel is somehow troublesome every day.",
+        "after": "Maybe it could make a familiar task a little easier, lighten my bag, or solve one of those small everyday annoyances."
+      },
+      {
+        "source": "そう考えながら候補を比べていると、まだ買ってもいないのに、ちょっと楽しみになってきます。",
+        "before": "When I think about this and compare the candidates, I start to look forward to it even though I haven't bought it yet.",
+        "after": "Comparing options with those possibilities in mind makes me look forward to using them—even before I have bought anything."
+      },
+      {
+        "source": "PCに限らず、道具を選ぶときは、使う場面を考えたくなります。",
+        "before": "When choosing a tool, not just a PC, you'll want to think about the situation in which it will be used.",
+        "after": "Whether I am choosing a PC or another tool, I want to picture where and how I will use it."
+      },
+      {
+        "source": "たとえば、出かけるたびに、いくつもの充電器をバッグに入れているとします。それをひとつにまとめられたら、荷物を減らせそうです。",
+        "before": "For example, let's say you carry several chargers in your bag every time you go out. If you can put all of that together, you'll probably be able to reduce your luggage.",
+        "after": "Suppose you pack several chargers every time you go out. Replacing them with one could mean less to carry."
+      },
+      {
+        "source": "自分の一日のどこが、どう便利になりそうか。その想像が具体的になるほど、比べるのがおもしろくなるんですよね。",
+        "before": "What parts of your day might be more convenient? The more specific your imagination becomes, the more interesting it becomes to compare.",
+        "after": "Which part of my day would become easier, and how? The more clearly I can picture that, the more interesting the comparison becomes."
+      },
+      {
+        "source": "使う場面が浮かんでくると、価格の見方も変わります。",
+        "before": "Once you have an idea of how you will use it, your perspective on price will change.",
+        "after": "Once I can picture how I would use it, I look at the price differently too."
+      },
+      {
+        "source": "コスパを考えるときには、そんなふうに、自分にとっての便利さと値段を見比べたいです。使わない機能が増えても、その分だけ暮らしが楽になるとは限りません。",
+        "before": "When considering cost performance, you want to compare the convenience and price for yourself. Even if you have more features that you don't use, it doesn't necessarily make your life easier.",
+        "after": "That is how I want to weigh value: convenience for me against the price. Extra features I will not use do not necessarily make life easier."
+      },
+      {
+        "source": "自分が欲しい便利さを、納得できる価格で手に入れる。そのために吟味して、お得に買えたら、やっぱりうれしいです。",
+        "before": "Get the convenience you want at a price you can afford. I would be happy if I could do some research and get a good deal on it.",
+        "after": "Getting the convenience I want at a price that feels right—that is why I weigh my options. Finding a good deal after doing that still feels great."
+      },
+      {
+        "source": "どんな場面で使いたくて、何を比べ、どう選んだのか。使ってみたものなら、その想像どおりだったのか。選ぶところから、使ってわかることまで、記事に残していきたいと思っています。",
+        "before": "What situations did you want to use it in, what did you compare it to, and how did you choose it? If you tried it, did it work as you imagined? I would like to write articles about everything from choosing a product to what you can learn from using it.",
+        "after": "What did I want to use it for, what did I compare, and how did I choose? If I have used it, did it live up to that picture? I want to document the whole process, from choosing to what I learn through use."
+      },
+      {
+        "source": "買う前に、「これがあったら、明日は少し楽になりそうだな」と考える。その時間から、ガジェットを楽しんでいきたいです。",
+        "before": "Before you buy something, think to yourself, ``If I had this, tomorrow would be a little easier.'' From that time on, I want to start enjoying gadgets.",
+        "after": "Before buying, I like to think, “This might make tomorrow a little easier.” For me, enjoying gadgets begins with that moment."
+      },
+      {
+        "source": "Mac向け",
+        "before": "For Mac",
+        "after": "for Mac"
+      },
+      {
+        "source": "cdのあとに半角スペースを1つ",
+        "before": "One half-width space after cd",
+        "after": "one space after cd"
+      },
+      {
+        "source": "ファイルを消さずに、中身が同じものを一覧にする",
+        "before": "List files with the same contents without deleting files",
+        "after": "list files with identical contents without deleting them"
+      },
+      {
+        "source": "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ",
+        "before": "How to find duplicate files in Python | With sample that does not delete | Ryu's Lab",
+        "after": "Find duplicate files with Python, without deleting them | Ryu's Lab"
+      }
+    ],
+    "zh-cn": [
+      {
+        "source": "AIやアプリ、自動化、日々の道具について調べ、つくり、記録する個人ブログ。ソフトウェア開発や研究の取り組み、仕事の紹介もまとめています。",
+        "before": "一个个人博客，我在其中研究、创建和记录人工智能、应用程序、自动化和日常工具。我们还总结了有关软件开发、研究计划和工作的信息。",
+        "after": "这是我的个人博客，记录对 AI、应用、自动化和日常工具的探索与尝试，也介绍软件开发、研究及其他工作。"
+      },
+      {
+        "source": "本文へ移動",
+        "before": "转到正文",
+        "after": "跳转到正文"
+      },
+      {
+        "source": "ドラッグ、または矢印キーで動かせます。Enterでジャンプ、Escapeで元の位置に戻ります。",
+        "before": "您可以通过拖动或使用箭头键来移动它。输入键跳跃，退出键返回原来位置。",
+        "after": "拖动或使用方向键移动，按 Enter 跳跃，按 Escape 回到原位。"
+      },
+      {
+        "source": "Webの実験室：動くデモと作り方 ↗",
+        "before": "网络实验室：工作演示以及如何制作 ↗",
+        "after": "网页实验室：互动演示与制作教程 ↗"
+      },
+      {
+        "source": "まず1つ作ってみる：CSSでぷにぷにボタン。完成コード付き →",
+        "before": "首先，让我们创建一个：一个带有 CSS 的柔软按钮。包含已完成的代码 →",
+        "after": "先做一个试试：用 CSS 制作弹软按钮，附完整代码 →"
+      },
+      {
+        "source": "つくっているもの・取り組み",
+        "before": "我们正在做什么/举措",
+        "after": "我的项目与正在做的事"
+      },
+      {
+        "source": "りゅうのらぼの発信・準備中",
+        "before": "Ryu的小实验室公告/筹备中",
+        "after": "实验室的社交账号——筹备中"
+      },
+      {
+        "source": "日々のこと、気づいたこと",
+        "before": "我每天注意到的事情",
+        "after": "日常记录与发现"
+      },
+      {
+        "source": "角丸カードのアイコンが切れる原因と直し方を、動くデモで比較。z-indexで直らない理由、内側の箱だけ切り抜くHTML・CSS、保存して試せる完成コードを紹介します。",
+        "before": "通过移动演示来比较圆角卡片图标的原因以及如何修复它们。我将介绍 z-index 没有修复它的原因，仅剪切内框的 HTML/CSS，以及您可以保存并尝试的完整代码。",
+        "after": "通过互动演示，比较圆角卡片裁掉图标的原因与修复方法。解释为何单改 z-index 无效，如何只裁剪内层容器，并提供可下载运行的完整 HTML 和 CSS 示例。"
+      },
+      {
+        "source": "ブログにアクセスがないとき、何から確認する？Search ConsoleのURL検査、サイトマップ、タイトル、内部リンク、画像軽量化、自分のアクセス除外を、実画面と手順付きで紹介します。",
+        "before": "当无法访问您的博客时，如何检查？介绍 Search Console 的 URL 检查、站点地图、标题、内部链接、图像缩小以及通过实际屏幕和说明排除您自己的访问。",
+        "after": "博客没有读者，应该先查什么？结合实际截图和操作步骤，介绍 Search Console 的网址检查、站点地图、标题、内部链接、图片压缩，以及如何在统计中排除自己的访问。"
+      },
+      {
+        "source": "同じ日本語プロンプトで生成した5本のPC動画を掲載。時刻付きフレームで初回出力の違いを確認し、モデル別の設定手順とコピーできるプロンプトを紹介します。",
+        "before": "发布 5 个使用相同日语提示生成的 PC 视频。我们将向您展示初始输出与定时帧的差异，我们将向您展示每个模型的设置步骤以及您可以复制的提示。",
+        "after": "展示用同一段日语提示词生成的五段电脑场景视频。通过标注时间的画面对比首次生成结果，并提供各模型的设置步骤与可复制的原始提示词。"
+      },
+      {
+        "source": "思いついた「こうだったらいいな」が、触れる形になる。旅行の地図というアイデアと、このサイトの制作から、つくる楽しさを伝えます。",
+        "before": "脑海中浮现出“我希望事情是这样的”的想法变得有形。我们将通过这个网站的创建来传达旅行地图的理念以及创建这个网站的乐趣。",
+        "after": "把“要是能这样就好了”的想法，变成可以亲手操作的东西。从旅行地图的构想到这个网站的制作，聊聊动手创造的乐趣。"
+      },
+      {
+        "source": "読んでみる ↗",
+        "before": "阅读它↗",
+        "after": "读一读 ↗"
+      },
+      {
+        "source": "自作PCをきっかけに、暮らしを便利にする道具選びへ。使う場面とコスパを考えながら、ガジェットを吟味する楽しさについて。",
+        "before": "在组装了自己的电脑后，我开始选择工具来让我的生活更方便。关于在考虑使用情况和性价比的同时仔细检查小玩意的乐趣。",
+        "after": "从组装电脑开始，我逐渐喜欢上挑选让生活更方便的工具。这篇文章聊聊结合实际用途和性价比，认真挑选数码产品的乐趣。"
+      },
+      {
+        "source": "気になったことを調べ、試し、その途中も残す。開発や道具、研究への関心を、読者の次の好奇心につなげたい。りゅうのらぼの想いを紹介します。",
+        "before": "研究你感兴趣的事情，尝试一下，并跟踪你正在做的事情。我希望将读者对开发、工具和研究的兴趣与他们的下一个好奇心联系起来。我想介绍一下Ryunorabo的想法。",
+        "after": "遇到感兴趣的问题，就查一查、试一试，也记录过程。这就是 Ryu的小实验室想做的事：分享对开发、工具和研究的兴趣，希望引出你的下一个好奇心。"
+      },
+      {
+        "source": "次の「やってみた」も、手元に。",
+        "before": "下一个“我试过了”也即将到来。",
+        "after": "把下一次尝试，也收入你的订阅。"
+      },
+      {
+        "source": "道具選びや、日々を少し便利にする工夫を更新しています。新しい記事のタイトルと概要を、RSSリーダーでまとめて受け取れます。",
+        "before": "我们正在更新工具选择和想法，让您的日常生活更加方便。使用 RSS 阅读器一次性接收新文章的标题和摘要。",
+        "after": "这里会持续分享工具选购和让日常更方便的小方法。用 RSS 阅读器订阅，就能集中收到新文章的标题和摘要。"
+      },
+      {
+        "source": "書いている人について",
+        "before": "关于写作的人",
+        "after": "关于作者"
+      },
+      {
+        "source": "挨拶の文字、小物、引き出し。",
+        "before": "问候信、配件、抽屉。",
+        "after": "首页的问候文字、小物件和抽屉。"
+      },
+      {
+        "source": "気になったところに、そっと触れてみてください。",
+        "before": "轻轻触摸困扰您的区域。",
+        "after": "看到感兴趣的地方，不妨轻轻点一点。"
+      },
+      {
+        "source": "寄り道しながら、今日もなんかやってます。",
+        "before": "我今天也在绕道做点事。",
+        "after": "今天也在捣鼓点什么，顺便绕几个有趣的小弯。"
+      },
+      {
+        "source": "読む・見る",
+        "before": "读/查看",
+        "after": "逛一逛"
+      },
+      {
+        "source": "SNSでも、あれこれ",
+        "before": "即使在SNS上，这个那个",
+        "after": "社交平台上的实验室动态"
+      },
+      {
+        "source": "CSS・JavaScriptのデモと作り方",
+        "before": "演示以及如何制作 CSS/JavaScript",
+        "after": "附制作教程的 CSS 与 JavaScript 互动演示"
+      },
+      {
+        "source": "広告・レビュー方針",
+        "before": "广告/评论政策",
+        "after": "广告与评测政策"
+      },
+      {
+        "source": "アクセス解析の設定",
+        "before": "访问分析设置",
+        "after": "访问统计设置"
+      },
+      {
+        "source": "読みやすいらぼにするために",
+        "before": "为了使实验室易于阅读",
+        "after": "帮助改善网站的阅读体验"
+      },
+      {
+        "source": "許可すると、Google AnalyticsがCookieを使い、閲覧ページ、関連記事への移動、コードのコピーなどを集計します。氏名・メールアドレス・お問い合わせ内容・実験室の入力文は計測データに含めません。広告目的の計測は行いません。",
+        "before": "如果您允许，Google Analytics 会使用 cookie 来聚合信息，例如查看的页面、相关文章的导航和代码副本。您的姓名、电子邮件地址、查询详情和实验室信息将不会包含在测量数据中。我们不会出于广告目的进行测量。",
+        "after": "允许后，Google Analytics 会使用 Cookie 统计浏览页面、点击相关文章和复制代码等操作。统计数据不包含姓名、邮箱、联系表单内容或网页实验室中输入的文字，也不用于广告目的。"
+      },
+      {
+        "source": "設定はフッターから変更できます。Cloudflareによるアクセス集計は、この選択とは別に動作します。",
+        "before": "可以从页脚更改设置。 Cloudflare 的访问聚合独立于此选择进行操作。",
+        "after": "你可以在页脚更改选择。Cloudflare 的访问统计独立运行，不受此设置控制。"
+      },
+      {
+        "source": "許可する",
+        "before": "允许",
+        "after": "允许"
+      },
+      {
+        "source": "許可しない",
+        "before": "不允许",
+        "after": "不允许"
+      },
+      {
+        "source": "このブラウザの計測を除外する",
+        "before": "排除此浏览器的测量",
+        "after": "将此浏览器排除在访问统计之外"
+      },
+      {
+        "source": "運営者の確認用アクセスなどを、GA4とCloudflare Web Analyticsの両方から除外できます。設定したブラウザでの今後の閲覧に適用されます。別の端末・ブラウザでは個別に設定してください。サイトデータを消すと設定も解除されます。過去の集計は変わりません。",
+        "before": "您可以从 GA4 和 Cloudflare Web Analytics 中排除操作员验证访问权限等内容。它将应用于您以后在您设置的浏览器中进行的浏览。请为其他设备和浏览器单独配置设置。如果删除站点数据，设置也将被删除。过去的总数保持不变。",
+        "after": "你可以从 GA4 和 Cloudflare Web Analytics 中排除此浏览器的访问，例如站长检查网站时产生的访问。只对设置后在此浏览器中的浏览生效，其他浏览器或设备需分别设置。清除网站数据会重置此设置，过去的统计不会改变。"
+      },
+      {
+        "source": "このブラウザを計測から除外する",
+        "before": "从测量中排除该浏览器",
+        "after": "将此浏览器排除在访问统计之外"
+      },
+      {
+        "source": "RSSの登録方法",
+        "before": "如何注册RSS",
+        "after": "如何通过 RSS 订阅"
+      },
+      {
+        "source": "また、上へ",
+        "before": "还有，上",
+        "after": "回到顶部"
+      },
+      {
+        "source": "りゅうのらぼを書いているRyu Kodaの自己紹介。ソフトウェアやAI、研究、日々の道具について、気になったことを調べ、つくり、記録しています。",
+        "before": "《Ryu的小实验室》的作者幸田龙的自我介绍。我研究、创建和记录我感兴趣的软件、人工智能、研究和日常工具的内容。",
+        "after": "认识 Ryu的小实验室的作者 Ryu Koda。我围绕软件、AI、研究和日常工具，探索、动手，并记录发现。"
+      },
+      {
+        "source": "このらぼの中の人",
+        "before": "这个实验室的人",
+        "after": "实验室背后的人"
+      },
+      {
+        "source": "気になったら、まず試してみる。",
+        "before": "如果您有兴趣，请先尝试一下。",
+        "after": "感兴趣了，就先试试看。"
+      },
+      {
+        "source": "おしごとを見る",
+        "before": "看工作",
+        "after": "看看我的工作"
+      },
+      {
+        "source": "手を動かして試す：CSSでぷにぷにボタンを作る。完成コードと動くデモ →",
+        "before": "尝试一下：使用 CSS 创建一个柔软的按钮。已完成的代码和工作演示 →",
+        "after": "动手试试：制作 CSS 弹软按钮，附互动演示与完整代码 →"
+      },
+      {
+        "source": "Flow、Kling、Dreamina、Luma、Fireflyで実際に無料生成・保存できた5モデルを比較。2026年11月7日の設定、消費クレジット、透かし、試す前の確認点を紹介します。",
+        "before": "使用 Flow、Kling、Dreamina、Luma 和 Firefly 实际创建并免费保存的 5 个模型的比较。我们将在 2026 年 11 月 7 日介绍设置、消费积分、水印以及试用前检查点。",
+        "after": "比较在 Flow、Kling、Dreamina、Luma 和 Firefly 中实际免费生成并下载视频的五款模型。记录2026年11月7日核实的设置、点数消耗、水印，以及自己尝试前需要确认的事项。"
+      },
+      {
+        "source": "Pythonで中身が同じファイルを探す方法。Macでの準備、コマンド、結果の読み方を一つずつ解説。削除しないコードと練習用ファイル付きです。",
+        "before": "如何在Python中查找具有相同内容的文件。逐步解释准备工作、命令以及如何在 Mac 上读取结果。包括不可删除的代码和练习文件。",
+        "after": "用 Python 查找内容相同的文件，全程不删除文件。逐步介绍 Mac 上的准备、命令与结果解读，并附只读扫描脚本和练习文件。"
+      },
+      {
+        "source": "Claude CodeのMCP設定を練習用フォルダーへ追加し、.mcp.jsonの中身と承認待ち表示を確認して削除する手順。実行結果付きで解説します。",
+        "before": "将 Claude Code 的 MCP 设置添加到practice 文件夹、检查 .mcp.json 的内容和待批准显示并将其删除的步骤。我用执行结果来解释。",
+        "after": "在练习文件夹中添加 Claude Code 的 MCP 配置，检查 .mcp.json 和待批准状态，再删除配置。每一步都附有实际执行结果。"
+      },
+      {
+        "source": "好奇心の置き場所としての、りゅうのらぼ。 | りゅうのらぼ",
+        "before": "Ryu的小实验室是一个充满好奇心的地方。 |龙实验室",
+        "after": "Ryu的小实验室：给好奇心找个家 | Ryu的小实验室"
+      },
+      {
+        "source": "パンくずリスト",
+        "before": "面包屑痕迹",
+        "after": "面包屑导航"
+      },
+      {
+        "source": "知りたいことは、ひとつ先にもある。",
+        "before": "我还想知道一件事。",
+        "after": "一个问题，牵出下一个问题。"
+      },
+      {
+        "source": "途中の考えにも、残しておきたいことがある。",
+        "before": "有些想法我想抛在脑后。",
+        "after": "过程中的想法，也值得留下。"
+      },
+      {
+        "source": "「これ、どういうしくみなんだろう」「別のやり方はないのかな」。答えを探していたはずなのに、いつの間にか、最初とは少し違うことを調べている。",
+        "before": "“我想知道这是如何运作的？” “还有别的办法吗？”您应该一直在寻找答案，但在您意识到之前，您正在寻找与开始时有所不同的东西。",
+        "after": "“这是怎么运作的？”“有没有别的办法？”原本只是想找个答案，回过神来，却已经查起了另一个相关的问题。"
+      },
+      {
+        "source": "そんな寄り道で見つけたことを、ここに残していきたいと思っています。",
+        "before": "我想把我绕道而行所发现的东西留在这里。",
+        "after": "我想把这些绕路时遇见的发现，记录在这里。"
+      },
+      {
+        "source": "こんなふうに、自分の机で開いた数字から、誰かの研究や、まだ知らなかった問いにつながっていく。そういう広がりにひかれます。",
+        "before": "通过这种方式，我在办公桌上打开的数字会导致某人的研究或我还不知道的问题。我被这种广度所吸引。",
+        "after": "在自己书桌前打开的一组数字，就可能把我带向别人的研究，或从没想过的问题。这种不断延伸的可能性，让我着迷。"
+      },
+      {
+        "source": "つくっている途中には、「こっちのほうが好きかも」と思った理由があります。調べものの途中には、「どうして？」と思ったきっかけがあります。",
+        "before": "当我制作它时，我有一个原因想，“我可能更喜欢这个。”在研究过程中，有时你会想，“为什么？”",
+        "after": "制作过程中，总会有让我觉得“也许这样更好”的理由；查资料时，也总有让我冒出“为什么”的契机。这些时刻也值得留下。"
+      },
+      {
+        "source": "うまくいかなかったことも、そこで何がわかったのかまで書いておく。そうすれば、途中の記録も、誰かが次に試すための手がかりになると思っています。",
+        "before": "写下不顺利的地方以及你学到的东西。如果我这样做，我认为我一路上所做的录音将为某人下一步尝试提供线索。",
+        "after": "没做成的事，也写下它让我明白了什么。这样，过程中的记录也能成为别人下一次尝试的线索。"
+      },
+      {
+        "source": "ここでは、開発も、道具も、研究も、日々の気づきも扱っていきます。",
+        "before": "在这里，我们将涵盖开发、工具、研究和日常意识。",
+        "after": "这里会写开发、工具、研究，也会记录日常的小发现。"
+      },
+      {
+        "source": "りゅうのらぼを、おもちゃ箱のようにしたいと思ったのも、いろいろなものを置ける場所にしたかったからです。",
+        "before": "我之所以想把 Dragon Lab 打造成一个玩具箱，是因为我想让它成为一个可以放置各种东西的地方。",
+        "after": "我想把 Ryu的小实验室做成一个玩具箱，让各式各样的兴趣都能放在一起。"
+      },
+      {
+        "source": "ひとつの記事を読みに来て、別の話も少し気になる。知らなかった道具や、考えたことのなかった問いに出会う。そんな寄り道をしてもらえたらうれしいです。",
+        "before": "我来读一篇文章，对另一篇文章有点好奇。您会遇到您不知道的工具或您从未想过的问题。如果你能少走这样的弯路，我会很高兴。",
+        "after": "也许你为一篇文章而来，却又对另一个话题产生兴趣，遇到没见过的工具，或从未想过的问题。能让你这样顺路逛逛，我会很开心。"
+      },
+      {
+        "source": "読んだあとに、ひとつ調べてみたくなる。試してみたくなる。ここで見つけたことが、あなたの好奇心の続きにつながったらうれしいです。",
+        "before": "读完这篇文章后，我想做一些研究。让我很想尝试一下。我希望您在这里发现的内容能够继续您的好奇心。",
+        "after": "希望你读完后，会想再查一点什么，或亲手试一次。如果这里的发现能接上你的下一份好奇心，我会很开心。"
+      },
+      {
+        "source": "Xで紹介する",
+        "before": "与X一起介绍",
+        "after": "分享到 X"
+      },
+      {
+        "source": "試してみてつまずいたことや、記事の訂正は",
+        "before": "当您尝试并更正文章时，您偶然发现了什么？",
+        "after": "如果尝试时遇到困难，或发现文章有误，请通过"
+      },
+      {
+        "source": "お問い合わせフォーム",
+        "before": "联系表",
+        "after": "联系表单"
+      },
+      {
+        "source": "へどうぞ。対象の記事URLを添えていただけると助かります。",
+        "before": "请前往。如果您可以包含相关文章的 URL，将会很有帮助。",
+        "after": "告诉我，并附上文章网址，方便我核查。"
+      },
+      {
+        "source": "こちらも、のぞいてみる？",
+        "before": "你也想看一下吗？",
+        "after": "也许你还想看看"
+      },
+      {
+        "source": "無料枠で動画生成AI 5モデルを試す。5秒のPC動画と作り方 のヒーロー画像",
+        "before": "免费试用 5 个视频生成 AI 模型。 5秒PC视频以及如何制作英雄形象",
+        "after": "五款 AI 生成的电脑场景视频——封面插图"
+      },
+      {
+        "source": "1. まずは5本を見比べてみる",
+        "before": "1.首先我们比较一下5本书",
+        "after": "1. 先对比这五段视频"
+      },
+      {
+        "source": "ショート動画の冒頭に、デスクのPCへすっと近づく映像を入れたい。撮影の代わりにAIで作れたら便利ですよね。今回は同じ日本語の文章を使い、5つのモデルで試しました。",
+        "before": "在短视频的开头，我想添加一段有人靠近桌上电脑的视频。如果你能用人工智能来创建图像而不是拍照，那会很方便。这次，我们使用相同的日语句子测试了五个模型。",
+        "after": "我想给短视频加一个开场镜头：镜头平滑地靠近桌上的电脑。如果不用实拍，改用 AI 生成，会不会更方便？于是，我用同一段日语提示词试了五款模型。"
+      },
+      {
+        "source": "この記事では、実際の動画、モデル別の設定手順、コピーして使えるプロンプトをまとめています。無料枠や保存条件の一覧は",
+        "before": "本文包括实用视频、特定于型号的设置说明和可复制的提示。免费额度和存储条件列表",
+        "after": "本文提供实际生成的视频、各模型的设置步骤和可复制的原始提示词。免费额度与下载条件汇总见"
+      },
+      {
+        "source": "で確認できます。今回は、接近の構図を確認できたFlow・Kling、動きが控えめだったSeedance、不要な手が加わったLumaなど、初回出力に違いがありました。動画と時刻付きのフレームを根拠に見ていきます。",
+        "before": "您可以在这里查看。这次，最初的输出存在一些差异，例如可以确认接近的构图的 Flow/Kling、移动适度的 Seedance、以及添加了不必要的移动的 Luma。我们将根据视频和时间帧来查看它。",
+        "after": "。本次首次生成结果各不相同：Flow 和 Kling 呈现了镜头接近的构图，Seedance 的运动较克制，Luma 则多出了一只未要求的手。下面结合视频和标注时间的画面来看。"
+      },
+      {
+        "source": "確認方法：0.0秒から4.5秒まで0.5秒刻みと、終盤4.917秒の計11フレームを各動画から抽出して見比べました。以下はこの5本の観察です。フレーム間の細かな動きや、ファンの連続回転まで検証したものではありません。",
+        "before": "如何检查：我们从每个视频中以 0.5 秒的增量从 0.0 秒到 4.5 秒总共提取了 11 帧，最后提取了 4.917 秒，并进行了比较。以下是我对这五个方面的观察。我们尚未验证框架之间的详细运动或风扇的连续旋转。",
+        "after": "每段视频提取11帧进行比较：从0.0秒到4.5秒，每隔0.5秒取一帧，再加上4.917秒的一帧。以下观察只针对这五段输出，未验证帧间的细微运动或风扇是否连续旋转。"
+      },
+      {
+        "source": "最初は「撮影した映像に見えるか」。もう一度見るときは「ケースの縁が曲がらないか」「部品が途中で変わらないか」に注目すると、違いを探しやすくなります。",
+        "before": "第一个问题是，“它看起来像拍摄的图像吗？”再看时，如果注意外壳的边缘是否弯曲或中途是否有任何部件发生变化，会更容易发现差异。",
+        "after": "第一遍先看：像不像实拍的产品视频？再看一遍，留意机箱边缘有没有变弯、部件是否中途改变。分开检查，更容易发现差异。"
+      },
+      {
+        "source": "15クレジット",
+        "before": "15 学分",
+        "after": "15点额度"
+      },
+      {
+        "source": "プロンプトの自動エージェントはオフで実行しました。",
+        "before": "我关闭了提示自动代理。",
+        "after": "本次生成关闭了提示词自动代理功能。"
+      },
+      {
+        "source": "机から内部へ寄る構図が、今回のお題に近い",
+        "before": "从书桌到室内的构图都与这个主题很接近。",
+        "after": "镜头从桌面靠近机箱内部，构图较符合要求"
+      },
+      {
+        "source": "0.0秒ではPC、モニター、キーボード、マウスが入り、2.5秒ではケース側面が画面の大半を占めます。4.917秒には内部を大きく見せる構図です。抜き出したフレームでは、丸いクーラーと背面ファンの位置関係を追えました。",
+        "before": "0.0 秒时，电脑、显示器、键盘和鼠标就可以装入，2.5 秒时，机箱的侧面占据了大部分屏幕。在 4.917 秒处，构图使内部看起来更大。在提取的帧中，我们能够跟踪圆形冷却器和后风扇之间的位置关系。",
+        "after": "0.0秒时，电脑、显示器、键盘和鼠标都在画面中；2.5秒时，机箱侧面占据大部分画面；到4.917秒时，内部以近景呈现。在抽取的画面中，可以追踪圆形散热器与后侧风扇的相对位置。"
+      },
+      {
+        "source": "デスクの全景からPC内部へ視線を誘導する導入カットの候補。実在製品の仕様を説明する映像としては確認が必要です。",
+        "before": "一个介绍性剪辑的候选者，将视线从桌子的全景引导到电脑的内部。视频说明了实际产品的规格，因此需要确认。",
+        "after": "可作为从桌面全景引向电脑内部的开场镜头。但若用于说明真实产品的规格，还需要进一步核实。"
+      },
+      {
+        "source": "根拠のフレームを見る（時刻付き）",
+        "before": "查看证据框架（带时间）",
+        "after": "查看对应画面与时间标记"
+      },
+      {
+        "source": "50クレジット",
+        "before": "50 学分",
+        "after": "50点额度"
+      },
+      {
+        "source": "無料残高66クレジットから1本を生成し、残りは16でした。",
+        "before": "我从 66 个积分的自由余额中生成了一个，还剩下 16 个。",
+        "after": "当时免费余额为66点，生成一段视频消耗50点，剩余16点。"
+      },
+      {
+        "source": "0.0秒・0.5秒・1.0秒のフレームではモニターとPCを一緒に見せ、2.5秒にはPC側面の比重が増えます。4.917秒には白いRAM状の部品2本、上部の3つのファン、左側のファンが大きく映ります。白を基調にした照明は今回の指定に近い見た目です。",
+        "before": "在 0.0 秒、0.5 秒和 1.0 秒的帧处，显示器和 PC 一起显示，在 2.5 秒处，PC 侧面的重量增加。 4.917秒时，两个白色类似RAM的部件、顶部的三个风扇、左侧的一个风扇清晰可见。白色照明的外观与此名称类似。",
+        "after": "0.0、0.5和1.0秒的画面同时展示显示器和电脑；2.5秒时，机箱侧面在画面中的占比增大。4.917秒时，两根白色、形似内存条的部件、顶部三只风扇和左侧风扇以近景呈现。以白色为主的照明较符合提示词。"
+      },
+      {
+        "source": "45クレジット",
+        "before": "45 学分",
+        "after": "45点额度"
+      },
+      {
+        "source": "明るい部屋の雰囲気は出たが、接近の変化は控えめ",
+        "before": "明亮的房间氛围已经营造出来，但方法上的改变却很小",
+        "after": "明亮的房间氛围不错，但镜头接近幅度较小"
+      },
+      {
+        "source": "0.0秒から4.917秒までの確認したフレームではPC全体と机が画面内に残り、FlowやKlingほど大きく内部に寄りません。明るい窓と木の机、本棚の組み合わせで、生活感のあるデスクの場面として読み取りやすい構図です。",
+        "before": "在观察到的从 0.0 秒到 4.917 秒的帧中，整个电脑和桌子都保留在屏幕内，并且不像 Flow 和 Kling 那样远离屏幕。明亮的窗户、木书桌和书架的组合，创造出一个易于阅读的构图，成为充满生活感的书桌场景。",
+        "after": "在0.0至4.917秒的取样画面中，电脑整体和桌面始终留在画面里，镜头没有像 Flow 或 Kling 那样明显靠近内部。明亮的窗户、木桌与书架，让场景显得像一个有人生活的房间。"
+      },
+      {
+        "source": "大きなカメラ移動を求めない、デスクの雰囲気を見せるカットの候補。今回のようにしっかり接近させたい場合は、動きの指定を改めて試す余地があります。",
+        "before": "适合不需要大幅度移动镜头并展现办公桌氛围的剪辑。如果您想让它们像我们这次那样靠近在一起，您可能需要尝试再次指定运动。",
+        "after": "如果只想呈现桌面氛围、不需要大幅运镜，这段可以作为候选。如果想实现本次要求的明显接近，可以修改运动指令后再试。"
+      },
+      {
+        "source": "Dreaminaで試す設定へ ↓",
+        "before": "进入设置试戴Dreamina ↓",
+        "after": "Dreamina 设置步骤 ↓"
+      },
+      {
+        "source": "「サービス」は作業するサイト、「モデル」はそこで選ぶ生成AIです。下の名前を確認し、出力数は1本、入力画像はなしにします。画面名や無料枠は変更されることがあるので、最後に表示される消費量を確認してください。",
+        "before": "“服务”是您工作的站点，“模型”是您在那里选择的生成的 AI。检查下面的名称并将输出数量设置为 1，输入图像设置为无。昵称和免费等级可能会发生变化，因此请检查最后显示的消费金额。",
+        "after": "“服务”指操作的网站，“模型”指其中选择的生成模型。选中下方对应模型，输出数量设为1，不上传参考图。界面和免费额度可能变化，生成前务必确认显示的点数消耗。"
+      },
+      {
+        "source": "Klingの設定を見る",
+        "before": "查看克林设置",
+        "after": "Kling 设置步骤"
+      },
+      {
+        "source": "動画生成で「Kling 4.0」を選択。5秒・9:16・720pに設定します。",
+        "before": "选择“Kling 4.0”进行视频生成。设置为 5 秒、9 点 16 分、720p。",
+        "after": "选择 Kling 4.0，时长设为5秒，画面比例设为9:16，分辨率设为720p。"
+      },
+      {
+        "source": "Lumaの設定を見る",
+        "before": "查看亮度设置",
+        "after": "Luma 设置步骤"
+      },
+      {
+        "source": "100クレジット",
+        "before": "100 学分",
+        "after": "100点额度"
+      },
+      {
+        "source": "動画生成でAdobe製の「Firefly Video」を選択。5秒・9:16・540pに設定し、当日の無料生成枠を確認します。",
+        "before": "选择Adobe的“Firefly Video”进行视频生成。将其设置为 5 秒、9:16 和 540p，并检查当天的免费生成时段。",
+        "after": "选择 Adobe 的 Firefly Video 模型，设为5秒、9:16画面比例和540p，再确认当天可用的免费生成额度。"
+      },
+      {
+        "source": "無料生成1回",
+        "before": "免费代1次",
+        "after": "免费生成1次"
+      },
+      {
+        "source": "動画を見るときは、実写らしさと指示を守ったかを分けます。今回のLumaのように、部屋の雰囲気が出ていても、閉じたままの指定に対してパネルが開けば、見た目と指示の再現性で評価が分かれます。",
+        "before": "观看视频时，您需要确定它是否看起来像真人视频，或者您是否遵循说明。与Luma一样，即使表现了房间的气氛，如果在指定保持关闭状态时打开面板，则评价将分为外观和指示的再现性。",
+        "after": "观看时，要把“像不像实拍”和“有没有遵守提示词”分开判断。例如这次的 Luma，即使房间氛围自然，要求保持关闭的侧板却打开了，仍然没有遵守这条指令。"
+      },
+      {
+        "source": "各モデル1回の試行なので、成功率や「いつもこの品質になる」とは言えません。正確な生成時間、抜き出したフレームの間の細かな動き、Flow・Klingの音声内容は未確認です。静止フレームの比較から、動きの滑らかさやファンの連続回転までは判断しません。この記事の無料生成の確認と、公開・収益化時の利用許諾は別です。",
+        "before": "由于每个模型都经过一次测试，因此我们不能说它一定会有成功率，也不能说它永远具有这种质量。 Flow/Kling 的确切生成时间、提取帧之间的详细运动以及音频内容尚未得到确认。我们不通过比较静态帧来判断运动的平稳性或风扇的连续旋转。本文免费生成的确认和发布时的使用许可与货币化是分开的。",
+        "after": "每个模型只尝试一次，无法据此判断成功率或通常能达到的画质。精确生成时间、取样帧之间的细微运动，以及 Flow 和 Kling 的音频内容均未核实。静态帧也不能证明运动流畅或风扇连续旋转。此外，能免费生成，不等于已经取得发布或商业化使用的许可。"
+      },
+      {
+        "source": "今回整えたのは、Googleに見つけてもらう設定、記事の内容が伝わる見せ方、そして自分の閲覧を混ぜない計測です。",
+        "before": "这次，我设置了Google如何找到我、如何呈现文章来传达内容以及不包含我自己观点的测量。",
+        "after": "这次主要整理了三件事：让 Google 能发现网站、让搜索结果清楚传达文章内容，以及在访问统计中排除自己的浏览。"
+      },
+      {
+        "source": "Googleへの登録",
+        "before": "向 Google 注册",
+        "after": "Google 收录"
+      },
+      {
+        "source": "計測",
+        "before": "测量",
+        "after": "访问统计"
+      },
+      {
+        "source": "→ ② 登録される",
+        "before": "→ ② 已注册",
+        "after": "→ ② 被收录"
+      },
+      {
+        "source": "日次無料枠1回",
+        "before": "每日 1 个免费老虎机",
+        "after": "每天可免费生成1次"
+      },
+      {
+        "source": "クレジット換算は非表示。今回は540pで生成しました。",
+        "before": "信用转换是隐藏的。这次是以 540p 生成的。",
+        "after": "界面未显示折合点数。本次使用 540p 生成。"
+      },
+      {
+        "source": "画像を軽くする記事",
+        "before": "使图像变亮的文章",
+        "after": "图片压缩教程"
+      },
+      {
+        "source": "例に使うのは、ライブラリの資料を扱うContext7のHTTPエンドポイントです。今回は接続先の登録までで、認証情報を入力する操作は含めません。",
+        "before": "使用的示例是 Context7 的图书馆资料 HTTP 端点。这次，我们只注册连接目的地，不包括输入认证信息的操作。",
+        "after": "这里以提供编程库文档的 Context7 HTTP 端点为例。本次只演示注册连接地址，不包含输入认证信息的操作。"
+      },
+      {
+        "source": "overflow: hiddenで子要素が切れるときの対処｜角丸を残してはみ出すCSS | りゅうのらぼ",
+        "before": "当子元素因overflow:hidden | 被截断时怎么办CSS 突出并留下圆角 |Ryu的小实验室",
+        "after": "子元素被 overflow: hidden 裁切？保留圆角的 CSS 解决方法 | Ryu的小实验室"
+      },
+      {
+        "source": "まだ切れるとき",
+        "before": "当它仍然破裂时",
+        "after": "如果仍然被裁切"
+      },
+      {
+        "source": "デモを大きく開く",
+        "before": "广泛开放演示",
+        "after": "打开完整演示"
+      },
+      {
+        "source": "仕掛けの実験室へ →",
+        "before": "前往花哨的实验室 →",
+        "after": "前往网页实验室 →"
+      },
+      {
+        "source": "入力するコマンド",
+        "before": "命令进入",
+        "after": "输入以下命令"
+      },
+      {
+        "source": "ターミナルに",
+        "before": "到航站楼",
+        "after": "在终端中，"
+      },
+      {
+        "source": "引き出しのサンプルはHTMLを開くだけで動きます。画像変換にはNode.jsを使います。それぞれ準備が違うので、まず前提と完成の目印を確かめてください。公開サイトの仕組みと、練習用の小さなサンプルは区別して説明しています。",
+        "before": "抽屉示例只需打开 HTML 即可工作。使用 Node.js 进行图像转换。每个人的准备工作都不同，因此首先检查先决条件和完成分数。公开站点和小样本实践的机制分别进行了说明。",
+        "after": "抽屉示例只需打开 HTML 文件即可运行，图片转换则需要 Node.js。两者的准备条件不同，请先确认所需环境和成功标准。教程会区分正式网站的实现与供练习的小型示例。"
+      },
+      {
+        "source": "磁石やボタン、文字の積み木。仕掛けの実験室で動き方を試し、各ページから実装コードも読めます。",
+        "before": "磁铁、按钮和字母积木。您可以在花哨的实验室中尝试它是如何工作的，并阅读每个页面上的实现代码。",
+        "after": "在网页实验室里试试磁铁、按钮和文字积木的互动效果。每个页面也都提供实现代码。"
+      },
+      {
+        "source": "仕掛けの実験室を開く →",
+        "before": "开设一个噱头实验室 →",
+        "after": "打开网页实验室 →"
+      },
+      {
+        "source": "Macでファイル名を一括変更する方法｜Finderの操作手順 | りゅうのらぼ",
+        "before": "如何在 Mac 上批量重命名文件 |查找步骤 |Ryu的小实验室",
+        "after": "Mac 文件批量重命名：Finder 操作教程 | Ryu的小实验室"
+      },
+      {
+        "source": "入力したのはこの2か所。左下の「例」が desk_001.jpg になりました。",
+        "before": "我进入了这两个地方。左下角的“示例”现在是 desk_001.jpg。",
+        "after": "填写这两个字段后，左下角的示例变成了 desk_001.jpg。"
+      },
+      {
+        "source": "変更後。「IMG_」だけが「desk_」に変わり、001〜003と拡張子は残っています。",
+        "before": "改变后。仅“IMG_”更改为“desk_”，并且分机号001至003保留。",
+        "after": "重命名后，只有“IMG_”变成了“desk_”，编号 001–003 和文件扩展名都保留了下来。"
+      },
+      {
+        "source": "3枚とも狙いどおり。ファイルの中身も変更前後で照合したところ一致していました。今回は、画像を書き換えずに名前だけを変えられています。",
+        "before": "三个人都达到了目标。当我比较更改前后的文件内容时，它们是匹配的。这次，只改变了名字，没有重写图像。",
+        "after": "三个文件都按预期完成了重命名。对比操作前后的文件内容，结果完全一致：改变的只有名称，图片本身没有变化。"
+      },
+      {
+        "source": "試した範囲では「3枚に同じ変更を入れる」操作を一度にできました。何百枚も試したわけではないので、大量のファイルでの結果や、何分短縮できるかまでは分かりません。",
+        "before": "据我尝试，我能够一次“对 3 张纸进行相同的更改”。我还没有对数百个文件进行过尝试，所以我不知道大量文件的结果或它节省了多少分钟。",
+        "after": "这次测试成功地一次修改了三个文件。我没有测试数百个文件，因此还不能判断大量文件的处理效果，也不能给出节省时间的具体数字。"
+      },
+      {
+        "source": "ファイル整理、全部きれいにしようとすると腰が重くなるので。今日は同じ名前を3回打ち直さずに済んだ、くらいで。",
+        "before": "当我尝试整理并清理所有文件时，我感到很沉重。至少我今天不用把同一个名字重新输入三遍。",
+        "after": "一想到要把所有文件都整理好，就有点不想动手。今天能少重复输入三次文件名，就已经不错了。"
+      },
+      {
+        "source": "1枚しか変えられない：",
+        "before": "只能更改一张卡：",
+        "after": "只改了一个文件的名称："
+      },
+      {
+        "source": "そのまま次の作業へ進まず、練習用ZIPを別の場所へ展開してやり直します。まずは元のファイルが開けるか切り分けます。",
+        "before": "不要继续执行下一步，而是将练习 ZIP 解压缩到另一个位置，然后重试。首先，打开或分离原始文件。",
+        "after": "先不要继续操作。把练习用 ZIP 解压到另一个位置，重新尝试。先确认原始文件能否打开，再排查问题出在哪里。"
+      },
+      {
+        "source": "このサイトも、「こうしたい」からできています。",
+        "before": "这个网站也是由想要这样做的人组成的。",
+        "after": "这个网站，也是从“我想把它做成这样”的想法开始的。"
+      },
+      {
+        "source": "商品を探すときは「Switch対応」だけで決めず、対象機種まで読みます。",
+        "before": "在寻找产品时，不要只考虑它是否与 Switch 兼容；还要考虑它是否与 Switch 兼容。阅读兼容型号。",
+        "after": "选购时不要只看到“支持 Switch”就下结论，还要确认它具体支持哪一款主机。"
+      },
+      {
+        "source": "登録後は自動接続される案内です。自分の環境では、接続中の表示と実際にイヤホンから音が聞こえることを確認してください。名前が出るまで40秒ほどかかる場合があります。",
+        "before": "注册后，您将自动连接。在您的环境中，确保出现连接并且您确实可以从耳机中听到声音。您的名字最多可能需要 40 秒才会显示。",
+        "after": "按照任天堂的说明，配对后耳机会自动连接。请确认主机显示已连接，并实际听到耳机出声。耳机名称有时需要约 40 秒才会出现。"
+      },
+      {
+        "source": "Switch 2専用の案内",
+        "before": "仅适用于交换机 2 的信息",
+        "after": "任天堂的 Switch 2 专用说明"
+      },
+      {
+        "source": "画像をWebPに変換・軽量化する方法｜Node.jsとsharpで実践 | りゅうのらぼ",
+        "before": "如何将图像转换为WebP并减轻其重量|使用 Node.js 和 Sharp 进行练习 |Ryu的小实验室",
+        "after": "使用 Node.js 和 sharp 将图片转换为 WebP 并压缩体积 | Ryu的小实验室"
+      },
+      {
+        "source": "まず、画像の重さを見てみる。",
+        "before": "首先，让我们看看图像的权重。",
+        "after": "先看看图片文件有多大。"
+      },
+      {
+        "source": "このファイル、そのままサイトに載せて大丈夫なんだろう。",
+        "before": "我认为按原样将此文件放在网站上是可以的。",
+        "after": "这个文件直接上传到网站，真的合适吗？"
+      },
+      {
+        "source": "今回試すのは、横幅を最大1200pxにし、WebPの品質設定を85にする方法です。これは今回選んだ条件で、どの画像にも最適という意味ではありません。",
+        "before": "这次我们要尝试的是将宽度增加到最大1200px，并将WebP质量设置设置为85。这是我这次选择的条件，并不意味着它对每个图像都是最佳的。",
+        "after": "这次将图片宽度限制为最多 1200px，并把 WebP 质量设为 85。这只是本次采用的设置，并不意味着它适合所有图片。"
+      },
+      {
+        "source": "次に、画像を変換するsharpを追加します。ここではインターネット接続が必要です。",
+        "before": "接下来，添加锐利来变换图像。这里需要互联网连接。",
+        "after": "接着安装用于转换图片的 sharp 库。这一步需要连接互联网。"
+      },
+      {
+        "source": "3枚のWebPができ、Finderで開ければ成功。次の手順は、自分の画像でも試したい方だけ進んでください。",
+        "before": "如果你能创建3个WebP页面并在Finder中打开它们，那就成功了。仅当您想在自己的图像上尝试时才继续下一步。",
+        "after": "如果三个 WebP 图片文件都已生成，并且能在 Finder 中打开，练习就成功了。想继续处理自己的图片，再进行下一步即可。"
+      },
+      {
+        "source": "今回のコードは直下の静止画PNG・JPEGが対象です。HEICやアニメーション、サブフォルダ内の画像は対象外です。画像の外部送信処理はありません。",
+        "before": "此代码适用于下面的静态图像 PNG/JPEG。 HEIC、动画和子文件夹中的图像不符合条件。图像没有外部传输过程。",
+        "after": "该脚本只处理输入文件夹直接包含的静态 PNG 和 JPEG 图片，不处理 HEIC、动画或子文件夹内的图片，也不会将图片发送到外部服务。"
+      },
+      {
+        "source": "sharpのリサイズ仕様",
+        "before": "急剧调整尺寸规格",
+        "after": "sharp 图片缩放文档"
+      },
+      {
+        "source": "で、実際に買うなら？ 3つの商品を並べてみた",
+        "before": "那么，如果你真的买了呢？我安排了三款产品",
+        "after": "真要买，该选哪款？把三个产品放在一起比较"
+      },
+      {
+        "source": "開いたのは、エレコムの「MPA-CCPE05BK」というケーブルの公式ページです。製品名には240Wとあります。大きな数字なので、何でも得意そうに見えてしまいますが、ほかの欄はどうでしょう。",
+        "before": "我打开的是ELECOM的“MPA-CCPE05BK”电缆的官方页面。产品名称上写着240W。这个数字很大，看起来你什么都擅长，但是其他领域呢？",
+        "after": "我打开了 ELECOM 的 MPA-CCPE05BK 线缆官方页面。产品名称里写着 240W，数字很大，容易让人觉得它什么都能胜任。但其他规格又是怎样的呢？"
+      },
+      {
+        "source": "Wが大きいからファイルも速く移せる、とは読めない",
+        "before": "无法看出因为W很大，所以可以快速传输文件。",
+        "after": "功率更高，不代表文件传输更快"
+      },
+      {
+        "source": "今回の数値と対応状況の確認元",
+        "before": "当前数据和响应状态的确认来源",
+        "after": "这些参数和兼容性信息的来源"
+      },
+      {
+        "source": "1．まず、何と何をつなぐか書く",
+        "before": "1. 首先，写出与什么相关的内容。",
+        "after": "1. 先写清楚要连接哪两个设备"
+      },
+      {
+        "source": "③は映像対応ですが60Wまでなので、条件外。",
+        "before": "③支持视频，但最高60W，所以不是要求。",
+        "after": "③支持视频输出，但最高仅支持 60W，同样不符合要求。"
+      },
+      {
+        "source": "設定のON/OFFに。色だけに頼らず、ラベルとaria-pressedも一緒に切り替えます。",
+        "before": "打开/关闭设置。我们不仅仅依赖颜色，还把标签和咏叹调一起切换。",
+        "after": "可用于设置开关。不要只靠颜色区分状态，文字标签和 aria-pressed 也要同步更新。"
+      },
+      {
+        "source": "FAQや補足説明に。HTMLのdetailsとsummaryなら、JavaScriptなしでも開閉でき、キーボードでも操作できます。",
+        "before": "有关常见问题解答和补充说明。 HTML详细信息和摘要无需JavaScript即可打开和关闭，并且可以使用键盘进行操作。",
+        "after": "可用于常见问题和补充说明。HTML 的 details 和 summary 元素无需 JavaScript 就能展开、收起，也支持键盘操作。"
+      },
+      {
+        "source": "どれも音は鳴りません。動きを減らす端末設定ではアニメーションを省きます。",
+        "before": "没有人发出任何声音。省略设备设置中减少移动的动画。",
+        "after": "这些演示都不会播放声音。设备启用减少动态效果时，会省略动画。"
+      },
+      {
+        "source": "ずしっと",
+        "before": "顺利地",
+        "after": "沉稳"
+      },
+      {
+        "source": "ぽよんぽよん",
+        "before": "波永波永",
+        "after": "弹跳"
+      },
+      {
+        "source": "「重さ」と「はずみ」。",
+        "before": "“重量”和“动量”。",
+        "after": "重量与弹性。"
+      },
+      {
+        "source": "動くデモ",
+        "before": "移动演示",
+        "after": "互动演示"
+      },
+      {
+        "source": "手元で動かす",
+        "before": "用手移动",
+        "after": "在本地运行"
+      },
+      {
+        "source": "むにっ",
+        "before": "牟尼",
+        "after": "捏一捏"
+      },
+      {
+        "source": "ぷるん",
+        "before": "普润",
+        "after": "颤一颤"
+      },
+      {
+        "source": "キー",
+        "before": "钥匙",
+        "after": "键帽"
+      },
+      {
+        "source": "押している間にボタンが沈み、少し横に広がり、離すと戻ります。上の3種類のデモと違い、離した後に大きく弾む処理は入れていません。",
+        "before": "当你按住它时，按钮会下沉，稍微展开，当你松开它时，按钮会恢复原状。与上面的三个演示不同，没有任何处理导致球在释放后明显弹跳。",
+        "after": "按住时按钮会下沉并略微变宽，松开后恢复原状。与上面三个演示不同，这个版本没有加入松开后明显回弹的效果。"
+      },
+      {
+        "source": "角を控えめに：",
+        "before": "低估角落：",
+        "after": "减小圆角："
+      },
+      {
+        "source": "沈み込みを浅く：",
+        "before": "浅俯冲：",
+        "after": "减小下压幅度："
+      },
+      {
+        "source": "ゴム・ゼリー・キーをそれぞれ長押ししてから離します。押している間と離した後の違いを見ます。",
+        "before": "按住每个橡胶键、果冻键和果冻键，然后松开它们。观察按下时和释放后的差异。",
+        "after": "依次按住橡胶、果冻和键帽按钮，再松开，比较按住时与松开后的变化。"
+      },
+      {
+        "source": "pointerupだけでなく、pointercancel、lostpointercapture、blurでも押下を解除します。途中で指が離れたりフォーカスが移ったりしても押しっぱなしにしないためです。",
+        "before": "不仅是pointerup，还有pointercancel、lostpointercapture、blur取消按下。这是为了防止即使您移开手指或焦点发生变化也无法按住按钮。",
+        "after": "除了 pointerup，还要在 pointercancel、lostpointercapture 和 blur 时解除按下状态，避免手势中断或焦点转移后按钮仍然保持按下。"
+      },
+      {
+        "source": "buttonsのup内で、ゼリーの戻り方translateY(-5px) scale(.94,1.1)をtranslateY(-2px) scale(.98,1.04)に変えます。",
+        "before": "在button up中，将jelly返回方法translateY（-5px）scale（.94,1.1）更改为translateY（-2px）scale（.98,1.04）。",
+        "after": "在 buttons 实验的 up 处理逻辑中，将果冻回弹的 translateY(-5px) scale(.94,1.1) 改为 translateY(-2px) scale(.98,1.04)。"
+      },
+      {
+        "source": "動作のコード全体",
+        "before": "完整的行为准则",
+        "after": "完整交互代码"
+      },
+      {
+        "source": "PCの電源入力と充電器の電源出力もつなぎます。Hello, lab!が表示されれば接続完了です。",
+        "before": "还要连接PC的电源输入和充电器的电源输出。如果你好，实验室！显示，则连接完成。",
+        "after": "再把 PC 的电源输入与充电器的电源输出连接起来。出现“Hello, lab!”就表示连接完成。"
+      },
+      {
+        "source": "接続済みの組もSetへ保存します。同じ接続を何度行っても、線が無限に増えることを避けられます。",
+        "before": "连接的对也会保存到“设置”中。无论您进行多少次相同的连接，都可以避免创建无限数量的线。",
+        "after": "已连接的端点组合也存入 Set，这样反复连接同一组端点时，就不会不断增加重复的线条。"
+      },
+      {
+        "source": "映像だけで画面が点灯するようになります。元へ戻すと再び2本必要になります。見た目ではなく、状態の条件で結果が変わる実験です。",
+        "before": "屏幕将仅显示图像。如果放回去，又需要两块。这是一个结果根据条件而不是外观而改变的实验。",
+        "after": "这样一来，只连接视频线，屏幕也会亮起。还原代码后，又需要两条线都接好。这个实验通过状态条件改变结果，而不是修改外观。"
+      },
+      {
+        "source": "Element.animate()はAnimationを返します。そのfinishedをawaitすると、前の動きが完了してから次の処理へ進めます。",
+        "before": "Element.animate() 返回动画。等待完成可以让前一个动作完成，然后再继续下一个过程。",
+        "after": "Element.animate() 返回一个 Animation。对它的 finished Promise 使用 await，就可以等待当前动画结束后再进行下一步。"
+      },
+      {
+        "source": "ドミノはfor...ofの中で1つずつawaitします。Promise.allに変えると同時に倒れるため、順番を守る処理とは異なります。",
+        "before": "多米诺骨牌一一等待着……的。这与保护订单的过程不同，因为它在更改为 Promise.all 的同时崩溃。",
+        "after": "在 for...of 循环中逐个 await 多米诺骨牌动画。改用 Promise.all 后，它们会同时倒下，而不是依次倒下。"
+      },
+      {
+        "source": "リセット時には進行中のAnimationをcancelし、generationも更新します。古い処理が完了しても、その後の動きを再開させないためです。",
+        "before": "重置时，正在进行的动画将被取消，并且生成也将被更新。这是因为即使旧进程完成，也不会重新开始后续的动作。",
+        "after": "重置时取消正在运行的 Animation，并更新 generation，防止旧流程即使完成了等待，也继续触发后续动画。"
+      },
+      {
+        "source": "落とす言葉",
+        "before": "要删除的话",
+        "after": "要落下的文字"
+      },
+      {
+        "source": "文字を落とす ↓",
+        "before": "删除字符↓",
+        "after": "让文字落下 ↓"
+      },
+      {
+        "source": "短い言葉を入力して「文字を落とす」を押します。文字ごとの積み木が落ちます。",
+        "before": "输入一个简短的单词并按“删除字符”。每个字母的积木都会掉落。",
+        "after": "输入简短的文字，点击“让文字落下”，每个字对应的积木就会落入盒子。"
+      },
+      {
+        "source": "積み木を持ち上げて離し、箱をゆらして積み直します。",
+        "before": "将积木分开，摇动盒子，然后重新堆叠。",
+        "after": "提起积木后松手，再摇晃盒子，让它们重新堆叠。"
+      },
+      {
+        "source": "lettersのstep内にあるb.vy+=1000*dtの1000を400へ変更します。",
+        "before": "将字母步骤中的 b.vy+=1000*dt 的 1000 更改为 400。",
+        "after": "在 letters 实验的 step 函数中，将 b.vy+=1000*dt 里的 1000 改为 400。"
+      },
+      {
+        "source": "積み木の落下がゆっくりになります。「文字を落とす」で初期状態からやり直し、変更前の落下と比べます。",
+        "before": "积木的下落速度会更慢。使用“放置文本”从初始状态开始，并将其与更改之前的放置进行比较。",
+        "after": "积木会下落得更慢。点击“让文字落下”重置到初始状态，与修改前的下落效果比较。"
+      },
+      {
+        "source": "magnetsのstep内にあるMath.exp(-3*dt)をMath.exp(-6*dt)へ変更します。x方向とy方向の両方を変えてください。",
+        "before": "将磁铁步骤中的 Math.exp(-3*dt) 更改为 Math.exp(-6*dt)。更改 x 和 y 方向。",
+        "after": "在 magnets 实验的 step 函数中，将 x、y 两个方向的 Math.exp(-3*dt) 都改为 Math.exp(-6*dt)。"
+      },
+      {
+        "source": "ランプを動かすと影も動く。SVGとJavaScriptで小さな書斎を作る",
+        "before": "当你移动灯时，影子也会移动。使用 SVG 和 JavaScript 创建一个小型研究",
+        "after": "移动台灯，让影子跟着动：用 SVG 和 JavaScript 制作小书房"
+      },
+      {
+        "source": "studyのdraw内で影の中心を決める350-x*.65を350-x*1.0に変えます。",
+        "before": "在研究绘图中将确定阴影中心的 350-x*.65 更改为 350-x*1.0。",
+        "after": "在 study 实验的 draw 函数中，将决定阴影中心的 350-x*.65 改为 350-x*1.0。"
+      },
+      {
+        "source": "まだ切れるときは、もう1つ外側を見る",
+        "before": "如果仍然刺痛，请再向外看一次。",
+        "after": "仍然被裁切？再检查外一层容器"
+      },
+      {
+        "source": "さらに外側にoverflow: hiddenやclipがないか。",
+        "before": "此外，是否有任何溢出：隐藏或外部夹子？",
+        "after": "外层祖先元素是否设置了 overflow: hidden 或 overflow: clip？"
+      },
+      {
+        "source": "clip-pathやmaskで切り抜いていないか。",
+        "before": "不是使用剪辑路径或蒙版进行剪辑吗？",
+        "after": "是否使用了 clip-path 或 mask 进行裁切？"
+      },
+      {
+        "source": "。検出結果は配布サンプルで実行して確認しました。",
+        "before": "。通过运行分布式样本验证了检测结果。",
+        "after": "。检测结果已通过运行提供下载的示例进行验证。"
+      },
+      {
+        "source": "5秒・9:16・出力1本に設定し、残高に収まるか確認します。",
+        "before": "将其设置为 5 秒、9 点 16 分和 1 个输出，并检查其是否在天平范围内。",
+        "after": "设置为 5 秒、9:16 纵横比、输出 1 段视频，再确认所需点数没有超过余额。"
+      },
+      {
+        "source": "5モデルの基本テスト",
+        "before": "5款车型基础测试",
+        "after": "五款模型的基础测试"
+      },
+      {
+        "source": "名前の共通部分をそろえたいなら、Finderの名称変更から。追加アプリなしで画像3枚を練習できます。",
+        "before": "如果要匹配名称的公共部分，请先重命名 Finder。您可以使用 3 张图像进行练习，无需任何其他应用程序。",
+        "after": "想统一文件名中的相同部分，可以从 Finder 的重命名功能开始。用三张练习图片即可尝试，无需安装额外应用。"
+      },
+      {
+        "source": "きっかけは、自分の書斎をつくること。",
+        "before": "我的想法是创建我自己的研究。",
+        "after": "一切始于布置一间属于自己的书房。"
+      },
+      {
+        "source": "その便利さに、いくらなら納得できるだろう。",
+        "before": "我相信您会对它的便利程度感到满意。",
+        "after": "为了这份便利，我愿意花多少钱？"
+      },
+      {
+        "source": "自分がガジェット選びを楽しむきっかけになったのは、自作PCでした。「自分の書斎をつくりたい」と思って、パーツを選びました。",
+        "before": "让我享受选择小玩意的原因是组装我自己的电脑。我想，“我想创建自己的研究”，所以我选择了这些部分。",
+        "after": "让我开始享受挑选数码产品这件事的，是组装自己的电脑。我想布置一间属于自己的书房，于是开始挑选配件。"
+      },
+      {
+        "source": "どれがいちばんコスパがいいのか。候補を比べて、値段を見て、吟味する。お得に買えたときが、いちばんワクワクしました。",
+        "before": "哪一款性价比最好？比较候选人、查看价格并进行研究。当我得到一笔好交易时，我感到非常兴奋。",
+        "after": "哪款性价比最好？比较配件、查看价格、反复斟酌。能以划算的价格买到时，是最让我兴奋的时刻。"
+      },
+      {
+        "source": "自分にとっての入口は、書斎づくりでした。これから道具を選ぶときも、まずは「どんなふうに暮らしたいか」「何が便利になったらうれしいか」から考えていきたいです。",
+        "before": "我的切入点是创建一项研究。今后在选择工具时，我会首先考虑自己想要怎样的生活，想要什么样的便利。",
+        "after": "对我来说，起点是布置书房。今后挑选工具时，我也想先问自己：想过怎样的生活？哪些地方变方便了，会让我开心？"
+      },
+      {
+        "source": "でも、まとめた充電器が大きくて重かったらどうだろう。持っている機器は、一緒に充電できるのだろうか。",
+        "before": "但如果你组装的充电器又大又重怎么办？我可以同时为我的设备充电吗？",
+        "after": "但如果换成的那一个充电器又大又重呢？它能同时给我手头的设备充电吗？"
+      },
+      {
+        "source": "そうやって考えると、商品ページを見る理由ができてきます。バッグに入る大きさか。必要な機器をつなげるか。自分の使い方に合うかを、ひとつずつ確かめたくなる。",
+        "before": "如果您这样想，您就有理由查看产品页面。它足够大吗？可以装进包里吗？你能连接必要的设备吗？您需要逐一检查每一项，看看它是否适合您的用途。",
+        "after": "这样一想，看产品页面就有了目的：放得进包里吗？能连接需要的设备吗？我想逐项确认，它是否适合自己的使用方式。"
+      },
+      {
+        "source": "少し高くても、毎日使うならうれしい違いなのか。機能が少なくても、自分のやりたいことには十分なのか。",
+        "before": "虽然价格有点贵，但如果每天使用的话，差别还是很大的。即使它的功能较少，但足以满足我想要做的事情吗？",
+        "after": "稍微贵一点，换来的差别是不是每天都能感受到？功能少一点，是不是也已经够我用了？"
+      },
+      {
+        "source": "りゅうのらぼでは、仕事で使うもの、持ち歩くもの、家で使うものを、幅広く紹介していきます。共通して考えたいのは、「これがあると、毎日の何が便利になるか」です。",
+        "before": "在Ryunorabo，我们将介绍您在工作中使用的物品、随身携带的物品以及在家中使用的物品。我们都想思考的是，“如果我有这个，日常生活中有什么会更方便呢？”",
+        "after": "在 Ryu的小实验室，我会介绍工作中用的、出门携带的和家里用的各种数码产品。贯穿其中的问题是：有了它，日常生活的哪一部分会更方便？"
+      },
+      {
+        "source": "読んだ方が「それなら、自分にも合いそう」と思ったり、「自分なら、こっちを選ぶかな」と考えたりできるように。",
+        "before": "我们希望读过这本书的人能够自己思考，“这似乎很适合我”，或者“如果是我，我会选择这个。”",
+        "after": "希望读者看完后，能觉得“这个也许适合我”，或者想清楚“如果是我，我会选另一款”。"
+      },
+      {
+        "source": "たとえば「机の充電器から手元まで、もう少し余裕を持ってケーブルを伸ばしたい」。そんなときも、長ければ何でもよいとは限りません。必要な長さと、つなぐ機器の端子、充電に必要な電力を先に確認します。",
+        "before": "例如，“我希望有更多的空间将电缆从桌子上的充电器延伸到我的手上。”在这种情况下，时间越长并不一定越好。首先，检查所需的长度、要连接的设备的端子以及充电所需的功率。",
+        "after": "比如，想让从桌上充电器接到手边的线再宽裕一点。这时也不是越长越好，要先确认所需长度、设备接口和充电功率。"
+      },
+      {
+        "source": "Claude CodeのMCP設定方法｜追加・設定場所の確認・削除 | りゅうのらぼ",
+        "before": "如何为克劳德代码设置MCP |添加/确认设置位置/删除 |Ryu的小实验室",
+        "after": "Claude Code 的 MCP 配置：添加、查看位置与删除 | Ryu的小实验室"
+      },
+      {
+        "source": "中ではなく、隣",
+        "before": "不在里面，但在隔壁",
+        "after": "它的旁边，而不是内部"
+      },
+      {
+        "source": "動画生成AIの無料枠を比較｜実際に試せた5モデルと保存条件 | りゅうのらぼ",
+        "before": "比较视频生成AI的免费额度 |您可以实际尝试的 5 种型号和存储条件 |Ryu的小实验室",
+        "after": "免费视频生成 AI 对比：实际用过的五款模型与下载条件 | Ryu的小实验室"
+      },
+      {
+        "source": "ガジェット選び、買う前に確かめたいこと。 | りゅうのらぼ",
+        "before": "选择和购买小工具之前需要检查的事项。 |龙实验室",
+        "after": "挑选数码产品：购买前要确认什么 | Ryu的小实验室"
+      },
+      {
+        "source": "Macのファイル整理、どこから始める？ | りゅうのらぼ",
+        "before": "在 Mac 上从哪里开始组织文件？ |龙实验室",
+        "after": "Mac 文件整理，从哪里开始？ | Ryu的小实验室"
+      },
+      {
+        "source": "HTML・CSSの作り方から、ブログのSEO対策まで。 | りゅうのらぼ",
+        "before": "从如何创建 HTML/CSS 到博客 SEO 措施。 |龙实验室",
+        "after": "从 HTML、CSS 制作到博客 SEO | Ryu的小实验室"
+      },
+      {
+        "source": "ガジェットは、買う前に吟味するのがいちばんおもしろい。 | りゅうのらぼ",
+        "before": "关于小玩意最有趣的事情是在购买之前仔细检查它们。 |龙实验室",
+        "after": "挑选数码产品，最有趣的是购买前的斟酌 | Ryu的小实验室"
+      },
+      {
+        "source": "つくってみると、日常はもう少しおもしろい。 | りゅうのらぼ",
+        "before": "一旦你创造了它，日常生活就会变得更加有趣。 |龙实验室",
+        "after": "动手做点东西，日常会更有趣 | Ryu的小实验室"
+      },
+      {
+        "source": "りゅうのらぼをつくるときは、おもちゃ箱のような場所にしたいと思いました。",
+        "before": "当我创建 Dragon Lab 时，我希望它是一个像玩具盒一样的地方。",
+        "after": "创建 Ryu的小实验室时，我想让它成为一个像玩具箱一样的地方。"
+      },
+      {
+        "source": "そこで今回は、りゅうのらぼのサムネイル原稿3枚を使って、幅を整え、WebPに変換してみました。",
+        "before": "所以这次，我使用了Ryuunorabo的三张缩略图原稿，调整了宽度，并将它们转换为WebP。",
+        "after": "这次，我用 Ryu的小实验室的三张缩略图原图，调整尺寸后转换为 WebP。"
+      },
+      {
+        "source": "Webの実験室｜CSS・JavaScriptの動くデモと作り方 | りゅうのらぼ",
+        "before": "网络实验室| CSS/JavaScript 移动演示及制作方法 |Ryu的小实验室",
+        "after": "网页实验室：CSS、JavaScript 互动演示与制作教程 | Ryu的小实验室"
+      },
+      {
+        "source": "昼夜、ランプ、ブラインドを操作できるSVGの書斎デモ。状態から色・位置・透明度を更新する仕組みと、影の動かし方を紹介します。",
+        "before": "SVG 研究演示，包括日/夜控制、灯和百叶窗。我们将介绍从状态更新颜色、位置和透明度的机制，以及如何移动阴影。",
+        "after": "一个可以切换昼夜、操作台灯和百叶窗的 SVG 书房演示。介绍如何根据状态更新颜色、位置和透明度，以及让阴影移动的方法。"
+      },
+      {
+        "source": "たとえば、サイト制作のガイドから動くデモへ。デモから具体的なコードへ。記事の末尾から関連する実践記事へ。",
+        "before": "例如，从网站创建指南到移动演示。从演示到具体代码。从文末前往相关实用文章。",
+        "after": "例如，从网站创建指南到互动演示。从演示到具体代码。从文末前往相关实用文章。"
+      },
+      {
+        "source": "このサイトでも、動くデモ、練習用ファイル、実際の画面や生成動画を記事に加えてきました。設定だけでなく、「このページを読む意味」を作ることもSEOの中心だと考えています。",
+        "before": "在这个网站上，我们在文章中添加了移动演示、练习文件、实际屏幕和生成的视频。我们相信SEO的核心不仅仅是设置，更是创造阅读这个页面的意义。",
+        "after": "在这个网站上，我们在文章中添加了互动演示、练习文件、实际屏幕和生成的视频。我们相信SEO的核心不仅仅是设置，更是创造阅读这个页面的意义。"
+      },
+      {
+        "source": "動くデモを触ってみる ↗",
+        "before": "尝试移动演示 ↗",
+        "after": "尝试互动演示 ↗"
+      },
+      {
+        "source": "それぞれのページで「動くデモ → 試し方 → 手元で動かす → 仕組み → 変えてみる」の順に紹介します。HTML・CSSの基本がわかり、JavaScriptの動きを試してみたい方へ。",
+        "before": "在每个页面上，我们将介绍以下步骤：“移动演示 → 如何尝试 → 手边运行 → 它如何工作 → 尝试更改它。” 对于那些了解 HTML/CSS 基础知识并想尝试 JavaScript 的人。",
+        "after": "在每个页面上，我们将介绍以下步骤：“互动演示 → 如何尝试 → 手边运行 → 它如何工作 → 尝试更改它。” 对于那些了解 HTML/CSS 基础知识并想尝试 JavaScript 的人。"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ",
+        "before": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/移动演示",
+        "after": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/互动演示"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ｜Webの実験室",
+        "before": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/移动演示 |网络实验室",
+        "after": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/互动演示 |网络实验室"
+      },
+      {
+        "source": "CSSでぷにぷにボタンを作る｜コピペ用コード・動くデモ →",
+        "before": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/移动演示→",
+        "after": "用 CSS 制作一个柔软的按钮 |复制并粘贴代码/互动演示→"
+      },
+      {
+        "source": "この記事にはアフィリエイト広告を含みます。リンク経由の購入・申し込みにより運営者が報酬を受け取ることがあります。",
+        "before": "本文包含联盟广告。运营商可能会因通过链接进行的购买和申请而获得补偿。",
+        "after": "本文含推广链接。通过链接购买或申请服务时，本站作者可能获得佣金。"
+      },
+      {
+        "source": "掲載方針",
+        "before": "出版政策",
+        "after": "广告刊登原则"
+      },
+      {
+        "source": "「これがあったら」を、自分の一日に重ねてみる。",
+        "before": "尝试在你的一天中添加“我希望我有这个”。",
+        "after": "想象一下：有了它，自己的一天会怎样？"
+      },
+      {
+        "source": "ひとつ選んでみるなら、身近なケーブルから。",
+        "before": "如果我必须选择一个，我会选择一根熟悉的电缆。",
+        "after": "先从身边的一根线缆开始。"
+      },
+      {
+        "source": "ガジェットを選んでいるとき、楽しいのは、それを使っている自分を想像する時間です。",
+        "before": "选择小工具时，有趣的部分是花时间想象自己使用它。",
+        "after": "挑选数码产品时，我最享受的，是想象自己使用它的那段时间。"
+      },
+      {
+        "source": "これがあったら、いつもの作業が少し楽になるかもしれない。持ち歩く荷物が減るかもしれない。毎日なんとなく面倒に感じていることが、ひとつ片づくかもしれない。",
+        "before": "如果有了这个，我平时的工作或许会变得轻松一些。您也许可以减少随身携带的行李数量。你也许能够摆脱一件你每天都觉得有点麻烦的事情。",
+        "after": "有了它，平时的工作也许能轻松一点，出门的包也许能轻一点，每天觉得麻烦的一件小事也许就解决了。"
+      },
+      {
+        "source": "そう考えながら候補を比べていると、まだ買ってもいないのに、ちょっと楽しみになってきます。",
+        "before": "当我想到这一点并比较候选者时，我开始期待它，尽管我还没有购买。",
+        "after": "带着这些想象比较不同产品，还没买，心里就已经有了一点期待。"
+      },
+      {
+        "source": "PCに限らず、道具を選ぶときは、使う場面を考えたくなります。",
+        "before": "在选择工具（而不仅仅是 PC）时，您需要考虑使用它的情况。",
+        "after": "不只是电脑，挑选其他工具时，我也会先想象自己会怎么用它。"
+      },
+      {
+        "source": "たとえば、出かけるたびに、いくつもの充電器をバッグに入れているとします。それをひとつにまとめられたら、荷物を減らせそうです。",
+        "before": "例如，假设您每次外出时都会在包里携带多个充电器。如果你能把所有这些放在一起，你可能就能减少你的行李。",
+        "after": "比如，每次出门都要往包里塞几个充电器。如果能用一个替代，是不是就能少带点东西？"
+      },
+      {
+        "source": "自分の一日のどこが、どう便利になりそうか。その想像が具体的になるほど、比べるのがおもしろくなるんですよね。",
+        "before": "您一天中的哪些时间可能更方便？你的想象力越具体，比较就越有趣。",
+        "after": "一天里的哪个环节会更方便，又会怎么变方便？想象得越具体，比较起来就越有意思。"
+      },
+      {
+        "source": "使う場面が浮かんでくると、価格の見方も変わります。",
+        "before": "一旦您了解了如何使用它，您对价格的看法就会改变。",
+        "after": "想清楚使用场景后，我看待价格的方式也会改变。"
+      },
+      {
+        "source": "コスパを考えるときには、そんなふうに、自分にとっての便利さと値段を見比べたいです。使わない機能が増えても、その分だけ暮らしが楽になるとは限りません。",
+        "before": "在考虑性价比时，您要自己比较一下便利性和价格。即使您有更多不使用的功能，也不一定会让您的生活更轻松。",
+        "after": "考虑性价比时，我想比较的是它对我的便利程度和价格。不用的功能再多，也不一定能让生活更轻松。"
+      },
+      {
+        "source": "自分が欲しい便利さを、納得できる価格で手に入れる。そのために吟味して、お得に買えたら、やっぱりうれしいです。",
+        "before": "以您能承受的价格获得您想要的便利。如果我能做一些研究并得到很好的交易，我会很高兴。",
+        "after": "以自己认可的价格，买到真正想要的便利，这就是我认真挑选的原因。比较过后买得划算，还是会很开心。"
+      },
+      {
+        "source": "どんな場面で使いたくて、何を比べ、どう選んだのか。使ってみたものなら、その想像どおりだったのか。選ぶところから、使ってわかることまで、記事に残していきたいと思っています。",
+        "before": "你想在什么情况下使用它，你将它与什么进行比较，你是如何选择它的？如果你尝试过，效果是否如你想象的那样呢？我想写一些关于从选择产品到使用它可以学到什么的所有内容的文章。",
+        "after": "想用它解决什么、比较了哪些产品、最后为什么这样选？如果实际用过，是否和想象的一样？从挑选到使用后的发现，我都想写下来。"
+      },
+      {
+        "source": "買う前に、「これがあったら、明日は少し楽になりそうだな」と考える。その時間から、ガジェットを楽しんでいきたいです。",
+        "before": "在你买东西之前，心里想，“如果我有这个，明天会更容易一些。”从那时起，我想开始享受小玩意。",
+        "after": "购买前想一想：“有了它，明天也许能轻松一点。”我想从这一刻起，享受数码产品带来的乐趣。"
+      },
+      {
+        "source": "Mac向け",
+        "before": "对于苹果机",
+        "after": "适用于 Mac"
+      },
+      {
+        "source": "cdのあとに半角スペースを1つ",
+        "before": "cd后一个半角空格",
+        "after": "cd 后的一个半角空格"
+      },
+      {
+        "source": "ファイルを消さずに、中身が同じものを一覧にする",
+        "before": "列出相同内容的文件而不删除文件",
+        "after": "列出内容相同的文件，不删除任何文件"
+      },
+      {
+        "source": "Pythonで重複ファイルを探す方法｜削除しないサンプル付き | りゅうのらぼ",
+        "before": "如何在Python中查找重复文件|与不删除的样本|Ryu的小实验室",
+        "after": "用 Python 查找重复文件：附不删除文件的示例 | Ryu的小实验室"
+      }
+    ]
+  }
+}
