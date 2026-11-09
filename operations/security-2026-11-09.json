@@ -1,1 +1,36 @@
-{"date":"2026-11-09","form":"https://ryu-koda.com/security-contact/","delivery":"production form accepted test and EMAIL.send resolved; inbox receipt not independently confirmed","recipient":"CONTACT_TO secret (owner approved)","security_txt":{"ryu-koda.com":"HTTP 200 verified","solo-researcher.com":"HTTP 200 verified","expires":"2027-05-09T00:00:00Z"},"hsts":{"ryu-koda.com":"max-age=2592000 verified","includeSubDomains":false,"preload":false,"solo-researcher.com":"UNRESOLVED: static _headers file not applied by Sites serving layer","draw.ryu-koda.com":"UNRESOLVED: Sites hosting, DNS-only"},"dmarc":{"ryu-koda.com":"v=DMARC1; p=none; verified in public DNS; not spoof rejection or reporting","next":"Inventory all legitimate senders before enforcement and choose reporting destination"},"preserved":{"dns":"Sites required DNS-only records kept","bot_fight_mode":"not enabled; zone-wide challenges can affect legitimate automation; no per-path skip","ai_labyrinth":"optional recommendation, left unchanged"},"turnstile":"existing account widget used and verified server-side; old insight predates integration"}
+{
+  "date": "2026-11-09",
+  "form": "https://ryu-koda.com/security-contact/",
+  "delivery": "Gmail inbox verified before and after DMARC enforcement; SPF/DKIM/DMARC PASS; after-change received 2026-11-09 15:07 JST, Authentication-Results p=REJECT",
+  "recipient": "CONTACT_TO secret (owner approved)",
+  "security_txt": {
+    "ryu-koda.com": "HTTP 200 verified",
+    "solo-researcher.com": "HTTP 200 verified",
+    "expires": "2027-05-09T00:00:00Z",
+    "insights": "Archived both configuration-only recommendations after validating public files and form"
+  },
+  "hsts": {
+    "ryu-koda.com": "max-age=2592000 verified",
+    "includeSubDomains": false,
+    "preload": false,
+    "solo-researcher.com": "PENDING EXPLICIT APPROVAL: static-to-Worker deployment rejected by auto-review; v39 remains live; main reverted to identical static content",
+    "draw.ryu-koda.com": "max-age=2592000 verified after Worker header-only change; home and practice drawing UI checked"
+  },
+  "dmarc": {
+    "ryu-koda.com": "v=DMARC1; p=reject; verified public DNS",
+    "legitimate_senders": "owner confirmed contact form only",
+    "verification": "post-change Gmail authentication PASS, p=REJECT"
+  },
+  "preserved": {
+    "dns": "Sites required DNS-only records kept",
+    "bot_fight_mode": "not enabled; zone-wide challenges can affect legitimate automation; no per-path skip",
+    "ai_labyrinth": "optional recommendation, left unchanged"
+  },
+  "turnstile": "existing account widget used and verified server-side; old insight predates integration",
+  "candidate": {
+    "commit": "b8940750c1c5b092770865d42157b59b008052f2",
+    "github_branch": "codex/hsts-worker-candidate",
+    "tests": "94 exact bodies, HEAD, ETag, HSTS, redirects, 404, invalid method/path, 1047 links, analytics gating",
+    "not_deployed": true
+  }
+}
