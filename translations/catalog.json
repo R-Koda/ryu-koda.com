@@ -1785,7 +1785,9 @@
     "SplitTraceの使い方。学習・テストの混入を、派生元から点検する | りゅうのらぼ": "Using SplitTrace: trace shared sources across training and test splits | Ryu’s Lab",
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る | りゅうのらぼ": "Using EventScore Explorer: inspect misses and false alarms behind the score | Ryu’s Lab",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する | りゅうのらぼ": "Using Notebook Publish Check: keep figures and review logs before publication | Ryu’s Lab",
-    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。—lineage-completeは、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "UNKNOWN means a check lacks required information. A FAIL does not imply that every other check completed. Use --lineage-complete only when you can confirm the declared lineage is complete; it does not infer missing relationships."
+    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。—lineage-completeは、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "UNKNOWN means a check lacks required information. A FAIL does not imply that every other check completed. Use --lineage-complete only when you can confirm the declared lineage is complete; it does not infer missing relationships.",
+    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。": "UNKNOWN means a check lacks required information. A FAIL does not mean every other check is complete.",
+    "は、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "should only be used when you have verified that all parent relationships are recorded. It does not infer missing relationships."
   },
   "zh-cn": {
     "りゅうのらぼ | AI・ソフトウェア・日々の道具": "Ryu的小实验室|人工智能/软件/日常工具",
@@ -3574,6 +3576,8 @@
     "SplitTraceの使い方。学習・テストの混入を、派生元から点検する | りゅうのらぼ": "SplitTrace 使用方法：从派生来源检查训练与测试数据的混入 | Ryu’s Lab",
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る | りゅうのらぼ": "EventScore Explorer 使用方法：查看分数背后的漏检与误报 | Ryu’s Lab",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する | りゅうのらぼ": "Notebook Publish Check 使用方法：保留图像，整理发布前的日志 | Ryu’s Lab",
-    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。—lineage-completeは、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "UNKNOWN 表示检查所需信息不足。出现 FAIL 不代表其他检查均已完成。只有确认已完整声明来源关系时才使用 --lineage-complete；该选项不会自动补充缺失关系。"
+    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。—lineage-completeは、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "UNKNOWN 表示检查所需信息不足。出现 FAIL 不代表其他检查均已完成。只有确认已完整声明来源关系时才使用 --lineage-complete；该选项不会自动补充缺失关系。",
+    "UNKNOWNは必要な情報が不足した検査です。FAILが出ても、ほかの検査がすべて完了したとは限りません。": "UNKNOWN 表示检查缺少必要信息。出现 FAIL 并不意味着其他检查均已完成。",
+    "は、親子関係を漏れなく記載したと自分で確認できる場合にだけ使います。自動的に関係を補う指定ではありません。": "仅在确认已完整记录所有父子关系时使用。该选项不会自动补充缺失关系。"
   }
 }
