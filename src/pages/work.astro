@@ -1,6 +1,5 @@
 ---
 import research from "../data/research.json";
-import YouTubeChannels from "../components/YouTubeChannels.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -73,9 +72,6 @@ import ActionLink from "../components/ActionLink.astro";
         <span class="genre-number">04</span>
         <h2>SNS・動画制作</h2>
         <p>テーマに合わせたコンテンツの企画・制作と、発信の場づくりに取り組んでいます。</p>
-        <h3 id="youtube">YouTube運用</h3>
-        <p>現在運用しているチャンネルです。AIの活用、身近なしくみ、研究などを題材に動画を制作しています。</p>
-        <YouTubeChannels />
       </section>
       <aside class="work-contact" aria-labelledby="work-contact-title">
         <h2 id="work-contact-title">お仕事のご相談</h2>
@@ -167,7 +163,7 @@ import ActionLink from "../components/ActionLink.astro";
   .media-panel { border-top-color: #ddd0ef; }
   .genre-number { display: block; font-size: 11px; color: var(--muted); margin-bottom: 10px; }
   .panel h3 { font-size: 17px; margin: 26px 0 12px; }
-  .panel, #youtube { scroll-margin-top: 150px; }
+  .panel { scroll-margin-top: 150px; }
   .work-contact { border-top: 1px dashed #aeb5bc; margin-top: 44px; padding-top: 26px; }
   .work-contact h2 { font-size: 19px; margin-bottom: 14px; }
   .work-contact p { font-size: 14px; color: var(--muted); line-height: 2; margin-bottom: 20px; }
