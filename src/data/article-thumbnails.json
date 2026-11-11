@@ -253,5 +253,22 @@
     "width": 1200,
     "height": 630,
     "originalBytes": 25066
+  },
+  "python-tools-splittrace-eventscore-notebook": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/python-tools-splittrace-eventscore-notebook-360-c71a9c6d94.webp",
+        "width": 360,
+        "bytes": 4476
+      },
+      {
+        "src": "/article-thumbnails/python-tools-splittrace-eventscore-notebook-640-1e107ff6bc.webp",
+        "width": 640,
+        "bytes": 8908
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 26594
   }
 }

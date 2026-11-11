@@ -1843,7 +1843,8 @@
     "次は、図を残してログだけを外します。下の②・③の順に操作すると、reviewed-copy.ipynbという別ファイルが保存されます。": "Next, keep the figure and remove only the log. Follow 2 and 3 below to save a separate file named reviewed-copy.ipynb.",
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る のヒーロー画像": "Illustration of a signal trace and detected event intervals for EventScore Explorer",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する のヒーロー画像": "Illustration of a notebook and a cleaned copy for Notebook Publish Check",
-    "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "Illustration of tracing shared data origins between training and test sets with SplitTrace"
+    "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "Illustration of tracing shared data origins between training and test sets with SplitTrace",
+    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "Illustration of a toolbox with cards for data splitting, evaluation and notebook checks"
   },
   "zh-cn": {
     "りゅうのらぼ | AI・ソフトウェア・日々の道具": "Ryu的小实验室|人工智能/软件/日常工具",
@@ -3690,6 +3691,7 @@
     "次は、図を残してログだけを外します。下の②・③の順に操作すると、reviewed-copy.ipynbという別ファイルが保存されます。": "接下来保留图像，只删除日志。按下方②、③的顺序操作，将保存为独立文件 reviewed-copy.ipynb。",
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る のヒーロー画像": "EventScore Explorer 示意图：信号曲线与检测到的事件区间",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する のヒーロー画像": "Notebook Publish Check 示意图：笔记本与整理后的副本",
-    "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "SplitTrace 示意图：检查训练集和测试集是否具有共同的数据来源"
+    "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "SplitTrace 示意图：检查训练集和测试集是否具有共同的数据来源",
+    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "工具箱插画：用于数据划分、评估和笔记本检查的三张卡片"
   }
 }
