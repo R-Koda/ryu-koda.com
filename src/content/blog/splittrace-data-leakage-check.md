@@ -1,6 +1,7 @@
 ---
 title: "SplitTraceの使い方。学習・テストの混入を、派生元から点検する"
 description: "SplitTraceをpipで導入し、同じ元データに由来するサンプルの混入を点検。合成デモ、実行コマンド、FAILとUNKNOWNの読み方、GitHubを紹介します。"
+heroImage: "../../../public/articles/splittrace-data-leakage-check/cover.webp"
 pubDate: 2026-11-09T16:20:00+09:00
 tags: ["Python", "つくったもの", "機械学習"]
 ---

@@ -202,5 +202,56 @@
     "width": 1200,
     "height": 630,
     "originalBytes": 31040
+  },
+  "splittrace-data-leakage-check": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/splittrace-data-leakage-check-360-2fa031d05f.webp",
+        "width": 360,
+        "bytes": 2788
+      },
+      {
+        "src": "/article-thumbnails/splittrace-data-leakage-check-640-c86c0862f7.webp",
+        "width": 640,
+        "bytes": 5122
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 14924
+  },
+  "eventscore-explorer-event-evaluation": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-360-d3ace80900.webp",
+        "width": 360,
+        "bytes": 2442
+      },
+      {
+        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-640-68f880539e.webp",
+        "width": 640,
+        "bytes": 4264
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 12510
+  },
+  "notebook-publish-check-guide": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/notebook-publish-check-guide-360-62fc3d7889.webp",
+        "width": 360,
+        "bytes": 4148
+      },
+      {
+        "src": "/article-thumbnails/notebook-publish-check-guide-640-8245ceec70.webp",
+        "width": 640,
+        "bytes": 7608
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 25066
   }
 }

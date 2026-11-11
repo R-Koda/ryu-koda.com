@@ -1,6 +1,7 @@
 ---
 title: "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る"
 description: "EventScore Explorerをpipで導入し、正解と予測の区間をCSVから可視化。許容時間で判定が変わる合成デモと、実行方法・評価ルールを紹介します。"
+heroImage: "../../../public/articles/eventscore-explorer-event-evaluation/cover.webp"
 pubDate: 2026-11-09T16:20:00+09:00
 tags: ["Python", "つくったもの", "機械学習"]
 ---
