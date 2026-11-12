@@ -9,9 +9,15 @@ import { journalPosts } from "../../lib/posts";
 import guides from "../../data/article-guides.json";
 import starters from "../../data/starter-articles.json";
 import FollowNote from "../../components/FollowNote.astro";
-import { categories, categoryFor } from "../../lib/categories";
+import ExperimentPreview from "../../components/ExperimentPreview.astro";
+import { experiments } from "../../data/experiments";
+import { guides as experimentGuides } from "../../data/experiment-guides";
+import { categoryFor } from "../../lib/categories";
 const posts = await journalPosts();
-const tags = categories;
+const entries = [
+  ...posts.map(p => ({kind: 'blog', id: p.id, href: `/blog/${p.id}/`, data: p.data, date: p.data.updatedDate ?? p.data.pubDate, preview: '', color: ''})),
+  ...experiments.map(e => ({kind: 'lab', id: e.slug, href: `/playground/${e.slug}/`, data: {title: experimentGuides[e.slug].seoTitle, description: experimentGuides[e.slug].description, tags: ['Web制作'], heroImage: undefined}, date: new Date(e.updatedAt), preview: e.slug, color: e.color})),
+].sort((a,b) => b.date.valueOf() - a.date.valueOf() || a.href.localeCompare(b.href));
 ---
 
 <!doctype html>
@@ -35,15 +41,12 @@ const tags = categories;
         </p>
       </div>
       <nav class="reading-entrances" aria-label="目的から記事を探す"><span>目的から読む：</span>{readingGuides.map(g => <a href={`/blog/guides/${g.slug}/`}>{g.label} ↗</a>)}</nav>
-      <p class="reading-entrances"><a href="/playground/buttons/">手を動かして試す：CSSでぷにぷにボタンを作る。完成コードと動くデモ →</a></p>
+      <p class="reading-entrances">ブログとWebの実験室を、更新が新しい順に。動くデモもここから探せます。</p>
       <div class="filter-bar">
         <div class="tags" role="group" aria-label="記事の分類">
-          <button type="button" class="tag" data-tag="" aria-pressed="true">
-            すべて <sup>{posts.length}</sup>
-          </button>
-          {tags.map((t) => (
-            <button type="button" class="tag" data-tag={t} aria-pressed="false">
-              {t}
+          {[['', 'すべて'], ['blog', 'ブログ'], ['lab', 'Webの実験室']].map(([kind, label]) => (
+            <button type="button" class="tag" data-kind-filter={kind} aria-pressed={kind === '' ? 'true' : 'false'}>
+              {label} <sup>{kind ? entries.filter(e => e.kind === kind).length : entries.length}</sup>
             </button>
           ))}
         </div>
@@ -54,27 +57,29 @@ const tags = categories;
         </label>
       </div>
       <p id="result-count" aria-live="polite">
-        {posts.length}件の記事
+        {entries.length}件の記事
       </p>
       <div class="articles">
-        {posts.map((p, i) => (
+        {entries.map((p) => (
           <article
             data-title={`${p.data.title} ${p.data.description}`}
-            data-tags={JSON.stringify([categoryFor(p.data.tags)])}
+            data-kind={p.kind}
           >
-            <a href={`/blog/${p.id}/`}>
+            <a href={p.href} class:list={[{kit: p.kind === "lab"}]}>
+              {p.kind === "lab" && <div class="lab-preview" style={`background:${p.color}`}><ExperimentPreview kind={p.preview} /></div>}
               {guides[p.id as keyof typeof guides] && !p.data.heroImage && <img class="post-preview" src={`/articles/${p.id}/cover.webp`} alt={guides[p.id as keyof typeof guides].label} width="1200" height="630" loading="lazy" decoding="async" />}
               {starters.find(s => s.slug === p.id) && <img class="post-preview" {...thumbnailAttrs(p.id,starters.find(s => s.slug === p.id)!.image,"(max-width: 600px) 100vw, 180px")} alt={starters.find(s => s.slug === p.id)!.imageAlt} width="1200" height="630" loading="lazy" decoding="async" />}
               {!starters.some(s => s.slug === p.id) && p.data.heroImage && <img class="post-preview" {...thumbnailAttrs(p.id,p.data.heroImage.src,"(max-width: 600px) 100vw, 180px")} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />}
               <div class="article-body">
               <div class="article-meta">
-                <span>{categoryFor(p.data.tags)}</span>
-                <FormattedDate date={p.data.pubDate} />
+                <span>{p.kind === "lab" ? "Webの実験室" : categoryFor(p.data.tags)}</span>
+                {p.kind === "lab" && <span class="demo-badge">動くデモ付き</span>}
+                <FormattedDate date={p.date} />
               </div>
               <h2>{p.data.title}</h2>
               <p>{p.data.description}</p>
               <span class="read-link">
-                記事を読む <span aria-hidden="true">↗</span>
+                {p.kind === "lab" ? "デモと作り方を見る" : "記事を読む"} <span aria-hidden="true">↗</span>
               </span>
               </div>
             </a>
@@ -94,33 +99,36 @@ const tags = categories;
 </html>
 <script>
   const search = document.querySelector<HTMLInputElement>("#post-search");
-  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-tag]");
+  const buttons = document.querySelectorAll<HTMLButtonElement>("[data-kind-filter]");
   const articles = document.querySelectorAll<HTMLElement>(
     "article[data-title]",
   );
   let selected = "";
   function filter() {
     let count = 0;
-    const query = (search?.value || "").trim().toLocaleLowerCase();
+    const query = (search?.value || "").trim().normalize("NFKC").toLocaleLowerCase();
     articles.forEach((a) => {
-      const tags = JSON.parse(a.dataset.tags || "[]");
+
       const show =
-        (!selected || tags.includes(selected)) &&
-        (a.dataset.title || "").toLocaleLowerCase().includes(query);
+        (!selected || a.dataset.kind === selected) &&
+        (a.querySelector(".article-body")?.textContent || "").normalize("NFKC").toLocaleLowerCase().includes(query);
       a.hidden = !show;
       if (show) count++;
     });
     const result = document.getElementById("result-count");
-    if (result) result.textContent = `${count}件の記事`;
+    if (result) {
+      const language = document.documentElement.lang;
+      result.textContent = language.startsWith('en') ? `${count} ${count === 1 ? "article" : "articles"}` : language.startsWith('zh') ? `${count} 篇文章` : `${count}件の記事`;
+    }
     const empty = document.getElementById("no-results");
     if (empty) empty.hidden = count > 0;
     buttons.forEach((b) =>
-      b.setAttribute("aria-pressed", String(b.dataset.tag === selected)),
+      b.setAttribute("aria-pressed", String(b.dataset.kindFilter === selected)),
     );
   }
   buttons.forEach((b) =>
     b.addEventListener("click", () => {
-      selected = b.dataset.tag || "";
+      selected = b.dataset.kindFilter || "";
       filter();
     }),
   );
@@ -135,6 +143,12 @@ const tags = categories;
   });
 </script>
 <style>
+  .lab-preview { width: 180px; border: 1px solid #d6dce3; border-radius: 7px; overflow: hidden; }
+  .lab-preview :global(.preview) { margin: 0; height: 110px; }
+  .demo-badge { background: #e1eee5; color: #284f3e; padding: 3px 8px; border-radius: 4px; font-weight: 700; }
+  .article-meta { flex-wrap: wrap; gap: 8px; align-items: center; }
+  .articles a:focus-visible { outline: 3px solid #245b89; outline-offset: 5px; border-radius: 7px; }
+  @media(max-width:600px) { .lab-preview { width: 100%; max-width: 360px; } .lab-preview :global(.preview) { height: 160px; } }
   .post-preview { width: 180px; height: auto; margin: 0; border-radius: 7px; border: 1px solid #d6dce3; }
   .articles article { display: flow-root; }
   .articles article[hidden] { display: none; }

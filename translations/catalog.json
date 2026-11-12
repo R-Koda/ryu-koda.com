@@ -1856,7 +1856,11 @@
     "再生成するなら、変える指示は一度に一つにして、モデル名・設定・消費量と一緒に残すと違いを追いやすくなります。これは次に試すための進め方で、この記事で再生成の改善効果まで検証したわけではありません。採用できる映像かどうかと、公開・収益化できる利用条件かどうかは、最後に別々に確認してください。": "If you generate another version, change one instruction at a time and keep it with the model name, settings and cost so you can trace the differences. This is a suggested next step, not a claim that this article tested improvements from regeneration. Finally, check separately whether the footage fits your needs and whether the usage terms allow your intended publication or monetization.",
     "では、5モデルにPCへ近づく映像を指示し、各1本を生成しました。近づき方や不要な動作にどんな違いが出たか、時刻付きの画像で確認できます。": "uses one generated clip per model, with instructions to approach a PC. Timestamped images show differences in the approach and unwanted actions.",
     "を見比べてください。": "to compare the outputs.",
-    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "This comparison covers the access conditions on the test date, not a ranking of visual quality or instruction following. With only one output per model, it cannot compare success rates either."
+    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "This comparison covers the access conditions on the test date, not a ranking of visual quality or instruction following. With only one output per model, it cannot compare success rates either.",
+    "ブログとWebの実験室を、更新が新しい順に。動くデモもここから探せます。": "Blog posts and Web Lab experiments, most recently updated first. Find interactive demos here too.",
+    "24件の記事": "24 articles",
+    "動くデモ付き": "Interactive demo",
+    "デモと作り方を見る": "Explore the demo and tutorial"
   },
   "zh-cn": {
     "りゅうのらぼ | AI・ソフトウェア・日々の道具": "Ryu的小实验室|人工智能/软件/日常工具",
@@ -3716,6 +3720,10 @@
     "再生成するなら、変える指示は一度に一つにして、モデル名・設定・消費量と一緒に残すと違いを追いやすくなります。これは次に試すための進め方で、この記事で再生成の改善効果まで検証したわけではありません。採用できる映像かどうかと、公開・収益化できる利用条件かどうかは、最後に別々に確認してください。": "如果再次生成，每次只修改一项指令，并记录模型名称、设置和消耗量，便于追踪差异。这是后续测试的建议，并不代表本文已经验证了重新生成能带来改善。最后，请分别确认视频是否适合使用，以及使用条款是否允许你计划中的发布或变现方式。",
     "では、5モデルにPCへ近づく映像を指示し、各1本を生成しました。近づき方や不要な動作にどんな違いが出たか、時刻付きの画像で確認できます。": "对五个模型分别生成了一段靠近PC的视频。带时间标记的图片展示了接近方式和多余动作的差异。",
     "を見比べてください。": "，对照查看生成结果。",
-    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "这里比较的是测试当天的使用条件，而不是画质或指令遵循能力的排名。每个模型只有一次输出，也无法据此比较成功率。"
+    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "这里比较的是测试当天的使用条件，而不是画质或指令遵循能力的排名。每个模型只有一次输出，也无法据此比较成功率。",
+    "ブログとWebの実験室を、更新が新しい順に。動くデモもここから探せます。": "博客文章和Web实验室按最近更新时间排序，也可以在这里找到互动演示。",
+    "24件の記事": "24 篇文章",
+    "動くデモ付き": "含互动演示",
+    "デモと作り方を見る": "查看演示与制作教程"
   }
 }
