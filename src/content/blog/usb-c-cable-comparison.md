@@ -4,7 +4,7 @@ title: "USB-C、見た目が同じで選ぶのがだるい。商品ページを�
 description: "USB-Cケーブル3製品の電力・転送速度・映像対応・価格を公式仕様で比較。用途に合う一本を選ぶ手順を紹介します。"
 heroImage: "../../../public/articles/usb-c-cable-comparison/cover-sketch-v2.webp"
 updatedDate: 2026-11-12
-pubDate: 2026-11-04T22:00:00+09:00
+pubDate: 2026-08-06T09:00:00+09:00
 tags: ["ガジェット", "USB-C", "比較"]
 affiliate: true
 ---

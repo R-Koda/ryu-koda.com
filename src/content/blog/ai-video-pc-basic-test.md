@@ -4,7 +4,7 @@ seoTitle: "動画生成AI 5モデルの実例比較｜5秒のPC動画と作り�
 description: "同じ日本語プロンプトで生成した5本のPC動画を掲載。時刻付きフレームで初回出力の違いを確認し、モデル別の設定手順とコピーできるプロンプトを紹介します。"
 heroImage: "../../../public/articles/ai-video-comparison/ai-video-pc-basic-test-cover.webp"
 updatedDate: 2026-11-12
-pubDate: 2026-11-07T22:00:00+09:00
+pubDate: 2026-09-17T09:00:00+09:00
 tags: ["AI", "動画生成", "つくったもの"]
 ---
 

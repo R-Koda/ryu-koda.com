@@ -2,7 +2,8 @@
 seoTitle: "外出先から自宅MacにSSH接続する方法｜Tailscaleの設定"
 title: "外出用のMacから、自宅のMacへ。TailscaleでSSH接続してみた"
 description: "MacBook同士をTailscaleでつなぎ、自宅MacにSSH接続する手順。両方のMacの設定、ログイン後の端末登録、自動起動のつまずきと接続確認までまとめました。"
-pubDate: 2026-11-10
+heroImage: "../../../public/articles/tailscale-mac-ssh/cover.webp"
+pubDate: 2026-11-12T09:00:00+09:00
 tags: ["Mac", "SSH", "小さな工夫"]
 ---
 

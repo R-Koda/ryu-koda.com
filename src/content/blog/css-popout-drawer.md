@@ -4,7 +4,7 @@ title: "HTMLとCSSで、引き出しから自分が飛び出す仕掛けを作�
 description: "アバターが飛び出す引き出しをHTMLとCSSで作る方法。動くサンプル、全コード、導入手順と調整方法を紹介します。"
 heroImage: "../../../public/articles/css-popout-drawer/cover-sketch-v2.webp"
 updatedDate: 2026-11-05
-pubDate: 2026-11-04T22:00:00+09:00
+pubDate: 2026-07-23T09:00:00+09:00
 tags: ["Web制作", "CSS", "つくったもの"]
 ---
 

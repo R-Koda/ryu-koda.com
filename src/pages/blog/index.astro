@@ -15,7 +15,7 @@ import { guides as experimentGuides } from "../../data/experiment-guides";
 import { categoryFor } from "../../lib/categories";
 const posts = await journalPosts();
 const entries = [
-  ...posts.map(p => ({kind: 'blog', id: p.id, href: `/blog/${p.id}/`, data: p.data, date: p.data.updatedDate ?? p.data.pubDate, preview: '', color: ''})),
+  ...posts.map(p => ({kind: 'blog', id: p.id, href: `/blog/${p.id}/`, data: p.data, date: p.data.pubDate, preview: '', color: ''})),
   ...experiments.map(e => ({kind: 'lab', id: e.slug, href: `/playground/${e.slug}/`, data: {title: experimentGuides[e.slug].seoTitle, description: experimentGuides[e.slug].description, tags: ['Web制作'], heroImage: undefined}, date: new Date(e.updatedAt), preview: e.slug, color: e.color})),
 ].sort((a,b) => b.date.valueOf() - a.date.valueOf() || a.href.localeCompare(b.href));
 ---
@@ -41,7 +41,7 @@ const entries = [
         </p>
       </div>
       <nav class="reading-entrances" aria-label="目的から記事を探す"><span>目的から読む：</span>{readingGuides.map(g => <a href={`/blog/guides/${g.slug}/`}>{g.label} ↗</a>)}</nav>
-      <p class="reading-entrances">ブログとWebの実験室を、更新が新しい順に。動くデモもここから探せます。</p>
+      <p class="reading-entrances">ブログは公開日、Webの実験室は更新日の新しい順に。動くデモもここから探せます。</p>
       <div class="filter-bar">
         <div class="tags" role="group" aria-label="記事の分類">
           {[['', 'すべて'], ['blog', 'ブログ'], ['lab', 'Webの実験室']].map(([kind, label]) => (

@@ -4,7 +4,7 @@ seoTitle: "動画生成AIの無料枠を比較｜実際に試せた5モデルと
 description: "Flow、Kling、Dreamina、Luma、Fireflyで実際に無料生成・保存できた5モデルを比較。2026年11月7日の設定、消費クレジット、透かし、試す前の確認点を紹介します。"
 heroImage: "../../../public/articles/ai-video-comparison/free-ai-video-models-cover.webp"
 updatedDate: 2026-11-12
-pubDate: 2026-11-07T22:00:00+09:00
+pubDate: 2026-09-24T09:00:00+09:00
 tags: ["AI", "動画生成", "つくったもの"]
 ---
 

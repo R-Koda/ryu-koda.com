@@ -16,6 +16,40 @@
     "height": 630,
     "originalBytes": 69634
   },
+  "ai-video-pc-basic-test": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/ai-video-pc-basic-test-360-76bf33d405.webp",
+        "width": 360,
+        "bytes": 10848
+      },
+      {
+        "src": "/article-thumbnails/ai-video-pc-basic-test-640-e8618aa340.webp",
+        "width": 640,
+        "bytes": 22784
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 73950
+  },
+  "blog-seo-practice": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/blog-seo-practice-360-90ce7bbab0.webp",
+        "width": 360,
+        "bytes": 16954
+      },
+      {
+        "src": "/article-thumbnails/blog-seo-practice-640-d96b9b7331.webp",
+        "width": 640,
+        "bytes": 46258
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 221660
+  },
   "claude-code-auto-dispatcher": {
     "variants": [
       {
@@ -32,6 +66,23 @@
     "width": 1200,
     "height": 630,
     "originalBytes": 139066
+  },
+  "css-overflow-popout": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/css-overflow-popout-360-7a7d77afe9.webp",
+        "width": 360,
+        "bytes": 4286
+      },
+      {
+        "src": "/article-thumbnails/css-overflow-popout-640-6a73a5c652.webp",
+        "width": 640,
+        "bytes": 8532
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 31040
   },
   "css-popout-drawer": {
     "variants": [
@@ -50,6 +101,23 @@
     "height": 630,
     "originalBytes": 114496
   },
+  "eventscore-explorer-event-evaluation": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-360-d3ace80900.webp",
+        "width": 360,
+        "bytes": 2442
+      },
+      {
+        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-640-68f880539e.webp",
+        "width": 640,
+        "bytes": 4264
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 12510
+  },
   "find-duplicate-files-python": {
     "variants": [
       {
@@ -66,6 +134,23 @@
     "width": 1200,
     "height": 630,
     "originalBytes": 98550
+  },
+  "free-ai-video-models": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/free-ai-video-models-360-cdacf9b73a.webp",
+        "width": 360,
+        "bytes": 11734
+      },
+      {
+        "src": "/article-thumbnails/free-ai-video-models-640-45d437bbd2.webp",
+        "width": 640,
+        "bytes": 25606
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 82384
   },
   "joy-of-choosing-gadgets": {
     "variants": [
@@ -135,108 +220,6 @@
     "height": 630,
     "originalBytes": 169252
   },
-  "resize-blog-images-webp": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/resize-blog-images-webp-360-1d2b86faa5.webp",
-        "width": 360,
-        "bytes": 7616
-      },
-      {
-        "src": "/article-thumbnails/resize-blog-images-webp-640-0586d94012.webp",
-        "width": 640,
-        "bytes": 21616
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 108992
-  },
-  "usb-c-cable-comparison": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/usb-c-cable-comparison-360-dae3752f0d.webp",
-        "width": 360,
-        "bytes": 12424
-      },
-      {
-        "src": "/article-thumbnails/usb-c-cable-comparison-640-0de2e7b210.webp",
-        "width": 640,
-        "bytes": 37716
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 204446
-  },
-  "blog-seo-practice": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/blog-seo-practice-360-90ce7bbab0.webp",
-        "width": 360,
-        "bytes": 16954
-      },
-      {
-        "src": "/article-thumbnails/blog-seo-practice-640-d96b9b7331.webp",
-        "width": 640,
-        "bytes": 46258
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 221660
-  },
-  "css-overflow-popout": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/css-overflow-popout-360-7a7d77afe9.webp",
-        "width": 360,
-        "bytes": 4286
-      },
-      {
-        "src": "/article-thumbnails/css-overflow-popout-640-6a73a5c652.webp",
-        "width": 640,
-        "bytes": 8532
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 31040
-  },
-  "splittrace-data-leakage-check": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/splittrace-data-leakage-check-360-2fa031d05f.webp",
-        "width": 360,
-        "bytes": 2788
-      },
-      {
-        "src": "/article-thumbnails/splittrace-data-leakage-check-640-c86c0862f7.webp",
-        "width": 640,
-        "bytes": 5122
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 14924
-  },
-  "eventscore-explorer-event-evaluation": {
-    "variants": [
-      {
-        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-360-d3ace80900.webp",
-        "width": 360,
-        "bytes": 2442
-      },
-      {
-        "src": "/article-thumbnails/eventscore-explorer-event-evaluation-640-68f880539e.webp",
-        "width": 640,
-        "bytes": 4264
-      }
-    ],
-    "width": 1200,
-    "height": 630,
-    "originalBytes": 12510
-  },
   "notebook-publish-check-guide": {
     "variants": [
       {
@@ -270,5 +253,73 @@
     "width": 1200,
     "height": 630,
     "originalBytes": 26594
+  },
+  "resize-blog-images-webp": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/resize-blog-images-webp-360-1d2b86faa5.webp",
+        "width": 360,
+        "bytes": 7616
+      },
+      {
+        "src": "/article-thumbnails/resize-blog-images-webp-640-0586d94012.webp",
+        "width": 640,
+        "bytes": 21616
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 108992
+  },
+  "splittrace-data-leakage-check": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/splittrace-data-leakage-check-360-2fa031d05f.webp",
+        "width": 360,
+        "bytes": 2788
+      },
+      {
+        "src": "/article-thumbnails/splittrace-data-leakage-check-640-c86c0862f7.webp",
+        "width": 640,
+        "bytes": 5122
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 14924
+  },
+  "tailscale-mac-ssh": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/tailscale-mac-ssh-360-257911ff9a.webp",
+        "width": 360,
+        "bytes": 3812
+      },
+      {
+        "src": "/article-thumbnails/tailscale-mac-ssh-640-750380f57f.webp",
+        "width": 640,
+        "bytes": 7122
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 22308
+  },
+  "usb-c-cable-comparison": {
+    "variants": [
+      {
+        "src": "/article-thumbnails/usb-c-cable-comparison-360-dae3752f0d.webp",
+        "width": 360,
+        "bytes": 12424
+      },
+      {
+        "src": "/article-thumbnails/usb-c-cable-comparison-640-0de2e7b210.webp",
+        "width": 640,
+        "bytes": 37716
+      }
+    ],
+    "width": 1200,
+    "height": 630,
+    "originalBytes": 204446
   }
 }
