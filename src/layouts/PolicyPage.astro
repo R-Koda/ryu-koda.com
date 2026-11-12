@@ -4,5 +4,5 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const { title, description } = Astro.props;
 ---
-<html lang="ja"><head><BaseHead title={`${title} | りゅうのらぼ`} description={description} /></head><body><Header /><main id="main" class="shell policy"><p><a href="/">ホーム</a> / {title}</p><h1>{title}</h1><p class="date">最終更新：2026年11月7日</p><slot /></main><Footer /></body></html>
+<html lang="ja"><head><BaseHead title={`${title} | りゅうのらぼ`} description={description} /></head><body><Header /><main id="main" class="shell policy"><p><a href="/">ホーム</a> / {title}</p><h1>{title}</h1><p class="date">最終更新：2026年11月12日</p><slot /></main><Footer /></body></html>
 <style>.policy{max-width:760px;padding-top:40px;line-height:1.95}.policy h1{font-size:clamp(26px,5vw,36px)}.date{font-size:13px;color:#596470}.policy :global(h2){font-size:22px;margin-top:36px}.policy :global(p),.policy :global(li){font-size:15px}.policy :global(a){text-underline-offset:4px}</style>
