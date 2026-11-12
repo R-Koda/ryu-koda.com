@@ -2,7 +2,7 @@
 title: "つくってみると、日常はもう少しおもしろい。"
 description: "思いついた「こうだったらいいな」が、触れる形になる。旅行の地図というアイデアと、このサイトの制作から、つくる楽しさを伝えます。"
 updatedDate: 2026-11-05
-pubDate: 2026-08-27T09:00:00+09:00
+pubDate: 2026-07-16T09:00:00+09:00
 heroImage: "../../../public/articles/making-everyday-interesting/cover-sketch.webp"
 tags: ["Web制作", "つくったもの"]
 ---

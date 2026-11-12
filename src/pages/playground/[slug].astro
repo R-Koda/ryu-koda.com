@@ -1,4 +1,5 @@
 ---
+import FormattedDate from '../../components/FormattedDate.astro';
 import PuniButtonGuide from '../../components/PuniButtonGuide.astro';
 import ShareLinks from '../../components/ShareLinks.astro';
 import BaseHead from '../../components/BaseHead.astro';
@@ -15,11 +16,12 @@ const versions='git --version\nnode --version\nnpm --version';
 const localUrl=`http://127.0.0.1:4321/playground/${e.slug}/`;
 const branchCode=`if(kind==='${e.slug}')`;
 const crumbs={'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{name:'ホーム',item:'https://ryu-koda.com/'},{name:'Webの実験室',item:'https://ryu-koda.com/playground/'},{name:guide.seoTitle,item:`https://ryu-koda.com/playground/${e.slug}/`}].map((x,i)=>({'@type':'ListItem',position:i+1,...x}))};
+const article={'@context':'https://schema.org','@type':'TechArticle',headline:guide.seoTitle,description:guide.description,datePublished:new Date(e.pubDate).toISOString(),dateModified:new Date(e.updatedAt).toISOString(),author:{'@type':'Person',name:'Ryu Koda',url:'https://ryu-koda.com/about/'},mainEntityOfPage:`https://ryu-koda.com/playground/${e.slug}/`};
 const commands='git clone https://github.com/R-Koda/ryu-koda.com.git\ncd ryu-koda.com\nnpm ci\nnpm run dev -- --host 127.0.0.1 --port 4321';
 ---
-<!doctype html><html lang="ja"><head><BaseHead title={`${guide.seoTitle}｜Webの実験室`} description={guide.description} /><script type="application/ld+json" set:html={JSON.stringify(crumbs)} /></head><body><Header /><main id="main" class="shell experiment-page">
+<!doctype html><html lang="ja"><head><BaseHead title={`${guide.seoTitle}｜Webの実験室`} description={guide.description} publishedTime={new Date(e.pubDate)} /><script type="application/ld+json" set:html={JSON.stringify(crumbs)} /><script type="application/ld+json" set:html={JSON.stringify(article)} /></head><body><Header /><main id="main" class="shell experiment-page">
 <nav class="breadcrumbs" aria-label="パンくずリスト"><a href="/">ホーム</a> / <a href="/playground/">Webの実験室</a> / {e.name}</nav>
-<p class="eyebrow">WEB LAB {e.number} · {guide.tech}</p><h1>{guide.title}</h1><p class="lead">{guide.description}</p>
+<p class="eyebrow">WEB LAB {e.number} · {guide.tech}</p><h1>{guide.title}</h1><p class="publish-date"><FormattedDate date={new Date(e.pubDate)} /></p><p class="lead">{guide.description}</p>
 {e.slug==='buttons' ? <p class="intro"><strong>まずはCSSだけで作れます。</strong>HTMLファイル1つの完成サンプルを用意しました。下で3種類の押し心地を比べたら、<a href="#quickstart">インストール不要の最小コード</a>から試してみてください。</p> : <p class="intro">触って楽しい。作ってわかる。Webの小さな実験室。まず動かし、気になったらコードを開いて、ひとつ変えてみてください。</p>}
 <nav class="contents" aria-label="この実験の目次"><a href="#demo">動くデモ</a>{e.slug==='buttons' && <><a href="#quickstart">最小コードで作る</a><a href="#recipe">色・動きを変える</a></>}<a href="#try">試し方</a><a href="#setup">手元で動かす</a><a href="#mechanism">仕組み</a><a href="#customize">変えてみる</a></nav>
 <section id="demo" aria-labelledby="demo-heading"><h2 id="demo-heading">まず、触ってみる。</h2><Experiment kind={e.slug} /></section>

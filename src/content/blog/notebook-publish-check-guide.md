@@ -2,7 +2,7 @@
 title: "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する"
 description: "Notebook Publish Checkをpipで導入。Notebookを実行せず、絶対パスや巨大な出力を点検し、必要な図を残して別コピーへ保存する手順を紹介します。"
 heroImage: "../../../public/articles/notebook-publish-check-guide/cover.webp"
-pubDate: 2026-10-29T09:00:00+09:00
+pubDate: 2026-09-17T09:00:00+09:00
 tags: ["Python", "つくったもの", "機械学習"]
 ---
 

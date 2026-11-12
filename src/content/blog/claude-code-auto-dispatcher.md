@@ -2,7 +2,7 @@
 seoTitle: "Claude CodeのMCP設定方法｜追加・設定場所の確認・削除"
 title: 'Claude CodeのMCP設定、どこに入った？ 追加・確認・削除を1つずつ試す'
 description: 'Claude CodeのMCP設定を練習用フォルダーへ追加し、.mcp.jsonの中身と承認待ち表示を確認して削除する手順。実行結果付きで解説します。'
-pubDate: 2026-07-09T09:00:00+09:00
+pubDate: 2026-05-28T09:00:00+09:00
 heroImage: "../../../public/articles/claude-code-auto-dispatcher/cover-sketch-v2.webp"
 updatedDate: 2026-11-05
 tags: ['ClaudeCode', 'MCP', '開発環境']

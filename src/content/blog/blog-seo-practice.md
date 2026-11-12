@@ -2,7 +2,7 @@
 title: "ブログに人が来ない。SEO対策で、まず何を直したらいいか調べてみた。"
 seoTitle: "個人ブログのSEO対策は何から？Search Consoleで調べて整えたこと"
 description: "ブログにアクセスがないとき、何から確認する？Search ConsoleのURL検査、サイトマップ、タイトル、内部リンク、画像軽量化、自分のアクセス除外を、実画面と手順付きで紹介します。"
-pubDate: 2026-10-01T09:00:00+09:00
+pubDate: 2026-08-20T09:00:00+09:00
 heroImage: "../../../public/articles/blog-seo-practice/cover-sketch.webp"
 tags: ["Web制作", "SEO", "ブログ運営", "実践"]
 ---

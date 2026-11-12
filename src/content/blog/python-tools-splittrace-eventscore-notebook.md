@@ -3,7 +3,7 @@ title: "データを分ける・評価する・公開する。Pythonの小さな
 seoTitle: "SplitTrace・EventScore・Notebook Publish Check｜Pythonの確認ツール3選"
 description: "データ分割の混入をたどるSplitTrace、時系列イベントの評価を説明するEventScore Explorer、Notebookの公開前点検を助けるNotebook Publish Check。合成デモとGitHub、試し方を紹介します。"
 heroImage: "../../../public/articles/python-tools-splittrace-eventscore-notebook/cover.webp"
-pubDate: 2026-10-15T09:00:00+09:00
+pubDate: 2026-09-03T09:00:00+09:00
 tags: ["Python", "機械学習", "つくったもの", "自動化"]
 ---
 

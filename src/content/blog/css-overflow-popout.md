@@ -2,7 +2,7 @@
 title: "角丸カードのアイコンが切れる。overflow: hiddenを分けたら、外に出せた。"
 seoTitle: "overflow: hiddenで子要素が切れるときの対処｜角丸を残してはみ出すCSS"
 description: "角丸カードのアイコンが切れる原因と直し方を、動くデモで比較。z-indexで直らない理由、内側の箱だけ切り抜くHTML・CSS、保存して試せる完成コードを紹介します。"
-pubDate: 2026-10-08T09:00:00+09:00
+pubDate: 2026-08-27T09:00:00+09:00
 heroImage: "../../../public/articles/css-overflow-popout/cover.webp"
 tags: ["Web制作", "CSS", "実践"]
 ---

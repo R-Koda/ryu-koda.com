@@ -1963,7 +1963,8 @@
     "デモと作り方を見る": "Explore the demo and tutorial",
     "25件の記事": "25 articles",
     "外出用のMacから、自宅のMacへ。TailscaleでSSH接続してみた のヒーロー画像": "Illustration of two laptops connected remotely for the Tailscale SSH guide",
-    "ブログは公開日、Webの実験室は更新日の新しい順に。動くデモもここから探せます。": "Browse blog posts by publication date and Web Lab experiments by update date, newest first. Find interactive demos here too."
+    "ブログは公開日、Webの実験室は更新日の新しい順に。動くデモもここから探せます。": "Browse blog posts by publication date and Web Lab experiments by update date, newest first. Find interactive demos here too.",
+    "ブログもWebの実験室も、公開日の新しい順に。動くデモもここから探せます。": "Blog posts and Web Lab experiments, newest first. Find interactive demos here, too."
   },
   "zh-cn": {
     "りゅうのらぼ | AI・ソフトウェア・日々の道具": "Ryu的小实验室|人工智能/软件/日常工具",
@@ -3930,6 +3931,7 @@
     "デモと作り方を見る": "查看演示与制作教程",
     "25件の記事": "25 篇文章",
     "外出用のMacから、自宅のMacへ。TailscaleでSSH接続してみた のヒーロー画像": "Tailscale SSH教程插图：远程连接的两台笔记本电脑",
-    "ブログは公開日、Webの実験室は更新日の新しい順に。動くデモもここから探せます。": "博客文章按发布日期、Web实验室按更新日期倒序排列，也可以在这里找到互动演示。"
+    "ブログは公開日、Webの実験室は更新日の新しい順に。動くデモもここから探せます。": "博客文章按发布日期、Web实验室按更新日期倒序排列，也可以在这里找到互动演示。",
+    "ブログもWebの実験室も、公開日の新しい順に。動くデモもここから探せます。": "博客文章和 Web 实验室内容按发布日期从新到旧排列，也可以在这里找到互动演示。"
   }
 }

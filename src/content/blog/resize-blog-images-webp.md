@@ -2,7 +2,7 @@
 seoTitle: "画像をWebPに変換・軽量化する方法｜Node.jsとsharpで実践"
 title: "ブログの画像、そのまま載せていい？ サムネ3枚を軽くしてみた。"
 description: "ブログの画像3枚をWebPへ変換し、合計7.19MBから約0.21MBに。Macでの準備からコマンドと結果の確認まで、練習用画像とコード付きで解説します。"
-pubDate: 2026-09-10T09:00:00+09:00
+pubDate: 2026-07-30T09:00:00+09:00
 heroImage: "../../../public/articles/resize-blog-images-webp/cover-sketch.webp"
 tags: ["Web制作", "画像軽量化", "実践"]
 ---

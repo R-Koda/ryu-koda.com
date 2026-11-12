@@ -3,7 +3,7 @@ title: "ガジェットは、買う前に吟味するのがいちばんおもし
 description: "自作PCをきっかけに、暮らしを便利にする道具選びへ。使う場面とコスパを考えながら、ガジェットを吟味する楽しさについて。"
 affiliate: true
 updatedDate: 2026-11-07
-pubDate: 2026-08-20T09:00:00+09:00
+pubDate: 2026-07-09T09:00:00+09:00
 heroImage: "../../../public/articles/joy-of-choosing-gadgets/cover-sketch.webp"
 tags: ["ガジェット", "道具選び"]
 ---

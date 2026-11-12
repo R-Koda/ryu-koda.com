@@ -2,7 +2,7 @@
 seoTitle: "Pythonで重複ファイルを探す方法｜削除しないサンプル付き"
 title: "名前が違っても、中身は同じ？ 重複ファイルを消さずに探してみた。"
 description: "Pythonで中身が同じファイルを探す方法。Macでの準備、コマンド、結果の読み方を一つずつ解説。削除しないコードと練習用ファイル付きです。"
-pubDate: 2026-09-03T09:00:00+09:00
+pubDate: 2026-07-23T09:00:00+09:00
 heroImage: "../../../public/articles/find-duplicate-files-python/cover-sketch.webp"
 tags: ["自動化", "Python", "ファイル整理"]
 ---
