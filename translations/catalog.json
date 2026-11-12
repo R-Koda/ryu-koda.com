@@ -1844,7 +1844,19 @@
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る のヒーロー画像": "Illustration of a signal trace and detected event intervals for EventScore Explorer",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する のヒーロー画像": "Illustration of a notebook and a cleaned copy for Notebook Publish Check",
     "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "Illustration of tracing shared data origins between training and test sets with SplitTrace",
-    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "Illustration of a toolbox with cards for data splitting, evaluation and notebook checks"
+    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "Illustration of a toolbox with cards for data splitting, evaluation and notebook checks",
+    "先に答え：用途ごとに、見る欄が違います": "The short answer: check the specification that matches your task",
+    "充電したいならW、SSDへファイルを移したいなら転送速度、モニターへ映したいなら映像対応を確認します。USB-Cという端子の形だけでは、この3つは判断できません。": "For charging, check watts. For copying files to an SSD, check data transfer speed. For connecting a monitor, check video support. The USB-C connector shape alone does not tell you any of these.",
+    "この記事の3製品では、60W以内の充電なら①、高い電力への対応なら②、データと映像なら③が候補です。ただし「100W給電と映像を1本で」は3製品とも条件を満たしません。高い製品を選ぶ前に、必要な機能が同時に使えるかを確かめます。": "Among the three products below, consider ① for charging up to 60 W, ② for higher-power charging, and ③ for data and video. None meets the requirement of 100 W power delivery and video through one cable. Before choosing a more expensive cable, check whether it supports all the functions you need together.",
+    "同じ無料枠が見つからないときは": "If you cannot find the same free allowance",
+    "まず、サービス名だけでなく、モデル・秒数・解像度・出力数を表と照合します。次に、生成ボタン付近の消費量と自分の残高を見比べます。記事と違う表示なら、現在の画面の条件を優先してください。残高不足や有料プランの案内が出る場合、この手順の無料テストはそこで止めます。": "First match the model, duration, resolution and number of outputs to the table, not just the service name. Then compare the cost shown near the generate button with your balance. If the screen differs from this article, use the conditions currently displayed. Stop this free test if your balance is insufficient or a paid plan is required.",
+    "生成できても、保存時だけアップグレードを求められることがあります。無料で保存できる選択肢があるかを確認し、なければ「生成はできたが無料保存は未確認」と分けて記録します。今回の表は、2026年11月7日のアカウント別の記録であり、全員が同じ無料枠を受け取れるという案内ではありません。": "Generation and download access can differ. If downloading prompts an upgrade, check whether a free download option is available. If not, record generation as successful and free download as unconfirmed. The table records the accounts used on November 7, 2026; it does not promise the same free allowance to everyone.",
+    "5. まず1本、使いたい場面に合うか確かめる": "5. Start with one clip and check whether it fits your scene",
+    "自分で試すときは、最初に「この5秒で何を見せたいか」を一つ決めます。今回なら「閉じたPCへ近づくこと」。保存後は、画面全体の印象だけでなく、人物が入っていないか、パネルが開いていないか、使いたい区間で部品が変形していないかを確認します。": "Before testing, decide on one thing your five-second clip must show. Here, it was approaching a closed PC case. After saving, check more than the overall impression: look for unwanted people, an opening panel, or parts changing shape during the section you want to use.",
+    "再生成するなら、変える指示は一度に一つにして、モデル名・設定・消費量と一緒に残すと違いを追いやすくなります。これは次に試すための進め方で、この記事で再生成の改善効果まで検証したわけではありません。採用できる映像かどうかと、公開・収益化できる利用条件かどうかは、最後に別々に確認してください。": "If you generate another version, change one instruction at a time and keep it with the model name, settings and cost so you can trace the differences. This is a suggested next step, not a claim that this article tested improvements from regeneration. Finally, check separately whether the footage fits your needs and whether the usage terms allow your intended publication or monetization.",
+    "では、5モデルにPCへ近づく映像を指示し、各1本を生成しました。近づき方や不要な動作にどんな違いが出たか、時刻付きの画像で確認できます。": "uses one generated clip per model, with instructions to approach a PC. Timestamped images show differences in the approach and unwanted actions.",
+    "を見比べてください。": "to compare the outputs.",
+    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "This comparison covers the access conditions on the test date, not a ranking of visual quality or instruction following. With only one output per model, it cannot compare success rates either."
   },
   "zh-cn": {
     "りゅうのらぼ | AI・ソフトウェア・日々の道具": "Ryu的小实验室|人工智能/软件/日常工具",
@@ -3692,6 +3704,18 @@
     "EventScore Explorerの使い方。時系列の見逃し・誤検出を、スコアの中身から見る のヒーロー画像": "EventScore Explorer 示意图：信号曲线与检测到的事件区间",
     "Notebook Publish Checkの使い方。図を残して、公開前のログを整理する のヒーロー画像": "Notebook Publish Check 示意图：笔记本与整理后的副本",
     "SplitTraceの使い方。学習・テストの混入を、派生元から点検する のヒーロー画像": "SplitTrace 示意图：检查训练集和测试集是否具有共同的数据来源",
-    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "工具箱插画：用于数据划分、评估和笔记本检查的三张卡片"
+    "データを分ける・評価する・公開する。Pythonの小さな確認ツールを3つ作りました のヒーロー画像": "工具箱插画：用于数据划分、评估和笔记本检查的三张卡片",
+    "先に答え：用途ごとに、見る欄が違います": "先看结论：用途不同，要看的规格也不同",
+    "充電したいならW、SSDへファイルを移したいなら転送速度、モニターへ映したいなら映像対応を確認します。USB-Cという端子の形だけでは、この3つは判断できません。": "充电看功率（W），向SSD传输文件看传输速度，连接显示器看是否支持视频输出。仅凭USB-C接口的外形，无法判断这三项功能。",
+    "この記事の3製品では、60W以内の充電なら①、高い電力への対応なら②、データと映像なら③が候補です。ただし「100W給電と映像を1本で」は3製品とも条件を満たしません。高い製品を選ぶ前に、必要な機能が同時に使えるかを確かめます。": "下文的三款产品中，60W以内充电可考虑①，更高功率充电可考虑②，数据和视频传输可考虑③。但三款都不满足“一根线同时实现100W供电和视频传输”的要求。选择更贵的产品之前，先确认它能否同时满足你的各项需求。",
+    "同じ無料枠が見つからないときは": "找不到相同的免费额度时怎么办",
+    "まず、サービス名だけでなく、モデル・秒数・解像度・出力数を表と照合します。次に、生成ボタン付近の消費量と自分の残高を見比べます。記事と違う表示なら、現在の画面の条件を優先してください。残高不足や有料プランの案内が出る場合、この手順の無料テストはそこで止めます。": "先核对表中的模型、时长、分辨率和输出数量，而不只是服务名称。然后比较生成按钮附近显示的消耗量与自己的余额。如果页面与本文不同，以当前页面显示的条件为准。若余额不足或要求购买付费套餐，就在此停止本次免费测试。",
+    "生成できても、保存時だけアップグレードを求められることがあります。無料で保存できる選択肢があるかを確認し、なければ「生成はできたが無料保存は未確認」と分けて記録します。今回の表は、2026年11月7日のアカウント別の記録であり、全員が同じ無料枠を受け取れるという案内ではありません。": "能够生成不代表一定能免费下载。如果保存时要求升级，先检查是否有免费保存选项；如果没有，应分别记录“已成功生成”和“尚未确认能否免费下载”。表格记录的是2026年11月7日所用账号的情况，并不意味着所有人都能获得相同的免费额度。",
+    "5. まず1本、使いたい場面に合うか確かめる": "5. 先用一段视频，确认它是否适合你的场景",
+    "自分で試すときは、最初に「この5秒で何を見せたいか」を一つ決めます。今回なら「閉じたPCへ近づくこと」。保存後は、画面全体の印象だけでなく、人物が入っていないか、パネルが開いていないか、使いたい区間で部品が変形していないかを確認します。": "自己测试时，先确定这五秒最需要呈现的一件事。本次的要求是“靠近关闭的PC机箱”。保存后，除了整体观感，还要检查是否出现人物、侧板是否打开，以及准备使用的片段中部件是否变形。",
+    "再生成するなら、変える指示は一度に一つにして、モデル名・設定・消費量と一緒に残すと違いを追いやすくなります。これは次に試すための進め方で、この記事で再生成の改善効果まで検証したわけではありません。採用できる映像かどうかと、公開・収益化できる利用条件かどうかは、最後に別々に確認してください。": "如果再次生成，每次只修改一项指令，并记录模型名称、设置和消耗量，便于追踪差异。这是后续测试的建议，并不代表本文已经验证了重新生成能带来改善。最后，请分别确认视频是否适合使用，以及使用条款是否允许你计划中的发布或变现方式。",
+    "では、5モデルにPCへ近づく映像を指示し、各1本を生成しました。近づき方や不要な動作にどんな違いが出たか、時刻付きの画像で確認できます。": "对五个模型分别生成了一段靠近PC的视频。带时间标记的图片展示了接近方式和多余动作的差异。",
+    "を見比べてください。": "，对照查看生成结果。",
+    "ここで比べているのは、試した日の利用条件です。画質や指示への忠実さの順位ではありません。各モデルの出力は1本ずつなので、成功率も比較できません。": "这里比较的是测试当天的使用条件，而不是画质或指令遵循能力的排名。每个模型只有一次输出，也无法据此比较成功率。"
   }
 }
