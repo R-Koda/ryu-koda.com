@@ -1,0 +1,21 @@
+{
+  "published": "2026-11-10",
+  "url": "https://ryu-koda.com/blog/tailscale-mac-ssh/",
+  "deployment_url": "https://e832be71.ryu-koda.pages.dev",
+  "release_directory": "/private/tmp/ryu-tailscale-release",
+  "source_base": "b8ce7fc3fa62c71b4bd250c99a7c2afaa4f3cbb4",
+  "changes": [
+    "src/content/blog/tailscale-mac-ssh.md",
+    "src/data/reader-paths.json",
+    "translations/catalog.json"
+  ],
+  "validation": [
+    "Astro build",
+    "SEO 119 pages",
+    "translation validation 96 pages",
+    "growth check",
+    "Japanese article browser preview"
+  ],
+  "translation": "Codexが英語・中国語の翻訳をローカル作成。Google Translate APIへの送信なし。",
+  "review": "reader-review.json"
+}

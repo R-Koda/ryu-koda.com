@@ -73,5 +73,10 @@
     "slug": "python-tools-splittrace-eventscore-notebook",
     "title": "ほかの確認ツールも見る",
     "reason": "分割・評価・Notebook公開の3つの用途から、次に試す道具を選べます。"
+  },
+  "tailscale-mac-ssh": {
+    "slug": "mac-finder-batch-rename",
+    "title": "Macの小さな手間を、もう一つ減らす",
+    "reason": "Finderでファイル名をまとめて変更する手順を、練習用の画像3枚から試せます。"
   }
 }

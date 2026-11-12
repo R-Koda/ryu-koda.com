@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-10",
+  "reviewer": "Codex（同一エージェントによる2回の編集査読）",
+  "reader": "外出用と自宅用のMacを持ち、SSH接続を初めて設定する読者",
+  "role": "新規流入とMac記事への回遊",
+  "claim": "両方のMacのTailscale設定と自宅MacのSSH設定を分けて進めると、接続までの確認場所が分かる。",
+  "authorization": "ユーザーが「記事にして、りゅうのらぼにあげよう」と公開を依頼。",
+  "rounds": [
+    {
+      "input": "draft-0.md",
+      "issues": [
+        "冒頭の完成条件を具体化する",
+        "ホスト鍵の照合方法が不足"
+      ],
+      "changes": [
+        "ログインを到達点として明示",
+        "ED25519公開鍵の指紋を読むコマンドと成功条件を追加"
+      ],
+      "output": "round-1.md",
+      "verdict": "修正して再査読"
+    },
+    {
+      "input": "round-1.md",
+      "issues": [
+        "本人の将来の意図を推測する結び",
+        "初回認証の段落が長い"
+      ],
+      "changes": [
+        "接続先を確認する読者の行動に結びを変更",
+        "ホスト鍵確認とパスワード入力を分割"
+      ],
+      "output": "final.md",
+      "verdict": "公開用原稿として可",
+      "remaining": [
+        "別回線・再起動後・長時間動作は未検証と本文に明示",
+        "自宅側の接続成功は本人申告、Codexが実測したログではない"
+      ]
+    }
+  ],
+  "evidence": {
+    "observed": "macOS 26.5 arm64、署名・公証済みTailscale 1.104.5導入、Connected表示、アプリ内自動起動エラー、macOSログイン項目追加",
+    "user_confirmed": "自宅側設定完了とSSH接続成功",
+    "images": "個別アカウントやVPN IPの含まれる実画面は非公開。再現画面は作成しない。",
+    "publication_privacy": "実際のユーザー名、VPN IP、tailnet名、認証URLを記事に含めない。"
+  }
+}

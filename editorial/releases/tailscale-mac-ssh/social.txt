@@ -1,0 +1,3 @@
+外出用Macから自宅Macへ、TailscaleとSSHで接続してみました。両方のMacで行う設定、ログイン後の端末登録、自動起動でつまずいた点までまとめています。
+https://ryu-koda.com/blog/tailscale-mac-ssh/
+投稿は未実施。
